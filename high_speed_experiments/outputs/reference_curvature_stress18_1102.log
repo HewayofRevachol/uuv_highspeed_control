@@ -1,0 +1,8 @@
+cold_helix_r49_15p9mps v=18 seed=101026 curv6: success=True failed=False progress=0.998 RMSE=2.34m fallback=0.00 wall=14.6s
+cold_helix_r49_15p9mps v=18 seed=101027 curv6: success=True failed=False progress=0.998 RMSE=2.89m fallback=0.00 wall=16.0s
+coupled_turn_depth_16mps v=18 seed=101026 curv6: success=True failed=False progress=0.999 RMSE=0.76m fallback=0.00 wall=19.7s
+coupled_turn_depth_16mps v=18 seed=101027 curv6: success=True failed=False progress=0.999 RMSE=0.75m fallback=0.00 wall=20.3s
+ramped_helix_r40_15mps v=18 seed=101026 curv6: success=True failed=False progress=0.997 RMSE=2.98m fallback=0.00 wall=10.6s
+ramped_helix_r40_15mps v=18 seed=101027 curv6: success=True failed=False progress=0.997 RMSE=3.85m fallback=0.00 wall=10.4s
+rapid_depth_wave_15mps v=18 seed=101026 curv6: success=True failed=False progress=0.999 RMSE=0.22m fallback=0.00 wall=19.8s
+rapid_depth_wave_15mps v=18 seed=101027 curv6: success=True failed=False progress=0.999 RMSE=0.29m fallback=0.00 wall=20.2s

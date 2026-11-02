@@ -1,0 +1,12 @@
+{
+  "name": "ddat_validation",
+  "mode": "validate",
+  "arguments": {
+    "checkpoint": "outputs/DDAT/run_20261029_114239/final_actor.pt",
+    "all_paths": true,
+    "split": "val",
+    "device": "cpu",
+    "no_show": true,
+    "seeds": 1
+  }
+}

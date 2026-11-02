@@ -1,0 +1,8 @@
+cold_helix_r49_15p9mps v=18 seed=101026 policy: success=True RMSE=2.40m speedRMSE=1.72m/s ref=17.22m/s
+cold_helix_r49_15p9mps v=18 seed=101027 policy: success=True RMSE=3.18m speedRMSE=2.26m/s ref=17.21m/s
+coupled_turn_depth_16mps v=18 seed=101026 policy: success=True RMSE=0.91m speedRMSE=1.22m/s ref=17.79m/s
+coupled_turn_depth_16mps v=18 seed=101027 policy: success=True RMSE=1.03m speedRMSE=1.45m/s ref=17.79m/s
+ramped_helix_r40_15mps v=18 seed=101026 policy: success=True RMSE=3.92m speedRMSE=2.49m/s ref=17.68m/s
+ramped_helix_r40_15mps v=18 seed=101027 policy: success=False RMSE=22.55m speedRMSE=4.92m/s ref=17.27m/s
+rapid_depth_wave_15mps v=18 seed=101026 policy: success=True RMSE=0.22m speedRMSE=0.89m/s ref=17.95m/s
+rapid_depth_wave_15mps v=18 seed=101027 policy: success=True RMSE=0.29m speedRMSE=0.93m/s ref=17.94m/s

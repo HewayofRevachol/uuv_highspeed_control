@@ -1,0 +1,252 @@
+[
+  {
+    "path": "train/speed_envelope_01.csv",
+    "family": "speed_envelope",
+    "length_m": 364.0,
+    "min_speed_mps": 15.3,
+    "max_speed_mps": 17.8,
+    "min_depth_m": 280.0,
+    "max_depth_m": 280.0,
+    "peak_abs_curvature_1pm": 0.0
+  },
+  {
+    "path": "train/speed_envelope_02.csv",
+    "family": "speed_envelope",
+    "length_m": 388.0,
+    "min_speed_mps": 15.3,
+    "max_speed_mps": 18.6,
+    "min_depth_m": 280.0,
+    "max_depth_m": 280.0,
+    "peak_abs_curvature_1pm": 0.0
+  },
+  {
+    "path": "train/speed_envelope_03.csv",
+    "family": "speed_envelope",
+    "length_m": 400.0,
+    "min_speed_mps": 15.3,
+    "max_speed_mps": 19.0,
+    "min_depth_m": 280.0,
+    "max_depth_m": 280.0,
+    "peak_abs_curvature_1pm": 0.0
+  },
+  {
+    "path": "train/speed_envelope_04.csv",
+    "family": "speed_envelope",
+    "length_m": 410.0,
+    "min_speed_mps": 15.3,
+    "max_speed_mps": 19.4,
+    "min_depth_m": 280.0,
+    "max_depth_m": 280.0,
+    "peak_abs_curvature_1pm": 0.0
+  },
+  {
+    "path": "train/constant_turn_01.csv",
+    "family": "constant_turn",
+    "length_m": 348.0,
+    "min_speed_mps": 15.6,
+    "max_speed_mps": 16.6,
+    "min_depth_m": 280.0,
+    "max_depth_m": 280.0,
+    "peak_abs_curvature_1pm": 0.01136
+  },
+  {
+    "path": "train/constant_turn_02.csv",
+    "family": "constant_turn",
+    "length_m": 366.0,
+    "min_speed_mps": 15.6,
+    "max_speed_mps": 17.1,
+    "min_depth_m": 280.0,
+    "max_depth_m": 280.0,
+    "peak_abs_curvature_1pm": 0.01538
+  },
+  {
+    "path": "train/constant_turn_03.csv",
+    "family": "constant_turn",
+    "length_m": 378.0,
+    "min_speed_mps": 15.6,
+    "max_speed_mps": 17.6,
+    "min_depth_m": 280.0,
+    "max_depth_m": 280.0,
+    "peak_abs_curvature_1pm": 0.01923
+  },
+  {
+    "path": "train/constant_turn_04.csv",
+    "family": "constant_turn",
+    "length_m": 389.99,
+    "min_speed_mps": 15.6,
+    "max_speed_mps": 18.2,
+    "min_depth_m": 280.0,
+    "max_depth_m": 280.0,
+    "peak_abs_curvature_1pm": 0.02222
+  },
+  {
+    "path": "train/s_reversal_01.csv",
+    "family": "s_reversal",
+    "length_m": 398.0,
+    "min_speed_mps": 15.5,
+    "max_speed_mps": 16.6,
+    "min_depth_m": 280.0,
+    "max_depth_m": 280.0,
+    "peak_abs_curvature_1pm": 0.01176
+  },
+  {
+    "path": "train/s_reversal_02.csv",
+    "family": "s_reversal",
+    "length_m": 416.0,
+    "min_speed_mps": 15.5,
+    "max_speed_mps": 17.2,
+    "min_depth_m": 280.0,
+    "max_depth_m": 280.0,
+    "peak_abs_curvature_1pm": 0.01667
+  },
+  {
+    "path": "train/s_reversal_03.csv",
+    "family": "s_reversal",
+    "length_m": 427.99,
+    "min_speed_mps": 15.5,
+    "max_speed_mps": 17.7,
+    "min_depth_m": 280.0,
+    "max_depth_m": 280.0,
+    "peak_abs_curvature_1pm": 0.02
+  },
+  {
+    "path": "train/s_reversal_04.csv",
+    "family": "s_reversal",
+    "length_m": 439.99,
+    "min_speed_mps": 15.5,
+    "max_speed_mps": 18.2,
+    "min_depth_m": 280.0,
+    "max_depth_m": 280.0,
+    "peak_abs_curvature_1pm": 0.02381
+  },
+  {
+    "path": "train/depth_return_01.csv",
+    "family": "depth_return",
+    "length_m": 401.56,
+    "min_speed_mps": 15.6,
+    "max_speed_mps": 16.7,
+    "min_depth_m": 280.0,
+    "max_depth_m": 295.0,
+    "peak_abs_curvature_1pm": 0.0
+  },
+  {
+    "path": "train/depth_return_02.csv",
+    "family": "depth_return",
+    "length_m": 421.54,
+    "min_speed_mps": 15.6,
+    "max_speed_mps": 17.2,
+    "min_depth_m": 261.0,
+    "max_depth_m": 280.0,
+    "peak_abs_curvature_1pm": 0.0
+  },
+  {
+    "path": "train/depth_return_03.csv",
+    "family": "depth_return",
+    "length_m": 434.65,
+    "min_speed_mps": 15.6,
+    "max_speed_mps": 17.6,
+    "min_depth_m": 280.0,
+    "max_depth_m": 301.0,
+    "peak_abs_curvature_1pm": 0.0
+  },
+  {
+    "path": "train/depth_return_04.csv",
+    "family": "depth_return",
+    "length_m": 447.84,
+    "min_speed_mps": 15.6,
+    "max_speed_mps": 18.0,
+    "min_depth_m": 257.0,
+    "max_depth_m": 280.0,
+    "peak_abs_curvature_1pm": 0.0
+  },
+  {
+    "path": "train/coupled_axes_01.csv",
+    "family": "coupled_axes",
+    "length_m": 450.17,
+    "min_speed_mps": 15.5,
+    "max_speed_mps": 16.8,
+    "min_depth_m": 280.0,
+    "max_depth_m": 292.0,
+    "peak_abs_curvature_1pm": 0.01163
+  },
+  {
+    "path": "train/coupled_axes_02.csv",
+    "family": "coupled_axes",
+    "length_m": 470.23,
+    "min_speed_mps": 15.5,
+    "max_speed_mps": 17.2,
+    "min_depth_m": 263.0,
+    "max_depth_m": 280.0,
+    "peak_abs_curvature_1pm": 0.01471
+  },
+  {
+    "path": "train/coupled_axes_03.csv",
+    "family": "coupled_axes",
+    "length_m": 484.32,
+    "min_speed_mps": 15.5,
+    "max_speed_mps": 17.6,
+    "min_depth_m": 259.0,
+    "max_depth_m": 280.0,
+    "peak_abs_curvature_1pm": 0.01818
+  },
+  {
+    "path": "train/coupled_axes_04.csv",
+    "family": "coupled_axes",
+    "length_m": 497.46,
+    "min_speed_mps": 15.5,
+    "max_speed_mps": 18.0,
+    "min_depth_m": 280.0,
+    "max_depth_m": 303.0,
+    "peak_abs_curvature_1pm": 0.02083
+  },
+  {
+    "path": "val/speed_envelope_01.csv",
+    "family": "speed_envelope",
+    "length_m": 394.0,
+    "min_speed_mps": 15.3,
+    "max_speed_mps": 19.2,
+    "min_depth_m": 280.0,
+    "max_depth_m": 280.0,
+    "peak_abs_curvature_1pm": 0.0
+  },
+  {
+    "path": "val/constant_turn_01.csv",
+    "family": "constant_turn",
+    "length_m": 373.0,
+    "min_speed_mps": 15.6,
+    "max_speed_mps": 18.0,
+    "min_depth_m": 280.0,
+    "max_depth_m": 280.0,
+    "peak_abs_curvature_1pm": 0.02083
+  },
+  {
+    "path": "val/s_reversal_01.csv",
+    "family": "s_reversal",
+    "length_m": 422.99,
+    "min_speed_mps": 15.5,
+    "max_speed_mps": 18.0,
+    "min_depth_m": 280.0,
+    "max_depth_m": 280.0,
+    "peak_abs_curvature_1pm": 0.02222
+  },
+  {
+    "path": "val/depth_return_01.csv",
+    "family": "depth_return",
+    "length_m": 430.31,
+    "min_speed_mps": 15.6,
+    "max_speed_mps": 17.5,
+    "min_depth_m": 280.0,
+    "max_depth_m": 302.0,
+    "peak_abs_curvature_1pm": 0.0
+  },
+  {
+    "path": "val/coupled_axes_01.csv",
+    "family": "coupled_axes",
+    "length_m": 479.95,
+    "min_speed_mps": 15.5,
+    "max_speed_mps": 17.4,
+    "min_depth_m": 280.0,
+    "max_depth_m": 302.0,
+    "peak_abs_curvature_1pm": 0.01923
+  }
+]

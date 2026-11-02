@@ -1,0 +1,18 @@
+{
+  "name": "ddat_dense_heading_smoke",
+  "mode": "train",
+  "arguments": {
+    "device": "cpu",
+    "backend": "admm",
+    "envs": 8,
+    "eval_envs": 5,
+    "total_steps": 4096,
+    "rollout": 64,
+    "torch_threads": 2,
+    "seed": 1027,
+    "preview_mode": "dense",
+    "yaw_reward": "heading",
+    "controller_module": "research.controllers.ddat",
+    "network_module": "research.networks.ddat"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "output": "high_speed_experiments/outputs/reference_policy_1102",
+  "total_steps": 60000,
+  "envs": 8,
+  "rollout": 32,
+  "epochs": 4,
+  "minibatch": 1024,
+  "admm_iterations": 200,
+  "lr": 0.0003,
+  "threads": 4,
+  "seed": 1102,
+  "log_every": 10,
+  "train_paths": [
+    "/home/prufrock/uuv_simulator/DDAT_trajectories/train/constant_turn_01.csv",
+    "/home/prufrock/uuv_simulator/DDAT_trajectories/train/constant_turn_02.csv",
+    "/home/prufrock/uuv_simulator/DDAT_trajectories/train/constant_turn_03.csv",
+    "/home/prufrock/uuv_simulator/DDAT_trajectories/train/constant_turn_04.csv",
+    "/home/prufrock/uuv_simulator/DDAT_trajectories/train/coupled_axes_01.csv",
+    "/home/prufrock/uuv_simulator/DDAT_trajectories/train/coupled_axes_02.csv",
+    "/home/prufrock/uuv_simulator/DDAT_trajectories/train/coupled_axes_03.csv",
+    "/home/prufrock/uuv_simulator/DDAT_trajectories/train/coupled_axes_04.csv",
+    "/home/prufrock/uuv_simulator/DDAT_trajectories/train/depth_return_01.csv",
+    "/home/prufrock/uuv_simulator/DDAT_trajectories/train/depth_return_02.csv",
+    "/home/prufrock/uuv_simulator/DDAT_trajectories/train/depth_return_03.csv",
+    "/home/prufrock/uuv_simulator/DDAT_trajectories/train/depth_return_04.csv",
+    "/home/prufrock/uuv_simulator/DDAT_trajectories/train/s_reversal_01.csv",
+    "/home/prufrock/uuv_simulator/DDAT_trajectories/train/s_reversal_02.csv",
+    "/home/prufrock/uuv_simulator/DDAT_trajectories/train/s_reversal_03.csv",
+    "/home/prufrock/uuv_simulator/DDAT_trajectories/train/s_reversal_04.csv",
+    "/home/prufrock/uuv_simulator/DDAT_trajectories/train/speed_envelope_01.csv",
+    "/home/prufrock/uuv_simulator/DDAT_trajectories/train/speed_envelope_02.csv",
+    "/home/prufrock/uuv_simulator/DDAT_trajectories/train/speed_envelope_03.csv",
+    "/home/prufrock/uuv_simulator/DDAT_trajectories/train/speed_envelope_04.csv"
+  ],
+  "task_speeds_mps": [
+    12.0,
+    18.0
+  ],
+  "reference_range_mps": [
+    9.0,
+    18.0
+  ],
+  "backend": "admm",
+  "fsp_enabled": true
+}

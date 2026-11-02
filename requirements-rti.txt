@@ -1,0 +1,4 @@
+# Install into an interpreter with CUDA-enabled PyTorch already available.
+casadi==3.6.5
+osqp==1.1.3
+nvidia-cudss-cu13==0.8.0.10

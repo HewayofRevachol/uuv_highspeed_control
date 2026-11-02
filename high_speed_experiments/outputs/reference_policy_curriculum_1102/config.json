@@ -1,0 +1,53 @@
+{
+  "output": "high_speed_experiments/outputs/reference_policy_curriculum_1102",
+  "total_steps": 80000,
+  "envs": 8,
+  "rollout": 32,
+  "epochs": 4,
+  "minibatch": 1024,
+  "admm_iterations": 200,
+  "lr": 0.0003,
+  "threads": 4,
+  "seed": 1103,
+  "log_every": 10,
+  "saturation_penalty": 0.2,
+  "train_path_dir": "high_speed_experiments/generated/reference_curriculum_1102",
+  "speeds": [
+    18.0
+  ],
+  "train_paths": [
+    "high_speed_experiments/generated/reference_curriculum_1102/turn_r36_entry10_slope00.csv",
+    "high_speed_experiments/generated/reference_curriculum_1102/turn_r36_entry10_slope04.csv",
+    "high_speed_experiments/generated/reference_curriculum_1102/turn_r36_entry20_slope00.csv",
+    "high_speed_experiments/generated/reference_curriculum_1102/turn_r36_entry20_slope04.csv",
+    "high_speed_experiments/generated/reference_curriculum_1102/turn_r36_entry30_slope00.csv",
+    "high_speed_experiments/generated/reference_curriculum_1102/turn_r36_entry30_slope04.csv",
+    "high_speed_experiments/generated/reference_curriculum_1102/turn_r44_entry10_slope00.csv",
+    "high_speed_experiments/generated/reference_curriculum_1102/turn_r44_entry10_slope04.csv",
+    "high_speed_experiments/generated/reference_curriculum_1102/turn_r44_entry20_slope00.csv",
+    "high_speed_experiments/generated/reference_curriculum_1102/turn_r44_entry20_slope04.csv",
+    "high_speed_experiments/generated/reference_curriculum_1102/turn_r44_entry30_slope00.csv",
+    "high_speed_experiments/generated/reference_curriculum_1102/turn_r44_entry30_slope04.csv",
+    "high_speed_experiments/generated/reference_curriculum_1102/turn_r52_entry10_slope00.csv",
+    "high_speed_experiments/generated/reference_curriculum_1102/turn_r52_entry10_slope04.csv",
+    "high_speed_experiments/generated/reference_curriculum_1102/turn_r52_entry20_slope00.csv",
+    "high_speed_experiments/generated/reference_curriculum_1102/turn_r52_entry20_slope04.csv",
+    "high_speed_experiments/generated/reference_curriculum_1102/turn_r52_entry30_slope00.csv",
+    "high_speed_experiments/generated/reference_curriculum_1102/turn_r52_entry30_slope04.csv",
+    "high_speed_experiments/generated/reference_curriculum_1102/turn_r60_entry10_slope00.csv",
+    "high_speed_experiments/generated/reference_curriculum_1102/turn_r60_entry10_slope04.csv",
+    "high_speed_experiments/generated/reference_curriculum_1102/turn_r60_entry20_slope00.csv",
+    "high_speed_experiments/generated/reference_curriculum_1102/turn_r60_entry20_slope04.csv",
+    "high_speed_experiments/generated/reference_curriculum_1102/turn_r60_entry30_slope00.csv",
+    "high_speed_experiments/generated/reference_curriculum_1102/turn_r60_entry30_slope04.csv"
+  ],
+  "task_speeds_mps": [
+    18.0
+  ],
+  "reference_range_mps": [
+    9.0,
+    18.0
+  ],
+  "backend": "admm",
+  "fsp_enabled": true
+}
