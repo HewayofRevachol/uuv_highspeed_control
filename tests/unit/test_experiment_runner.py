@@ -3,7 +3,7 @@
 import unittest
 from pathlib import Path
 
-from experiments.run import command_args, prepare
+from experiments.run import command_args, prepare, source_hashes
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -22,6 +22,22 @@ class ExperimentRunnerTest(unittest.TestCase):
         self.assertIn(str(first_dir), first_command)
         self.assertIn(str(second_dir), second_command)
         self.assertFalse(first_dir.exists())
+
+    def test_component_options_remain_one_json_cli_argument(self):
+        import json
+
+        options = {"hidden_sizes": [32, 16], "encoder_sizes": [16, 8]}
+        arguments = command_args({"network_kwargs": options})
+        self.assertEqual(arguments[0], "--network-kwargs")
+        self.assertEqual(json.loads(arguments[1]), options)
+        with self.assertRaisesRegex(ValueError, "JSON object"):
+            command_args({"network_kwargs": []})
+
+    def test_manifest_hashes_include_shared_implementations(self):
+        hashes = source_hashes()
+        for path in ("training/ddat.py", "training/ppo.py", "evaluation/ddat.py",
+                     "evaluation/metrics.py", "research/models/uuv.py", "experiments/run.py"):
+            self.assertIn(path, hashes)
 
 
 if __name__ == "__main__":

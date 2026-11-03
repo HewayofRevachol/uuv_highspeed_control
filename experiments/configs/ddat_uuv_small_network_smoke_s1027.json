@@ -1,0 +1,27 @@
+{
+  "name": "ddat_uuv_small_network_smoke_s1027",
+  "mode": "train",
+  "arguments": {
+    "device": "cpu",
+    "backend": "admm",
+    "envs": 8,
+    "eval_envs": 5,
+    "total_steps": 4096,
+    "rollout": 64,
+    "torch_threads": 2,
+    "seed": 1027,
+    "controller_module": "research.controllers.ddat",
+    "network_module": "research.networks.ddat",
+    "model_module": "research.models.uuv",
+    "network_kwargs": {
+      "hidden_sizes": [
+        32,
+        32
+      ],
+      "encoder_sizes": [
+        32,
+        16
+      ]
+    }
+  }
+}

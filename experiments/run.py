@@ -25,7 +25,8 @@ NAME_PATTERN = re.compile(r"[A-Za-z0-9][A-Za-z0-9_-]*\Z")
 def source_hashes():
     """Record the code used for a run so later edits remain auditable."""
     files = [ROOT / "DDAT_train.py", ROOT / "validate_ddat.py"]
-    for directory in ("simulator", "research", "trajectories", "high_speed_experiments"):
+    for directory in ("simulator", "research", "training", "evaluation", "experiments",
+                      "trajectories", "high_speed_experiments", "aav_mpc"):
         files.extend(sorted((ROOT / directory).rglob("*.py")))
     return {str(path.relative_to(ROOT)): hashlib.sha256(path.read_bytes()).hexdigest()
             for path in files}
@@ -40,6 +41,11 @@ def command_args(values):
             raise ValueError(f"invalid argument name: {key!r}")
         flag = "--" + key.replace("_", "-")
         if value is None:
+            continue
+        if key in {"controller_kwargs", "network_kwargs"}:
+            if not isinstance(value, dict):
+                raise ValueError(f"{key} must be a JSON object")
+            result.extend((flag, json.dumps(value, allow_nan=False)))
             continue
         if isinstance(value, bool):
             if value:
@@ -76,9 +82,9 @@ def prepare(config_path, name_override=None, dry_run=False):
             raise ValueError("validation requires an explicit checkpoint")
     stamp = datetime.now(ZoneInfo("Asia/Shanghai")).strftime("%Y%m%d_%H%M%S_%f")
     run_dir = OUTPUT_ROOT / name / f"{stamp}_{os.getpid()}"
-    script = ROOT / ("DDAT_train.py" if mode == "train" else "validate_ddat.py")
+    module = "training.ddat" if mode == "train" else "evaluation.ddat"
     output_flag = "--output" if mode == "train" else "--output-dir"
-    command = [sys.executable, str(script), *arguments, output_flag, str(run_dir)]
+    command = [sys.executable, "-m", module, *arguments, output_flag, str(run_dir)]
     if not dry_run:
         run_dir.mkdir(parents=True, exist_ok=False)
     return config, run_dir, command

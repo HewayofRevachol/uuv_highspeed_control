@@ -25,7 +25,7 @@ class DDATPathEnv(BatchedPathResidualEnv):
                  current_profile="steady",
                  attitude_pitch_weight=100., attitude_yaw_weight=30.,
                  fsp_enabled=False, fsp_filter_time=.4, fsp_preview_time=None,
-                 admm_rho=2.):
+                 admm_rho=2., model_factory=None):
         if (adaptation_time <= 0 or current_filter_time <= 0 or
                 current_max_mps < 0 or not np.isfinite(current_max_mps)):
             raise ValueError("adaptation/filter times must be positive and current_max_mps finite, nonnegative")
@@ -35,7 +35,8 @@ class DDATPathEnv(BatchedPathResidualEnv):
                          seed, randomize_plant, admm_iterations,
                          admm_rho=admm_rho,
                          attitude_pitch_weight=attitude_pitch_weight,
-                         attitude_yaw_weight=attitude_yaw_weight)
+                         attitude_yaw_weight=attitude_yaw_weight,
+                         model_factory=model_factory)
         self.observation_size = type(self).observation_size
         self.disturbance_estimate = torch.zeros(batch_size, 5, device=self.device,
                                                 dtype=self.dtype)
