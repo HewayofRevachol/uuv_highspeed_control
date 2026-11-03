@@ -1,0 +1,66 @@
+{
+  "seed": 23,
+  "epochs": 180,
+  "log_value": true,
+  "balanced_episodes": true,
+  "select_risk": true,
+  "selected_epoch": 68,
+  "calibration_shift": -0.001963213086128235,
+  "feature_count": 36,
+  "splits": {
+    "train": {
+      "samples": 2459,
+      "episodes": 6,
+      "value_mae": 132.1717987060547,
+      "margin_mae": 0.30996760725975037,
+      "failure_auc": 0.9984467201185467,
+      "lower_margin_coverage": 0.8320455469703132,
+      "predicted_safe_count": 805,
+      "false_safe_count": 0,
+      "false_safe_rate_among_predicted_safe": 0.0,
+      "heuristic_failure_auc": 0.8717002725516658,
+      "groups": {
+        "train_coupled_v12_s20261": 394,
+        "train_coupled_v6_s20261": 375,
+        "train_speed_v12_s20261": 336,
+        "train_speed_v18_s20261": 220,
+        "train_turn_v18_s20261": 219,
+        "train_turn_v6_s20261": 915
+      }
+    },
+    "val": {
+      "samples": 487,
+      "episodes": 2,
+      "value_mae": 1539.2529296875,
+      "margin_mae": 0.7069544196128845,
+      "failure_auc": 0.9815779246016324,
+      "lower_margin_coverage": 0.8993839835728953,
+      "predicted_safe_count": 167,
+      "false_safe_count": 0,
+      "false_safe_rate_among_predicted_safe": 0.0,
+      "heuristic_failure_auc": 0.7833268558103381,
+      "groups": {
+        "val_depth_v18_s20262": 246,
+        "val_depth_v6_s20262": 241
+      }
+    },
+    "test": {
+      "samples": 1949,
+      "episodes": 3,
+      "value_mae": 704.7848510742188,
+      "margin_mae": 1.7218526601791382,
+      "failure_auc": 0.8671042298957913,
+      "lower_margin_coverage": 0.47922011287839916,
+      "predicted_safe_count": 352,
+      "false_safe_count": 50,
+      "false_safe_rate_among_predicted_safe": 0.14204545454545456,
+      "heuristic_failure_auc": 0.8798957913279708,
+      "groups": {
+        "test_stress_v18_s20263": 702,
+        "test_sturn_v12_s20263": 359,
+        "test_sturn_v6_s20263": 888
+      }
+    }
+  },
+  "inference_latency_us_per_sample": 24.377886998991016
+}

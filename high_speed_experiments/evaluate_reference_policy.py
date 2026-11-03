@@ -22,13 +22,15 @@ DEFAULT_PATHS = sorted((ROOT / "DDAT_trajectories/val").glob("*.csv"))
 
 
 @torch.no_grad()
-def evaluate(file, speed, seed, mode, actor, backend, config):
+def evaluate(file, speed, seed, mode, actor, backend, config,
+             current_profile="steady"):
     bank = speed_bank([file], "cpu", speeds=(speed,))
     env = make_env(bank, 1, backend, seed, randomize_plant=True,
                    current_max=1., admm_iterations=200,
                    base_reference=config.get("base_reference", "task"),
                    residual_scale=config.get("residual_scale", 2.),
-                   residual_penalty=config.get("residual_penalty", 0.))
+                   residual_penalty=config.get("residual_penalty", 0.),
+                   current_profile=current_profile)
     observation = env.reset(torch.zeros(1, dtype=torch.long))
     errors = []
     speed_errors = []
@@ -54,6 +56,7 @@ def evaluate(file, speed, seed, mode, actor, backend, config):
     return {
         "path": file.stem, "target_speed_mps": speed, "seed": seed,
         "mode": mode, "backend": backend,
+        "current_profile": current_profile,
         "success": bool(info["success"][0].item()),
         "failed": bool(info["failed"][0].item()),
         "timeout": bool(info["timeout"][0].item()),
@@ -77,6 +80,8 @@ def main():
     parser.add_argument("--modes", nargs="+", choices=("zero", "policy"),
                         default=["zero", "policy"])
     parser.add_argument("--backend", choices=("admm", "osqp"), default="osqp")
+    parser.add_argument("--current-profile", choices=("steady", "harmonic"),
+                        default="steady")
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     checkpoint = torch.load(args.checkpoint, map_location="cpu", weights_only=True)
@@ -91,7 +96,7 @@ def main():
                 for seed in args.seeds:
                     for mode in args.modes:
                         row = evaluate(file, speed, seed, mode, actor, args.backend,
-                                       checkpoint["config"])
+                                       checkpoint["config"], args.current_profile)
                         stream.write(json.dumps(row, ensure_ascii=False) + "\n")
                         stream.flush()
                         print(f"{file.stem} v={speed:g} seed={seed} {mode}: "

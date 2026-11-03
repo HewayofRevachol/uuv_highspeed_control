@@ -1,0 +1,28 @@
+{
+  "task": "T3",
+  "method": "condensed25",
+  "path": "trajectories/stress_15mps/cold_helix_r49_15p9mps.csv",
+  "target_speed_mps": 18.0,
+  "seed": 101027,
+  "backend": "rti_cpu",
+  "horizon": 25,
+  "randomize_plant": true,
+  "current_max_mps": 1.0,
+  "process_noise": false,
+  "nominal_body": false,
+  "speed_conditioned_cost": false,
+  "oracle_no_lag": false,
+  "steps": 578,
+  "wall_s": 19.96232385800249,
+  "progress_fraction": 0.9986230636833479,
+  "simulator_success": true,
+  "simulator_failed": false,
+  "strict_success": false,
+  "first_anomaly": [
+    1.9000000000000001,
+    "lateral"
+  ],
+  "fallback_count": 0,
+  "saturation_fraction": 0.9878892733564014,
+  "trace": "aav_mpc/data/stage4/paired/T3_cold_helix_r49_15p9mps_s101027_condensed25.csv"
+}

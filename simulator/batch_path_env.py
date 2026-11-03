@@ -302,8 +302,11 @@ class BatchedPathResidualEnv:
         if track_current:
             water_displacement = torch.zeros(self.batch_size, 3, device=self.device,
                                               dtype=self.dtype)
+        advance_current = getattr(self, "_advance_current", None)
         for _ in range(5):
             running = active & ~failed
+            if advance_current is not None:
+                advance_current(DT, running)
             noise = torch.randn(self.batch_size, 5, device=self.device, dtype=self.dtype,
                                 generator=self.generator)
             next_disturbance = (self.decay*self.disturbance +

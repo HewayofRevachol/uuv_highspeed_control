@@ -13,6 +13,7 @@
 | `research/variants.py` | 根据配置或 checkpoint 载入上述变体 |
 | `DDAT_trajectories/`、`trajectories/` | 现有轨迹集、轨迹生成及路径编码工具 |
 | `high_speed_experiments/` | 高速轨迹筛查与 [RL 增强 MPC 实验](high_speed_experiments/README_RL_MPC.md) |
+| [`academic_search_report/`](academic_search_report/README.md) | 文献综述、推荐路线与证据核验报告 |
 | `experiments/configs/` | 一次实验的参数文件，复制后改名即可建立新方案 |
 | `experiments/run.py` | 创建独立运行目录、记录命令与日志 |
 | `tests/unit/`、`tests/integration/`、`tests/benchmarks/` | 新增单元、集成与性能测试脚本 |

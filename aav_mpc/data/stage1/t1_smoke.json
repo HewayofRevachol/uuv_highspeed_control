@@ -1,0 +1,33 @@
+{
+  "task": {
+    "path": "DDAT_trajectories/val/constant_turn_01.csv",
+    "target_speed_mps": 6.0,
+    "speed_tolerance_mps": 1.0,
+    "lateral_corridor_m": 5.0,
+    "depth_corridor_m": 3.0,
+    "pitch_limit_deg": 35.0,
+    "seed": 101027,
+    "plant": "fixed_mismatch",
+    "current_max_mps": 0.0,
+    "process_noise": false,
+    "strict_success_requires_full_path": true
+  },
+  "horizon_s": 1.0,
+  "block_s": 0.5,
+  "results": [
+    {
+      "start": 0,
+      "solver_status": "solved",
+      "wall_s": 2.8548261060059303,
+      "max_optimized_slack": 0.00021458713344049132,
+      "found_full_path_feasible": false,
+      "progress_fraction": 0.014989477163030437,
+      "minimum_constraint_margins": {
+        "lateral_m": 5.0,
+        "depth_m": 3.0,
+        "pitch_deg": 35.0,
+        "speed_mps": 0.9333275833139663
+      }
+    }
+  ]
+}

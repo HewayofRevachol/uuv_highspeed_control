@@ -1,0 +1,66 @@
+{
+  "seed": 17,
+  "epochs": 180,
+  "log_value": true,
+  "balanced_episodes": true,
+  "select_risk": true,
+  "selected_epoch": 63,
+  "calibration_shift": -0.026060782372951508,
+  "feature_count": 36,
+  "splits": {
+    "train": {
+      "samples": 2459,
+      "episodes": 6,
+      "value_mae": 137.6151580810547,
+      "margin_mae": 0.33307328820228577,
+      "failure_auc": 0.9982614908311502,
+      "lower_margin_coverage": 0.8084587230581537,
+      "predicted_safe_count": 849,
+      "false_safe_count": 0,
+      "false_safe_rate_among_predicted_safe": 0.0,
+      "heuristic_failure_auc": 0.8717002725516658,
+      "groups": {
+        "train_coupled_v12_s20261": 394,
+        "train_coupled_v6_s20261": 375,
+        "train_speed_v12_s20261": 336,
+        "train_speed_v18_s20261": 220,
+        "train_turn_v18_s20261": 219,
+        "train_turn_v6_s20261": 915
+      }
+    },
+    "val": {
+      "samples": 487,
+      "episodes": 2,
+      "value_mae": 258.94317626953125,
+      "margin_mae": 0.9032073616981506,
+      "failure_auc": 0.9662261951029927,
+      "lower_margin_coverage": 0.8993839835728953,
+      "predicted_safe_count": 165,
+      "false_safe_count": 0,
+      "false_safe_rate_among_predicted_safe": 0.0,
+      "heuristic_failure_auc": 0.7833268558103381,
+      "groups": {
+        "val_depth_v18_s20262": 246,
+        "val_depth_v6_s20262": 241
+      }
+    },
+    "test": {
+      "samples": 1949,
+      "episodes": 3,
+      "value_mae": 659.4873046875,
+      "margin_mae": 1.4059100151062012,
+      "failure_auc": 0.8685633635418215,
+      "lower_margin_coverage": 0.482811698306824,
+      "predicted_safe_count": 350,
+      "false_safe_count": 62,
+      "false_safe_rate_among_predicted_safe": 0.17714285714285713,
+      "heuristic_failure_auc": 0.8798957913279708,
+      "groups": {
+        "test_stress_v18_s20263": 702,
+        "test_sturn_v12_s20263": 359,
+        "test_sturn_v6_s20263": 888
+      }
+    }
+  },
+  "inference_latency_us_per_sample": 23.469496998586692
+}

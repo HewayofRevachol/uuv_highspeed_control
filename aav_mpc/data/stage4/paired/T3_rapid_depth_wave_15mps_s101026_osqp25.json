@@ -1,0 +1,28 @@
+{
+  "task": "T3",
+  "method": "osqp25",
+  "path": "trajectories/stress_15mps/rapid_depth_wave_15mps.csv",
+  "target_speed_mps": 18.0,
+  "seed": 101026,
+  "backend": "osqp",
+  "horizon": 25,
+  "randomize_plant": true,
+  "current_max_mps": 1.0,
+  "process_noise": false,
+  "nominal_body": false,
+  "speed_conditioned_cost": false,
+  "oracle_no_lag": false,
+  "steps": 687,
+  "wall_s": 20.659539906002465,
+  "progress_fraction": 0.9990219883074196,
+  "simulator_success": true,
+  "simulator_failed": false,
+  "strict_success": false,
+  "first_anomaly": [
+    67.0,
+    "speed"
+  ],
+  "fallback_count": 0,
+  "saturation_fraction": 0.01601164483260553,
+  "trace": "aav_mpc/data/stage4/paired/T3_rapid_depth_wave_15mps_s101026_osqp25.csv"
+}

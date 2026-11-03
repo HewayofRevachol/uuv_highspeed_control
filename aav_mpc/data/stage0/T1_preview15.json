@@ -1,0 +1,21 @@
+{
+  "task": "T1",
+  "method": "preview15",
+  "path": "DDAT_trajectories/val/constant_turn_01.csv",
+  "seed": 101027,
+  "backend": "osqp",
+  "horizon": 25,
+  "steps": 933,
+  "wall_s": 23.724679894003202,
+  "progress_fraction": 0.9100631370224083,
+  "simulator_success": false,
+  "simulator_failed": false,
+  "strict_success": false,
+  "first_anomaly": [
+    0.4,
+    "speed"
+  ],
+  "fallback_count": 0,
+  "saturation_fraction": 0.6366559485530546,
+  "trace": "aav_mpc/data/stage0/T1_preview15.csv"
+}

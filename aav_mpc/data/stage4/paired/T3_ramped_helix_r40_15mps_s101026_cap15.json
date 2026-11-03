@@ -1,0 +1,28 @@
+{
+  "task": "T3",
+  "method": "cap15",
+  "path": "trajectories/stress_15mps/ramped_helix_r40_15mps.csv",
+  "target_speed_mps": 18.0,
+  "seed": 101026,
+  "backend": "osqp",
+  "horizon": 25,
+  "randomize_plant": true,
+  "current_max_mps": 1.0,
+  "process_noise": false,
+  "nominal_body": false,
+  "speed_conditioned_cost": false,
+  "oracle_no_lag": false,
+  "steps": 381,
+  "wall_s": 10.703447425999912,
+  "progress_fraction": 0.9972870320129774,
+  "simulator_success": true,
+  "simulator_failed": false,
+  "strict_success": false,
+  "first_anomaly": [
+    1.5,
+    "speed"
+  ],
+  "fallback_count": 0,
+  "saturation_fraction": 0.1679790026246719,
+  "trace": "aav_mpc/data/stage4/paired/T3_ramped_helix_r40_15mps_s101026_cap15.csv"
+}

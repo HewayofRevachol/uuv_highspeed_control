@@ -1,0 +1,600 @@
+{
+  "episode_count": 24,
+  "tasks": {
+    "T1": {
+      "methods": {
+        "condensed25": {
+          "episodes": 4,
+          "simulator_success": 0,
+          "strict_success": 0,
+          "failure_types": {
+            "failed": 4
+          },
+          "common_success_only_metrics": {
+            "position_rmse_m": null,
+            "position_p95_m": null,
+            "speed_rmse_mps": null,
+            "speed_p95_mps": null,
+            "steps": null,
+            "energy_proxy_j": null,
+            "saturation_fraction": null,
+            "wall_p95_ms": null,
+            "wall_p99_ms": null
+          }
+        },
+        "condensed_endpoint40": {
+          "episodes": 4,
+          "simulator_success": 4,
+          "strict_success": 4,
+          "failure_types": {
+            "none": 4
+          },
+          "common_success_only_metrics": {
+            "position_rmse_m": 0.9675662416422876,
+            "position_p95_m": 1.6905257317125424,
+            "speed_rmse_mps": 0.5400827651711939,
+            "speed_p95_mps": 0.7762913735829085,
+            "steps": 693.5,
+            "energy_proxy_j": 85197985.84193656,
+            "saturation_fraction": 0.010120368478926858,
+            "wall_p95_ms": 45.15747379837194,
+            "wall_p99_ms": 50.60659509425018
+          }
+        },
+        "endpoint40": {
+          "episodes": 4,
+          "simulator_success": 4,
+          "strict_success": 3,
+          "failure_types": {
+            "none": 3,
+            "task_violation": 1
+          },
+          "common_success_only_metrics": {
+            "position_rmse_m": 0.8646828629576979,
+            "position_p95_m": 1.5504816921746427,
+            "speed_rmse_mps": 0.5194142419276286,
+            "speed_p95_mps": 0.7696289596873477,
+            "steps": 695.25,
+            "energy_proxy_j": 84691371.6029354,
+            "saturation_fraction": 0.02390426441191143,
+            "wall_p95_ms": 34.40355632228602,
+            "wall_p99_ms": 38.802961959827364
+          }
+        },
+        "osqp25": {
+          "episodes": 4,
+          "simulator_success": 0,
+          "strict_success": 0,
+          "failure_types": {
+            "failed": 4
+          },
+          "common_success_only_metrics": {
+            "position_rmse_m": null,
+            "position_p95_m": null,
+            "speed_rmse_mps": null,
+            "speed_p95_mps": null,
+            "steps": null,
+            "energy_proxy_j": null,
+            "saturation_fraction": null,
+            "wall_p95_ms": null,
+            "wall_p99_ms": null
+          }
+        }
+      },
+      "paired_vs_osqp25": {
+        "condensed25": {
+          "simulator_success": {
+            "pairs": 4,
+            "difference_mean": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "strict_success": {
+            "pairs": 4,
+            "difference_mean": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "common_success_pairs": 0
+        },
+        "condensed_endpoint40": {
+          "simulator_success": {
+            "pairs": 4,
+            "difference_mean": 1.0,
+            "ci95": [
+              1.0,
+              1.0
+            ]
+          },
+          "strict_success": {
+            "pairs": 4,
+            "difference_mean": 1.0,
+            "ci95": [
+              1.0,
+              1.0
+            ]
+          },
+          "common_success_pairs": 0
+        },
+        "endpoint40": {
+          "simulator_success": {
+            "pairs": 4,
+            "difference_mean": 1.0,
+            "ci95": [
+              1.0,
+              1.0
+            ]
+          },
+          "strict_success": {
+            "pairs": 4,
+            "difference_mean": 0.75,
+            "ci95": [
+              0.25,
+              1.0
+            ]
+          },
+          "common_success_pairs": 0
+        }
+      },
+      "paired_vs_strong": {
+        "condensed25": {
+          "simulator_success": {
+            "pairs": 4,
+            "difference_mean": -1.0,
+            "ci95": [
+              -1.0,
+              -1.0
+            ]
+          },
+          "strict_success": {
+            "pairs": 4,
+            "difference_mean": -0.75,
+            "ci95": [
+              -1.0,
+              -0.25
+            ]
+          },
+          "common_success_pairs": 0
+        },
+        "condensed_endpoint40": {
+          "simulator_success": {
+            "pairs": 4,
+            "difference_mean": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "strict_success": {
+            "pairs": 4,
+            "difference_mean": 0.25,
+            "ci95": [
+              0.0,
+              0.75
+            ]
+          },
+          "common_success_pairs": 4,
+          "position_rmse_m": {
+            "pairs": 4,
+            "difference_mean": 0.10288337868458966,
+            "ci95": [
+              0.08057086828157056,
+              0.1254512614004701
+            ]
+          },
+          "speed_rmse_mps": {
+            "pairs": 4,
+            "difference_mean": 0.020668523243565343,
+            "ci95": [
+              0.006587938998101728,
+              0.03600718380337291
+            ]
+          },
+          "energy_proxy_j": {
+            "pairs": 4,
+            "difference_mean": 506614.2390011549,
+            "ci95": [
+              377271.44640895724,
+              635957.0315933526
+            ]
+          },
+          "saturation_fraction": {
+            "pairs": 4,
+            "difference_mean": -0.013783895932984576,
+            "ci95": [
+              -0.025535591890470333,
+              -0.004944396301818719
+            ]
+          },
+          "steps": {
+            "pairs": 4,
+            "difference_mean": -1.75,
+            "ci95": [
+              -2.75,
+              -0.5
+            ]
+          },
+          "wall_p95_ms": {
+            "pairs": 4,
+            "difference_mean": 10.753917476085917,
+            "ci95": [
+              9.880550664911425,
+              11.953119537247403
+            ]
+          }
+        },
+        "osqp25": {
+          "simulator_success": {
+            "pairs": 4,
+            "difference_mean": -1.0,
+            "ci95": [
+              -1.0,
+              -1.0
+            ]
+          },
+          "strict_success": {
+            "pairs": 4,
+            "difference_mean": -0.75,
+            "ci95": [
+              -1.0,
+              -0.25
+            ]
+          },
+          "common_success_pairs": 0
+        }
+      }
+    },
+    "T3": {
+      "methods": {
+        "cap15": {
+          "episodes": 2,
+          "simulator_success": 2,
+          "strict_success": 0,
+          "failure_types": {
+            "task_violation": 2
+          },
+          "common_success_only_metrics": {
+            "position_rmse_m": 2.1761153296306874,
+            "position_p95_m": 5.500556252503721,
+            "speed_rmse_mps": 3.215275610279698,
+            "speed_p95_mps": 4.0267186152557874,
+            "steps": 627.5,
+            "energy_proxy_j": 1096497149.0307455,
+            "saturation_fraction": 0.10114055984193177,
+            "wall_p95_ms": 35.907276950456435,
+            "wall_p99_ms": 41.97397786985676
+          }
+        },
+        "condensed25": {
+          "episodes": 2,
+          "simulator_success": 2,
+          "strict_success": 0,
+          "failure_types": {
+            "task_violation": 2
+          },
+          "common_success_only_metrics": {
+            "position_rmse_m": 2.5810053767853436,
+            "position_p95_m": 7.61848333271518,
+            "speed_rmse_mps": 1.5503156021961486,
+            "speed_p95_mps": 2.2793050735285685,
+            "steps": 565.5,
+            "energy_proxy_j": 1376942316.5988872,
+            "saturation_fraction": 0.5328234793545117,
+            "wall_p95_ms": 41.11896132599213,
+            "wall_p99_ms": 53.83706200409506
+          }
+        },
+        "curv6": {
+          "episodes": 2,
+          "simulator_success": 2,
+          "strict_success": 0,
+          "failure_types": {
+            "task_violation": 2
+          },
+          "common_success_only_metrics": {
+            "position_rmse_m": 2.6299082654173396,
+            "position_p95_m": 6.829573655303441,
+            "speed_rmse_mps": 2.0642482189756928,
+            "speed_p95_mps": 4.6429521844882045,
+            "steps": 566.0,
+            "energy_proxy_j": 1318623377.1204734,
+            "saturation_fraction": 0.5293997346030754,
+            "wall_p95_ms": 35.33575875080713,
+            "wall_p99_ms": 43.24305912115957
+          }
+        },
+        "osqp25": {
+          "episodes": 2,
+          "simulator_success": 2,
+          "strict_success": 0,
+          "failure_types": {
+            "task_violation": 2
+          },
+          "common_success_only_metrics": {
+            "position_rmse_m": 3.1571998283640634,
+            "position_p95_m": 8.41071093222428,
+            "speed_rmse_mps": 2.1258382881188815,
+            "speed_p95_mps": 5.033286374252569,
+            "steps": 557.5,
+            "energy_proxy_j": 1310422134.3487425,
+            "saturation_fraction": 0.5381192548343074,
+            "wall_p95_ms": 34.19170412507809,
+            "wall_p99_ms": 39.5054287012681
+          }
+        }
+      },
+      "paired_vs_osqp25": {
+        "cap15": {
+          "simulator_success": {
+            "pairs": 2,
+            "difference_mean": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "strict_success": {
+            "pairs": 2,
+            "difference_mean": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "common_success_pairs": 2,
+          "common_success_position_rmse_difference_m": -0.9810844987333762,
+          "common_success_speed_rmse_difference_mps": 1.089437322160817
+        },
+        "condensed25": {
+          "simulator_success": {
+            "pairs": 2,
+            "difference_mean": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "strict_success": {
+            "pairs": 2,
+            "difference_mean": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "common_success_pairs": 2,
+          "common_success_position_rmse_difference_m": -0.5761944515787201,
+          "common_success_speed_rmse_difference_mps": -0.5755226859227328
+        },
+        "curv6": {
+          "simulator_success": {
+            "pairs": 2,
+            "difference_mean": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "strict_success": {
+            "pairs": 2,
+            "difference_mean": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "common_success_pairs": 2,
+          "common_success_position_rmse_difference_m": -0.5272915629467239,
+          "common_success_speed_rmse_difference_mps": -0.061590069143188764
+        }
+      },
+      "paired_vs_strong": {
+        "cap15": {
+          "simulator_success": {
+            "pairs": 2,
+            "difference_mean": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "strict_success": {
+            "pairs": 2,
+            "difference_mean": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "common_success_pairs": 2,
+          "position_rmse_m": {
+            "pairs": 2,
+            "difference_mean": -0.45379293578665236,
+            "ci95": [
+              -0.6515477770227958,
+              -0.25603809455050897
+            ]
+          },
+          "speed_rmse_mps": {
+            "pairs": 2,
+            "difference_mean": 1.1510273913040057,
+            "ci95": [
+              0.8539939296367294,
+              1.4480608529712817
+            ]
+          },
+          "energy_proxy_j": {
+            "pairs": 2,
+            "difference_mean": -222126228.08972788,
+            "ci95": [
+              -263001561.87140727,
+              -181250894.3080485
+            ]
+          },
+          "saturation_fraction": {
+            "pairs": 2,
+            "difference_mean": -0.4282591747611437,
+            "ci95": [
+              -0.8342545102647404,
+              -0.02226383925754699
+            ]
+          },
+          "steps": {
+            "pairs": 2,
+            "difference_mean": 61.5,
+            "ci95": [
+              54.0,
+              69.0
+            ]
+          },
+          "wall_p95_ms": {
+            "pairs": 2,
+            "difference_mean": 0.5715181996493008,
+            "ci95": [
+              -0.6016739025653735,
+              1.7447103018639751
+            ]
+          }
+        },
+        "condensed25": {
+          "simulator_success": {
+            "pairs": 2,
+            "difference_mean": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "strict_success": {
+            "pairs": 2,
+            "difference_mean": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "common_success_pairs": 2,
+          "position_rmse_m": {
+            "pairs": 2,
+            "difference_mean": -0.04890288863199621,
+            "ci95": [
+              -0.20520967624450126,
+              0.10740389898050884
+            ]
+          },
+          "speed_rmse_mps": {
+            "pairs": 2,
+            "difference_mean": -0.513932616779544,
+            "ci95": [
+              -0.6184479616171512,
+              -0.4094172719419369
+            ]
+          },
+          "energy_proxy_j": {
+            "pairs": 2,
+            "difference_mean": 58318939.4784137,
+            "ci95": [
+              52020334.21394348,
+              64617544.74288392
+            ]
+          },
+          "saturation_fraction": {
+            "pairs": 2,
+            "difference_mean": 0.00342374475143626,
+            "ci95": [
+              -0.022780914288311513,
+              0.029628403791184033
+            ]
+          },
+          "steps": {
+            "pairs": 2,
+            "difference_mean": -0.5,
+            "ci95": [
+              -4.0,
+              3.0
+            ]
+          },
+          "wall_p95_ms": {
+            "pairs": 2,
+            "difference_mean": 5.783202575184998,
+            "ci95": [
+              5.619924951315632,
+              5.946480199054363
+            ]
+          }
+        },
+        "osqp25": {
+          "simulator_success": {
+            "pairs": 2,
+            "difference_mean": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "strict_success": {
+            "pairs": 2,
+            "difference_mean": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "common_success_pairs": 2,
+          "position_rmse_m": {
+            "pairs": 2,
+            "difference_mean": 0.5272915629467239,
+            "ci95": [
+              0.2495959819098834,
+              0.8049871439835643
+            ]
+          },
+          "speed_rmse_mps": {
+            "pairs": 2,
+            "difference_mean": 0.061590069143188764,
+            "ci95": [
+              -0.08730739962385448,
+              0.210487537910232
+            ]
+          },
+          "energy_proxy_j": {
+            "pairs": 2,
+            "difference_mean": -8201242.7717309,
+            "ci95": [
+              -26380991.961652994,
+              9978506.418191195
+            ]
+          },
+          "saturation_fraction": {
+            "pairs": 2,
+            "difference_mean": 0.008719520231232,
+            "ci95": [
+              0.008288426209430488,
+              0.009150614253033512
+            ]
+          },
+          "steps": {
+            "pairs": 2,
+            "difference_mean": -8.5,
+            "ci95": [
+              -10.0,
+              -7.0
+            ]
+          },
+          "wall_p95_ms": {
+            "pairs": 2,
+            "difference_mean": -1.1440546257290407,
+            "ci95": [
+              -3.384916900540702,
+              1.0968076490826206
+            ]
+          }
+        }
+      }
+    }
+  }
+}

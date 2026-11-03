@@ -1,0 +1,26 @@
+{
+  "task": "T3",
+  "method": "condensed25",
+  "path": "trajectories/stress_15mps/coupled_turn_depth_16mps.csv",
+  "seed": 101027,
+  "backend": "rti_cpu",
+  "horizon": 25,
+  "randomize_plant": false,
+  "current_max_mps": 0.0,
+  "process_noise": false,
+  "nominal_body": false,
+  "speed_conditioned_cost": false,
+  "steps": 702,
+  "wall_s": 24.47162080799899,
+  "progress_fraction": 0.9987699172921001,
+  "simulator_success": true,
+  "simulator_failed": false,
+  "strict_success": false,
+  "first_anomaly": [
+    16.3,
+    "speed"
+  ],
+  "fallback_count": 0,
+  "saturation_fraction": 0.5085470085470085,
+  "trace": "aav_mpc/data/stage2/T3_condensed25.csv"
+}

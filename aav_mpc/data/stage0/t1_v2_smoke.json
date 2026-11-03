@@ -1,0 +1,18 @@
+{
+  "task": "T1",
+  "method": "osqp25",
+  "path": "DDAT_trajectories/val/constant_turn_01.csv",
+  "seed": 101027,
+  "backend": "osqp",
+  "horizon": 25,
+  "steps": 3,
+  "wall_s": 0.08858393200353021,
+  "progress_fraction": 0.004282707761248839,
+  "simulator_success": false,
+  "simulator_failed": false,
+  "strict_success": false,
+  "first_anomaly": null,
+  "fallback_count": 0,
+  "saturation_fraction": 0.0,
+  "trace": "aav_mpc/data/stage0/t1_v2_smoke.csv"
+}

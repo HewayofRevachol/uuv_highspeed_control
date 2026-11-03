@@ -34,7 +34,7 @@
 
 ## 针对当前仓库的三个研究切口
 
-仓库的现有 PPO 在 `simulator/ddat_env.py` 中输出推进力和俯仰/偏航角速度修正；`_reference()` 按当前目标速度推进整段预测参考。`simulator/batch_mpc.py` 每轮只在起点线性化一次；FSP 修正执行时刻错位，但 MPC 窗内尚未完整包含舵机状态/命令队列。已有[15 m/s 路线决策报告](../high_speed_experiments/REPORT_mpc_rl_route_decision.md)显示原低层残差在 18 组配对中平均位置 RMSE 从 0.113 m 变为 0.181 m；[近期报告](../report1030.md)又记录 3/6 m/s 整组失败与 18 m/s 个别失稳。它们来自不同实验设置，不能直接合并统计。
+仓库的现有 PPO 在 `simulator/ddat_env.py` 中输出推进力和俯仰/偏航角速度修正；`_reference()` 按当前目标速度推进整段预测参考。`simulator/batch_mpc.py` 每轮只在起点线性化一次；FSP 修正执行时刻错位，但 MPC 窗内尚未完整包含舵机状态/命令队列。原项目的[15 m/s 路线决策报告](../../uuv_simulator/high_speed_experiments/REPORT_mpc_rl_route_decision.md)显示原低层残差在 18 组配对中平均位置 RMSE 从 0.113 m 变为 0.181 m；[近期报告](../report1030.md)又记录 3/6 m/s 整组失败与 18 m/s 个别失稳。它们来自不同实验设置，不能直接合并统计。
 
 ### A. 学“预测窗外价值”，而不是小幅修舵
 

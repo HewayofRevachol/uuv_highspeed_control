@@ -1,0 +1,10 @@
+
+******************************************************************************
+This program contains Ipopt, a library for large-scale nonlinear optimization.
+ Ipopt is released as open source code under the Eclipse Public License (EPL).
+         For more information visit https://github.com/coin-or/Ipopt
+******************************************************************************
+
+{"start": 0, "solver_status": "solved", "wall_s": 22.326222464005696, "max_optimized_slack": 0.00021093509634244095, "found_full_path_feasible": false, "progress_fraction": 0.40257007717341187, "minimum_constraint_margins": {"lateral_m": 4.928050438668891, "depth_m": 3.0, "pitch_deg": 34.999999999999844, "speed_mps": 0.9330956897188827}}
+{"start": 1, "solver_status": "solved", "wall_s": 19.675101331005862, "max_optimized_slack": 0.0002109585167886891, "found_full_path_feasible": false, "progress_fraction": 0.40257007717341187, "minimum_constraint_margins": {"lateral_m": 4.928050438668896, "depth_m": 3.0, "pitch_deg": 34.999999999999844, "speed_mps": 0.9330956897188836}}
+{"start": 2, "solver_status": "solved", "wall_s": 18.5961096539977, "max_optimized_slack": 0.0002372406861775498, "found_full_path_feasible": false, "progress_fraction": 0.40257007717341187, "minimum_constraint_margins": {"lateral_m": 4.9280299396764615, "depth_m": 3.0, "pitch_deg": 34.99999999999985, "speed_mps": 0.9330951435222605}}

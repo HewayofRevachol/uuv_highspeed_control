@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "control_period_s": 0.1,
+  "integration_period_s": 0.02,
+  "T1": {
+    "path": "DDAT_trajectories/val/constant_turn_01.csv",
+    "target_speed_mps": 6.0,
+    "speed_tolerance_mps": 1.0,
+    "lateral_corridor_m": 5.0,
+    "depth_corridor_m": 3.0,
+    "pitch_limit_deg": 35.0,
+    "seed": 101027,
+    "plant": "fixed_mismatch",
+    "current_max_mps": 0.0,
+    "process_noise": false,
+    "strict_success_requires_full_path": true
+  },
+  "T3": {
+    "path": "trajectories/stress_15mps/coupled_turn_depth_16mps.csv",
+    "target_speed_mps": 18.0,
+    "speed_tolerance_mps": 2.0,
+    "lateral_corridor_m": 8.0,
+    "depth_corridor_m": 5.0,
+    "pitch_limit_deg": 50.0,
+    "seed": 101027,
+    "plant": "fixed_mismatch",
+    "current_max_mps": 0.0,
+    "process_noise": false,
+    "strict_success_requires_full_path": true
+  },
+  "T2": {
+    "allowed_speed_mps": [6.0, 18.0],
+    "speed_deviation_cost_per_squared_mps": 1.0,
+    "speed_interval_is_a_task_definition_not_a_feasibility_claim": true
+  }
+}

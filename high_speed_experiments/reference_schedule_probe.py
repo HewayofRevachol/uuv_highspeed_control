@@ -87,7 +87,7 @@ SCHEDULES = {
 
 @torch.no_grad()
 def evaluate(file, speed, schedule, seed, backend, horizon, current_max,
-             randomize_plant):
+             randomize_plant, current_profile="steady"):
     bank = PathBank([file], "cpu")
     bank.speed[:] = speed
     bank.first_state[:, 5] = speed
@@ -95,6 +95,7 @@ def evaluate(file, speed, schedule, seed, backend, horizon, current_max,
     env = ScheduledReferenceEnv(
         bank, batch_size=1, device="cpu", horizon=horizon, backend=backend,
         seed=seed, randomize_plant=randomize_plant, current_max_mps=current_max,
+        current_profile=current_profile,
         admm_iterations=400, admm_rho=10., attitude_pitch_weight=100.,
         attitude_yaw_weight=30., fsp_enabled=True, preview_mode="multiscale",
         yaw_reward="course", **SCHEDULES[schedule])
@@ -124,6 +125,7 @@ def evaluate(file, speed, schedule, seed, backend, horizon, current_max,
         "path": file.stem, "target_speed_mps": speed, "schedule": schedule,
         "seed": seed, "backend": backend, "horizon": horizon,
         "current_max_mps": current_max,
+        "current_profile": current_profile,
         "randomize_plant": randomize_plant,
         "success": bool(info["success"][0].item()),
         "failed": bool(info["failed"][0].item()),
@@ -150,6 +152,8 @@ def main():
     parser.add_argument("--backend", choices=("admm", "osqp"), default="osqp")
     parser.add_argument("--horizon", type=int, default=25)
     parser.add_argument("--current-max", type=float, default=0.)
+    parser.add_argument("--current-profile", choices=("steady", "harmonic"),
+                        default="steady")
     parser.add_argument("--randomize-plant", action="store_true")
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
@@ -163,7 +167,7 @@ def main():
                     for schedule in args.schedules:
                         row = evaluate(file, speed, schedule, seed, args.backend,
                                        args.horizon, args.current_max,
-                                       args.randomize_plant)
+                                       args.randomize_plant, args.current_profile)
                         stream.write(json.dumps(row, ensure_ascii=False) + "\n")
                         stream.flush()
                         print(f"{row['path']} v={speed:g} seed={seed} {schedule}: "

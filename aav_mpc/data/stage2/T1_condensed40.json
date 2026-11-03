@@ -1,0 +1,26 @@
+{
+  "task": "T1",
+  "method": "condensed40",
+  "path": "DDAT_trajectories/val/constant_turn_01.csv",
+  "seed": 101027,
+  "backend": "rti_cpu",
+  "horizon": 40,
+  "randomize_plant": false,
+  "current_max_mps": 0.0,
+  "process_noise": false,
+  "nominal_body": false,
+  "speed_conditioned_cost": false,
+  "steps": 617,
+  "wall_s": 26.62390905099892,
+  "progress_fraction": 0.9957172922384954,
+  "simulator_success": true,
+  "simulator_failed": false,
+  "strict_success": false,
+  "first_anomaly": [
+    60.7,
+    "speed"
+  ],
+  "fallback_count": 0,
+  "saturation_fraction": 0.04862236628849271,
+  "trace": "aav_mpc/data/stage2/T1_condensed40.csv"
+}

@@ -1,9 +1,41 @@
+# Python cache and local build files
 __pycache__/
 *.py[cod]
 .pytest_cache/
 .rti_build/
 .third_party/
-trajectories/path_corpus/
+
+# Binary datasets and array stores
+*.npy
+*.npz
+*.h5
+*.hdf5
+*.parquet
+*.arrow
+*.feather
+*.tfrecord
+*.zarr/
+*.lmdb/
+
+# PyTorch model weights and checkpoints
+*.pt
+*.pth
+*.pth.tar
+*.ckpt
+*.ptl
+*.safetensors
+pytorch_model*.bin
+
+# Generated datasets
+/trajectories/path_corpus/
+/aav_mpc/data/**/*.csv
+/aav_mpc/data/**/*.jsonl
+/aav_mpc/data/stage3/raw/
+/high_speed_experiments/generated/
+
+# Generated training and evaluation results
+/outputs/DDAT/
+/high_speed_experiments/outputs/
 outputs/experiments/*
 !outputs/experiments/.gitkeep
 outputs/models/*

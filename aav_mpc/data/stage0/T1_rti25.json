@@ -1,0 +1,21 @@
+{
+  "task": "T1",
+  "method": "rti25",
+  "path": "DDAT_trajectories/val/constant_turn_01.csv",
+  "seed": 101027,
+  "backend": "rti_cpu",
+  "horizon": 25,
+  "steps": 888,
+  "wall_s": 35.266372279998905,
+  "progress_fraction": 0.38543983903510126,
+  "simulator_success": false,
+  "simulator_failed": true,
+  "strict_success": false,
+  "first_anomaly": [
+    20.900000000000002,
+    "speed"
+  ],
+  "fallback_count": 0,
+  "saturation_fraction": 0.7781531531531531,
+  "trace": "aav_mpc/data/stage0/T1_rti25.csv"
+}

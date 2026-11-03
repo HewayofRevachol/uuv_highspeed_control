@@ -1,0 +1,26 @@
+{
+  "task": "T1",
+  "method": "osqp40",
+  "path": "DDAT_trajectories/val/constant_turn_01.csv",
+  "seed": 101027,
+  "backend": "osqp",
+  "horizon": 40,
+  "randomize_plant": false,
+  "current_max_mps": 0.0,
+  "process_noise": false,
+  "nominal_body": false,
+  "speed_conditioned_cost": true,
+  "steps": 615,
+  "wall_s": 19.205401537998114,
+  "progress_fraction": 0.9957172922384954,
+  "simulator_success": true,
+  "simulator_failed": false,
+  "strict_success": false,
+  "first_anomaly": [
+    60.5,
+    "speed"
+  ],
+  "fallback_count": 0,
+  "saturation_fraction": 0.030894308943089432,
+  "trace": "aav_mpc/data/stage0/T1_osqp40_cost.csv"
+}

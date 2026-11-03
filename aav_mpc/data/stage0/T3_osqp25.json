@@ -1,0 +1,21 @@
+{
+  "task": "T3",
+  "method": "osqp25",
+  "path": "trajectories/stress_15mps/coupled_turn_depth_16mps.csv",
+  "seed": 101027,
+  "backend": "osqp",
+  "horizon": 25,
+  "steps": 697,
+  "wall_s": 18.97733761300333,
+  "progress_fraction": 0.9985239007505201,
+  "simulator_success": true,
+  "simulator_failed": false,
+  "strict_success": false,
+  "first_anomaly": [
+    16.0,
+    "speed"
+  ],
+  "fallback_count": 0,
+  "saturation_fraction": 0.4103299856527977,
+  "trace": "aav_mpc/data/stage0/T3_osqp25.csv"
+}

@@ -1,0 +1,27 @@
+{
+  "task": "T1",
+  "method": "condensed25",
+  "path": "DDAT_trajectories/train/s_reversal_02.csv",
+  "target_speed_mps": 6.0,
+  "seed": 101027,
+  "backend": "rti_cpu",
+  "horizon": 25,
+  "randomize_plant": true,
+  "current_max_mps": 1.0,
+  "process_noise": false,
+  "nominal_body": false,
+  "speed_conditioned_cost": false,
+  "steps": 480,
+  "wall_s": 16.605042877003143,
+  "progress_fraction": 0.16346286488140774,
+  "simulator_success": false,
+  "simulator_failed": true,
+  "strict_success": false,
+  "first_anomaly": [
+    6.4,
+    "speed"
+  ],
+  "fallback_count": 0,
+  "saturation_fraction": 0.6375,
+  "trace": "aav_mpc/data/stage4/paired/T1_s_reversal_02_s101027_condensed25.csv"
+}

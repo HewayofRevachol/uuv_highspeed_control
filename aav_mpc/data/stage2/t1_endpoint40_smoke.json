@@ -1,0 +1,22 @@
+{
+  "task": "T1",
+  "method": "endpoint40",
+  "path": "DDAT_trajectories/val/constant_turn_01.csv",
+  "seed": 101027,
+  "backend": "osqp",
+  "horizon": 40,
+  "randomize_plant": false,
+  "current_max_mps": 0.0,
+  "process_noise": false,
+  "nominal_body": false,
+  "steps": 3,
+  "wall_s": 0.09637154700612882,
+  "progress_fraction": 0.004282707761248839,
+  "simulator_success": false,
+  "simulator_failed": false,
+  "strict_success": false,
+  "first_anomaly": null,
+  "fallback_count": 0,
+  "saturation_fraction": 0.0,
+  "trace": "aav_mpc/data/stage2/t1_endpoint40_smoke.csv"
+}

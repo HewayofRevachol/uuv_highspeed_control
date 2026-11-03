@@ -168,7 +168,8 @@ def speed_bank(files, device, speeds=(12., 18.)):
 
 def make_env(bank, batch_size, backend, seed, randomize_plant=True,
              current_max=1., admm_iterations=200, saturation_penalty=0.,
-             base_reference="task", residual_scale=2., residual_penalty=0.):
+             base_reference="task", residual_scale=2., residual_penalty=0.,
+             current_profile="steady"):
     return ReferencePolicyEnv(
         bank, batch_size=batch_size, device="cpu", horizon=25,
         saturation_penalty=saturation_penalty,
@@ -176,7 +177,8 @@ def make_env(bank, batch_size, backend, seed, randomize_plant=True,
         residual_penalty=residual_penalty,
         backend=backend, seed=seed, randomize_plant=randomize_plant,
         admm_iterations=admm_iterations, admm_rho=10.,
-        current_max_mps=current_max, attitude_pitch_weight=100.,
+        current_max_mps=current_max, current_profile=current_profile,
+        attitude_pitch_weight=100.,
         attitude_yaw_weight=30., fsp_enabled=True,
         preview_mode="multiscale", yaw_reward="course")
 

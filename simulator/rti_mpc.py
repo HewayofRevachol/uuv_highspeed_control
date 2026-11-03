@@ -8,13 +8,16 @@ trajectory at every call.  The resulting convex QP has exact input bounds.
 import numpy as np
 import torch
 
-from simulator.rti_symbolic import NX, NU, CpuCasadiDynamics
+from simulator.rti_symbolic import NX, NU, AUGMENTED_NX, CpuCasadiDynamics, ActuatorAwareCpuDynamics
 
 
 class BatchedRTIMPC:
     def __init__(self, model, batch_size, horizon=20, dt=.1, backend="rti_cpu",
                  iterations=400, tolerance=2e-3, cusadi_root=None, build_dir=None,
-                 attitude_pitch_weight=0., attitude_yaw_weight=0.):
+                 attitude_pitch_weight=0., attitude_yaw_weight=0.,
+                 corridor_lateral_m=None, corridor_depth_m=None,
+                 pitch_limit_deg=None, max_normalized_slew=None,
+                 actuator_aware=False):
         if horizon < 1 or batch_size < 1 or dt <= 0:
             raise ValueError("invalid RTI dimensions or step")
         if backend not in ("rti_cpu", "rti_cuda"):
@@ -28,12 +31,24 @@ class BatchedRTIMPC:
             raise ValueError("attitude tracking weights must be finite and nonnegative")
         self.attitude_pitch_weight = float(attitude_pitch_weight)
         self.attitude_yaw_weight = float(attitude_yaw_weight)
+        constraints = (corridor_lateral_m, corridor_depth_m, pitch_limit_deg,
+                       max_normalized_slew)
+        if any(v is not None and (not np.isfinite(v) or v <= 0) for v in constraints):
+            raise ValueError("RTI state and slew limits must be positive and finite")
+        if any(v is not None for v in constraints) and not all(v is not None for v in constraints):
+            raise ValueError("all RTI path, attitude and slew limits are required together")
+        self.path_constraints = constraints if all(v is not None for v in constraints) else None
         self.model, self.batch_size, self.horizon, self.dt = model, batch_size, horizon, dt
         self.backend, self.iterations, self.tolerance = backend, iterations, tolerance
-        self.dynamics = (CpuCasadiDynamics(dt) if backend == "rti_cpu" else
+        if actuator_aware and backend != "rti_cpu":
+            raise ValueError("actuator-aware dynamics currently require rti_cpu")
+        self.actuator_aware = actuator_aware
+        self.nx = AUGMENTED_NX if actuator_aware else NX
+        self.dynamics = (ActuatorAwareCpuDynamics(dt) if actuator_aware else
+                         CpuCasadiDynamics(dt) if backend == "rti_cpu" else
                          self._cuda_dynamics(cusadi_root, build_dir))
         self.solver = None
-        self.reset(torch.zeros(batch_size, NX, device=model.device, dtype=model.dtype))
+        self.reset(torch.zeros(batch_size, self.nx, device=model.device, dtype=model.dtype))
 
     def _cuda_dynamics(self, cusadi_root, build_dir):
         from simulator.rti_cuda import CudaCasadiDynamics
@@ -41,6 +56,9 @@ class BatchedRTIMPC:
                                    cusadi_root=cusadi_root, build_dir=build_dir)
 
     def reset(self, state, mask=None):
+        if self.actuator_aware and state.shape[-1] == NX:
+            state = torch.cat((state, torch.zeros(state.shape[0], self.nx-NX,
+                device=state.device, dtype=state.dtype)), -1)
         if not hasattr(self, "plan"):
             self.plan = self.model.tensor([.6, 0., 0.]).expand(
                 self.batch_size, self.horizon, NU).clone()
@@ -70,7 +88,7 @@ class BatchedRTIMPC:
 
     def build_qp(self, state, reference):
         """Return P,q,A,l,u for 1/2 dz'P dz+q'dz, l<=A dz<=u."""
-        if (state.shape != (self.batch_size, NX) or
+        if (state.shape != (self.batch_size, self.nx) or
                 reference.shape not in ((self.batch_size, self.horizon, 6),
                                         (self.batch_size, self.horizon, 8))):
             raise ValueError("invalid state or reference shape")
@@ -84,11 +102,13 @@ class BatchedRTIMPC:
         else:
             f, jac_x, jac_u = self.dynamics.evaluate(
                 self.states[:, :-1], self.plan)
-        ns, nu, dim = n*NX, n*NU, n*(NX+NU)
+        nx = self.nx
+        ns, nu, dim = n*nx, n*NU, n*(nx+NU)
         P = torch.zeros(b, dim, dim, device=self.model.device, dtype=self.model.dtype)
         q = torch.zeros(b, dim, device=self.model.device, dtype=self.model.dtype)
-        A = torch.zeros(b, dim, dim, device=self.model.device, dtype=self.model.dtype)
-        lower = torch.zeros(b, dim, device=self.model.device, dtype=self.model.dtype)
+        extra_rows = 6*n if self.path_constraints is not None else 0
+        A = torch.zeros(b, dim+extra_rows, dim, device=self.model.device, dtype=self.model.dtype)
+        lower = torch.zeros(b, dim+extra_rows, device=self.model.device, dtype=self.model.dtype)
         upper = torch.zeros_like(lower)
         state_weight = self.model.tensor([3., 3., 3., self.attitude_pitch_weight,
                                           self.attitude_yaw_weight, 5., 5., 5.] if
@@ -96,13 +116,13 @@ class BatchedRTIMPC:
         input_weight = self.model.tensor([.15, .08, .08])
         rate_weight = self.model.tensor([1.8, .35, .35])
         for k in range(n):
-            sx = slice(k*NX, (k+1)*NX)
+            sx = slice(k*nx, (k+1)*nx)
             su = slice(ns+k*NU, ns+(k+1)*NU)
-            row = slice(k*NX, (k+1)*NX)
-            A[:, row, sx] = torch.eye(NX, device=self.model.device, dtype=self.model.dtype)
+            row = slice(k*nx, (k+1)*nx)
+            A[:, row, sx] = torch.eye(nx, device=self.model.device, dtype=self.model.dtype)
             A[:, row, su] = -jac_u[:, k]
             if k:
-                A[:, row, slice((k-1)*NX, k*NX)] = -jac_x[:, k]
+                A[:, row, slice((k-1)*nx, k*nx)] = -jac_x[:, k]
             defect = f[:, k]-self.states[:, k+1]
             lower[:, row] = defect
             upper[:, row] = defect
@@ -113,7 +133,7 @@ class BatchedRTIMPC:
                                                     torch.cos(tracking_error[:, 4]))
             weight = state_weight*(2.5 if k == n-1 else 1.)
             P[:, sx, sx] += output.transpose(-1, -2) @ (weight[None, :, None]*output)
-            P[:, sx, sx] += 1e-5*torch.eye(NX, device=self.model.device, dtype=self.model.dtype)
+            P[:, sx, sx] += 1e-5*torch.eye(nx, device=self.model.device, dtype=self.model.dtype)
             q[:, sx] += (output.transpose(-1, -2) @ (weight*tracking_error)[..., None]).squeeze(-1)
             P[:, su, su] += torch.diag(input_weight+rate_weight)
             q[:, su] += input_weight*self.plan[:, k]
@@ -129,19 +149,53 @@ class BatchedRTIMPC:
             A[:, bound_row, su] = torch.eye(NU, device=self.model.device, dtype=self.model.dtype)
             lower[:, bound_row] = self.model.lower-self.plan[:, k]
             upper[:, bound_row] = self.model.upper-self.plan[:, k]
+            if self.path_constraints is not None:
+                lateral_limit, depth_limit, pitch_limit_deg, slew_limit = self.path_constraints
+                # Local path-normal and depth constraints on the predicted
+                # next state. Reference yaw is the path tangent heading.
+                yaw = reference[:, k, 4]
+                normal = torch.stack((-torch.sin(yaw), torch.cos(yaw)), -1)
+                nominal_lateral = (normal*(self.states[:, k+1, :2] -
+                                           reference[:, k, :2])).sum(-1)
+                row_base = dim+6*k
+                A[:, row_base, k*nx:k*nx+2] = normal
+                lower[:, row_base] = -lateral_limit-nominal_lateral
+                upper[:, row_base] = lateral_limit-nominal_lateral
+                A[:, row_base+1, k*nx+2] = 1.
+                lower[:, row_base+1] = -depth_limit - (
+                    self.states[:, k+1, 2]-reference[:, k, 2])
+                upper[:, row_base+1] = depth_limit - (
+                    self.states[:, k+1, 2]-reference[:, k, 2])
+                A[:, row_base+2, k*nx+3] = 1.
+                pitch_limit = np.deg2rad(pitch_limit_deg)
+                lower[:, row_base+2] = -pitch_limit-self.states[:, k+1, 3]
+                upper[:, row_base+2] = pitch_limit-self.states[:, k+1, 3]
+                for axis in range(NU):
+                    row = row_base+3+axis
+                    A[:, row, ns+k*NU+axis] = 1.
+                    if k:
+                        A[:, row, ns+(k-1)*NU+axis] = -1.
+                    rate = self.plan[:, k, axis] - (
+                        self.previous[:, axis] if k == 0 else self.plan[:, k-1, axis])
+                    lower[:, row] = -slew_limit-rate
+                    upper[:, row] = slew_limit-rate
         return P, q, A, lower, upper
 
     def _tracking_output(self, state, include_attitude=False):
         from simulator.batch_mpc import BatchedLinearMPC
         # Reuse the exact NED velocity output Jacobian of the existing MPC.
-        return BatchedLinearMPC._tracking_output(self, state, include_attitude)
+        output, offset = BatchedLinearMPC._tracking_output(
+            self, state[..., :NX], include_attitude)
+        if self.actuator_aware:
+            output = torch.nn.functional.pad(output, (0, self.nx-NX))
+        return output, offset
 
     def solve(self, state, reference):
         P, q, A, lower, upper = self.build_qp(state, reference)
         if self.backend == "rti_cpu":
             import osqp
             import scipy.sparse as sparse
-            solutions, valid = [], []
+            solutions, valid, statuses, primal, dual = [], [], [], [], []
             for i in range(self.batch_size):
                 solver = osqp.OSQP()
                 solver.setup(P=sparse.csc_matrix(P[i].numpy()), q=q[i].numpy(),
@@ -152,14 +206,21 @@ class BatchedRTIMPC:
                 result = solver.solve()
                 ok = result.info.status_val in (1, 2) and np.isfinite(result.x).all()
                 valid.append(ok)
+                statuses.append(result.info.status)
+                primal.append(result.info.prim_res)
+                dual.append(result.info.dual_res)
                 solutions.append(result.x if ok else np.zeros(P.shape[-1]))
             delta = self.model.tensor(np.stack(solutions))
             valid = torch.tensor(valid, device=self.model.device, dtype=torch.bool)
+            self.last_status = statuses
+            self.last_primal_residual = self.model.tensor(primal)
+            self.last_dual_residual = self.model.tensor(dual)
+            self.last_qp_valid = valid.clone()
         else:
             if self.solver is None:
                 from simulator.rti_cuda import CudssEqualityBoxQP
                 self.solver = CudssEqualityBoxQP(
-                    P.shape[-1], A.shape[-2], self.horizon*NX, self.batch_size,
+                    P.shape[-1], A.shape[-2], self.horizon*self.nx, self.batch_size,
                     iterations=self.iterations, tolerance=self.tolerance)
             finite = (torch.isfinite(P).all((-1, -2)) &
                       torch.isfinite(q).all(-1) &
@@ -181,12 +242,12 @@ class BatchedRTIMPC:
                 delta = torch.zeros_like(q)
                 valid = torch.zeros(self.batch_size, device=q.device,
                                     dtype=torch.bool)
-        ns = self.horizon*NX
+        ns = self.horizon*self.nx
         new_plan = (self.plan+delta[:, ns:].reshape(self.batch_size, self.horizon, NU))
         new_plan = torch.minimum(torch.maximum(new_plan, self.model.lower), self.model.upper)
         self.plan = torch.where(valid[:, None, None], new_plan, self.plan)
         corrected_states = self.states[:, 1:]+delta[:, :ns].reshape(
-            self.batch_size, self.horizon, NX)
+            self.batch_size, self.horizon, self.nx)
         self.states[:, 1:] = torch.where(valid[:, None, None], corrected_states,
                                           self.states[:, 1:])
         self.previous = torch.where(valid[:, None], self.plan[:, 0], self.previous)

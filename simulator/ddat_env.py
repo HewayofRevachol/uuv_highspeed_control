@@ -22,12 +22,15 @@ class DDATPathEnv(BatchedPathResidualEnv):
                  backend="admm", seed=1026, randomize_plant=True,
                  admm_iterations=400, adaptation_time=.5,
                  current_max_mps=1., current_filter_time=1.,
+                 current_profile="steady",
                  attitude_pitch_weight=100., attitude_yaw_weight=30.,
                  fsp_enabled=False, fsp_filter_time=.4, fsp_preview_time=None,
                  admm_rho=2.):
         if (adaptation_time <= 0 or current_filter_time <= 0 or
                 current_max_mps < 0 or not np.isfinite(current_max_mps)):
             raise ValueError("adaptation/filter times must be positive and current_max_mps finite, nonnegative")
+        if current_profile not in ("steady", "harmonic"):
+            raise ValueError("current_profile must be steady or harmonic")
         super().__init__(path_bank, None, batch_size, device, horizon, backend,
                          seed, randomize_plant, admm_iterations,
                          admm_rho=admm_rho,
@@ -42,6 +45,17 @@ class DDATPathEnv(BatchedPathResidualEnv):
                                        dtype=self.dtype)
         self.current_estimate = torch.zeros_like(self.current_ned)
         self.current_max_mps = current_max_mps
+        self.current_profile = current_profile
+        # Keep wave sampling separate from plant/noise sampling so paired seeds
+        # use the same plant and body-acceleration disturbance stream.
+        self.current_generator = torch.Generator(device=self.device).manual_seed(
+            int(seed) + 730101)
+        self.current_base = torch.zeros_like(self.current_ned)
+        self.current_phase = torch.zeros(batch_size, 2, device=self.device,
+                                         dtype=self.dtype)
+        self.current_wave = torch.zeros(batch_size, 2, 3, device=self.device,
+                                        dtype=self.dtype)
+        self.current_frequency_hz = self.model.tensor([.18, .55])
         self.current_scale = max(1., current_max_mps)
         self.current_gain = 1. - np.exp(-self.mpc.dt/current_filter_time)
         self.adaptation_gain = 1. - np.exp(-self.mpc.dt/adaptation_time)
@@ -71,7 +85,37 @@ class DDATPathEnv(BatchedPathResidualEnv):
             bearing = self._uniform((count,), -np.pi, np.pi)
             self.current_ned[mask] = torch.stack((speed*torch.cos(bearing),
                 speed*torch.sin(bearing), torch.zeros_like(speed)), -1)
+            self.current_base[mask] = self.current_ned[mask]
+            if self.current_profile == "harmonic":
+                # Base + two bounded, coherent horizontal components. Their
+                # magnitudes sum to at most current_max_mps by construction.
+                self.current_base[mask] *= .35
+                phase = 2*np.pi*torch.rand((count, 2), device=self.device,
+                    dtype=self.dtype, generator=self.current_generator)
+                direction = 2*np.pi*torch.rand((count, 2), device=self.device,
+                    dtype=self.dtype, generator=self.current_generator)
+                amplitude = self.current_max_mps*(.15 + .10*torch.rand(
+                    (count, 2), device=self.device, dtype=self.dtype,
+                    generator=self.current_generator))
+                self.current_phase[mask] = phase
+                self.current_wave[mask] = torch.stack((
+                    amplitude*torch.cos(direction), amplitude*torch.sin(direction),
+                    torch.zeros_like(amplitude)), -1)
+                self.current_ned[mask] = self.current_base[mask] + (
+                    self.current_wave[mask]*phase.cos()[..., None]).sum(1)
         return super().reset(path_ids, mask)
+
+    @torch.no_grad()
+    def _advance_current(self, dt, active):
+        if self.current_profile == "steady" or not active.any():
+            return
+        phase = self.current_phase + 2*np.pi*dt*self.current_frequency_hz
+        self.current_phase = torch.where(active[:, None], phase,
+                                         self.current_phase)
+        value = self.current_base + (
+            self.current_wave*self.current_phase.cos()[..., None]).sum(1)
+        self.current_ned = torch.where(active[:, None], value,
+                                       self.current_ned)
 
     def _reference(self, time_offset=0.):
         """Give MPC path position, attitude and drift-corrected NED velocity."""

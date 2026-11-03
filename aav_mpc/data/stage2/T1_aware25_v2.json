@@ -1,0 +1,21 @@
+{
+  "task": "T1",
+  "method": "aware25",
+  "path": "DDAT_trajectories/val/constant_turn_01.csv",
+  "seed": 101027,
+  "backend": "rti_cpu",
+  "horizon": 25,
+  "steps": 898,
+  "wall_s": 85.35588640700007,
+  "progress_fraction": 0.37901599973583106,
+  "simulator_success": false,
+  "simulator_failed": true,
+  "strict_success": false,
+  "first_anomaly": [
+    19.400000000000002,
+    "solver"
+  ],
+  "fallback_count": 42,
+  "saturation_fraction": 0.7850779510022272,
+  "trace": "aav_mpc/data/stage2/T1_aware25_v2.csv"
+}

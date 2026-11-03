@@ -1,0 +1,27 @@
+{
+  "task": "T1",
+  "method": "osqp25",
+  "path": "DDAT_trajectories/train/s_reversal_02.csv",
+  "target_speed_mps": 6.0,
+  "seed": 101027,
+  "backend": "osqp",
+  "horizon": 25,
+  "randomize_plant": true,
+  "current_max_mps": 1.0,
+  "process_noise": false,
+  "nominal_body": false,
+  "speed_conditioned_cost": false,
+  "steps": 514,
+  "wall_s": 13.160352103994228,
+  "progress_fraction": 0.1807706976335568,
+  "simulator_success": false,
+  "simulator_failed": true,
+  "strict_success": false,
+  "first_anomaly": [
+    7.1000000000000005,
+    "speed"
+  ],
+  "fallback_count": 0,
+  "saturation_fraction": 0.5583657587548638,
+  "trace": "aav_mpc/data/stage4/paired/T1_s_reversal_02_s101027_osqp25.csv"
+}

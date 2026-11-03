@@ -1,0 +1,66 @@
+{
+  "seed": 31,
+  "epochs": 180,
+  "log_value": true,
+  "balanced_episodes": true,
+  "select_risk": true,
+  "selected_epoch": 55,
+  "calibration_shift": -0.0008904264541342854,
+  "feature_count": 36,
+  "splits": {
+    "train": {
+      "samples": 2459,
+      "episodes": 6,
+      "value_mae": 139.16476440429688,
+      "margin_mae": 0.37455815076828003,
+      "failure_auc": 0.9980782461432617,
+      "lower_margin_coverage": 0.9044326962179748,
+      "predicted_safe_count": 739,
+      "false_safe_count": 0,
+      "false_safe_rate_among_predicted_safe": 0.0,
+      "heuristic_failure_auc": 0.8717002725516658,
+      "groups": {
+        "train_coupled_v12_s20261": 394,
+        "train_coupled_v6_s20261": 375,
+        "train_speed_v12_s20261": 336,
+        "train_speed_v18_s20261": 220,
+        "train_turn_v18_s20261": 219,
+        "train_turn_v6_s20261": 915
+      }
+    },
+    "val": {
+      "samples": 487,
+      "episodes": 2,
+      "value_mae": 147.38729858398438,
+      "margin_mae": 0.7976740002632141,
+      "failure_auc": 0.981947143412359,
+      "lower_margin_coverage": 0.8993839835728953,
+      "predicted_safe_count": 180,
+      "false_safe_count": 0,
+      "false_safe_rate_among_predicted_safe": 0.0,
+      "heuristic_failure_auc": 0.7833268558103381,
+      "groups": {
+        "val_depth_v18_s20262": 246,
+        "val_depth_v6_s20262": 241
+      }
+    },
+    "test": {
+      "samples": 1949,
+      "episodes": 3,
+      "value_mae": 665.8899536132812,
+      "margin_mae": 1.287301778793335,
+      "failure_auc": 0.8960078103444616,
+      "lower_margin_coverage": 0.5033350436121088,
+      "predicted_safe_count": 312,
+      "false_safe_count": 0,
+      "false_safe_rate_among_predicted_safe": 0.0,
+      "heuristic_failure_auc": 0.8798957913279708,
+      "groups": {
+        "test_stress_v18_s20263": 702,
+        "test_sturn_v12_s20263": 359,
+        "test_sturn_v6_s20263": 888
+      }
+    }
+  },
+  "inference_latency_us_per_sample": 22.97171300597256
+}
