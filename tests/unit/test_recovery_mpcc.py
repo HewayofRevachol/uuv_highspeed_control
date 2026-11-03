@@ -47,3 +47,22 @@ def test_constrained_rti_qp_adds_path_attitude_and_slew_rows():
     assert bool(ok[0])
     assert (mpc.plan[:, 0] - previous).abs().max() <= .3 + 1e-6
     assert (mpc.plan[:, 1:] - mpc.plan[:, :-1]).abs().max() <= .3 + 1e-6
+
+
+def test_soft_rti_path_constraints_report_unavoidable_slack():
+    model = BatchedUUVModel("cpu")
+    mpc = BatchedRTIMPC(model, 1, horizon=3, backend="rti_cpu",
+                        corridor_lateral_m=.1, corridor_depth_m=.1,
+                        pitch_limit_deg=5., max_normalized_slew=.3,
+                        soft_path_penalty=100.)
+    state = model.tensor([[0., 0., 0., 0., 0., 15., 0., 0., 0., 0.]])
+    reference = torch.zeros(1, 3, 8, dtype=model.dtype)
+    reference[0, :, 0] = model.tensor([1.5, 3., 4.5])
+    reference[0, :, 1] = 20.
+    reference[0, :, 5] = 15.
+    _, ok = mpc.solve(state, reference)
+    assert bool(ok[0])
+    assert mpc.last_status == ["solved"]
+    assert (mpc.last_slack[0, :, 0] > 19.).all()
+    assert (mpc.last_slack >= 0.).all()
+    assert (mpc.plan[:, 1:] - mpc.plan[:, :-1]).abs().max() <= .3 + 1e-6

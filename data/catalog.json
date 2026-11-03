@@ -2,6 +2,55 @@
   "schema_version": 1,
   "datasets": [
     {
+      "id": "h15_mpc_replication",
+      "kind": "trajectories",
+      "path": "data/datasets/h15_mpc_replication",
+      "purpose": "15 m/s MPC 中间预测窗的前瞻复制：四条不同转弯与深度波耦合路径，加紧转弯和反向 S 弯对照。",
+      "splits": {
+        "replication": {"path": "data/datasets/h15_mpc_replication", "file_count": 6}
+      },
+      "provenance": {
+        "type": "generated",
+        "generator": "aav_mpc/h15_replication_paths.py",
+        "manifest": "data/datasets/h15_mpc_replication/manifest.json",
+        "notes": "在原留出测试后新冻结的复制集；manifest 同时冻结三个控制器与新种子 101041–101050。不可称原留出测试。"
+      }
+    },
+    {
+      "id": "h15_mpc_challenge",
+      "kind": "trajectories",
+      "path": "data/datasets/h15_mpc_challenge",
+      "purpose": "15 m/s MPC 接近配平包络的急入弯、S 反转与转弯叠加深度波诊断。",
+      "splits": {
+        "development": {"path": "data/datasets/h15_mpc_challenge", "file_count": 4},
+        "validation": {"path": "data/datasets/h15_mpc_challenge", "file_count": 4},
+        "test": {"path": "data/datasets/h15_mpc_challenge", "file_count": 4}
+      },
+      "provenance": {
+        "type": "generated",
+        "generator": "aav_mpc/h15_challenge_paths.py",
+        "manifest": "data/datasets/h15_mpc_challenge/manifest.json",
+        "notes": "R30 m 在固定失配植物的 15 m/s 配平需约 1.64 MN，超过 1.5 MN 推力上限；本集选择 R42–75 m。配平筛查不构成瞬态可行性证明。"
+      }
+    },
+    {
+      "id": "h15_mpc",
+      "kind": "trajectories",
+      "path": "data/datasets/h15_mpc",
+      "purpose": "15 m/s MPC 基线的光滑恒曲率、S 弯、深度波与入弯长度配对诊断。",
+      "splits": {
+        "development": {"path": "data/datasets/h15_mpc", "file_count": 4},
+        "validation": {"path": "data/datasets/h15_mpc", "file_count": 4},
+        "test": {"path": "data/datasets/h15_mpc", "file_count": 4}
+      },
+      "provenance": {
+        "type": "generated",
+        "generator": "aav_mpc/h15_paths.py",
+        "manifest": "data/datasets/h15_mpc/manifest.json",
+        "notes": "各 split 的具体文件在 manifest.json；每族以不同几何参数生成，速度均固定 15 m/s。"
+      }
+    },
+    {
       "id": "ddat_trajectories",
       "kind": "trajectories",
       "path": "DDAT_trajectories",

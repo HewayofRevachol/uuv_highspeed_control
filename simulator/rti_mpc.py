@@ -17,7 +17,7 @@ class BatchedRTIMPC:
                  attitude_pitch_weight=0., attitude_yaw_weight=0.,
                  corridor_lateral_m=None, corridor_depth_m=None,
                  pitch_limit_deg=None, max_normalized_slew=None,
-                 actuator_aware=False):
+                 actuator_aware=False, soft_path_penalty=None):
         if horizon < 1 or batch_size < 1 or dt <= 0:
             raise ValueError("invalid RTI dimensions or step")
         if backend not in ("rti_cpu", "rti_cuda"):
@@ -38,6 +38,11 @@ class BatchedRTIMPC:
         if any(v is not None for v in constraints) and not all(v is not None for v in constraints):
             raise ValueError("all RTI path, attitude and slew limits are required together")
         self.path_constraints = constraints if all(v is not None for v in constraints) else None
+        if soft_path_penalty is not None:
+            if (self.path_constraints is None or backend != "rti_cpu" or
+                    not np.isfinite(soft_path_penalty) or soft_path_penalty <= 0):
+                raise ValueError("soft path penalty requires CPU RTI path constraints and a positive weight")
+        self.soft_path_penalty = soft_path_penalty
         self.model, self.batch_size, self.horizon, self.dt = model, batch_size, horizon, dt
         self.backend, self.iterations, self.tolerance = backend, iterations, tolerance
         if actuator_aware and backend != "rti_cpu":
@@ -64,10 +69,13 @@ class BatchedRTIMPC:
                 self.batch_size, self.horizon, NU).clone()
             self.states = state[:, None, :].expand(-1, self.horizon+1, -1).clone()
             self.previous = self.plan[:, 0].clone()
+            self.last_slack = torch.zeros(self.batch_size, self.horizon, 3,
+                                          device=self.model.device, dtype=self.model.dtype)
         elif mask is not None:
             self.plan[mask] = self.model.tensor([.6, 0., 0.])
             self.states[mask] = state[mask, None, :]
             self.previous[mask] = self.plan[mask, 0]
+            self.last_slack[mask] = 0
 
     def _shift_and_rollout(self, state):
         # RTI shift: input sequence is shifted by one stage, then the nominal
@@ -103,12 +111,15 @@ class BatchedRTIMPC:
             f, jac_x, jac_u = self.dynamics.evaluate(
                 self.states[:, :-1], self.plan)
         nx = self.nx
-        ns, nu, dim = n*nx, n*NU, n*(nx+NU)
+        ns, nu = n*nx, n*NU
+        base_dim = ns+nu
+        soft = self.path_constraints is not None and self.soft_path_penalty is not None
+        dim = base_dim + (3*n if soft else 0)
         P = torch.zeros(b, dim, dim, device=self.model.device, dtype=self.model.dtype)
         q = torch.zeros(b, dim, device=self.model.device, dtype=self.model.dtype)
-        extra_rows = 6*n if self.path_constraints is not None else 0
-        A = torch.zeros(b, dim+extra_rows, dim, device=self.model.device, dtype=self.model.dtype)
-        lower = torch.zeros(b, dim+extra_rows, device=self.model.device, dtype=self.model.dtype)
+        extra_rows = (12*n if soft else 6*n if self.path_constraints is not None else 0)
+        A = torch.zeros(b, base_dim+extra_rows, dim, device=self.model.device, dtype=self.model.dtype)
+        lower = torch.zeros(b, base_dim+extra_rows, device=self.model.device, dtype=self.model.dtype)
         upper = torch.zeros_like(lower)
         state_weight = self.model.tensor([3., 3., 3., self.attitude_pitch_weight,
                                           self.attitude_yaw_weight, 5., 5., 5.] if
@@ -157,21 +168,41 @@ class BatchedRTIMPC:
                 normal = torch.stack((-torch.sin(yaw), torch.cos(yaw)), -1)
                 nominal_lateral = (normal*(self.states[:, k+1, :2] -
                                            reference[:, k, :2])).sum(-1)
-                row_base = dim+6*k
-                A[:, row_base, k*nx:k*nx+2] = normal
-                lower[:, row_base] = -lateral_limit-nominal_lateral
-                upper[:, row_base] = lateral_limit-nominal_lateral
-                A[:, row_base+1, k*nx+2] = 1.
-                lower[:, row_base+1] = -depth_limit - (
-                    self.states[:, k+1, 2]-reference[:, k, 2])
-                upper[:, row_base+1] = depth_limit - (
-                    self.states[:, k+1, 2]-reference[:, k, 2])
-                A[:, row_base+2, k*nx+3] = 1.
                 pitch_limit = np.deg2rad(pitch_limit_deg)
-                lower[:, row_base+2] = -pitch_limit-self.states[:, k+1, 3]
-                upper[:, row_base+2] = pitch_limit-self.states[:, k+1, 3]
+                nominal = (nominal_lateral,
+                           self.states[:, k+1, 2]-reference[:, k, 2],
+                           self.states[:, k+1, 3])
+                limits = (lateral_limit, depth_limit, pitch_limit)
+                row_base = base_dim + (12 if soft else 6)*k
+                if soft:
+                    for j, (value, limit) in enumerate(zip(nominal, limits)):
+                        upper_row, lower_row = row_base+2*j, row_base+2*j+1
+                        state_slice = slice(k*nx, k*nx+2) if j == 0 else k*nx+j+1
+                        coefficient = normal if j == 0 else 1.
+                        A[:, upper_row, state_slice] = coefficient
+                        A[:, lower_row, state_slice] = coefficient
+                        slack_col = base_dim+3*k+j
+                        A[:, upper_row, slack_col] = -1.
+                        A[:, lower_row, slack_col] = 1.
+                        upper[:, upper_row] = limit-value
+                        lower[:, upper_row] = -np.inf
+                        lower[:, lower_row] = -limit-value
+                        upper[:, lower_row] = np.inf
+                        A[:, row_base+6+j, slack_col] = 1.
+                        lower[:, row_base+6+j] = 0.
+                        upper[:, row_base+6+j] = np.inf
+                        P[:, slack_col, slack_col] = 2*self.soft_path_penalty/(limit*limit)
+                    slew_base = row_base+9
+                else:
+                    A[:, row_base, k*nx:k*nx+2] = normal
+                    A[:, row_base+1, k*nx+2] = 1.
+                    A[:, row_base+2, k*nx+3] = 1.
+                    for j, (value, limit) in enumerate(zip(nominal, limits)):
+                        lower[:, row_base+j] = -limit-value
+                        upper[:, row_base+j] = limit-value
+                    slew_base = row_base+3
                 for axis in range(NU):
-                    row = row_base+3+axis
+                    row = slew_base+axis
                     A[:, row, ns+k*NU+axis] = 1.
                     if k:
                         A[:, row, ns+(k-1)*NU+axis] = -1.
@@ -243,12 +274,19 @@ class BatchedRTIMPC:
                 valid = torch.zeros(self.batch_size, device=q.device,
                                     dtype=torch.bool)
         ns = self.horizon*self.nx
-        new_plan = (self.plan+delta[:, ns:].reshape(self.batch_size, self.horizon, NU))
+        nu = self.horizon*NU
+        new_plan = (self.plan+delta[:, ns:ns+nu].reshape(self.batch_size, self.horizon, NU))
         new_plan = torch.minimum(torch.maximum(new_plan, self.model.lower), self.model.upper)
         self.plan = torch.where(valid[:, None, None], new_plan, self.plan)
         corrected_states = self.states[:, 1:]+delta[:, :ns].reshape(
             self.batch_size, self.horizon, self.nx)
         self.states[:, 1:] = torch.where(valid[:, None, None], corrected_states,
                                           self.states[:, 1:])
+        if self.soft_path_penalty is not None:
+            slack = delta[:, ns+nu:].reshape(self.batch_size, self.horizon, 3).clamp_min(0.)
+            self.last_slack = torch.where(valid[:, None, None], slack,
+                                          torch.zeros_like(slack))
+        else:
+            self.last_slack.zero_()
         self.previous = torch.where(valid[:, None], self.plan[:, 0], self.previous)
         return self.previous*self.model.control_scale, valid

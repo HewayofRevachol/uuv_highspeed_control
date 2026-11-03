@@ -121,6 +121,7 @@ class BatchedLinearMPC:
                 raise RuntimeError("CPU OSQP backend requires 'osqp' and 'scipy'") from error
             if model.device.type != "cpu":
                 raise ValueError("OSQP backend only supports CPU")
+            self.last_status = ["not_solved"] * batch_size
         elif backend != "admm":
             raise ValueError("backend must be 'admm' or 'osqp'")
         self.reset(torch.ones(batch_size, 10, device=model.device, dtype=model.dtype))
@@ -257,7 +258,7 @@ class BatchedLinearMPC:
         if self.backend == "osqp":
             import osqp
             import scipy.sparse as sparse
-            solutions, primal_residuals, dual_residuals = [], [], []
+            solutions, primal_residuals, dual_residuals, statuses = [], [], [], []
             for i in range(self.batch_size):
                 solver = osqp.OSQP()
                 solver.setup(P=sparse.csc_matrix(h[i].numpy()), q=g[i].numpy(),
@@ -268,6 +269,7 @@ class BatchedLinearMPC:
                              eps_abs=1e-7, eps_rel=1e-7, max_iter=20_000)
                 solver.warm_start(x=self.plan[i].flatten().numpy())
                 result = solver.solve()
+                statuses.append(result.info.status)
                 solutions.append(result.x if result.info.status_val in (1, 2)
                                  else np.full(h.shape[-1], np.nan))
                 primal_residuals.append(getattr(result.info, "prim_res", float("inf")))
@@ -277,6 +279,7 @@ class BatchedLinearMPC:
             self.last_qp_valid = torch.isfinite(h).all((-1, -2)) & torch.isfinite(g).all(-1)
             self.last_primal_residual = self.model.tensor(primal_residuals)
             self.last_dual_residual = self.model.tensor(dual_residuals)
+            self.last_status = statuses
         else:
             size = h.shape[-1]
             matrix = h + self.rho*torch.eye(size, device=h.device, dtype=h.dtype)

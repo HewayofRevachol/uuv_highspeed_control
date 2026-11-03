@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "control_period_s": 0.1,
+  "integration_period_s": 0.02,
+  "target_speed_mps": 15.0,
+  "speed_tolerance_mps": 2.0,
+  "lateral_corridor_m": 8.0,
+  "depth_corridor_m": 5.0,
+  "pitch_limit_deg": 40.0,
+  "local_speed_min_mps": 13.0,
+  "local_speed_max_mps": 17.0,
+  "max_reference_speed_change_mps_per_s": 0.5,
+  "preview_scale": 1.0,
+  "plant": "fixed_mismatch",
+  "current_max_mps": 0.0,
+  "process_noise": false,
+  "strict_success_requires_full_path": true,
+  "minimum_effect_pp": 10.0,
+  "realtime_deadline_ms": 100.0
+}

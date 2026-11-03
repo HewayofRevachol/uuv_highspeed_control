@@ -1,0 +1,173 @@
+{
+  "schema": 1,
+  "speed_mps": 15.0,
+  "length_design_m": 300.0,
+  "sample_spacing_m": 0.5,
+  "splits": {
+    "development": [
+      {
+        "family": "tight_turn",
+        "parameters": {
+          "radius_m": 55.0,
+          "entry_m": 20.0
+        },
+        "geometry_events_m": [
+          60.0,
+          80.0
+        ],
+        "path": "data/datasets/h15_mpc_challenge/development_tight_turn.csv"
+      },
+      {
+        "family": "reversal",
+        "parameters": {
+          "radius_m": 65.0,
+          "reversal_m": 155.0,
+          "transition_m": 25.0
+        },
+        "geometry_events_m": [
+          60.0,
+          80.0,
+          155.0,
+          180.0
+        ],
+        "path": "data/datasets/h15_mpc_challenge/development_reversal.csv"
+      },
+      {
+        "family": "coupled",
+        "parameters": {
+          "radius_m": 70.0,
+          "depth_amplitude_m": 8.0
+        },
+        "geometry_events_m": [
+          60.0,
+          80.0,
+          240.0
+        ],
+        "path": "data/datasets/h15_mpc_challenge/development_coupled.csv"
+      },
+      {
+        "family": "late_entry",
+        "parameters": {
+          "radius_m": 45.0,
+          "entry_m": 105.0,
+          "transition_m": 12.0
+        },
+        "geometry_events_m": [
+          105.0,
+          117.0
+        ],
+        "path": "data/datasets/h15_mpc_challenge/development_late_entry.csv"
+      }
+    ],
+    "validation": [
+      {
+        "family": "tight_turn",
+        "parameters": {
+          "radius_m": 60.0,
+          "entry_m": 25.0
+        },
+        "geometry_events_m": [
+          60.0,
+          85.0
+        ],
+        "path": "data/datasets/h15_mpc_challenge/validation_tight_turn.csv"
+      },
+      {
+        "family": "reversal",
+        "parameters": {
+          "radius_m": 70.0,
+          "reversal_m": 170.0,
+          "transition_m": 30.0
+        },
+        "geometry_events_m": [
+          60.0,
+          80.0,
+          170.0,
+          200.0
+        ],
+        "path": "data/datasets/h15_mpc_challenge/validation_reversal.csv"
+      },
+      {
+        "family": "coupled",
+        "parameters": {
+          "radius_m": 75.0,
+          "depth_amplitude_m": 7.0
+        },
+        "geometry_events_m": [
+          60.0,
+          80.0,
+          240.0
+        ],
+        "path": "data/datasets/h15_mpc_challenge/validation_coupled.csv"
+      },
+      {
+        "family": "late_entry",
+        "parameters": {
+          "radius_m": 50.0,
+          "entry_m": 115.0,
+          "transition_m": 16.0
+        },
+        "geometry_events_m": [
+          115.0,
+          131.0
+        ],
+        "path": "data/datasets/h15_mpc_challenge/validation_late_entry.csv"
+      }
+    ],
+    "test": [
+      {
+        "family": "tight_turn",
+        "parameters": {
+          "radius_m": 50.0,
+          "entry_m": 18.0
+        },
+        "geometry_events_m": [
+          60.0,
+          78.0
+        ],
+        "path": "data/datasets/h15_mpc_challenge/test_tight_turn.csv"
+      },
+      {
+        "family": "reversal",
+        "parameters": {
+          "radius_m": 60.0,
+          "reversal_m": 145.0,
+          "transition_m": 20.0
+        },
+        "geometry_events_m": [
+          60.0,
+          80.0,
+          145.0,
+          165.0
+        ],
+        "path": "data/datasets/h15_mpc_challenge/test_reversal.csv"
+      },
+      {
+        "family": "coupled",
+        "parameters": {
+          "radius_m": 62.0,
+          "depth_amplitude_m": 9.0
+        },
+        "geometry_events_m": [
+          60.0,
+          80.0,
+          240.0
+        ],
+        "path": "data/datasets/h15_mpc_challenge/test_coupled.csv"
+      },
+      {
+        "family": "late_entry",
+        "parameters": {
+          "radius_m": 42.0,
+          "entry_m": 95.0,
+          "transition_m": 10.0
+        },
+        "geometry_events_m": [
+          95.0,
+          105.0
+        ],
+        "path": "data/datasets/h15_mpc_challenge/test_late_entry.csv"
+      }
+    ]
+  }
+}

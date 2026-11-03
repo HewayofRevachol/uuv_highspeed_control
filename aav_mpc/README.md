@@ -1,6 +1,8 @@
 # AAV-MPC 复现实验
 
-主报告：[`REPORT_20261102.md`](REPORT_20261102.md)。任务冻结：[`configs/tasks.json`](configs/tasks.json)。所有新脚本、日志、模型和结果均在此目录下；旧项目数据未搬动。
+主报告：[`REPORT_20261102.md`](REPORT_20261102.md)。任务冻结：[`configs/tasks.json`](configs/tasks.json)。旧项目数据未搬动。
+
+15 m/s MPC 基线已按用户要求暂停；接手与恢复顺序见 [`H15_HANDOFF_20261103.md`](H15_HANDOFF_20261103.md)。当前目标、进度和后续步骤见 [`H15_PROGRESS_20261103.md`](H15_PROGRESS_20261103.md)，完整实验分析见 [`H15_BASELINE_20261103.md`](H15_BASELINE_20261103.md)。独立生成的受控与压力路径在 `data/datasets/h15_mpc*`，逐周期结果在 `outputs/experiments/mpc_h15_*`。该实验不复用历史 T3 的 18 m/s 任务定义。
 
 | 阶段 | 入口 | 输出 |
 | --- | --- | --- |

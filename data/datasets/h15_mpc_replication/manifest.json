@@ -1,0 +1,127 @@
+{
+  "schema": 1,
+  "speed_mps": 15.0,
+  "length_design_m": 300.0,
+  "sample_spacing_m": 0.5,
+  "experiment_freeze": {
+    "methods": [
+      "endpoint20",
+      "condensed_endpoint35",
+      "condensed_endpoint40"
+    ],
+    "seeds": [
+      101041,
+      101042,
+      101043,
+      101044,
+      101045,
+      101046,
+      101047,
+      101048,
+      101049,
+      101050
+    ],
+    "task_config": "aav_mpc/configs/h15.json"
+  },
+  "splits": {
+    "replication": [
+      {
+        "family": "tight_turn_rep",
+        "generator_family": "tight_turn",
+        "parameters": {
+          "radius_m": 47.0,
+          "entry_m": 16.0
+        },
+        "geometry_events_m": [
+          60.0,
+          76.0
+        ],
+        "path": "data/datasets/h15_mpc_replication/replication_tight_turn_rep.csv"
+      },
+      {
+        "family": "reversal_rep",
+        "generator_family": "reversal",
+        "parameters": {
+          "radius_m": 63.0,
+          "reversal_m": 150.0,
+          "transition_m": 22.0
+        },
+        "geometry_events_m": [
+          60.0,
+          80.0,
+          150.0,
+          172.0
+        ],
+        "path": "data/datasets/h15_mpc_replication/replication_reversal_rep.csv"
+      },
+      {
+        "family": "coupled_a",
+        "generator_family": "coupled",
+        "parameters": {
+          "radius_m": 65.0,
+          "depth_amplitude_m": 8.8,
+          "start_m": 60.0,
+          "entry_m": 20.0,
+          "wave_length_m": 180.0
+        },
+        "geometry_events_m": [
+          60.0,
+          80.0,
+          240.0
+        ],
+        "path": "data/datasets/h15_mpc_replication/replication_coupled_a.csv"
+      },
+      {
+        "family": "coupled_b",
+        "generator_family": "coupled",
+        "parameters": {
+          "radius_m": 70.0,
+          "depth_amplitude_m": 9.3,
+          "start_m": 55.0,
+          "entry_m": 18.0,
+          "wave_length_m": 165.0
+        },
+        "geometry_events_m": [
+          55.0,
+          73.0,
+          220.0
+        ],
+        "path": "data/datasets/h15_mpc_replication/replication_coupled_b.csv"
+      },
+      {
+        "family": "coupled_c",
+        "generator_family": "coupled",
+        "parameters": {
+          "radius_m": 60.0,
+          "depth_amplitude_m": 8.2,
+          "start_m": 70.0,
+          "entry_m": 22.0,
+          "wave_length_m": 190.0
+        },
+        "geometry_events_m": [
+          70.0,
+          92.0,
+          260.0
+        ],
+        "path": "data/datasets/h15_mpc_replication/replication_coupled_c.csv"
+      },
+      {
+        "family": "coupled_d",
+        "generator_family": "coupled",
+        "parameters": {
+          "radius_m": 68.0,
+          "depth_amplitude_m": 8.9,
+          "start_m": 50.0,
+          "entry_m": 16.0,
+          "wave_length_m": 200.0
+        },
+        "geometry_events_m": [
+          50.0,
+          66.0,
+          250.0
+        ],
+        "path": "data/datasets/h15_mpc_replication/replication_coupled_d.csv"
+      }
+    ]
+  }
+}

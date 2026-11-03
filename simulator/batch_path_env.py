@@ -326,7 +326,10 @@ class BatchedPathResidualEnv:
                 self.command_history)
             alpha = torch.where(self.tau > 0, -torch.expm1(-DT/self.tau.clamp_min(1e-12)),
                                 torch.ones_like(self.tau))
-            next_actuator = self.actuator + alpha*(target-self.actuator)
+            actuator_update = getattr(self, "actuator_update", None)
+            next_actuator = (self.actuator + alpha*(target-self.actuator)
+                             if actuator_update is None else
+                             actuator_update(target, DT, running))
             self.actuator = torch.where(running[:, None], next_actuator, self.actuator)
             if track_nominal:
                 nominal_next = self.model.rk4(self.state, self.actuator)
@@ -334,9 +337,10 @@ class BatchedPathResidualEnv:
                     nominal_next[:, 5:]-self.state[:, 5:], 0.)
             if track_current:
                 water_before = self.model.derivative(self.state, self.actuator)[:, :3]
-            next_state = self.model.rk4(self.state, self.actuator,
-                                        self.parameters, self.disturbance,
-                                        current=getattr(self, "current_ned", None))
+            plant_integrator = getattr(self, "plant_integrator", self.model.rk4)
+            next_state = plant_integrator(self.state, self.actuator,
+                                          self.parameters, self.disturbance,
+                                          current=getattr(self, "current_ned", None))
             if track_current:
                 water_after = self.model.derivative(next_state, self.actuator)[:, :3]
                 water_displacement += torch.where(running[:, None],

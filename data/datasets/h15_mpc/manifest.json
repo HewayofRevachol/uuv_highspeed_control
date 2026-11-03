@@ -1,0 +1,92 @@
+{
+  "schema": 1,
+  "speed_mps": 15.0,
+  "length_design_m": 240.0,
+  "sample_spacing_m": 0.5,
+  "splits": {
+    "development": [
+      {
+        "family": "turn",
+        "parameter": 180.0,
+        "path": "data/datasets/h15_mpc/development_turn.csv"
+      },
+      {
+        "family": "s",
+        "parameter": 0.006,
+        "path": "data/datasets/h15_mpc/development_s.csv"
+      },
+      {
+        "family": "depth",
+        "parameter": 8.0,
+        "path": "data/datasets/h15_mpc/development_depth.csv"
+      },
+      {
+        "family": "entry",
+        "parameter": 75.0,
+        "path": "data/datasets/h15_mpc/development_entry.csv"
+      }
+    ],
+    "validation": [
+      {
+        "family": "turn",
+        "parameter": 220.0,
+        "path": "data/datasets/h15_mpc/validation_turn.csv"
+      },
+      {
+        "family": "s",
+        "parameter": 0.005,
+        "path": "data/datasets/h15_mpc/validation_s.csv"
+      },
+      {
+        "family": "depth",
+        "parameter": 6.0,
+        "path": "data/datasets/h15_mpc/validation_depth.csv"
+      },
+      {
+        "family": "entry",
+        "parameter": 95.0,
+        "path": "data/datasets/h15_mpc/validation_entry.csv"
+      }
+    ],
+    "test": [
+      {
+        "family": "turn",
+        "parameter": 155.0,
+        "path": "data/datasets/h15_mpc/test_turn.csv"
+      },
+      {
+        "family": "s",
+        "parameter": 0.0065,
+        "path": "data/datasets/h15_mpc/test_s.csv"
+      },
+      {
+        "family": "depth",
+        "parameter": 10.0,
+        "path": "data/datasets/h15_mpc/test_depth.csv"
+      },
+      {
+        "family": "entry",
+        "parameter": 65.0,
+        "path": "data/datasets/h15_mpc/test_entry.csv"
+      }
+    ]
+  },
+  "families": {
+    "turn": [
+      "constant_turn",
+      "radius_m"
+    ],
+    "s": [
+      "s_bend",
+      "peak_curvature_per_m"
+    ],
+    "depth": [
+      "depth_wave",
+      "amplitude_m"
+    ],
+    "entry": [
+      "varying_entry_turn",
+      "entry_m"
+    ]
+  }
+}

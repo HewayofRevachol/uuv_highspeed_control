@@ -76,7 +76,7 @@ class CpuCasadiDynamics:
         return f.reshape(*shape, NX), a.reshape(*shape, NX, NX), b.reshape(*shape, NX, NU)
 
 
-def actuator_aware_function(dt=.1):
+def actuator_aware_function(dt=.1, fin_gain_scale=1., fin_tau_scale=1.):
     """Fixed-parameter plant with measured actuator and queued command state.
 
     Normalized commands and actuator states keep the QP better scaled. The
@@ -90,6 +90,10 @@ def actuator_aware_function(dt=.1):
     count = round(dt / DT)
     if count < 1 or abs(count * DT - dt) > 1e-12:
         raise ValueError("dt must be an integer multiple of plant DT")
+    if not np.isfinite(fin_gain_scale) or fin_gain_scale <= 0:
+        raise ValueError("fin_gain_scale must be positive and finite")
+    if not np.isfinite(fin_tau_scale) or fin_tau_scale <= 0:
+        raise ValueError("fin_tau_scale must be positive and finite")
     p = MISMATCHED_PLANT
     z = ca.SX.sym("z", AUGMENTED_NX)
     command = ca.SX.sym("command", NU)
@@ -103,7 +107,8 @@ def actuator_aware_function(dt=.1):
                       int(np.ceil(p.fin_delay_s/DT-1e-12))] * 1)
     delays = [delay[0], delay[1], delay[1]]
     alpha = [-np.expm1(-DT/t) if t else 1. for t in
-             (p.thrust_tau_s, p.fin_tau_s, p.fin_tau_s)]
+             (p.thrust_tau_s, p.fin_tau_s*fin_tau_scale,
+              p.fin_tau_s*fin_tau_scale)]
 
     def body_derivative(state, physical):
         theta, psi = state[3], state[4]
@@ -113,8 +118,8 @@ def actuator_aware_function(dt=.1):
                                   sp*ct*u+cp*v+sp*st*w, -st*u+ct*w)
         coriolis = p.mass_scale*MASS*ca.vertcat(-r*v+q*w, r*u, -q*u, 0, 0)
         force = ca.vertcat(p.thrust_gain*physical[0], 0, 0, 0, 0)
-        force += u*u*(p.elevator_gain*elevator*physical[1] +
-                      p.rudder_gain*rudder*physical[2])
+        force += u*u*fin_gain_scale*(p.elevator_gain*elevator*physical[1] +
+                                     p.rudder_gain*rudder*physical[2])
         acceleration = inverse_mass @ (force-coriolis-p.damping_scale*u*damping@state[5:10])
         return ca.vertcat(position_dot, q, r/ct, acceleration)
 
@@ -138,8 +143,11 @@ def actuator_aware_function(dt=.1):
 class ActuatorAwareCpuDynamics:
     nx = AUGMENTED_NX
 
-    def __init__(self, dt=.1):
-        self.function = actuator_aware_function(dt)
+    def __init__(self, dt=.1, fin_gain_scale=1., fin_tau_scale=1.):
+        self.fin_gain_scale = float(fin_gain_scale)
+        self.fin_tau_scale = float(fin_tau_scale)
+        self.function = actuator_aware_function(dt, self.fin_gain_scale,
+                                                self.fin_tau_scale)
 
     def evaluate(self, states, controls):
         states, controls = np.asarray(states), np.asarray(controls)

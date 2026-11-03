@@ -16,7 +16,10 @@ from simulator.rti_symbolic import AUGMENTED_NX, ActuatorAwareCpuDynamics
 
 class CondensedActuatorMPC:
     def __init__(self, model, batch_size, horizon=25, dt=.1,
-                 attitude_pitch_weight=100., attitude_yaw_weight=30.):
+                 attitude_pitch_weight=100., attitude_yaw_weight=30.,
+                 fallback_mode="hold"):
+        if fallback_mode not in ("hold", "center_fins"):
+            raise ValueError("fallback mode must be hold or center_fins")
         self.model, self.batch_size, self.horizon, self.dt = model, batch_size, horizon, dt
         self.backend = "rti_cpu"
         self.tolerance = 1e-5
@@ -31,6 +34,7 @@ class CondensedActuatorMPC:
         self.last_dual_residual = model.tensor(np.zeros(batch_size))
         self.last_qp_valid = torch.ones(batch_size, dtype=torch.bool, device=model.device)
         self.last_status = ["not_solved"] * batch_size
+        self.fallback_mode = fallback_mode
 
     def reset(self, state, mask=None):
         if mask is None:
@@ -108,5 +112,11 @@ class CondensedActuatorMPC:
             self.last_status[i] = info.status
             if valid:
                 self.previous[i] = self.plan[i, 0]
+            elif self.fallback_mode == "center_fins":
+                self.previous[i] = torch.stack((
+                    self.previous[i, 0],
+                    self.plan.new_zeros(()),
+                    self.plan.new_zeros(()),
+                ))
             outputs.append(self.previous[i] * self.model.control_scale)
         return torch.stack(outputs), self.last_qp_valid.clone()

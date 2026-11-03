@@ -54,6 +54,23 @@ class EndpointExtendedEnv(EndpointExtensionMixin, ScheduledReferenceEnv):
     pass
 
 
+class LookaheadOffsetEndpointEnv(EndpointExtendedEnv):
+    """Shift all reference nodes by a fixed distance while preserving 15 m/s spacing.
+
+    This is specific to the fixed-speed H15 task. Unlike preview_scale, it
+    does not change the slope of the future position reference in time.
+    """
+
+    def __init__(self, *args, lookahead_distance_m=0., **kwargs):
+        if lookahead_distance_m < 0:
+            raise ValueError("lookahead distance must be nonnegative")
+        self.lookahead_distance_m = float(lookahead_distance_m)
+        super().__init__(*args, **kwargs)
+
+    def _reference(self, time_offset=0.):
+        return super()._reference(time_offset + self.lookahead_distance_m / 15.)
+
+
 class EndpointExtendedAwareEnv(EndpointExtensionMixin, ActuatorAwareEnv):
     pass
 

@@ -1,0 +1,98 @@
+{
+  "schema": 1,
+  "speed_mps": 15.0,
+  "length_design_m": 300.0,
+  "sample_spacing_m": 0.5,
+  "experiment_freeze": {
+    "methods": [
+      "endpoint20",
+      "condensed_endpoint35",
+      "robust_condensed_endpoint35"
+    ],
+    "seeds": [
+      102061,
+      102062,
+      102063,
+      102064,
+      102065
+    ],
+    "task_config": "aav_mpc/configs/h15.json",
+    "target_config": "aav_mpc/configs/h15_target.json",
+    "robust_prediction": {
+      "fin_gain_scale": 0.85,
+      "fin_tau_scale": 2.0
+    }
+  },
+  "splits": {
+    "holdout": [
+      {
+        "family": "holdout_coupled_e",
+        "generator_family": "coupled",
+        "parameters": {
+          "radius_m": 58.0,
+          "depth_amplitude_m": 8.5,
+          "start_m": 52.0,
+          "entry_m": 14.0,
+          "wave_length_m": 175.0
+        },
+        "geometry_events_m": [
+          52.0,
+          66.0,
+          227.0
+        ],
+        "path": "data/datasets/h15_mpc_fix_holdout/holdout_coupled_e.csv"
+      },
+      {
+        "family": "holdout_coupled_f",
+        "generator_family": "coupled",
+        "parameters": {
+          "radius_m": 72.0,
+          "depth_amplitude_m": 9.0,
+          "start_m": 66.0,
+          "entry_m": 24.0,
+          "wave_length_m": 210.0
+        },
+        "geometry_events_m": [
+          66.0,
+          90.0,
+          276.0
+        ],
+        "path": "data/datasets/h15_mpc_fix_holdout/holdout_coupled_f.csv"
+      },
+      {
+        "family": "holdout_coupled_g",
+        "generator_family": "coupled",
+        "parameters": {
+          "radius_m": 64.0,
+          "depth_amplitude_m": 9.4,
+          "start_m": 58.0,
+          "entry_m": 19.0,
+          "wave_length_m": 160.0
+        },
+        "geometry_events_m": [
+          58.0,
+          77.0,
+          218.0
+        ],
+        "path": "data/datasets/h15_mpc_fix_holdout/holdout_coupled_g.csv"
+      },
+      {
+        "family": "holdout_coupled_h",
+        "generator_family": "coupled",
+        "parameters": {
+          "radius_m": 66.0,
+          "depth_amplitude_m": 8.6,
+          "start_m": 74.0,
+          "entry_m": 17.0,
+          "wave_length_m": 195.0
+        },
+        "geometry_events_m": [
+          74.0,
+          91.0,
+          269.0
+        ],
+        "path": "data/datasets/h15_mpc_fix_holdout/holdout_coupled_h.csv"
+      }
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "base_task": "aav_mpc/configs/h15.json",
+  "domain": "target_numerical_actuator_stress",
+  "current_max_mps": 1.0,
+  "current_profile": "harmonic",
+  "hull_integrator": "two_substep_midpoint",
+  "actuator_response": "critical_second_order",
+  "fin_gain_scale": 0.9,
+  "randomize_plant": true,
+  "process_noise": true,
+  "controller_gets_target_parameters": false
+}
