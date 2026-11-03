@@ -1,52 +1,56 @@
-# UUV 控制与学习实验工作区
+# UUV 高速控制研究工作区
 
-本目录保留原有训练、验证命令及轨迹数据，同时将后续研究用的控制环境、策略网络和实验配置分开。所有命令建议从项目根目录运行。
+本项目用于 UUV 高速路径跟踪、MPC 与强化学习控制研究。训练、评估、仿真和实验变体各有独立入口；历史 CSV、checkpoint 和报告保留原路径，便于复查已有实验。以下命令均从仓库根目录运行。
 
-## 目录
+## 从这里开始
 
-| 位置 | 用途 |
+| 需求 | 入口 |
 | --- | --- |
-| `DDAT_train.py`、`validate_ddat.py` | 训练与配对验证入口，仍可直接运行 |
-| `simulator/` | 艇体动力学、批量环境、MPC 求解器、执行器预测与恢复机制 |
-| `research/controllers/` | 实验级控制环境及后续控制器变体 |
-| `research/networks/` | DDAT 策略网络及后续网络变体 |
-| `research/variants.py` | 根据配置或 checkpoint 载入上述变体 |
-| `DDAT_trajectories/`、`trajectories/` | 现有轨迹集、轨迹生成及路径编码工具 |
-| `high_speed_experiments/` | 高速轨迹筛查与 [RL 增强 MPC 实验](high_speed_experiments/README_RL_MPC.md) |
-| [`academic_search_report/`](academic_search_report/README.md) | 文献综述、推荐路线与证据核验报告 |
-| `experiments/configs/` | 一次实验的参数文件，复制后改名即可建立新方案 |
-| `experiments/run.py` | 创建独立运行目录、记录命令与日志 |
-| `tests/unit/`、`tests/integration/`、`tests/benchmarks/` | 新增单元、集成与性能测试脚本 |
-| `outputs/` | 模型、训练、验证、图表、报告、基准和生成轨迹输出，见 `outputs/README.md` |
+| 了解目录职责和调用关系 | [架构说明](docs/architecture.md) |
+| 新增控制器、网络或动力学模型 | [扩展指南](docs/extending.md) |
+| 找训练数据、压力轨迹及历史结果 | [数据索引](data/README.md)、[机器可读目录](data/catalog.json) |
+| 命名新实验、保存数据和结果 | [命名与数据生命周期](docs/conventions.md) |
+| 找迁移前后的代码位置 | [迁移映射](docs/migration.md) |
+| 查算法、研究报告和安装说明 | [文档总索引](docs/README.md) |
 
-## 快速使用
+## 安装与快速运行
 
-先按 `README_打包说明.md` 安装依赖。直接运行原有入口：
+使用 Python 3.10+。先安装适配本机 CPU/CUDA 的 PyTorch，再安装通用依赖：
 
 ```bash
-python3 DDAT_train.py --list-training-paths --device cpu
-python3 validate_ddat.py --checkpoint outputs/DDAT/run_20261029_114239/final_actor.pt --device cpu --no-show
-```
-
-按配置启动独立实验：
-
-```bash
+python3 -m pip install -r requirements-ddat.txt
+python3 -m training.ddat --list-training-paths --device cpu
 python3 experiments/run.py experiments/configs/ddat_cpu_smoke.json --dry-run
 python3 experiments/run.py experiments/configs/ddat_cpu_smoke.json
 ```
 
-复制 JSON 配置并改动 `name`、`arguments`，即可在不同终端同时运行不同方案。每次运行进入 `outputs/experiments/<name>/<时间_进程号>/`；其中 `run.json` 记录启动命令、状态和源码哈希，`console.log` 保存控制台输出，其余训练或验证文件也写入该目录。验证配置必须指定 checkpoint；`all_paths: true` 会使用所选 `split` 的路径集。
+`admm` 是无需额外求解器的默认后端；`osqp` 需要另装 `osqp`，`rti_cpu` 需要 `casadi` 和 `osqp`。CUDA RTI 依赖见 [RTI 说明](README_RTI_CUDA.md)。烟雾实验的 4096 步仅用于检查流程，不能作为控制性能结论。
 
-已有 `ddat_cpu_smoke.json` 与 `ddat_dense_heading_smoke.json` 是相同种子和训练规模下的两种预览、奖励设置示例；可以分别启动它们。配置里的 4096 步只用于流程检查，正式比较需扩大步数，并用相同路径、种子及验证条件进行配对评估。
+验证随仓库保留的 checkpoint，并显式选择验证集：
 
-## 修改位置与比较方法
+```bash
+python3 -m evaluation.ddat --checkpoint outputs/DDAT/run_20261029_114239/final_actor.pt --all-paths --split val --device cpu --no-show --output-dir outputs/experiments/ddat_uuv_val_s101026/manual_eval
+```
 
-- 改艇体参数、动力学：`simulator/model.py`、`simulator/batch_mpc.py`。
-- 改 MPC 求解：`simulator/batch_mpc.py`、`simulator/rti_mpc.py`、`simulator/rti_symbolic.py`、`simulator/rti_cuda.py`。
-- 改低层控制和在线估计：`simulator/ddat_env.py`；改预览或奖励：`research/controllers/ddat.py`。
-- 改策略网络：`research/networks/ddat.py`；改 PPO 训练：`DDAT_train.py`。
-- 改轨迹和数据处理：`DDAT_trajectories/`、`trajectories/`。
+根目录兼容入口仍可运行：`python3 DDAT_train.py ...`、`python3 validate_ddat.py ...`。直接验证入口未传 `--all-paths` 时仍使用预设压力轨迹；请显式指定 `--path` 或 `--all-paths` 以固定评估范围。
 
-比较方案时，建议在 `research/controllers/` 或 `research/networks/` 中新增模块，分别提供 `ExperimentDDATPathEnv` 或 `ActorCritic` 类，再在实验配置中设置 `controller_module`、`network_module`。训练会把模块名保存到 checkpoint，验证脚本据此加载。保持环境构造参数、`reset/observe/step` 接口及网络的 `deterministic/value/sample/log_prob` 接口；若改变观测或网络结构，请用新方案名训练自己的 checkpoint。现有 checkpoint 默认使用 `research.controllers.ddat` 与 `research.networks.ddat`，无需转换。
+## 代码与实验布局
 
-现有 `outputs/DDAT/run_20261029_114239/` 是随包提供的参考 checkpoint；新实验放在 `outputs/experiments/`，便于并行比较。算法说明见 `README_DDAT.md`；RTI CUDA 说明见 `README_RTI_CUDA.md`。这份打包快照不含那些文档中提到的部分早期脚本。
+| 目录 | 职责 |
+| --- | --- |
+| `training/` | DDAT 训练编排与通用 PPO 更新 |
+| `evaluation/` | checkpoint 加载、配对验证、指标与绘图 |
+| `simulator/` | UUV 物理模型、批量环境、MPC 求解器、执行器与恢复机制 |
+| `research/controllers/` | 控制环境、观测和奖励变体 |
+| `research/networks/` | 策略与价值网络变体 |
+| `research/models/` | 可选择的动力学模型，默认 UUV 模型保持原行为 |
+| `research/variants.py` | 组件加载与环境、网络构造的公共接口 |
+| `experiments/` | JSON 实验配置及独立运行目录启动器 |
+| `data/` | 数据和历史研究资产的统一目录，不重复存放旧文件 |
+| `docs/` | 当前架构、扩展、命名与迁移指南 |
+| `tests/` | 单元、集成与性能测试，见 [测试说明](tests/README.md) |
+| `outputs/` | 运行日志、模型和分析产物，见 [输出约定](outputs/README.md) |
+
+已有专题实验分别位于 [高速 RL–MPC](high_speed_experiments/README_RL_MPC.md) 和 [AAV-MPC](aav_mpc/README.md)。它们保留独立的复现脚本和研究记录；文献与证据审查从 [文档总索引](docs/README.md) 进入。
+
+复制 `experiments/configs/` 中的 JSON，以 `<algorithm>_<model>_<scenario>_s<seed>` 命名新实验。每次启动会建立 `outputs/experiments/<name>/<时间_进程号>/`，并记录 `run.json`、`console.log` 和对应产物。多个方案可以使用各自配置并行运行。比较时固定路径划分、种子、海流和艇体参数，用配对验证评估差异。

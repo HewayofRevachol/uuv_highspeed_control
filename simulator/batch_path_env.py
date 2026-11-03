@@ -105,9 +105,15 @@ class BatchedPathResidualEnv:
     def __init__(self, path_bank, encoder_checkpoint, batch_size=128, device="cuda",
                  horizon=20, backend="admm", seed=20268, randomize_plant=True,
                  admm_iterations=400, attitude_pitch_weight=0.,
-                 attitude_yaw_weight=0., admm_rho=2.):
+                 attitude_yaw_weight=0., admm_rho=2., model_factory=None):
+        if (backend in ("rti_cpu", "rti_cuda") and
+                model_factory is not None and model_factory is not BatchedUUVModel):
+            raise ValueError("custom dynamics models require admm or osqp; RTI "
+                             "prediction uses the fixed symbolic UUV model")
+        if model_factory is not None and not callable(model_factory):
+            raise TypeError("model_factory must be callable with a device argument")
         self.paths = path_bank
-        self.model = BatchedUUVModel(device)
+        self.model = (BatchedUUVModel if model_factory is None else model_factory)(device)
         self.device, self.dtype = self.model.device, self.model.dtype
         self.batch_size = batch_size
         self.randomize_plant = randomize_plant

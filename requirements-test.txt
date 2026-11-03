@@ -1,0 +1,5 @@
+-r requirements-ddat.txt
+pytest>=8,<10
+osqp==1.1.3
+casadi==3.6.5
+# Install a CPU/CUDA PyTorch build separately, as in requirements-ddat.txt.

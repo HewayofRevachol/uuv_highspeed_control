@@ -7,9 +7,9 @@ from torch.distributions import Normal
 from simulator.ddat_env import DDATPathEnv
 
 
-def network(input_dim, output_dim):
+def network(input_dim, output_dim, hidden_sizes=(256, 256)):
     layers = []
-    for width in (256, 256):
+    for width in hidden_sizes:
         layers += [nn.Linear(input_dim, width), nn.ReLU()]
         input_dim = width
     layers.append(nn.Linear(input_dim, output_dim))
@@ -17,19 +17,26 @@ def network(input_dim, output_dim):
 
 
 class ActorCritic(nn.Module):
-    def __init__(self, observation_dim):
+    def __init__(self, observation_dim, hidden_sizes=(256, 256), encoder_sizes=(128, 64)):
         super().__init__()
+        for name, widths in (("hidden_sizes", hidden_sizes), ("encoder_sizes", encoder_sizes)):
+            if (not isinstance(widths, (tuple, list)) or not widths or
+                    any(type(width) is not int or width < 1 for width in widths)):
+                raise ValueError(f"{name} must be a nonempty sequence of positive integers")
         if observation_dim not in (DDATPathEnv.preview_size + 35,
                                    DDATPathEnv.observation_size):
             raise ValueError("DDAT observation dimensions do not match")
         self.observation_dim = observation_dim
         self.preview_size = DDATPathEnv.preview_size
-        self.feedforward_encoder = nn.Sequential(
-            nn.Linear(self.preview_size, 128), nn.ReLU(),
-            nn.Linear(128, 64), nn.ReLU())
-        feature_dim = 64 + observation_dim-self.preview_size
-        self.actor = network(feature_dim, 6)
-        self.critic = network(feature_dim, 1)
+        encoder = []
+        input_dim = self.preview_size
+        for width in encoder_sizes:
+            encoder.extend((nn.Linear(input_dim, width), nn.ReLU()))
+            input_dim = width
+        self.feedforward_encoder = nn.Sequential(*encoder)
+        feature_dim = encoder_sizes[-1] + observation_dim-self.preview_size
+        self.actor = network(feature_dim, 6, hidden_sizes)
+        self.critic = network(feature_dim, 1, hidden_sizes)
         nn.init.zeros_(self.actor[-1].weight)
         nn.init.zeros_(self.actor[-1].bias)
         with torch.no_grad():
@@ -66,5 +73,4 @@ class ActorCritic(nn.Module):
         raw = torch.atanh(clipped)
         return (self.distribution(observation).log_prob(raw) -
                 torch.log(1-clipped.square()+1e-6)).sum(-1)
-
 

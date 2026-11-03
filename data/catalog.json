@@ -1,0 +1,168 @@
+{
+  "schema_version": 1,
+  "datasets": [
+    {
+      "id": "ddat_trajectories",
+      "kind": "trajectories",
+      "path": "DDAT_trajectories",
+      "purpose": "DDAT 默认训练与未见参数验证；包含五类高速路径机动。",
+      "splits": {
+        "train": {
+          "path": "DDAT_trajectories/train",
+          "file_count": 20
+        },
+        "val": {
+          "path": "DDAT_trajectories/val",
+          "file_count": 5
+        }
+      },
+      "provenance": {
+        "type": "generated",
+        "generator": "DDAT_trajectories/generate.py",
+        "manifest": "DDAT_trajectories/manifest.json",
+        "documentation": [
+          "DDAT_trajectories/README.md"
+        ],
+        "notes": "生成器独立生成 20 条训练轨迹和 5 条验证轨迹；不读取 trajectories 下的旧轨迹。几何和速度参数见生成脚本与 manifest。"
+      }
+    },
+    {
+      "id": "stress_15mps",
+      "kind": "trajectories",
+      "path": "trajectories/stress_15mps",
+      "purpose": "高速冷启动、螺旋、耦合转深与深度波压力评估；历史专题实验也使用本组轨迹。",
+      "splits": {
+        "pressure_eval": {
+          "path": "trajectories/stress_15mps",
+          "file_count": 4
+        }
+      },
+      "provenance": {
+        "type": "historical_import",
+        "documentation": [
+          "high_speed_experiments/REPORT_RL_MPC_20261102.md"
+        ],
+        "notes": "报告记载从原 uuv_simulator 工作区复制。当前仓库未记录这四条 CSV 的完整原始生成命令或种子；不补推来源。它们已有多次研究使用记录，不宣称是全新的盲测集。"
+      }
+    },
+    {
+      "id": "reference_curriculum_1102",
+      "kind": "trajectories",
+      "path": "high_speed_experiments/generated/reference_curriculum_1102",
+      "purpose": "参考控制策略 V2/V3 课程训练；组合转弯半径、入弯长度与深度坡度。",
+      "splits": {
+        "train": {
+          "path": "high_speed_experiments/generated/reference_curriculum_1102",
+          "file_count": 24
+        }
+      },
+      "provenance": {
+        "type": "generated",
+        "generator": "high_speed_experiments/generate_reference_curriculum.py",
+        "documentation": [
+          "high_speed_experiments/REPORT_RL_MPC_20261102.md"
+        ],
+        "notes": "确定性生成器使用半径 36/44/52/60 m、入弯长度 10/20/30 m、深度坡度 0/0.04、目标速度 18 m/s；本组内未单列验证集。"
+      }
+    },
+    {
+      "id": "ddat_reference_checkpoint",
+      "kind": "checkpoint",
+      "path": "outputs/DDAT/run_20261029_114239",
+      "purpose": "随仓库保留的 DDAT 参考 checkpoint、训练配置和路径清单。",
+      "splits": {},
+      "provenance": {
+        "type": "historical_run",
+        "config": "outputs/DDAT/run_20261029_114239/config.json",
+        "training_paths": "outputs/DDAT/run_20261029_114239/training_paths.json",
+        "documentation": [
+          "README_打包说明.md"
+        ],
+        "notes": "保留 final_actor.pt 及原始配置；其中原机器绝对路径属于历史元数据。此目录不包含完整原始训练日志。"
+      }
+    },
+    {
+      "id": "high_speed_reference_results",
+      "kind": "experiment_results",
+      "path": "high_speed_experiments/outputs",
+      "purpose": "参考策略训练 checkpoint、配置、history.csv，以及规则/策略评估 JSONL 和日志。",
+      "splits": {},
+      "provenance": {
+        "type": "historical_run",
+        "documentation": [
+          "high_speed_experiments/REPORT_RL_MPC_20261102.md",
+          "high_speed_experiments/RL_MPC_innovation_experiments_20261102.md"
+        ],
+        "notes": "报告记载从原实验工作区复制；各次实验条件以对应配置、日志和报告为准，不把整个输出目录解释为一个统一训练集。"
+      }
+    },
+    {
+      "id": "aav_mpc_results",
+      "kind": "experiment_results",
+      "path": "aav_mpc/data",
+      "purpose": "AAV-MPC 分阶段配对归因、可行性、增强 MPC、离线模型与闭环实验结果。",
+      "splits": {},
+      "provenance": {
+        "type": "historical_run",
+        "task_config": "aav_mpc/configs/tasks.json",
+        "documentation": [
+          "aav_mpc/README.md",
+          "aav_mpc/REPORT_20261102.md"
+        ],
+        "notes": "保留 stage0 至 stage4 的历史产物；stage 是研究阶段而非训练/验证划分。原仅大小写不同的 stage0/t1_osqp25.json 已原样重命名为 stage0/t1_osqp25_legacy.json，原 T1_osqp25.json 继续保留。"
+      }
+    },
+    {
+      "id": "academic_research_reports",
+      "kind": "reports",
+      "path": "academic_search_report",
+      "purpose": "RL-MPC 文献综述、研究路线建议、证据核验与仿真现实性审查。",
+      "splits": {},
+      "provenance": {
+        "type": "historical_reports",
+        "documentation": [
+          "docs/README.md"
+        ],
+        "notes": "保留原报告；其中提及的 outputs/reports/uuv_mechanism_audit_20261102 运行目录未随当前仓库提供。"
+      }
+    },
+    {
+      "id": "ddat_stage_report",
+      "kind": "reports",
+      "path": "report1030.md",
+      "purpose": "基础 DDAT 阶段的历史实验记录。",
+      "splits": {},
+      "provenance": {
+        "type": "historical_report",
+        "notes": "保留原始文件名和报告内容；实验条件以报告原文为准。"
+      }
+    },
+    {
+      "id": "high_speed_research_reports",
+      "kind": "reports",
+      "path": "high_speed_experiments",
+      "files": [
+        "high_speed_experiments/REPORT_RL_MPC_20261102.md",
+        "high_speed_experiments/RL_MPC_innovation_experiments_20261102.md",
+        "high_speed_experiments/RESEARCH_DIRECTION_20261102.md"
+      ],
+      "purpose": "高速参考控制策略研究的续跑说明、实验细节及研究方向。",
+      "splits": {},
+      "provenance": {
+        "type": "historical_reports",
+        "notes": "files 指明本条目中的报告；同目录内代码、轨迹与结果分别按其用途登记。"
+      }
+    },
+    {
+      "id": "aav_mpc_report",
+      "kind": "reports",
+      "path": "aav_mpc/REPORT_20261102.md",
+      "purpose": "AAV-MPC 复现实验的分阶段结论与边界。",
+      "splits": {},
+      "provenance": {
+        "type": "historical_report",
+        "notes": "与 aav_mpc_results 条目的任务配置及数据一起查阅；本索引不重新解释历史结论。"
+      }
+    }
+  ]
+}
