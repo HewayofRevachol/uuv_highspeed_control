@@ -1,0 +1,174 @@
+{
+  "cases": [
+    {
+      "generator_family": "coupled",
+      "geometry_events_m": [
+        57.0,
+        79.0,
+        242.0
+      ],
+      "id": "test_coupled_00",
+      "parameters": {
+        "depth_amplitude_m": 7.1,
+        "entry_m": 22.0,
+        "radius_m": 68.0,
+        "start_m": 57.0,
+        "wave_length_m": 185.0
+      },
+      "path": "data/datasets/h15_mainline_quickstart/test_coupled_00.csv",
+      "path_sha256": "9cc7fb3a0f8e684c5036a164d622ae17c504cbb7604c2d03c7891d06c3599ba8"
+    },
+    {
+      "generator_family": "coupled",
+      "geometry_events_m": [
+        64.0,
+        82.0,
+        269.0
+      ],
+      "id": "test_coupled_01",
+      "parameters": {
+        "depth_amplitude_m": 7.7,
+        "entry_m": 18.0,
+        "radius_m": 74.0,
+        "start_m": 64.0,
+        "wave_length_m": 205.0
+      },
+      "path": "data/datasets/h15_mainline_quickstart/test_coupled_01.csv",
+      "path_sha256": "949b3eb5ddd8f96e0c0485bc64e3175b7ae1e8196d1bbbab5bd2a1539ae214c5"
+    },
+    {
+      "generator_family": "coupled",
+      "geometry_events_m": [
+        72.0,
+        98.0,
+        247.0
+      ],
+      "id": "test_coupled_02",
+      "parameters": {
+        "depth_amplitude_m": 8.3,
+        "entry_m": 26.0,
+        "radius_m": 80.0,
+        "start_m": 72.0,
+        "wave_length_m": 175.0
+      },
+      "path": "data/datasets/h15_mainline_quickstart/test_coupled_02.csv",
+      "path_sha256": "7c9b0ebf347cc0211557f65347ae1e5071f81b5e8d23824b33704a80dba9090c"
+    },
+    {
+      "generator_family": "coupled",
+      "geometry_events_m": [
+        59.0,
+        90.0,
+        284.0
+      ],
+      "id": "test_coupled_03",
+      "parameters": {
+        "depth_amplitude_m": 8.9,
+        "entry_m": 31.0,
+        "radius_m": 86.0,
+        "start_m": 59.0,
+        "wave_length_m": 225.0
+      },
+      "path": "data/datasets/h15_mainline_quickstart/test_coupled_03.csv",
+      "path_sha256": "bf9e0ef0e7c13ba6571ce183b79c61a92276ab76ef494092609a75820fc506b0"
+    },
+    {
+      "generator_family": "coupled",
+      "geometry_events_m": [
+        68.0,
+        92.0,
+        263.0
+      ],
+      "id": "test_coupled_04",
+      "parameters": {
+        "depth_amplitude_m": 9.1,
+        "entry_m": 24.0,
+        "radius_m": 71.0,
+        "start_m": 68.0,
+        "wave_length_m": 195.0
+      },
+      "path": "data/datasets/h15_mainline_quickstart/test_coupled_04.csv",
+      "path_sha256": "941dcef5aa0f365fd2efc71d5e4a5fdf7fcc09dd05a223263f3ccd8746ba1996"
+    },
+    {
+      "generator_family": "coupled",
+      "geometry_events_m": [
+        77.0,
+        97.0,
+        292.0
+      ],
+      "id": "test_coupled_05",
+      "parameters": {
+        "depth_amplitude_m": 7.5,
+        "entry_m": 20.0,
+        "radius_m": 77.0,
+        "start_m": 77.0,
+        "wave_length_m": 215.0
+      },
+      "path": "data/datasets/h15_mainline_quickstart/test_coupled_05.csv",
+      "path_sha256": "15f835046ca417567939bdc356fbcba5d86ddc27cb538f1d2fb402e64fba5d79"
+    },
+    {
+      "generator_family": "coupled",
+      "geometry_events_m": [
+        62.0,
+        91.0,
+        242.0
+      ],
+      "id": "test_coupled_06",
+      "parameters": {
+        "depth_amplitude_m": 8.1,
+        "entry_m": 29.0,
+        "radius_m": 83.0,
+        "start_m": 62.0,
+        "wave_length_m": 180.0
+      },
+      "path": "data/datasets/h15_mainline_quickstart/test_coupled_06.csv",
+      "path_sha256": "864d7640ee80ed82fb0a315d6c0509d20caad6e28a1a27449c864b98b27527f0"
+    },
+    {
+      "generator_family": "coupled",
+      "geometry_events_m": [
+        74.0,
+        101.0,
+        274.0
+      ],
+      "id": "test_coupled_07",
+      "parameters": {
+        "depth_amplitude_m": 8.7,
+        "entry_m": 27.0,
+        "radius_m": 89.0,
+        "start_m": 74.0,
+        "wave_length_m": 200.0
+      },
+      "path": "data/datasets/h15_mainline_quickstart/test_coupled_07.csv",
+      "path_sha256": "42e1a42cf88e2ebd446ec282851407eb974fb97945b5a5aea25721a093a15a20"
+    }
+  ],
+  "generator": "aav_mpc.h15_challenge_paths.generate",
+  "schema": 1,
+  "seed_role": "paired plant/process/current RNG seed",
+  "seeds": [
+    33001,
+    33002,
+    33003,
+    33004,
+    33005,
+    33006,
+    33007,
+    33008,
+    33009,
+    33010,
+    33011,
+    33012,
+    33013,
+    33014,
+    33015,
+    33016,
+    33017,
+    33018,
+    33019,
+    33020
+  ],
+  "split": "test"
+}

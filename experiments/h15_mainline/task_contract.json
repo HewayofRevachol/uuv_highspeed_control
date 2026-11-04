@@ -1,0 +1,26 @@
+{
+  "schema": 1,
+  "name": "h15_mainline",
+  "task_config": "aav_mpc/configs/h15.json",
+  "control_period_s": 0.1,
+  "integration_period_s": 0.02,
+  "integration_substeps": 5,
+  "nominal_speed_mps": 15.0,
+  "reference_progress_rate_mps": {"min": 13.0, "max": 17.0, "max_change_mps_per_s": 0.5, "max_change_per_control_period_mps": 0.05},
+  "strict_limits": {"absolute_lateral_m": 8.0, "absolute_depth_m": 5.0, "absolute_pitch_deg": 40.0, "absolute_tangent_water_speed_error_mps": 2.0},
+  "coordinates": {
+    "actual_tangent_water_speed": "path_tangent dot R(theta,psi) dot body_velocity",
+    "reference_progress_rate": "ds_ref/dt along geometric path; distinct from actual water speed",
+    "body_water_speed": "norm(body_velocity); secondary diagnostic only",
+    "ground_speed": "norm(R(theta,psi) dot body_velocity + current_ned); secondary diagnostic only",
+    "arc_progress_rate": "finite difference of nearest-path arc progress; secondary diagnostic only"
+  },
+  "strict_hist": "Original 0.1 s diagnose.py strict_success: original simulator completion and no sampled speed/lateral/depth/pitch threshold crossing or MPC fallback. Historical results are immutable.",
+  "strict_substep_success": "Original completion plus strict physical limits checked after every 0.02 s integration substep; report separately from strict_hist.",
+  "strict_mainline": "Complete the entire path without any 0.02 s strict physical violation, MPC fallback, backup takeover, empty candidate set, deadline miss, or task failure.",
+  "completed_with_backup": "Secondary only: full task completion after a verified backup takeover; never counted as strict_hist or strict_mainline.",
+  "baseline_B0_hist": {"method": "robust_condensed_endpoint35", "horizon": 35, "prediction_fin_gain_scale": 0.85, "prediction_fin_tau_scale": 2.0, "historical_success": "14/20", "historical_first_failures": {"pitch": 2, "speed": 2, "depth": 1, "solver": 1}, "historical_p95_median_ms": 45.83584650008561, "historical_p99_max_ms": 99.79019927784968},
+  "online_engineering_gates": {"full_period_p99_ms_max": 90.0, "full_period_max_ms_max": 100.0, "estimator_policy_filter_combined_ms_max": 5.0, "practical_strict_success_gain_percentage_points": 10.0},
+  "stop_rules": ["Stop adding RL when deterministic baseline meets the target", "Do not claim unconditional improvement if RL only reduces actual speed", "No formal safety guarantee without valid error bounds, terminal safe set and executable backup"],
+  "historical_substep_note": "Original environment checks broad termination limits within five substeps; it does not enforce H15 strict limits at each substep."
+}

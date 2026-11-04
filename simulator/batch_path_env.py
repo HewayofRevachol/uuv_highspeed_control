@@ -289,6 +289,10 @@ class BatchedPathResidualEnv:
 
     @torch.no_grad()
     def step(self, action, *, return_observation=True):
+        profile_stages = getattr(self, "profile_stages", False)
+        if profile_stages:
+            import time
+            step_started = time.perf_counter()
         if action.shape != (self.batch_size, 3):
             raise ValueError("action must have shape [batch_size, 3]")
         active = ~self.finished
@@ -309,7 +313,11 @@ class BatchedPathResidualEnv:
             water_displacement = torch.zeros(self.batch_size, 3, device=self.device,
                                               dtype=self.dtype)
         advance_current = getattr(self, "_advance_current", None)
-        for _ in range(5):
+        if getattr(self, "capture_strict_substeps", False):
+            self.strict_substeps = []
+        if profile_stages:
+            plant_started = time.perf_counter()
+        for substep_index in range(5):
             running = active & ~failed
             if advance_current is not None:
                 advance_current(DT, running)
@@ -349,6 +357,18 @@ class BatchedPathResidualEnv:
             next_progress = self.paths.advance(self.path_ids, self.progress, self.state[:, :3])
             self.progress = torch.where(running, next_progress, self.progress)
             position, lateral, depth, yaw, pitch, speed, _ = self._errors()
+            if getattr(self, "capture_strict_substeps", False):
+                self.strict_substeps.append({
+                    "substep": substep_index + 1,
+                    "state": self.state.detach().cpu().tolist(),
+                    "actuator": self.actuator.detach().cpu().tolist(),
+                    "queue": self.command_history.detach().cpu().tolist(),
+                    "progress_m": self.progress.detach().cpu().tolist(),
+                    "lateral_error_m": lateral.detach().cpu().tolist(),
+                    "depth_error_m": depth.detach().cpu().tolist(),
+                    "speed_error_mps": speed.detach().cpu().tolist(),
+                    "pitch_rad": self.state[:, 3].detach().cpu().tolist(),
+                })
             cost = (.4*(lateral/5).square() + .4*(depth/3).square() +
                     .2*(speed/2).square() + .1*(yaw/.3).square() +
                     .1*(pitch/.3).square())/5
@@ -357,6 +377,8 @@ class BatchedPathResidualEnv:
                                  (self.state[:, 3].abs() > np.deg2rad(70)) |
                                  (self.state[:, 5:8].norm(dim=-1) > 30) |
                                  ~torch.isfinite(self.state).all(-1))
+        if profile_stages:
+            plant_wall_ms = (time.perf_counter() - plant_started) * 1000.
         self.steps += active.long()
         endpoints = self.paths.points[self.path_ids, torch.searchsorted(
             self.paths.distances[self.path_ids].contiguous(),
@@ -382,6 +404,8 @@ class BatchedPathResidualEnv:
         old_dual = getattr(self.mpc, "last_dual_residual", torch.zeros_like(self.progress)).clone()
         old_qp_valid = getattr(self.mpc, "last_qp_valid", old_ok).clone()
         continuing = active & ~done
+        if profile_stages:
+            mpc_started = time.perf_counter()
         if continuing.any():
             old_mpc = {name: getattr(self.mpc, name)[~continuing].clone()
                        for name in ("previous", "plan", "states", "last_primal_residual",
@@ -395,6 +419,8 @@ class BatchedPathResidualEnv:
                 self.mpc_failure_streak)
             for name, values in old_mpc.items():
                 getattr(self.mpc, name)[~continuing] = values
+        if profile_stages:
+            mpc_wall_ms = (time.perf_counter() - mpc_started) * 1000.
         position_body = self._errors()[0]
         info = {"success": success, "failed": failed, "timeout": timeout,
                 "progress_fraction": self.progress/self.paths.lengths[self.path_ids],
@@ -408,4 +434,8 @@ class BatchedPathResidualEnv:
         if track_current:
             info["water_displacement_ned"] = water_displacement
         observation = self.observe() if return_observation else None
+        if profile_stages:
+            info["timing"] = {"plant_integration_wall_ms": plant_wall_ms,
+                              "mpc_wall_ms": mpc_wall_ms,
+                              "step_wall_ms": (time.perf_counter() - step_started) * 1000.}
         return observation, reward.float(), done, info

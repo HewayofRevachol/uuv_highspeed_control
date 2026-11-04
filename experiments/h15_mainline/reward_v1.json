@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "name": "h15_masked_speed_ppo_reward_v1",
+  "discount_per_decision": 0.99,
+  "progress_weight": 1.0,
+  "lateral_squared_weight": 2.0,
+  "depth_squared_weight": 2.0,
+  "pitch_squared_weight": 1.0,
+  "speed_squared_weight": 1.5,
+  "slowdown_weight": 0.5,
+  "saturation_weight": 0.1,
+  "intent_change_weight": 0.02,
+  "fallback_weight": 2.0,
+  "failure_weight": 20.0,
+  "description": "Actual progress and measured errors per control period; normalized physical thresholds; fixed before PPO training"
+}

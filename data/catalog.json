@@ -203,6 +203,23 @@
       }
     },
     {
+      "id": "h15_mainline_quickstart",
+      "kind": "generated_dataset",
+      "path": "data/datasets/h15_mainline_quickstart",
+      "purpose": "H15 quickstart 的训练、开发和预冻结测试几何；测试路径不得用于阈值或 checkpoint 选择。",
+      "splits": {
+        "train": {"path": "experiments/h15_mainline/manifests/train.json", "file_count": 4},
+        "dev": {"path": "experiments/h15_mainline/manifests/dev.json", "file_count": 2},
+        "test": {"path": "experiments/h15_mainline/manifests/test.json", "file_count": 8}
+      },
+      "provenance": {
+        "type": "generated",
+        "generator": "experiments/h15_mainline/freeze_quickstart.py",
+        "task_config": "aav_mpc/configs/h15.json",
+        "notes": "同一几何生成器的不同参数实例；最终是否构成充分的几何族外推仍须审计。"
+      }
+    },
+    {
       "id": "aav_mpc_report",
       "kind": "reports",
       "path": "aav_mpc/REPORT_20261102.md",

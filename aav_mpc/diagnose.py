@@ -23,6 +23,7 @@ from aav_mpc.controller import (ActuatorAwareEnv, EndpointExtendedEnv,
                                 EndpointExtendedCondensedEnv,
                                 LookaheadOffsetEndpointEnv)
 from simulator.batch_path_env import PathBank
+from simulator.batch_mpc import CONTROL_SCALE
 from simulator.model import LoopPath
 from aav_mpc.h15_target_domain import install_target_domain
 from simulator.rti_symbolic import AUGMENTED_NX, ActuatorAwareCpuDynamics
@@ -76,7 +77,8 @@ def run(task, method, out, max_steps=None, randomize_plant=False,
         qp_soft_path_penalty=None, prediction_fin_gain_scale=None,
         prediction_fin_tau_scale=None, target_fin_gain_scale=.9,
         target_fin_tau_scale=1., target_fin_delay_scale=1.,
-        fallback_mode="hold"):
+        fallback_mode="hold", reference_intent_mps=None,
+        log_substeps=False, profile_stages=False):
     definition = (dict(json.loads((CONFIG.parent / "h15.json").read_text()))
                   if task == "H15" else dict(json.loads(CONFIG.read_text())[task]))
     if path_override is not None:
@@ -117,6 +119,11 @@ def run(task, method, out, max_steps=None, randomize_plant=False,
             raise ValueError("fixed-speed lookahead offset currently supports endpoint OSQP")
         env_type = LookaheadOffsetEndpointEnv
         opts["lookahead_distance_m"] = float(lookahead_offset_m)
+    if reference_intent_mps is not None:
+        if method != "condensed_endpoint35":
+            raise ValueError("speed-intent diagnostic requires condensed_endpoint35")
+        from experiments.h15_mainline.progress_reference import ProgressReferenceEnv
+        env_type = ProgressReferenceEnv
     env = env_type(bank, batch_size=1, device="cpu",
         horizon=horizon, backend=backend, seed=definition["seed"],
         randomize_plant=randomize_plant, current_max_mps=current_max,
@@ -148,6 +155,10 @@ def run(task, method, out, max_steps=None, randomize_plant=False,
             raise ValueError("fallback policy diagnostics require condensed MPC")
         env.mpc.fallback_mode = fallback_mode
     env.reset(torch.zeros(1, dtype=torch.long))
+    if reference_intent_mps is not None:
+        env.set_intent(reference_intent_mps)
+    env.capture_strict_substeps = bool(log_substeps)
+    env.profile_stages = bool(profile_stages)
     if not process_noise:
         env.disturbance_std.zero_()
     if nominal_body:
@@ -173,22 +184,41 @@ def run(task, method, out, max_steps=None, randomize_plant=False,
         env.base_command, env.last_mpc_ok = env._solve_mpc()
     path = LoopPath(file)
     rows = []
+    substep_rows = []
     wall = time.perf_counter()
     while True:
         before = env.state[0].clone()
         actuator_before = env.actuator[0].clone()
         current_estimate_before = env.current_estimate[0].clone()
         command = env.base_command[0].clone()
+        mpc_plan_commands = (env.mpc.plan[0].clone() *
+                             torch.as_tensor(CONTROL_SCALE, device=env.device,
+                                             dtype=env.dtype))
         queue = env.command_history[0].clone()
         progress_before = float(env.progress[0])
         solve_ok = bool(env.last_mpc_ok[0])
         solve_status = getattr(env.mpc, "last_status", ["unknown"])[0]
+        nu_ref_before = env.reference_rate() if reference_intent_mps is not None else speed
         slack_before = env.mpc.last_slack[0].clone() if hasattr(env.mpc, "last_slack") else None
         legacy_predicted = env.mpc.states[0, 1].clone() if hasattr(env.mpc, "states") else None
         predicted = predict_accepted_step(env.mpc, before, actuator_before,
                                           queue, command)
         tic = time.perf_counter()
         _, _, done, info = env.step(torch.zeros(1, 3))
+        if log_substeps:
+            for sample in env.strict_substeps:
+                substep_rows.append({
+                    "period": len(rows), "substep": sample["substep"],
+                    "time_s": len(rows) * env.mpc.dt + sample["substep"] * .02,
+                    "state_json": json.dumps(sample["state"][0]),
+                    "actuator_json": json.dumps(sample["actuator"][0]),
+                    "queue_json": json.dumps(sample["queue"][0]),
+                    "progress_m": sample["progress_m"][0],
+                    "lateral_error_m": sample["lateral_error_m"][0],
+                    "depth_error_m": sample["depth_error_m"][0],
+                    "speed_error_mps": sample["speed_error_mps"][0],
+                    "pitch_deg": math.degrees(sample["pitch_rad"][0]),
+                })
         issued = info["command"][0].clone()
         solve_ms = (time.perf_counter() - tic) * 1000
         _, lateral, depth, _, _, speed_error, _ = env._errors()
@@ -201,11 +231,14 @@ def run(task, method, out, max_steps=None, randomize_plant=False,
             "queue_before_json": json.dumps(queue.tolist()),
             "command_json": json.dumps(issued.tolist()),
             "mpc_base_command_json": json.dumps(command.tolist()),
+            "mpc_plan_commands_json": json.dumps(mpc_plan_commands.tolist()),
             "state_after_json": json.dumps(x.tolist()),
             "current_ned_json": json.dumps(env.current_ned[0].tolist()),
             "progress_m": float(env.progress[0]),
             "distance_to_geometry_change_m": next_event(path, progress_before),
             "target_speed_mps": speed, "body_speed_mps": float(torch.linalg.vector_norm(x[5:8])),
+            "nu_ref_mps": nu_ref_before,
+            "actual_tangent_water_speed_mps": speed + float(speed_error[0]),
             "speed_error_mps": float(speed_error[0]),
             "lateral_error_m": float(lateral[0]), "depth_error_m": float(depth[0]),
             "pitch_deg": math.degrees(float(x[3])), "pitch_rate_degps": math.degrees(float(x[8])),
@@ -229,6 +262,8 @@ def run(task, method, out, max_steps=None, randomize_plant=False,
             "control_period_wall_ms": solve_ms,
             "success": bool(info["success"][0]), "failed": bool(info["failed"][0]),
             "timeout": bool(info["timeout"][0])}
+        if profile_stages:
+            row.update(info["timing"])
         if legacy_predicted is not None:
             row["prediction_legacy_1_position_error_m"] = float(torch.linalg.vector_norm(
                 legacy_predicted[:3] - x[:3]))
@@ -244,6 +279,10 @@ def run(task, method, out, max_steps=None, randomize_plant=False,
     with out.open("w", newline="") as stream:
         writer = csv.DictWriter(stream, fieldnames=rows[0].keys())
         writer.writeheader(); writer.writerows(rows)
+    if log_substeps:
+        with out.with_name(out.stem + "_substeps.csv").open("w", newline="") as stream:
+            writer = csv.DictWriter(stream, fieldnames=substep_rows[0].keys())
+            writer.writeheader(); writer.writerows(substep_rows)
     limits = {"speed": definition["speed_tolerance_mps"],
         "lateral": definition["lateral_corridor_m"], "depth": definition["depth_corridor_m"],
         "pitch": definition["pitch_limit_deg"]}
@@ -270,6 +309,14 @@ def run(task, method, out, max_steps=None, randomize_plant=False,
                 if key != "saturation":
                     first.append((row["time_s"], key))
     times = np.array([r["control_period_wall_ms"] for r in rows])
+    substep_first = None
+    for sample in substep_rows:
+        for key, magnitude in (("speed", abs(sample["speed_error_mps"]) > limits["speed"]),
+                               ("lateral", abs(sample["lateral_error_m"]) > limits["lateral"]),
+                               ("depth", abs(sample["depth_error_m"]) > limits["depth"]),
+                               ("pitch", abs(sample["pitch_deg"]) > limits["pitch"])):
+            if magnitude and substep_first is None:
+                substep_first = (sample["time_s"], key)
     metrics = {"max_abs_lateral_m": max(abs(r["lateral_error_m"]) for r in rows),
                "max_abs_depth_m": max(abs(r["depth_error_m"]) for r in rows),
                "max_abs_speed_error_mps": max(abs(r["speed_error_mps"]) for r in rows),
@@ -286,6 +333,12 @@ def run(task, method, out, max_steps=None, randomize_plant=False,
                "control_period_p50_ms": float(np.percentile(times, 50)),
                "control_period_p95_ms": float(np.percentile(times, 95)),
                "control_period_p99_ms": float(np.percentile(times, 99))}
+    if profile_stages:
+        for field in ("plant_integration_wall_ms", "mpc_wall_ms", "step_wall_ms"):
+            values = np.array([row[field] for row in rows])
+            for percentile in (50, 95, 99):
+                metrics[f"{field}_p{percentile}"] = float(np.percentile(values, percentile))
+            metrics[f"{field}_max"] = float(values.max())
     for key in ("qp_slack_lateral_max_m", "qp_slack_depth_max_m", "qp_slack_pitch_max_deg"):
         metrics[key] = max(r[key] for r in rows)
     metrics["qp_slack_period_fraction"] = float(np.mean([
@@ -311,10 +364,19 @@ def run(task, method, out, max_steps=None, randomize_plant=False,
         "target_fin_tau_scale": target_fin_tau_scale,
         "target_fin_delay_scale": target_fin_delay_scale,
         "fallback_mode": fallback_mode,
+        "reference_intent_mps": reference_intent_mps,
+        "log_substeps": log_substeps,
+        "profile_stages": profile_stages,
         "steps": len(rows), "wall_s": time.perf_counter() - wall,
         "progress_fraction": float(env.progress[0] / bank.lengths[0]),
         "simulator_success": rows[-1]["success"], "simulator_failed": rows[-1]["failed"],
         "strict_success": rows[-1]["success"] and not first,
+        "strict_hist": rows[-1]["success"] and not first,
+        "strict_substep_success": (rows[-1]["success"] and substep_first is None)
+            if log_substeps else None,
+        "strict_mainline_provisional": (rows[-1]["success"] and substep_first is None
+            and not first and all(t <= 100. for t in times)) if log_substeps else None,
+        "first_substep_violation": substep_first,
         "first_anomaly": min(first) if first else None,
         "first_by_type": first_by_type,
         "fallback_count": sum(not r["mpc_ok"] for r in rows),
@@ -363,6 +425,8 @@ if __name__ == "__main__":
     parser.add_argument("--target-fin-delay-scale", type=float, default=1.)
     parser.add_argument("--fallback-mode", choices=("hold", "center_fins"),
                         default="hold")
+    parser.add_argument("--reference-intent", type=float)
+    parser.add_argument("--log-substeps", action="store_true")
     args = parser.parse_args()
     run(args.task, args.method, args.out, args.max_steps, args.randomize_plant,
         args.current_max, args.process_noise, args.nominal_body,
@@ -373,4 +437,4 @@ if __name__ == "__main__":
         args.qp_soft_path_penalty, args.prediction_fin_gain_scale,
         args.prediction_fin_tau_scale, args.target_fin_gain_scale,
         args.target_fin_tau_scale, args.target_fin_delay_scale,
-        args.fallback_mode)
+        args.fallback_mode, args.reference_intent, args.log_substeps)

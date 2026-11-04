@@ -5,6 +5,7 @@ only 3*N command variables rather than (22+3)*N multiple-shooting variables.
 This is the same one-iteration local RTI approximation and tracking objective
 as simulator.rti_mpc, with exact box constraints on issued commands.
 """
+import copy
 import numpy as np
 import scipy.sparse as sparse
 import osqp
@@ -35,6 +36,50 @@ class CondensedActuatorMPC:
         self.last_qp_valid = torch.ones(batch_size, dtype=torch.bool, device=model.device)
         self.last_status = ["not_solved"] * batch_size
         self.fallback_mode = fallback_mode
+        self.max_normalized_slew = None
+        self.screen_scenarios = None
+        self.screen_path = None
+        self.screen_progress = 0.
+        self.sqp_iterations = 1
+
+    def set_sqp_iterations(self, count):
+        if isinstance(count, bool) or not isinstance(count, int) or not 1 <= count <= 5:
+            raise ValueError("SQP iteration count must be an integer in [1, 5]")
+        self.sqp_iterations = count
+
+    def set_command_slew_limits(self, limits):
+        if limits is None:
+            self.max_normalized_slew = None
+            return
+        values = np.asarray(limits, dtype=float)
+        if values.shape != (3,) or not np.isfinite(values).all() or np.any(values <= 0):
+            raise ValueError("command slew limits require three positive finite values")
+        self.max_normalized_slew = values.copy()
+
+    def set_screen_scenarios(self, scenarios, pitch_limits_deg, speed_limits_mps,
+                             path=None):
+        if scenarios is None:
+            self.screen_scenarios = None
+            self.screen_path = None
+            return
+        pitch_limits = np.asarray(pitch_limits_deg, dtype=float)
+        speed_limits = np.asarray(speed_limits_mps, dtype=float)
+        for limits in (pitch_limits, speed_limits):
+            if limits.shape != (self.horizon,) or not np.isfinite(limits).all() or np.any(limits <= 0):
+                raise ValueError("screen limits require one positive finite value per stage")
+        pairs = np.asarray(scenarios, dtype=float)
+        if (pairs.ndim != 2 or pairs.shape[1] != 2 or not len(pairs) or
+                not np.isfinite(pairs).all() or np.any(pairs <= 0)):
+            raise ValueError("screen scenarios require positive gain and lag pairs")
+        self.screen_scenarios = ([ActuatorAwareCpuDynamics(self.dt, gain, tau)
+                                  for gain, tau in pairs], np.deg2rad(pitch_limits),
+                                 speed_limits)
+        self.screen_path = path
+
+    def set_screen_progress(self, progress):
+        if not np.isfinite(progress) or progress < 0:
+            raise ValueError("screen progress must be finite and nonnegative")
+        self.screen_progress = float(progress)
 
     def reset(self, state, mask=None):
         if mask is None:
@@ -84,8 +129,53 @@ class CondensedActuatorMPC:
         solver = osqp.OSQP()
         lower = np.tile([0., -1., -1.], n) - plan.ravel()
         upper = np.ones(dim) - plan.ravel()
+        constraints = sparse.eye(dim, format="csc")
+        if self.max_normalized_slew is not None:
+            slew = np.tile(self.max_normalized_slew, n)
+            constraints = sparse.vstack((constraints, sparse.csc_matrix(difference)),
+                                        format="csc")
+            lower = np.r_[lower, -slew-rate_nominal]
+            upper = np.r_[upper, slew-rate_nominal]
+        if self.screen_scenarios is not None:
+            dynamics, pitch_limits, speed_limits = self.screen_scenarios
+            state_rows, state_lower, state_upper = [], [], []
+            for scenario in dynamics:
+                predicted = state.copy()
+                sensitivity = np.zeros((nx, dim))
+                local_path = copy.copy(self.screen_path) if self.screen_path is not None else None
+                if local_path is not None:
+                    local_path.progress = self.screen_progress
+                for k in range(n):
+                    f, a, b = scenario.evaluate(predicted[None, None],
+                                                 plan[k][None, None])
+                    predicted = f[0, 0]
+                    sensitivity = a[0, 0] @ sensitivity
+                    sensitivity[:, 3*k:3*k+3] += b[0, 0]
+                    state_rows.append(sensitivity[3].copy())
+                    state_lower.append(-pitch_limits[k]-predicted[3])
+                    state_upper.append(pitch_limits[k]-predicted[3])
+                    if local_path is None:
+                        pitch_ref, yaw_ref = reference[k, 3:5]
+                        tangent = np.array([np.cos(pitch_ref)*np.cos(yaw_ref),
+                                            np.cos(pitch_ref)*np.sin(yaw_ref),
+                                            -np.sin(pitch_ref)])
+                    else:
+                        local_path.advance(predicted[:3])
+                        tangent = local_path.tangent_at(local_path.progress)
+                    output, offset = BatchedLinearMPC._tracking_output(
+                        self, self.model.tensor(predicted[:10])[None], True)
+                    matrix = np.pad(output[0].numpy(), ((0, 0), (0, nx-10)))
+                    speed = float(tangent @ (matrix[5:8] @ predicted +
+                                             offset[0, 5:8].numpy()))
+                    state_rows.append(tangent @ matrix[5:8] @ sensitivity)
+                    state_lower.append(-speed_limits[k]-(speed-15.))
+                    state_upper.append(speed_limits[k]-(speed-15.))
+            constraints = sparse.vstack(
+                (constraints, sparse.csc_matrix(np.asarray(state_rows))), format="csc")
+            lower = np.r_[lower, state_lower]
+            upper = np.r_[upper, state_upper]
         solver.setup(P=sparse.csc_matrix((hessian+hessian.T)/2), q=gradient,
-                     A=sparse.eye(dim, format="csc"), l=lower, u=upper,
+                     A=constraints, l=lower, u=upper,
                      verbose=False, eps_abs=1e-5, eps_rel=1e-5,
                      max_iter=10000, polishing=False)
         solution = solver.solve()
@@ -93,6 +183,13 @@ class CondensedActuatorMPC:
         if valid:
             plan = np.clip(plan + solution.x.reshape(n, nu),
                            [0., -1., -1.], [1., 1., 1.])
+            if self.max_normalized_slew is not None:
+                prior = previous.copy()
+                for k in range(n):
+                    low = np.maximum([0., -1., -1.], prior-self.max_normalized_slew)
+                    high = np.minimum([1., 1., 1.], prior+self.max_normalized_slew)
+                    plan[k] = np.clip(plan[k], low, high)
+                    prior = plan[k]
         return plan, trajectory, valid, solution.info
 
     def solve(self, state, reference):
@@ -102,8 +199,12 @@ class CondensedActuatorMPC:
         previous = self.previous.numpy()
         outputs = []
         for i in range(self.batch_size):
-            plan, trajectory, valid, info = self._one(
-                state[i].numpy(), reference[i].numpy(), shifted[i], previous[i])
+            plan = shifted[i]
+            for _ in range(self.sqp_iterations):
+                plan, trajectory, valid, info = self._one(
+                    state[i].numpy(), reference[i].numpy(), plan, previous[i])
+                if not valid:
+                    break
             self.plan[i] = self.model.tensor(plan)
             self.states[i] = self.model.tensor(trajectory)
             self.last_qp_valid[i] = bool(valid)

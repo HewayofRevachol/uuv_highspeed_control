@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "method": "h15_offline_candidate_specific_n35_screen",
+  "candidate_grid_mps": [13.0, 14.0, 15.0, 16.0, 17.0],
+  "candidate_limit_k": 5,
+  "horizon_periods": 35,
+  "control_period_s": 0.1,
+  "integration_substeps": 5,
+  "screen_budget_ms": 5.0,
+  "command_max_delta_normalized_per_period": [1.0, 0.6, 0.4],
+  "command_rate_origin": "Rounded above train-only observed channel maxima [0.99999911, 0.55115588, 0.34408913], including the first command after reset; experimental screening bound, not hardware certification",
+  "strict_limits": {
+    "lateral_m": 8.0,
+    "depth_m": 5.0,
+    "pitch_deg": 40.0,
+    "tangent_water_speed_error_mps": 2.0
+  },
+  "terminal_extra_margin": {
+    "lateral_m": 2.0,
+    "depth_m": 1.0,
+    "pitch_deg": 5.0,
+    "tangent_water_speed_error_mps": 0.25
+  },
+  "scenarios": "estimate point plus four configured gain/tau bound corners",
+  "estimator_checkpoint_sha256": "13a02dfc79152ce0d025774aa775c6f507a46f5c8ce98c68a187a6f68ecceea5",
+  "screening_scope": "offline empirical N35 replay; per-candidate QP plus five parameter scenarios; no recursive feasibility or formal safety claim"
+}

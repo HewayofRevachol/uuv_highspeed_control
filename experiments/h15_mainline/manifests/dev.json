@@ -1,0 +1,48 @@
+{
+  "cases": [
+    {
+      "generator_family": "reversal",
+      "geometry_events_m": [
+        60.0,
+        80.0,
+        165.0,
+        193.0
+      ],
+      "id": "dev_reversal",
+      "parameters": {
+        "radius_m": 78.0,
+        "reversal_m": 165.0,
+        "transition_m": 28.0
+      },
+      "path": "data/datasets/h15_mainline_quickstart/dev_reversal.csv",
+      "path_sha256": "a23737493f584228b64adc8198f1220aeb807b8d99a92ef150691c1cf8e1fbc4"
+    },
+    {
+      "generator_family": "coupled",
+      "geometry_events_m": [
+        66.0,
+        89.0,
+        256.0
+      ],
+      "id": "dev_coupled",
+      "parameters": {
+        "depth_amplitude_m": 6.2,
+        "entry_m": 23.0,
+        "radius_m": 82.0,
+        "start_m": 66.0,
+        "wave_length_m": 190.0
+      },
+      "path": "data/datasets/h15_mainline_quickstart/dev_coupled.csv",
+      "path_sha256": "5ef39a2022237fd4e1499186c0c81655634c81546ec2ffcf14dad73e88d92fb6"
+    }
+  ],
+  "generator": "aav_mpc.h15_challenge_paths.generate",
+  "schema": 1,
+  "seed_role": "paired plant/process/current RNG seed",
+  "seeds": [
+    32001,
+    32002,
+    32003
+  ],
+  "split": "dev"
+}
