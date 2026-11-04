@@ -18,6 +18,7 @@
 
 | 文档 | 用途及适用范围 |
 | --- | --- |
+| [H15 结果分析与下一主线（GS-10）](GS-10_H15_RL_MPC_RESULT_ANALYSIS_AND_NEXT_MAINLINE_20261104.md) | Gate3 文档证据与代码核查；反馈一致的可行性管理、速度决策空间和下一轮实验设计；详细原始输出未收录 |
 | [DDAT 算法说明](../README_DDAT.md) | 观测、残差控制、在线估计和配对验证；部分动画脚本未收录 |
 | [DDAT 轨迹设计](../DDAT_trajectories/README.md) | 五类轨迹、训练/验证划分和再生成命令 |
 | [RTI CUDA 说明](../README_RTI_CUDA.md) | RTI 求解与 GPU 工具链；其中部分旧测试脚本未收录 |
