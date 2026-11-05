@@ -1,0 +1,66 @@
+{
+  "schema": 1,
+  "method": "A0",
+  "seed": 71001,
+  "path": "/home/prufrock/uuv_workspace/data/datasets/h15_mainline_quickstart/train_late_entry.csv",
+  "path_sha256": "19d81c1affd01b5204a9ff3af4f5746abf457203291e04463eaedbbcbba7a458",
+  "config_sha256": "df475d5ebfdcadc7d10aa3b45cdbf709ec3e66a2747f6fe70341a9555a165dd1",
+  "source_sha256": {
+    "experiments/h15_cat_mpc/run_episode.py": "54a3b0eb313c246b8ab8611e3193c77731ac9fa9a6bdc032212a1f027c69d4c0",
+    "experiments/h15_cat_mpc/adapter.py": "96f39c92b9b454c364a5c1d31f3b96a40e88ec107dbb656142ef8936d6567a65",
+    "experiments/h15_cat_mpc/residual_predictor.py": "68e1ed14baa988f3c3b962b59fdb30ceec558a7cd740ea20ec4e2e4f7bf5a6fa",
+    "experiments/h15_cat_mpc/continuous_gate.py": "e0ea5bbf11bda48383f838af63c6c7b834c9af0c110e9f1599e029b60633290b",
+    "aav_mpc/condensed_mpc.py": "2fdd68252f5728a83a978f7ed0194cd6302c6d54622b6beb873aa9431dfc456a",
+    "simulator/rti_symbolic.py": "bf6a3f66564df1d24af9196bea83f3342b18fd19baa2fa4902218951c90028e7",
+    "simulator/batch_path_env.py": "33b3cc0f8dab31948c09185bcea41f3506057142d3c2fb7da8cfa72df2c86e12",
+    "simulator/ddat_env.py": "514543e1ebafbb2c716a5d8509c2ee8443528b0a46e83b58d7623d244790a442",
+    "aav_mpc/h15_target_domain.py": "45af83cc24635930558c26e9f3c3ad3408ad03b55cac48e84d7c389e0e76c761"
+  },
+  "episode_sha256": "2ddd82a01bd33ad02d204b53e89439da31e78e39325801e64f0e8b142380bcba",
+  "python_executable": "/bin/python3",
+  "target_domain": false,
+  "compensation_mode": "on",
+  "predictor_mode": "zero",
+  "action_profile": "step",
+  "environment_profile": "matched_nominal",
+  "action_seed": 71001,
+  "policy_deterministic": false,
+  "environment_reset_snapshot": {
+    "profile": "matched_nominal",
+    "parameters": [
+      [
+        1.04,
+        1.05,
+        0.98,
+        0.8075,
+        0.8075
+      ]
+    ],
+    "delay_steps": [
+      [
+        3,
+        3,
+        3
+      ]
+    ],
+    "tau_s": [
+      [
+        0.1,
+        0.16,
+        0.16
+      ]
+    ],
+    "integrator": "midpoint_two_substeps",
+    "actuator": "second_order",
+    "theta0": [
+      0.85,
+      2.0
+    ]
+  },
+  "known_disturbance_test_oracle": null,
+  "target_domain_applied_after_reset": false,
+  "target_domain_reset_snapshot": null,
+  "policy_checkpoint": null,
+  "adapter_artifacts": null,
+  "predictor_checkpoint": null
+}

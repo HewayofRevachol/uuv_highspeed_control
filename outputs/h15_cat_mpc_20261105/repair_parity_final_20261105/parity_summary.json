@@ -1,0 +1,176 @@
+{
+  "schema": 1,
+  "scope": "repaired A0/A4 parity; paired unit=geometry x seed",
+  "episodes": 12,
+  "paired_units": 6,
+  "methods": {
+    "A0": {
+      "physical_strict": 5,
+      "no_fallback_physical": 5,
+      "deadline_clean": 4,
+      "fallback_periods": 0,
+      "deadline_miss_periods": 2,
+      "backup_periods": null
+    },
+    "A4": {
+      "physical_strict": 5,
+      "no_fallback_physical": 5,
+      "deadline_clean": 4,
+      "fallback_periods": 0,
+      "deadline_miss_periods": 1,
+      "backup_periods": null
+    }
+  },
+  "paired_physical_improved": 0,
+  "paired_physical_worsened": 0,
+  "paired_deadline_improved": 1,
+  "paired_deadline_worsened": 1,
+  "pairs": [
+    {
+      "geometry": "dev_coupled",
+      "seed": 32001,
+      "A0_physical_strict": false,
+      "A4_physical_strict": false,
+      "physical_improved": false,
+      "physical_worsened": false,
+      "A0_deadline_clean": false,
+      "A4_deadline_clean": false,
+      "deadline_improved": false,
+      "deadline_worsened": false
+    },
+    {
+      "geometry": "dev_coupled",
+      "seed": 32002,
+      "A0_physical_strict": true,
+      "A4_physical_strict": true,
+      "physical_improved": false,
+      "physical_worsened": false,
+      "A0_deadline_clean": true,
+      "A4_deadline_clean": false,
+      "deadline_improved": false,
+      "deadline_worsened": true
+    },
+    {
+      "geometry": "dev_coupled",
+      "seed": 32003,
+      "A0_physical_strict": true,
+      "A4_physical_strict": true,
+      "physical_improved": false,
+      "physical_worsened": false,
+      "A0_deadline_clean": true,
+      "A4_deadline_clean": true,
+      "deadline_improved": false,
+      "deadline_worsened": false
+    },
+    {
+      "geometry": "dev_reversal",
+      "seed": 32001,
+      "A0_physical_strict": true,
+      "A4_physical_strict": true,
+      "physical_improved": false,
+      "physical_worsened": false,
+      "A0_deadline_clean": true,
+      "A4_deadline_clean": true,
+      "deadline_improved": false,
+      "deadline_worsened": false
+    },
+    {
+      "geometry": "dev_reversal",
+      "seed": 32002,
+      "A0_physical_strict": true,
+      "A4_physical_strict": true,
+      "physical_improved": false,
+      "physical_worsened": false,
+      "A0_deadline_clean": true,
+      "A4_deadline_clean": true,
+      "deadline_improved": false,
+      "deadline_worsened": false
+    },
+    {
+      "geometry": "dev_reversal",
+      "seed": 32003,
+      "A0_physical_strict": true,
+      "A4_physical_strict": true,
+      "physical_improved": false,
+      "physical_worsened": false,
+      "A0_deadline_clean": false,
+      "A4_deadline_clean": true,
+      "deadline_improved": true,
+      "deadline_worsened": false
+    }
+  ],
+  "run_file_manifest": [
+    {
+      "run": "dev_dev_coupled_s32001_A0/run.json",
+      "run_sha256": "0ea36dfb42eb05dec338a7a330b46193b4b5851b35c8416fc9ee97d810d0b68c",
+      "episode": "dev_dev_coupled_s32001_A0/episode.json",
+      "episode_sha256": "8af12e9a4941a4c1d35a946ff4312aab6134011c2dddc59bd9296dfe3ea40308"
+    },
+    {
+      "run": "dev_dev_coupled_s32001_A4/run.json",
+      "run_sha256": "569f1f3f824b2d079ce9ceb00f312a82b9c662e5be249516ee60f210d5b78610",
+      "episode": "dev_dev_coupled_s32001_A4/episode.json",
+      "episode_sha256": "2cf0c24389595a9b8ccd7bc5228866c1f2ce0e0431cdbc8da4afe079c9729be2"
+    },
+    {
+      "run": "dev_dev_coupled_s32002_A0/run.json",
+      "run_sha256": "55f9c9ba46c9d399e43ae15f96963a86732c3079310c6e6ae4bc13132a8dd49c",
+      "episode": "dev_dev_coupled_s32002_A0/episode.json",
+      "episode_sha256": "70849c88f82b50daa0cd21cd72598ca1ef1e1d462718cec56e409fb295425241"
+    },
+    {
+      "run": "dev_dev_coupled_s32002_A4/run.json",
+      "run_sha256": "bf4c25ddfbd2965c4a82c30bc17f1aecaf8388cda229eaf323a29dd611e87cd7",
+      "episode": "dev_dev_coupled_s32002_A4/episode.json",
+      "episode_sha256": "85386e35b2a452d286ad98f67b3815771ab4d849d715b3f1f482e307d5c81e63"
+    },
+    {
+      "run": "dev_dev_coupled_s32003_A0/run.json",
+      "run_sha256": "3c7bfa057334dabafa916732a817601f520c56418127662c7d3844104493d908",
+      "episode": "dev_dev_coupled_s32003_A0/episode.json",
+      "episode_sha256": "1e15710716473064e62dedf1b8c421212bfdaefa5f5aab9a1754a34010912a3a"
+    },
+    {
+      "run": "dev_dev_coupled_s32003_A4/run.json",
+      "run_sha256": "486e32f7a1a39869221b5efbde6df6631609c0955584336edd3352ac1bd5f12e",
+      "episode": "dev_dev_coupled_s32003_A4/episode.json",
+      "episode_sha256": "5dff9063223509c015387fe3aad6b1eba103d9fa0cd0562b1a27ba38f29de258"
+    },
+    {
+      "run": "dev_dev_reversal_s32001_A0/run.json",
+      "run_sha256": "b6fa26507c71d0ed1ceb9db6d92b611542426f161a41b279433c7c845323f152",
+      "episode": "dev_dev_reversal_s32001_A0/episode.json",
+      "episode_sha256": "9ea7ff2d380966089f706cad7842525eb52638ce9d701b25c31d8941472e67c0"
+    },
+    {
+      "run": "dev_dev_reversal_s32001_A4/run.json",
+      "run_sha256": "3bc9358158cbaa3a2ce2bcc6dc5c2d88bd2029a0d69a4a51c8863cbba7803143",
+      "episode": "dev_dev_reversal_s32001_A4/episode.json",
+      "episode_sha256": "0b7801c67c06bf110dbe22642b5abe277f15f600e516249bee2060310c94c9cd"
+    },
+    {
+      "run": "dev_dev_reversal_s32002_A0/run.json",
+      "run_sha256": "a366c7c81e5eb79c80be61543aaa33f0189983158df2a8225488dcc415749d71",
+      "episode": "dev_dev_reversal_s32002_A0/episode.json",
+      "episode_sha256": "ce4d28a3352f76c542b8ce13eef4e3fd8bc9e875bab2e8c9e41827a12b025d55"
+    },
+    {
+      "run": "dev_dev_reversal_s32002_A4/run.json",
+      "run_sha256": "7c92baefc90e5c9a0681aa3213c0d629e8b236ea7eb4ca331856c4e31bf6c37e",
+      "episode": "dev_dev_reversal_s32002_A4/episode.json",
+      "episode_sha256": "99b489b54d79120d91dea96b95dd21e184af77d533203c9e6580e4bb6be50d43"
+    },
+    {
+      "run": "dev_dev_reversal_s32003_A0/run.json",
+      "run_sha256": "213b42949c65fb32b8cde42dfd0207f3e2f7a2ec24f85ad2ea4f6fe47ad6072f",
+      "episode": "dev_dev_reversal_s32003_A0/episode.json",
+      "episode_sha256": "9665fded4374e58f585f0703b72cbf44edf1ba7a11efbba32666324e591473ea"
+    },
+    {
+      "run": "dev_dev_reversal_s32003_A4/run.json",
+      "run_sha256": "2ff9895251584da642a125b527e1c099db088524d1bb86c676ccd2ecb3ff1e55",
+      "episode": "dev_dev_reversal_s32003_A4/episode.json",
+      "episode_sha256": "ca6f14fa98a20bf63c7fcd5815acb383c66a2f0701f3036c0b5117be08b1aef9"
+    }
+  ]
+}

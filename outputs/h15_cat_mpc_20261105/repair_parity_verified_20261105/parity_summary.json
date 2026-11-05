@@ -1,0 +1,176 @@
+{
+  "schema": 1,
+  "scope": "repaired A0/A4 parity; paired unit=geometry x seed",
+  "episodes": 12,
+  "paired_units": 6,
+  "methods": {
+    "A0": {
+      "physical_strict": 5,
+      "no_fallback_physical": 5,
+      "deadline_clean": 4,
+      "fallback_periods": 0,
+      "deadline_miss_periods": 2,
+      "backup_periods": null
+    },
+    "A4": {
+      "physical_strict": 5,
+      "no_fallback_physical": 5,
+      "deadline_clean": 4,
+      "fallback_periods": 0,
+      "deadline_miss_periods": 1,
+      "backup_periods": null
+    }
+  },
+  "paired_physical_improved": 0,
+  "paired_physical_worsened": 0,
+  "paired_deadline_improved": 1,
+  "paired_deadline_worsened": 1,
+  "pairs": [
+    {
+      "geometry": "dev_coupled",
+      "seed": 32001,
+      "A0_physical_strict": false,
+      "A4_physical_strict": false,
+      "physical_improved": false,
+      "physical_worsened": false,
+      "A0_deadline_clean": false,
+      "A4_deadline_clean": false,
+      "deadline_improved": false,
+      "deadline_worsened": false
+    },
+    {
+      "geometry": "dev_coupled",
+      "seed": 32002,
+      "A0_physical_strict": true,
+      "A4_physical_strict": true,
+      "physical_improved": false,
+      "physical_worsened": false,
+      "A0_deadline_clean": true,
+      "A4_deadline_clean": false,
+      "deadline_improved": false,
+      "deadline_worsened": true
+    },
+    {
+      "geometry": "dev_coupled",
+      "seed": 32003,
+      "A0_physical_strict": true,
+      "A4_physical_strict": true,
+      "physical_improved": false,
+      "physical_worsened": false,
+      "A0_deadline_clean": true,
+      "A4_deadline_clean": true,
+      "deadline_improved": false,
+      "deadline_worsened": false
+    },
+    {
+      "geometry": "dev_reversal",
+      "seed": 32001,
+      "A0_physical_strict": true,
+      "A4_physical_strict": true,
+      "physical_improved": false,
+      "physical_worsened": false,
+      "A0_deadline_clean": true,
+      "A4_deadline_clean": true,
+      "deadline_improved": false,
+      "deadline_worsened": false
+    },
+    {
+      "geometry": "dev_reversal",
+      "seed": 32002,
+      "A0_physical_strict": true,
+      "A4_physical_strict": true,
+      "physical_improved": false,
+      "physical_worsened": false,
+      "A0_deadline_clean": true,
+      "A4_deadline_clean": true,
+      "deadline_improved": false,
+      "deadline_worsened": false
+    },
+    {
+      "geometry": "dev_reversal",
+      "seed": 32003,
+      "A0_physical_strict": true,
+      "A4_physical_strict": true,
+      "physical_improved": false,
+      "physical_worsened": false,
+      "A0_deadline_clean": false,
+      "A4_deadline_clean": true,
+      "deadline_improved": true,
+      "deadline_worsened": false
+    }
+  ],
+  "run_file_manifest": [
+    {
+      "run": "dev_dev_coupled_s32001_A0/run.json",
+      "run_sha256": "b1b14ebc0fcb44d97e11065304546301e5cff8809c092974f01fcbfaf29064d0",
+      "episode": "dev_dev_coupled_s32001_A0/episode.json",
+      "episode_sha256": "6eb62466efdf5c916ff8465d79fbb2d2ea2d96a763799adf1294b785fd9062c8"
+    },
+    {
+      "run": "dev_dev_coupled_s32001_A4/run.json",
+      "run_sha256": "5ec97630304884a800919eac2094bd801d5702b8e9d9f8054ed9a47f68b19d61",
+      "episode": "dev_dev_coupled_s32001_A4/episode.json",
+      "episode_sha256": "20992675d33d72e1809dc3a7cebeb4d6d380c1a2046fc7e07388cb8948124c04"
+    },
+    {
+      "run": "dev_dev_coupled_s32002_A0/run.json",
+      "run_sha256": "d3f6f11d332290795217255f61f23c9b7e63c64119fc2ac8d4b9d5a32b08b7da",
+      "episode": "dev_dev_coupled_s32002_A0/episode.json",
+      "episode_sha256": "a094e13787b66e149c95d6cb6887f39784d286c290df3d8ea815a500075af704"
+    },
+    {
+      "run": "dev_dev_coupled_s32002_A4/run.json",
+      "run_sha256": "81e0cf669f7a017795570c6a48089c927adfcf4d3980febb0c068c187b570820",
+      "episode": "dev_dev_coupled_s32002_A4/episode.json",
+      "episode_sha256": "e96947cc1b70d3aa3f9df412497b5a3619342dff12f2a31a88f31f8b21878055"
+    },
+    {
+      "run": "dev_dev_coupled_s32003_A0/run.json",
+      "run_sha256": "a328b38bf2f8db5879b54bf222da2ae24530fe3e1b5bd4a4bb03c0312e9c4b7e",
+      "episode": "dev_dev_coupled_s32003_A0/episode.json",
+      "episode_sha256": "8f0106b2e0bda1f70fff51a049050ae0845fb4e65e44dfaefe5aba2b57175a8f"
+    },
+    {
+      "run": "dev_dev_coupled_s32003_A4/run.json",
+      "run_sha256": "b65f7e702f07cd58b1b1411e8e495d1d4266f2a5dc7004c28571c4418f64a510",
+      "episode": "dev_dev_coupled_s32003_A4/episode.json",
+      "episode_sha256": "dad720f42f6a8a1b89c7056a37b812c43c1a97422f63dcad089866a9ab56600c"
+    },
+    {
+      "run": "dev_dev_reversal_s32001_A0/run.json",
+      "run_sha256": "e384a1e104ba3b8f258827de780cde4d7a221fdda381b17b1ec2d76891fd342d",
+      "episode": "dev_dev_reversal_s32001_A0/episode.json",
+      "episode_sha256": "701e9ee3fab460c897be4bb069ec946131c826ad0ba015929f56bbad57e4cba3"
+    },
+    {
+      "run": "dev_dev_reversal_s32001_A4/run.json",
+      "run_sha256": "18461348dbba56479ff1559a9c125f0fbe820d446339f4877e00d5e1c08c32b3",
+      "episode": "dev_dev_reversal_s32001_A4/episode.json",
+      "episode_sha256": "da8cc0ecd0ea3dfd057db12a0664b882cf36c1f97ccc62bc63e792666e2d53b8"
+    },
+    {
+      "run": "dev_dev_reversal_s32002_A0/run.json",
+      "run_sha256": "593ea22c427df2f69564057fb1fadcc4037ccc3baa0dc1d891d71eb528fc53e7",
+      "episode": "dev_dev_reversal_s32002_A0/episode.json",
+      "episode_sha256": "70de0942a514eabd5a40c834ae4f91eca0970b4f4cce92e60378610a78558cfc"
+    },
+    {
+      "run": "dev_dev_reversal_s32002_A4/run.json",
+      "run_sha256": "cd969a3d222d32d4d91c9c085de91a674d0f8d9daf27992dbc813535e49b675c",
+      "episode": "dev_dev_reversal_s32002_A4/episode.json",
+      "episode_sha256": "601572bcc9af7031c9b705dc977133f7d64c0338cad971b6e8ea60b3e63d8fbe"
+    },
+    {
+      "run": "dev_dev_reversal_s32003_A0/run.json",
+      "run_sha256": "d946306f9ac2282d22f9cd061aa98111979919afc326d64edd9d9a5154fee8ce",
+      "episode": "dev_dev_reversal_s32003_A0/episode.json",
+      "episode_sha256": "34eceee3050a356ca28a498e2bc31458ed41462f0f86b7d924c41c9ec339f79b"
+    },
+    {
+      "run": "dev_dev_reversal_s32003_A4/run.json",
+      "run_sha256": "1d7c35e4e3b1d26d1dce17609d37a6894d5a9d9c42b9858c5f28b36c97c1125a",
+      "episode": "dev_dev_reversal_s32003_A4/episode.json",
+      "episode_sha256": "f48a1874de9767a2ea88394373fcfd27f378ac2a267c65cb2bb123c8b0c22565"
+    }
+  ]
+}
