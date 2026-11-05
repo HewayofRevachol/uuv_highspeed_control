@@ -15,6 +15,8 @@ def main():
     parser.add_argument("--adapter", type=Path, required=True)
     parser.add_argument("--predictor", type=Path, required=True)
     parser.add_argument("--p1-analysis", type=Path, required=True)
+    parser.add_argument("--train-manifest", type=Path,
+        default=Path(__file__).with_name("manifests")/"t_fit.json")
     parser.add_argument("--out", type=Path, required=True)
     args = parser.parse_args()
     analysis = json.loads(args.p1_analysis.read_text())
@@ -26,7 +28,8 @@ def main():
         "predictor": str(args.predictor), "predictor_sha256": sha(args.predictor),
         "p1_analysis": str(args.p1_analysis), "p1_analysis_sha256": sha(args.p1_analysis),
         "P1_dev_residual_prediction_mae": analysis["residual_prediction_mae"],
-        "train_manifest_sha256": sha(Path("experiments/h15_mainline/manifests/train.json")),
+        "train_manifest": str(args.train_manifest),
+        "train_manifest_sha256": sha(args.train_manifest),
         "dev_manifest_sha256": sha(Path("experiments/h15_mainline/manifests/dev.json")),
         "holdout_used": False}
     args.out.parent.mkdir(parents=True, exist_ok=True)

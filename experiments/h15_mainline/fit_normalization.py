@@ -21,17 +21,27 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--collection", type=Path, required=True)
     parser.add_argument("--out", type=Path, required=True)
+    parser.add_argument("--compensation-mode", choices=("on", "off"), default="on")
     args = parser.parse_args()
     run_path = args.collection / "run.json"
     run = json.loads(run_path.read_text())
     if run["scope"] != "train only; no dev or test observation files":
         raise RuntimeError("normalization requires train-only collection")
-    manifest_path = ROOT / "experiments/h15_mainline/manifests/train.json"
+    modes = run.get("compensation_modes")
+    if modes is None:
+        modes = [run["compensation_mode"]] if run.get("compensation_mode") else [args.compensation_mode]
+    if args.compensation_mode not in modes:
+        raise RuntimeError("collection and requested compensation mode differ")
+    manifest_path = ROOT / run["train_manifest"]
     if sha(manifest_path) != run["train_manifest_sha256"]:
         raise RuntimeError("training manifest changed")
     manifest = json.loads(manifest_path.read_text())
+    if manifest.get("split") != "T_fit":
+        raise RuntimeError("normalization must be fitted on the supplemental T_fit split")
     summaries_path = args.collection / "summary.json"
-    summaries = json.loads(summaries_path.read_text())
+    all_summaries = json.loads(summaries_path.read_text())
+    summaries = [row for row in all_summaries
+                 if row.get("compensation_mode", "on") == args.compensation_mode]
     expected = {(case["id"], seed) for case in manifest["cases"] for seed in manifest["seeds"]}
     observed = {(row["case_id"], row["seed"]) for row in summaries}
     if len(summaries) != len(expected) or observed != expected:
@@ -56,7 +66,8 @@ def main():
     if n < 100:
         raise RuntimeError("too few training observations")
     scales = [max(math.sqrt(value / (n - 1)), 1e-6) for value in m2]
-    result = {"schema": 1, "split": "train", "count": n,
+    result = {"schema": 2, "split": "train", "count": n,
+              "compensation_mode": args.compensation_mode,
               "feature_names": FEATURE_NAMES, "mean": means, "scale": scales,
               "collection_run_sha256": sha(run_path),
               "collection_summary_sha256": sha(summaries_path),
@@ -68,7 +79,8 @@ def main():
     if args.out.exists() and args.out.read_text() != raw:
         raise RuntimeError("refusing to overwrite different frozen normalization")
     args.out.write_text(raw)
-    run_record = {"schema": 1, "method": "h15_train_observation_normalization",
+    run_record = {"schema": 2, "method": "h15_train_observation_normalization",
+                  "compensation_mode": args.compensation_mode,
                   "input_collection_run_sha256": sha(run_path),
                   "input_collection_summary_sha256": sha(summaries_path),
                   "train_manifest_sha256": sha(manifest_path),

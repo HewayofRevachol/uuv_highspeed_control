@@ -1,0 +1,78 @@
+{
+  "cases": [
+    {
+      "generator_family": "tight_turn",
+      "geometry_events_m": [
+        60.0,
+        98.0
+      ],
+      "id": "train_turn_wide",
+      "parameters": {
+        "entry_m": 38.0,
+        "radius_m": 105.0
+      },
+      "path": "data/datasets/h15_mainline_quickstart/train_turn_wide.csv",
+      "path_sha256": "ba3604ceaeca884a9e4bf06768472869df3e0b02f1a3132132e94ea96084579f"
+    },
+    {
+      "generator_family": "reversal",
+      "geometry_events_m": [
+        60.0,
+        80.0,
+        195.0,
+        237.0
+      ],
+      "id": "train_reversal_wide",
+      "parameters": {
+        "radius_m": 105.0,
+        "reversal_m": 195.0,
+        "transition_m": 42.0
+      },
+      "path": "data/datasets/h15_mainline_quickstart/train_reversal_wide.csv",
+      "path_sha256": "f3b4a6846525abbea18dd956e55ea9bba15b672fd1b7f9e3e1c43067c3002023"
+    },
+    {
+      "generator_family": "coupled",
+      "geometry_events_m": [
+        80.0,
+        115.0,
+        300.0
+      ],
+      "id": "train_coupled_shallow",
+      "parameters": {
+        "depth_amplitude_m": 4.0,
+        "entry_m": 35.0,
+        "radius_m": 100.0,
+        "start_m": 80.0,
+        "wave_length_m": 220.0
+      },
+      "path": "data/datasets/h15_mainline_quickstart/train_coupled_shallow.csv",
+      "path_sha256": "27bc2ca7eac81ac6598bc67cc3ac3caadf548297422ed594d8709151d3aefd20"
+    },
+    {
+      "generator_family": "late_entry",
+      "geometry_events_m": [
+        145.0,
+        175.0
+      ],
+      "id": "train_late_entry",
+      "parameters": {
+        "entry_m": 145.0,
+        "radius_m": 95.0,
+        "transition_m": 30.0
+      },
+      "path": "data/datasets/h15_mainline_quickstart/train_late_entry.csv",
+      "path_sha256": "19d81c1affd01b5204a9ff3af4f5746abf457203291e04463eaedbbcbba7a458"
+    }
+  ],
+  "generator": "aav_mpc.h15_challenge_paths.generate",
+  "schema": 1,
+  "seed_role": "paired plant/process/current RNG seed for supplemental T_fit; disjoint from D_diag",
+  "seeds": [
+    51001,
+    51002,
+    51003
+  ],
+  "split": "T_fit",
+  "source_manifest_sha256": "dd1ed3836bd4a124e55d20b529fd102f8940b19ef489d61b848a0acb268b8e75"
+}
