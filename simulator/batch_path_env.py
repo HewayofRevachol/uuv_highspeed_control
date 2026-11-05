@@ -211,6 +211,11 @@ class BatchedPathResidualEnv:
         self.command_history[mask] = 0
         self.disturbance[mask] = 0
         self.previous_action[mask] = 0
+        # Domain randomization is complete here, but the first MPC solve has
+        # not happened yet. Extensions may apply a target domain to this reset.
+        after_reset_parameters = getattr(self, "_after_reset_parameters", None)
+        if after_reset_parameters is not None:
+            after_reset_parameters(mask)
         unaffected = ~mask
         old_command = self.base_command[unaffected].clone()
         old_ok = self.last_mpc_ok[unaffected].clone()
@@ -300,6 +305,9 @@ class BatchedPathResidualEnv:
         command = (self.base_command + action*self.residual_scale).clamp(
             min=self.model.lower*self.model.control_scale,
             max=self.model.upper*self.model.control_scale)
+        record_issued_command = getattr(self, "_record_issued_command", None)
+        if record_issued_command is not None:
+            record_issued_command(command)
         change_cost = (action-self.previous_action).square().sum(-1)
         old_progress = self.progress.clone()
         tracking = torch.zeros(self.batch_size, device=self.device, dtype=self.dtype)

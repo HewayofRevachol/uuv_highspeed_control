@@ -13,6 +13,9 @@ def main():
     args = parser.parse_args()
     episodes = [json.loads(p.read_text()) for p in
                 sorted(args.runs.glob("*/episode.json"))]
+    if any(row.get("command_schema") != "issued_v2" or row.get("schema", 0) < 2
+           for row in episodes):
+        raise RuntimeError("refusing to mix legacy and issued_v2 episode logs")
     keyed = {(Path(row["path"]).stem, row["seed"], row["method"]): row
              for row in episodes}
     units = sorted({(key[0], key[1]) for key in keyed})
@@ -41,15 +44,19 @@ def main():
                 "method_physical_strict": b["physical_strict"],
                 "A0_strict_mainline": a["strict_mainline"],
                 "method_strict_mainline": b["strict_mainline"],
-                "improved_hist": not a["strict_hist"] and b["strict_hist"],
-                "worsened_hist": a["strict_hist"] and not b["strict_hist"],
+                "improved_physical": not a["physical_strict"] and b["physical_strict"],
+                "worsened_physical": a["physical_strict"] and not b["physical_strict"],
+                "deadline_improved": not a["deadline_clean"] and b["deadline_clean"],
+                "deadline_worsened": a["deadline_clean"] and not b["deadline_clean"],
                 "command_diff_nonzero_periods": sum(x > 1e-9 for x in diffs),
                 "max_normalized_command_delta": max(diffs, default=0.),
                 "first_violations_A0": first_violation(a),
                 "first_violations_method": first_violation(b)})
         pair_report[method] = {"pairs": pairs,
-            "strict_hist_improved": sum(x["improved_hist"] for x in pairs),
-            "strict_hist_worsened": sum(x["worsened_hist"] for x in pairs),
+            "physical_strict_improved": sum(x["improved_physical"] for x in pairs),
+            "physical_strict_worsened": sum(x["worsened_physical"] for x in pairs),
+            "deadline_improved": sum(x["deadline_improved"] for x in pairs),
+            "deadline_worsened": sum(x["deadline_worsened"] for x in pairs),
             "strict_mainline_A0": sum(x["A0_strict_mainline"] for x in pairs),
             "strict_mainline_method": sum(x["method_strict_mainline"] for x in pairs),
             "pairs_with_command_changes": sum(x["command_diff_nonzero_periods"] > 0

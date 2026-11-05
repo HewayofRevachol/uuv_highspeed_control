@@ -30,6 +30,7 @@
     "torch_threads": 1
   },
   "train_manifest": "experiments/h15_mainline/manifests/train.json",
+  "t_fit_manifest": "experiments/h15_cat_mpc/manifests/t_fit.json",
   "dev_manifest": "experiments/h15_mainline/manifests/dev.json",
   "holdout_manifest": "data/datasets/h15_mpc_fix_holdout/manifest.json",
   "status": "inputs defined; P0 interface checks pending"

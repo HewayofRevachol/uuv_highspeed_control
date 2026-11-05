@@ -33,6 +33,11 @@ def main():
     parser.add_argument("--adapter-normalization", type=Path)
     parser.add_argument("--adapter-calibration", type=Path)
     parser.add_argument("--predictor", type=Path)
+    parser.add_argument("--predictor-mode", choices=("zero", "persistence", "ar_or_persistence"),
+                        default="ar_or_persistence")
+    parser.add_argument("--compensation-mode", choices=("on", "off"), default="on")
+    parser.add_argument("--action-seed", type=int)
+    parser.add_argument("--deterministic-policy", action="store_true")
     parser.add_argument("--workers", type=int, default=4)
     parser.add_argument("--out", type=Path, required=True)
     args = parser.parse_args()
@@ -63,11 +68,19 @@ def main():
                                                "calibration_path": args.adapter_calibration}
                                               if args.adapter_normalization else None),
                         "predictor_checkpoint": args.predictor,
-                        "policy_checkpoint": checkpoint})
+                        "policy_checkpoint": checkpoint,
+                        "compensation_mode": args.compensation_mode,
+                        "predictor_mode": args.predictor_mode,
+                        "action_seed": args.action_seed,
+                        "policy_deterministic": bool(checkpoint) or args.deterministic_policy})
     args.out.mkdir(parents=True, exist_ok=True)
-    run = {"schema": 1, "split": args.split, "methods": args.methods,
+    run = {"schema": 2, "split": args.split, "methods": args.methods,
            "workers": args.workers, "manifest": str(manifest_path),
            "jobs": len(jobs), "config": str(args.config),
+           "compensation_mode": args.compensation_mode,
+           "predictor_mode": args.predictor_mode,
+           "action_seed": args.action_seed,
+           "deterministic_policy": args.deterministic_policy,
            "policy_checkpoints": [str(x) for x in checkpoints if x is not None]}
     (args.out/"run.json").write_text(json.dumps(run, indent=2)+"\n")
     ctx = mp.get_context("spawn")

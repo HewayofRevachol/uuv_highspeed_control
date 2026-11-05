@@ -3,6 +3,60 @@ import json
 from pathlib import Path
 
 import numpy as np
+import torch
+from simulator.model import MISMATCHED_PLANT
+
+
+def nominal_delay_tau(device="cpu", dtype=torch.float64, substep_s=.02,
+                      fin_tau_scale=1.):
+    """Fixed nominal actuator contract; never read randomized plant delay/tau."""
+    delays_s = (MISMATCHED_PLANT.thrust_delay_s,
+                MISMATCHED_PLANT.fin_delay_s,
+                MISMATCHED_PLANT.fin_delay_s)
+    taus_s = (MISMATCHED_PLANT.thrust_tau_s,
+              MISMATCHED_PLANT.fin_tau_s*fin_tau_scale,
+              MISMATCHED_PLANT.fin_tau_s*fin_tau_scale)
+    delays = torch.ceil(torch.tensor(delays_s, device=device, dtype=dtype)/substep_s-1e-12)
+    return delays.to(torch.long)[None], torch.tensor(taus_s, device=device,
+                                                     dtype=dtype)[None]
+
+
+def nominal_period_rollout(model, state, actuator, actuator_rate, queue,
+                           delay_steps, tau, issued_command, parameters,
+                           second_order=True, fin_tau_scale=1., integrator=True,
+                           period_s=.1, substep_s=.02):
+    """Roll out one observable nominal control period through queue and actuator."""
+    steps = round(period_s/substep_s)
+    if steps < 1 or abs(steps*substep_s-period_s) > 1e-12:
+        raise ValueError("period must be an integer number of actuator substeps")
+    state, actuator = state.clone(), actuator.clone()
+    actuator_rate, queue = actuator_rate.clone(), queue.clone()
+    delays = torch.as_tensor(delay_steps, device=state.device, dtype=torch.long)
+    issued = issued_command
+    tau_used = tau.clone()
+    if second_order:
+        tau_used[:, 1:] *= float(fin_tau_scale)
+    for _ in range(steps):
+        delayed = queue.gather(1, (delays-1).clamp_min(0)[:, None]).squeeze(1)
+        target = torch.where(delays > 0, delayed, issued)
+        queue = torch.cat((issued[:, None], queue[:, :-1]), 1)
+        if second_order:
+            omega = 1./tau_used.clamp_min(.03)
+            acceleration = omega.square()*(target-actuator)-2.*omega*actuator_rate
+            actuator_rate = actuator_rate+substep_s*acceleration
+            actuator = actuator+substep_s*actuator_rate
+        else:
+            gain = -torch.expm1(-substep_s/tau_used.clamp_min(1e-12))
+            actuator = actuator+gain*(target-actuator)
+        if integrator:
+            from aav_mpc.h15_target_domain import midpoint_two_substeps
+            state = midpoint_two_substeps(model, state, actuator, parameters,
+                torch.zeros((state.shape[0], 5), device=state.device, dtype=state.dtype),
+                current=None, dt=substep_s)
+        else:
+            state = model.rk4(state, actuator, parameters=parameters,
+                              dt=substep_s)
+    return state, actuator, actuator_rate, queue
 
 
 class ResidualAR1:
@@ -42,8 +96,18 @@ class ResidualAR1:
         return cls(np.clip(phi, -.98, .98), mean, "train_ar1")
 
     @classmethod
-    def load(cls, path):
+    def load(cls, path, expected_label_version=None,
+             expected_compensation_mode=None):
         value = json.loads(Path(path).read_text())
+        label_version = value.get("manifest", {}).get("label_version")
+        if expected_label_version is not None and label_version != expected_label_version:
+            raise ValueError(f"predictor label version {label_version!r} is incompatible; "
+                             f"expected {expected_label_version!r}")
+        comp_mode = value.get("manifest", {}).get("compensation_mode")
+        if (expected_compensation_mode is not None and
+                comp_mode != expected_compensation_mode):
+            raise ValueError(f"predictor compensation mode {comp_mode!r} is incompatible; "
+                             f"expected {expected_compensation_mode!r}")
         return cls(value["phi"], value["mean"], value["version"])
 
     def predict(self, history, horizon=35):
