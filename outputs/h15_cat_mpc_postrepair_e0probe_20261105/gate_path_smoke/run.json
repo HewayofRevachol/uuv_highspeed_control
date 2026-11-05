@@ -1,0 +1,6 @@
+{
+  "config_sha256": "df475d5ebfdcadc7d10aa3b45cdbf709ec3e66a2747f6fe70341a9555a165dd1",
+  "probe_sha256": "f2e7ba01340218e827ab809639163a8561dc2187a9ad64baf88d7f556613ec7d",
+  "cycles_requested": 40,
+  "scope": "mechanism check only; no success-rate claim"
+}

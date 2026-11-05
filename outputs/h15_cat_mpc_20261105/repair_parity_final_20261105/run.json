@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "split": "dev",
+  "methods": [
+    "A0",
+    "A4"
+  ],
+  "workers": 1,
+  "manifest": "/home/prufrock/uuv_workspace/experiments/h15_mainline/manifests/dev.json",
+  "jobs": 12,
+  "config": "/home/prufrock/uuv_workspace/experiments/h15_cat_mpc/config.json",
+  "policy_checkpoints": []
+}

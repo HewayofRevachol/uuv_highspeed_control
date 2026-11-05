@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "stage": "E0 contract probe",
+  "periods_per_job": 40,
+  "jobs": 12,
+  "seed": 71001,
+  "geometry": "data/datasets/h15_mainline_quickstart/train_late_entry.csv",
+  "profiles": [
+    "matched_nominal",
+    "known_disturbance",
+    "target"
+  ],
+  "compensation_modes": [
+    "on",
+    "off"
+  ],
+  "actions": [
+    "step",
+    "reversal"
+  ],
+  "oracle_disturbance": [
+    0.0,
+    0.0,
+    0.0,
+    0.04,
+    -0.04
+  ],
+  "oracle_is_test_only": true,
+  "holdout_used": false
+}

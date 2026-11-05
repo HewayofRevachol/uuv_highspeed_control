@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "method": "A0",
+  "seed": 32001,
+  "path": "/home/prufrock/uuv_workspace/data/datasets/h15_mainline_quickstart/dev_coupled.csv",
+  "path_sha256": "5ef39a2022237fd4e1499186c0c81655634c81546ec2ffcf14dad73e88d92fb6",
+  "config_sha256": "df475d5ebfdcadc7d10aa3b45cdbf709ec3e66a2747f6fe70341a9555a165dd1",
+  "source_sha256": {
+    "experiments/h15_cat_mpc/run_episode.py": "28e94c94b5d31395232149ac1b7db96def12c1f1c176e4b65cba808bf00ce874",
+    "experiments/h15_cat_mpc/adapter.py": "94759abd6b6a8d028208e73bc87baebdcf5af6427ecd18ae30798d74b1ba38ca",
+    "experiments/h15_cat_mpc/residual_predictor.py": "30a25e42e3e1cb6032a07f22c7d5f575bd32ac2a2d022edd4e49df7624bd90b3",
+    "experiments/h15_cat_mpc/continuous_gate.py": "e0ea5bbf11bda48383f838af63c6c7b834c9af0c110e9f1599e029b60633290b",
+    "aav_mpc/condensed_mpc.py": "2fdd68252f5728a83a978f7ed0194cd6302c6d54622b6beb873aa9431dfc456a",
+    "simulator/rti_symbolic.py": "bf6a3f66564df1d24af9196bea83f3342b18fd19baa2fa4902218951c90028e7",
+    "simulator/batch_path_env.py": "33b3cc0f8dab31948c09185bcea41f3506057142d3c2fb7da8cfa72df2c86e12",
+    "simulator/ddat_env.py": "cb1950966b7ecbf9a942e48b70744af25cb60d17daed0e7bdef6eb00295114e3",
+    "aav_mpc/h15_target_domain.py": "7827cbc83c054977f315f7f8e6f5d0e2823d03ff996ca5b2378b083d6e3fdaa6"
+  },
+  "episode_sha256": "6eb62466efdf5c916ff8465d79fbb2d2ea2d96a763799adf1294b785fd9062c8",
+  "python_executable": "/bin/python3",
+  "target_domain": true,
+  "target_domain_applied_after_reset": true,
+  "target_domain_reset_snapshot": {
+    "parameters_fin_before": [
+      [
+        0.9032513888968571,
+        1.026668299399558
+      ]
+    ],
+    "parameters_fin_after": [
+      [
+        0.8129262500071713,
+        0.9240014694596022
+      ]
+    ],
+    "delay_steps_fin": [
+      [
+        4,
+        4
+      ]
+    ],
+    "tau_fin_raw_s": [
+      [
+        0.11797401412052035,
+        0.11797401412052035
+      ]
+    ],
+    "fin_gain_scale": 0.9,
+    "fin_tau_scale": 1.0,
+    "fin_delay_scale": 1.0,
+    "second_order": true,
+    "integrator": true
+  },
+  "policy_checkpoint": null,
+  "adapter_artifacts": null,
+  "predictor_checkpoint": null
+}
