@@ -10,10 +10,13 @@ THETA0 = (0.85, 2.0)
 
 class FrozenResponseAdapter:
     def __init__(self, normalization_path=None, calibration_path=None,
-                 parameters=None):
+                 parameters=None, expected_compensation_mode=None):
         self.estimator = None
         if normalization_path is not None:
             normalization = json.loads(Path(normalization_path).read_text())
+            if (expected_compensation_mode is not None and
+                    normalization.get("compensation_mode") != expected_compensation_mode):
+                raise ValueError("adapter normalization compensation mode mismatch")
             calibration = (json.loads(Path(calibration_path).read_text())
                            if calibration_path is not None else None)
             self.estimator = SlidingWindowResponseEstimator(

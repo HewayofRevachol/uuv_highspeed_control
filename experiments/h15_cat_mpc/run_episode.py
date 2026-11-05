@@ -10,10 +10,12 @@ import numpy as np
 import torch
 
 from aav_mpc.controller import EndpointExtendedCondensedEnv
-from aav_mpc.h15_target_domain import install_target_domain
+from aav_mpc.h15_target_domain import (SecondOrderActuator,
+    install_target_domain, midpoint_two_substeps)
 from experiments.h15_cat_mpc.adapter import FrozenResponseAdapter, THETA0
 from experiments.h15_cat_mpc.continuous_gate import ActorCritic
-from experiments.h15_cat_mpc.residual_predictor import ResidualAR1
+from experiments.h15_cat_mpc.residual_predictor import (ResidualAR1,
+    nominal_delay_tau, nominal_period_rollout)
 from simulator.batch_mpc import CONTROL_SCALE
 from simulator.batch_path_env import PathBank
 from simulator.model import MISMATCHED_PLANT
@@ -49,11 +51,21 @@ class GateEnv(EndpointExtendedCondensedEnv):
             self.pending = {
                 "state_before": self.state[0].detach().cpu().numpy().copy(),
                 "actuator_before": self.actuator[0].detach().cpu().numpy().copy(),
+                "nominal_actuator_rate_before": self.nominal_actuator_rate[0].detach().cpu().numpy().copy(),
                 "queue_before": self.command_history[0].detach().cpu().numpy().copy(),
-                "command": self.base_command[0].detach().cpu().numpy().copy(),
+                "mpc_command": self.base_command[0].detach().cpu().numpy().copy(),
+                "issued_command": None,
+                "low_level_compensation": None,
+                "nominal_delay_steps": nominal_delay_tau(self.device, self.dtype,
+                    fin_tau_scale=self.theta_hat[1])[0][0].cpu().numpy().copy(),
+                "nominal_tau": nominal_delay_tau(self.device, self.dtype,
+                    fin_tau_scale=self.theta_hat[1])[1][0].cpu().numpy().copy(),
                 "plan": (self.mpc.plan[0].detach().cpu().numpy().copy() *
                          np.asarray(CONTROL_SCALE)),
                 "theta_used": self.theta_hat.copy(),
+                "alpha_used": self.alpha.copy(),
+                "second_order": getattr(self, "actuator_update", None) is not None,
+                "integrator": hasattr(self, "plant_integrator"),
                 "d_forecast": self.d_forecast.copy(),
             }
 
@@ -61,6 +73,8 @@ class GateEnv(EndpointExtendedCondensedEnv):
         if self.pending is None:
             return
         p = self.pending
+        if p["issued_command"] is None:
+            raise RuntimeError("issued command was not captured before MPC solve")
         state_after = self.state[0].detach().cpu().numpy().copy()
         actual_after = self.actuator[0].detach().cpu().numpy().copy()
         errors = [float(value[0]) for value in self._errors()[1:6]]
@@ -72,7 +86,17 @@ class GateEnv(EndpointExtendedCondensedEnv):
             "actuator_before_json": json.dumps(p["actuator_before"].tolist()),
             "actuator_after_json": json.dumps(actual_after.tolist()),
             "queue_before_json": json.dumps(p["queue_before"].tolist()),
-            "command_json": json.dumps(p["command"].tolist()),
+            "mpc_command_json": json.dumps(p["mpc_command"].tolist()),
+            "low_level_compensation_json": json.dumps(p["low_level_compensation"].tolist()),
+            "issued_command_json": json.dumps(p["issued_command"].tolist()),
+            "command_json": json.dumps(p["issued_command"].tolist()),
+            "command_schema": "issued_v2",
+            "nominal_delay_steps_json": json.dumps(p["nominal_delay_steps"].tolist()),
+            "nominal_tau_json": json.dumps(p["nominal_tau"].tolist()),
+            "nominal_rate_before_json": json.dumps(p["nominal_actuator_rate_before"].tolist()),
+            "second_order_actuator": p["second_order"],
+            "fin_tau_scale": p["theta_used"][1],
+            "integrator": p["integrator"],
             "mpc_base_command_json": json.dumps(p["plan"][0].tolist()),
             "mpc_plan_commands_json": json.dumps(p["plan"].tolist()),
             "thrust_actual_n": float(actual_after[0]),
@@ -84,23 +108,34 @@ class GateEnv(EndpointExtendedCondensedEnv):
             "progress_m": float(self.progress[0]),
             "residual_valid": False,
             "d_forecast": p["d_forecast"].tolist(),
+            "theta_used_json": json.dumps(p["theta_used"].tolist()),
+            "theta_label_before_json": json.dumps(p["theta_used"].tolist()),
+            "alpha_used_json": json.dumps(p["alpha_used"].tolist()),
         }
-        # Fixed, observable theta0 point dynamics; the hidden sampled plant
-        # parameters and second-order actuator rate are never read here.
         model_parameters = self.model.tensor([
             MISMATCHED_PLANT.mass_scale, MISMATCHED_PLANT.damping_scale,
             MISMATCHED_PLANT.thrust_gain,
             MISMATCHED_PLANT.elevator_gain*p["theta_used"][0],
             MISMATCHED_PLANT.rudder_gain*p["theta_used"][0]])[None]
-        actual_control = self.model.tensor(p["actuator_before"])[None]
-        before = self.model.tensor(p["state_before"])[None]
-        predicted = self.model.rk4(before, actual_control,
-                                   parameters=model_parameters, dt=.1)
-        residual = ((state_after[5:10]-predicted[0, 5:10].detach().cpu().numpy())/.1)
+        nominal_state = self.model.tensor(p["state_before"])[None]
+        nominal_actuator = self.model.tensor(p["actuator_before"])[None]
+        nominal_rate = self.model.tensor(p["nominal_actuator_rate_before"])[None]
+        nominal_queue = self.model.tensor(p["queue_before"])[None]
+        delay = torch.as_tensor(p["nominal_delay_steps"], device=self.device).long()[None]
+        tau = self.model.tensor(p["nominal_tau"])[None]
+        issued = self.model.tensor(p["issued_command"])[None]
+        nominal_state, _, nominal_rate_after, _ = nominal_period_rollout(self.model, nominal_state,
+            nominal_actuator, nominal_rate, nominal_queue, delay, tau, issued,
+            model_parameters, second_order=p["second_order"],
+            fin_tau_scale=p["theta_used"][1],
+            integrator=p["integrator"])
+        self.nominal_actuator_rate[0] = nominal_rate_after[0]
+        residual = (state_after[5:10]-nominal_state[0, 5:10].detach().cpu().numpy())/.1
         if np.isfinite(residual).all():
             row["residual_valid"] = True
             self.residual_history.append(residual.copy())
         row["residual_body_acc"] = residual.tolist() if row["residual_valid"] else [0.]*5
+        row["residual_label_version"] = "nominal_5x20ms_issued_v2"
         self.completed_rows.append(row)
         self.pending = None
         self.period_index += 1
@@ -127,6 +162,8 @@ class GateEnv(EndpointExtendedCondensedEnv):
         self.d_forecast = np.asarray(estimate["d_hat"], dtype=float)
         self.mpc.set_continuous_model(self.alpha, self.theta_hat,
                                       self.d_forecast[:self.mpc.horizon])
+        theta_delta_scaled = np.abs((self.theta_hat-np.asarray(THETA0))/[.5, 2.5])
+        d_scaled = np.abs(self.d_forecast/[1., 1., 1., .1, .1])
         started = time.perf_counter()
         command, ok = self.mpc.solve(self.observed_augmented_state(),
                                      self._reference())
@@ -134,6 +171,13 @@ class GateEnv(EndpointExtendedCondensedEnv):
         self.gate_log.append({"period": self.period_index,
                               "alpha": self.alpha.tolist(),
                               "theta_hat": self.theta_hat.tolist(),
+                              "theta_applied": (np.asarray(THETA0)+self.alpha[0]*
+                                  (self.theta_hat-np.asarray(THETA0))).tolist(),
+                              "theta_axis_active": (theta_delta_scaled > 1e-3).tolist(),
+                              "d_axis_active": (np.max(d_scaled, axis=0) > 1e-3).tolist(),
+                              "d_hat_max_scaled": np.max(d_scaled, axis=0).tolist(),
+                              "d_applied_max_scaled": (self.alpha[1]*
+                                  np.max(d_scaled, axis=0)).tolist(),
                               "theta_source": estimate.get("theta_source", "fixed"),
                               "fallback_reason": estimate.get("fallback_reason"),
                               "raw_z": estimate.get("raw_z"),
@@ -152,6 +196,7 @@ class GateEnv(EndpointExtendedCondensedEnv):
         alpha_penalty = self.pending_alpha_penalty
         self.pending_alpha_penalty = 0.
         self._start_pending()
+        completed_before = len(self.completed_rows)
         result = super().step(action, **kwargs)
         observation, reward, done, info = result
         if self.physical_intervention is None:
@@ -183,7 +228,26 @@ class GateEnv(EndpointExtendedCondensedEnv):
             shaped_reward[0] = -100.
         if bool(result[2][0]) or self.physical_intervention:
             self._complete_pending()
+        if len(self.completed_rows) > completed_before:
+            logged = np.asarray(json.loads(self.completed_rows[-1]["issued_command_json"]))
+            actual = info["command"][0].detach().cpu().numpy()
+            if not np.allclose(logged, actual, rtol=0., atol=1e-6):
+                raise AssertionError(f"issued command log differs from plant command: {logged} vs {actual}")
         return observation, shaped_reward, done, info
+
+    def _record_issued_command(self, command):
+        if self.pending is None:
+            raise RuntimeError("issued command arrived without pending period")
+        issued = command[0].detach().cpu().numpy().copy()
+        mpc = self.pending["mpc_command"]
+        if issued.shape != (3,) or not np.isfinite(issued).all():
+            raise ValueError("issued command must be finite [3]")
+        low = (self.model.lower*self.model.control_scale).cpu().numpy()
+        high = (self.model.upper*self.model.control_scale).cpu().numpy()
+        if np.any(issued < low-1e-6) or np.any(issued > high+1e-6):
+            raise ValueError("issued command is outside physical actuator limits")
+        self.pending["issued_command"] = issued
+        self.pending["low_level_compensation"] = issued-mpc
 
 
 def observation37(env, theta_radius, alpha_previous, forecast):
@@ -214,14 +278,22 @@ def observation37(env, theta_radius, alpha_previous, forecast):
 
 def run_episode(path, seed, out, method="A0", target_domain=True,
                 adapter_artifacts=None, predictor_checkpoint=None,
-                policy_checkpoint=None, max_steps=None):
+                policy_checkpoint=None, max_steps=None,
+                compensation_mode="on", action_profile=None,
+                known_disturbance=None, predictor_mode="ar_or_persistence",
+                environment_profile=None, action_seed=None,
+                policy_deterministic=False):
     path = Path(path)
     out = Path(out)
     if out.exists():
         raise FileExistsError(out)
-    torch.manual_seed(int(seed))
+    torch.manual_seed(int(seed if action_seed is None else action_seed))
     torch.set_num_threads(1)
     out.mkdir(parents=True)
+    if environment_profile not in (None, "target", "matched_nominal"):
+        raise ValueError("unsupported environment_profile")
+    if environment_profile == "matched_nominal":
+        target_domain = False
     bank = PathBank([path], "cpu")
     bank.speed[:] = 15.; bank.first_state[:, 5] = 15.
     bank.durations[:] = bank.lengths/15.
@@ -233,13 +305,58 @@ def run_episode(path, seed, out, method="A0", target_domain=True,
         attitude_yaw_weight=30., fsp_enabled=False,
         preview_mode="multiscale", yaw_reward="course")
     env.mpc.dynamics = ActuatorAwareCpuDynamics(.1, .85, 2.)
+    env.nominal_actuator_rate = torch.zeros_like(env.actuator)
     env.profile_stages = True
     if not target_domain:
         env.disturbance_std.zero_()
-    install_target_domain(env, fin_gain_scale=.9, second_order=True,
-                          integrator=True) if target_domain else None
-    adapter = FrozenResponseAdapter(**(adapter_artifacts or {}))
-    predictor = ResidualAR1.load(predictor_checkpoint) if predictor_checkpoint else ResidualAR1()
+    if compensation_mode not in ("on", "off"):
+        raise ValueError("compensation_mode must be 'on' or 'off'")
+    env.low_level_compensation_enabled = compensation_mode == "on"
+    env_reset_snapshot = None
+    if environment_profile == "matched_nominal":
+        def install_matched_nominal(mask):
+            nonlocal env_reset_snapshot
+            values = env.model.tensor([MISMATCHED_PLANT.mass_scale,
+                MISMATCHED_PLANT.damping_scale, MISMATCHED_PLANT.thrust_gain,
+                MISMATCHED_PLANT.elevator_gain*THETA0[0],
+                MISMATCHED_PLANT.rudder_gain*THETA0[0]])
+            env.parameters[mask] = values
+            delays = torch.ceil(env.model.tensor([
+                MISMATCHED_PLANT.thrust_delay_s,
+                MISMATCHED_PLANT.fin_delay_s,
+                MISMATCHED_PLANT.fin_delay_s])/.02-1e-12).long()
+            env.delay_steps[mask] = delays
+            env.tau[mask] = env.model.tensor([MISMATCHED_PLANT.thrust_tau_s,
+                MISMATCHED_PLANT.fin_tau_s*THETA0[1],
+                MISMATCHED_PLANT.fin_tau_s*THETA0[1]])
+            env.plant_integrator = lambda state, control, parameters=None, disturbance=None, current=None, dt=.02: (
+                midpoint_two_substeps(env.model, state, control, parameters,
+                                      disturbance, current, dt))
+            env.actuator_update = SecondOrderActuator(env, 1.)
+            env.actuator_update.rate[mask] = 0
+            env.nominal_actuator_rate[mask] = 0
+            env_reset_snapshot = {"profile": "matched_nominal",
+                "parameters": env.parameters[mask].detach().cpu().tolist(),
+                "delay_steps": env.delay_steps[mask].detach().cpu().tolist(),
+                "tau_s": env.tau[mask].detach().cpu().tolist(),
+                "integrator": "midpoint_two_substeps",
+                "actuator": "second_order", "theta0": list(THETA0)}
+        env._after_reset_parameters = install_matched_nominal
+    target_config = (install_target_domain(env, fin_gain_scale=.9, second_order=True,
+                          integrator=True) if target_domain else None)
+    adapter = FrozenResponseAdapter(**(adapter_artifacts or {}),
+                                    expected_compensation_mode=compensation_mode)
+    if predictor_mode not in ("zero", "persistence", "ar_or_persistence"):
+        raise ValueError("predictor_mode must be zero, persistence, or ar_or_persistence")
+    if predictor_mode == "zero":
+        predictor = ResidualAR1(np.zeros(5), np.zeros(5), "zero_v1")
+    elif predictor_mode == "persistence":
+        predictor = ResidualAR1(version="persistence_v1")
+    else:
+        predictor = (ResidualAR1.load(predictor_checkpoint,
+            expected_label_version="nominal_5x20ms_issued_v2",
+            expected_compensation_mode=compensation_mode)
+            if predictor_checkpoint else ResidualAR1())
     model, policy_previous, alpha = None, None, np.zeros(2)
     if policy_checkpoint:
         model = ActorCritic(37, 64)
@@ -277,7 +394,8 @@ def run_episode(path, seed, out, method="A0", target_domain=True,
             obs = torch.as_tensor(observation37(current, radius, alpha, forecast))[None]
             policy_started = time.perf_counter()
             with torch.no_grad():
-                action = model.act(obs, torch.as_tensor(alpha, dtype=torch.float32)[None])
+                action = model.act(obs, torch.as_tensor(alpha, dtype=torch.float32)[None],
+                                   deterministic=policy_deterministic)
             policy_wall_ms = (time.perf_counter()-policy_started)*1000.
             raw_z = action["raw_z"][0].tolist()
             raw_log_prob = float(action["log_prob"][0])
@@ -301,12 +419,30 @@ def run_episode(path, seed, out, method="A0", target_domain=True,
 
     env.gate_callback = choose
     env.reset(torch.zeros(1, dtype=torch.long))
+    if known_disturbance is not None:
+        value = np.asarray(known_disturbance, dtype=float)
+        if value.shape != (5,) or not np.isfinite(value).all():
+            raise ValueError("known_disturbance must be finite [5]")
+        env.disturbance_std.zero_()
+        env.decay = 1.
+        env.disturbance[0] = torch.as_tensor(value, device=env.device, dtype=env.dtype)
     env.capture_strict_substeps = True
     trace, substeps, rewards, period_ms = [], [], [], []
     started = time.perf_counter()
     for _ in range(int(max_steps or env.max_steps[0])):
         tick = time.perf_counter()
-        obs, reward, done, info = env.step(torch.zeros(1, 3))
+        action = torch.zeros(1, 3)
+        period = len(trace)
+        if action_profile == "step" and 8 <= period < 24:
+            action[0, 0] = .5
+        elif action_profile == "reversal":
+            if 8 <= period < 20:
+                action[0, 0] = .5
+            elif 20 <= period < 32:
+                action[0, 0] = -.5
+        elif action_profile not in (None, "step", "reversal"):
+            raise ValueError("action_profile must be None, step or reversal")
+        obs, reward, done, info = env.step(action)
         wall_ms = (time.perf_counter()-tick)*1000.
         period_ms.append(wall_ms); rewards.append(float(reward[0]))
         for sample in env.strict_substeps:
@@ -317,6 +453,7 @@ def run_episode(path, seed, out, method="A0", target_domain=True,
             substeps.append({"period": int(env.steps[0])-1,
                 "substep": sample["substep"], "time_s": (int(env.steps[0])-1)*.1+
                 sample["substep"]*.02, "state": sample["state"][0],
+                "progress_m": float(sample["progress_m"][0]),
                 "actuator": sample["actuator"][0], "queue": sample["queue"][0],
                 "lateral_error_m": sample["lateral_error_m"][0],
                 "depth_error_m": sample["depth_error_m"][0],
@@ -329,7 +466,14 @@ def run_episode(path, seed, out, method="A0", target_domain=True,
                       "depth": abs(float(dep[0])) > 5.,
                       "speed": abs(float(speed_err[0])) > 2.,
                       "pitch": abs(float(np.rad2deg(pit[0]))) > 40.}
-        trace.append({"period": len(trace), "command": info["command"][0].tolist(),
+        issued_command = info["command"][0].detach().cpu().numpy()
+        command_low = (env.model.lower*env.model.control_scale).cpu().numpy()
+        command_high = (env.model.upper*env.model.control_scale).cpu().numpy()
+        saturated = bool(np.any(np.minimum(np.abs(issued_command-command_low),
+                                           np.abs(issued_command-command_high)) <= 1e-6))
+        trace.append({"period": len(trace), "action": action[0].tolist(),
+                      "command": issued_command.tolist(),
+                      "issued_command": issued_command.tolist(), "saturated": saturated,
                       "state": env.state[0].detach().cpu().tolist(),
                       "alpha": env.alpha.tolist(), "qp_ok": bool(info["mpc_ok"][0]),
                       "physical_flags": hist_flags,
@@ -362,23 +506,70 @@ def run_episode(path, seed, out, method="A0", target_domain=True,
             "ar1_mae": np.mean(ar_errors, axis=0).tolist() if ar_errors else None,
             "persistence_mae": (np.mean(persistence_errors, axis=0).tolist()
                                 if persistence_errors else None)}
-    result = {"schema": 1, "method": method, "seed": int(seed),
+    physical_strict = bool(full_path and not any_physical)
+    no_fallback_physical = bool(physical_strict and not any(not item["qp_ok"] for item in trace))
+    deadline_clean = bool(full_path and not any(value > 100. for value in period_ms))
+    theta_activity = ([float(x) for x in np.mean(
+        [x["theta_axis_active"] for x in env.gate_log], axis=0)]
+        if env.gate_log else [0., 0.])
+    d_activity = ([float(x) for x in np.mean(
+        [x["d_axis_active"] for x in env.gate_log], axis=0)]
+        if env.gate_log else [0.]*5)
+    first_violation = next(({"period": x["period"], "substep": x["substep"],
+        "time_s": x["time_s"], "progress_m": x["progress_m"],
+        "types": [k for k, value in x["physical_flags"].items() if value]}
+        for x in substeps if any(x["physical_flags"].values())), None)
+    peak_errors = {"lateral_m": max((abs(float(x["lateral_error_m"])) for x in substeps), default=0.),
+        "depth_m": max((abs(float(x["depth_error_m"])) for x in substeps), default=0.),
+        "speed_mps": max((abs(float(x["speed_error_mps"])) for x in substeps), default=0.),
+        "pitch_deg": max((abs(float(np.rad2deg(x["pitch_rad"]))) for x in substeps), default=0.)}
+    period_array = np.asarray(period_ms, dtype=float)
+    result = {"schema": 2, "command_schema": "issued_v2",
+        "residual_label_version": "nominal_5x20ms_issued_v2",
+        "method": method, "seed": int(seed),
         "path": str(path), "periods": len(trace), "wall_s": time.perf_counter()-started,
         "success": bool(info["success"][0]), "failed": bool(info["failed"][0]),
         "timeout": bool(info["timeout"][0]), "progress_fraction": float(info["progress_fraction"][0]),
         "fallback_periods": sum(not item["qp_ok"] for item in trace),
         "physical_intervention": getattr(env, "physical_intervention", None),
-        "backup_periods": 0, "period_ms": period_ms,
+        "backup_supported": False, "backup_periods": None, "period_ms": period_ms,
+        "deadline_miss_periods": sum(value > 100. for value in period_ms),
+        "deadline_miss_episode": any(value > 100. for value in period_ms),
+        "period_timing_ms": {"p50": float(np.percentile(period_array, 50)),
+            "p95": float(np.percentile(period_array, 95)),
+            "p99": float(np.percentile(period_array, 99)), "max": float(period_array.max())},
         "deadline_miss": [value > 100. for value in period_ms],
         "strict_hist": full_path and not hist_physical,
-        "physical_strict": full_path and not any_physical,
-        "strict_mainline": (full_path and not any_physical and
-                            not any(not item["qp_ok"] for item in trace) and
-                            not any(value > 100. for value in period_ms)),
+        "physical_strict": physical_strict,
+        "no_fallback_physical": no_fallback_physical,
+        "deadline_clean": deadline_clean,
+        "strict_mainline": no_fallback_physical and deadline_clean,
+        "first_physical_violation": first_violation,
+        "peak_errors": peak_errors,
+        "saturation_fraction": (sum(x["saturated"] for x in trace)/len(trace) if trace else 0.),
+        "activity_summary": {"theta_axis_activity_fraction": theta_activity,
+            "d_axis_activity_fraction": d_activity,
+            "theta_active_fraction": float(np.mean([any(x["theta_axis_active"])
+                for x in env.gate_log])) if env.gate_log else 0.,
+            "d_active_fraction": float(np.mean([any(x["d_axis_active"])
+                for x in env.gate_log])) if env.gate_log else 0.},
         "strict_substeps": substeps, "trace": trace,
         "alpha_log": env.gate_log, "completed_rows": env.completed_rows,
         "residual_forecast_errors": forecast_metrics,
         "residual_forecast_version": predictor.version,
+        "compensation_mode": compensation_mode,
+        "predictor_mode": predictor_mode,
+        "action_profile": action_profile,
+        "known_disturbance_test_oracle": (list(known_disturbance)
+            if known_disturbance is not None else None),
+        "environment_profile": environment_profile or ("target" if target_domain else "baseline"),
+        "environment_reset_snapshot": env_reset_snapshot,
+        "action_seed": int(seed if action_seed is None else action_seed),
+        "policy_deterministic": bool(policy_deterministic),
+        "target_domain_config": target_config,
+        "target_domain_reset_snapshot": getattr(env, "_target_domain_reset_snapshot", None),
+        "target_domain_applied_after_reset": bool(target_domain and
+            getattr(env, "_target_domain_reset_snapshot", None) is not None),
         "reward_sum": sum(rewards)}
     (out/"episode.json").write_text(json.dumps(result, indent=2)+"\n")
     source_files = [ROOT/"experiments/h15_cat_mpc/run_episode.py",
@@ -386,7 +577,10 @@ def run_episode(path, seed, out, method="A0", target_domain=True,
                     ROOT/"experiments/h15_cat_mpc/residual_predictor.py",
                     ROOT/"experiments/h15_cat_mpc/continuous_gate.py",
                     ROOT/"aav_mpc/condensed_mpc.py",
-                    ROOT/"simulator/rti_symbolic.py"]
+                    ROOT/"simulator/rti_symbolic.py",
+                    ROOT/"simulator/batch_path_env.py",
+                    ROOT/"simulator/ddat_env.py",
+                    ROOT/"aav_mpc/h15_target_domain.py"]
     record = {"schema": 1, "method": method, "seed": int(seed),
               "path": str(path), "path_sha256": sha256(path),
               "config_sha256": sha256(ROOT/"experiments/h15_cat_mpc/config.json"),
@@ -394,6 +588,17 @@ def run_episode(path, seed, out, method="A0", target_domain=True,
                                 for p in source_files},
               "episode_sha256": sha256(out/"episode.json"),
               "python_executable": "/bin/python3", "target_domain": target_domain,
+              "compensation_mode": compensation_mode,
+              "predictor_mode": predictor_mode,
+              "action_profile": action_profile,
+              "environment_profile": environment_profile or ("target" if target_domain else "baseline"),
+              "action_seed": int(seed if action_seed is None else action_seed),
+              "policy_deterministic": bool(policy_deterministic),
+              "environment_reset_snapshot": env_reset_snapshot,
+              "known_disturbance_test_oracle": (list(known_disturbance)
+                  if known_disturbance is not None else None),
+              "target_domain_applied_after_reset": bool(target_domain),
+              "target_domain_reset_snapshot": getattr(env, "_target_domain_reset_snapshot", None),
               "policy_checkpoint": str(policy_checkpoint) if policy_checkpoint else None,
               "adapter_artifacts": ({k: str(v) for k, v in adapter_artifacts.items()}
                                      if adapter_artifacts else None),

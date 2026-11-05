@@ -47,6 +47,7 @@ class DDATPathEnv(BatchedPathResidualEnv):
         self.current_estimate = torch.zeros_like(self.current_ned)
         self.current_max_mps = current_max_mps
         self.current_profile = current_profile
+        self.low_level_compensation_enabled = True
         # Keep wave sampling separate from plant/noise sampling so paired seeds
         # use the same plant and body-acceleration disturbance stream.
         self.current_generator = torch.Generator(device=self.device).manual_seed(
@@ -201,7 +202,8 @@ class DDATPathEnv(BatchedPathResidualEnv):
         # Nominal next-step angular rates plus a policy correction in rad/s.
         desired_rates = state[:, 8:10] + self.mpc.dt*nominal[:, 8:10] + .03*action[:, 1:]
         desired_acceleration = (desired_rates-state[:, 8:10])/self.mpc.dt
-        desired_acceleration -= self.disturbance_estimate[:, 3:5]
+        if self.low_level_compensation_enabled:
+            desired_acceleration -= self.disturbance_estimate[:, 3:5]
         gain_columns = []
         for axis in (1, 2):
             offset = torch.zeros_like(base)
@@ -216,7 +218,8 @@ class DDATPathEnv(BatchedPathResidualEnv):
              (desired_acceleration-nominal[:, 8:10])[..., None])).squeeze(-1)
         surge_gain = (self.model.derivative(
             state, base+self.model.tensor([1., 0., 0.]))-nominal)[:, 5]
-        thrust_compensation = -self.disturbance_estimate[:, 0]/surge_gain.clamp_min(1e-8)
+        thrust_compensation = (-self.disturbance_estimate[:, 0]/surge_gain.clamp_min(1e-8)
+            if self.low_level_compensation_enabled else torch.zeros_like(surge_gain))
         command = torch.cat(((desired_thrust+thrust_compensation)[:, None],
                              base[:, 1:]+correction), -1)
         command = command.clamp(min=self.model.lower*self.model.control_scale,

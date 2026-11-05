@@ -44,10 +44,14 @@ def main():
             "completed": sum(row["success"] for row in selected),
             "strict_hist_completed": sum(row["strict_hist"] for row in selected),
             "physical_strict_completed": sum(row["physical_strict"] for row in selected),
+            "no_fallback_physical_completed": sum(row["no_fallback_physical"] for row in selected),
+            "deadline_clean_completed": sum(row["deadline_clean"] for row in selected),
             "strict_mainline_completed": sum(row["strict_mainline"] for row in selected),
             "failed": sum(row["failed"] for row in selected),
             "fallback_periods": sum(row["fallback_periods"] for row in selected),
-            "backup_periods": sum(row["backup_periods"] for row in selected),
+            "backup_periods": (sum(row["backup_periods"] for row in selected)
+                               if all(row.get("backup_periods") is not None
+                                      for row in selected) else None),
             "deadline_miss_periods": sum(sum(row["deadline_miss"]) for row in selected),
             "physical_violations_0p02s": violations,
             "completion_time_s_median": float(np.median(

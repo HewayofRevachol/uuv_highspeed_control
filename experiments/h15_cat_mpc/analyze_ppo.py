@@ -26,12 +26,18 @@ def summarize_pairs(candidate, baseline):
     for key in sorted(baseline):
         a, b = baseline[key], candidate[key]
         common = bool(a["success"] and b["success"])
-        pairs.append({"unit": key, "baseline_strict_mainline": a["strict_mainline"],
+        pairs.append({"unit": key, "baseline_physical_strict": a["physical_strict"],
+            "candidate_physical_strict": b["physical_strict"],
+            "baseline_deadline_clean": a["deadline_clean"],
+            "candidate_deadline_clean": b["deadline_clean"],
+            "baseline_strict_mainline": a["strict_mainline"],
             "candidate_strict_mainline": b["strict_mainline"],
             "improved_to_unintervened_physical_finish":
-                not a["strict_mainline"] and b["strict_mainline"],
+                not a["physical_strict"] and b["physical_strict"],
             "worsened_from_unintervened_physical_finish":
-                a["strict_mainline"] and not b["strict_mainline"],
+                a["physical_strict"] and not b["physical_strict"],
+            "deadline_improved": not a["deadline_clean"] and b["deadline_clean"],
+            "deadline_worsened": a["deadline_clean"] and not b["deadline_clean"],
             "common_success": common,
             "baseline_normalized_rmse": normalized_rmse(a) if common else None,
             "candidate_normalized_rmse": normalized_rmse(b) if common else None,
@@ -44,10 +50,8 @@ def summarize_pairs(candidate, baseline):
     cand_rmse = np.median([x["candidate_normalized_rmse"] for x in both]) if both else None
     base_time = np.median([x["baseline_time_s"] for x in both]) if both else None
     cand_time = np.median([x["candidate_time_s"] for x in both]) if both else None
-    base_interventions = sum(a["fallback_periods"]+a["backup_periods"]
-                             for a in baseline.values())
-    cand_interventions = sum(candidate[k]["fallback_periods"]+
-                             candidate[k]["backup_periods"] for k in baseline)
+    base_interventions = sum(a["fallback_periods"] for a in baseline.values())
+    cand_interventions = sum(candidate[k]["fallback_periods"] for k in baseline)
     base_periods = sum(a["periods"] for a in baseline.values())
     cand_periods = sum(candidate[k]["periods"] for k in baseline)
     base_rate = base_interventions/base_periods if base_periods else 0.
@@ -57,6 +61,12 @@ def summarize_pairs(candidate, baseline):
         "worsened": sum(x["worsened_from_unintervened_physical_finish"] for x in pairs),
         "baseline_strict_mainline": sum(x["baseline_strict_mainline"] for x in pairs),
         "candidate_strict_mainline": sum(x["candidate_strict_mainline"] for x in pairs),
+        "baseline_physical_strict": sum(x["baseline_physical_strict"] for x in pairs),
+        "candidate_physical_strict": sum(x["candidate_physical_strict"] for x in pairs),
+        "physical_improved": sum(x["improved_to_unintervened_physical_finish"] for x in pairs),
+        "physical_worsened": sum(x["worsened_from_unintervened_physical_finish"] for x in pairs),
+        "deadline_improved": sum(x["deadline_improved"] for x in pairs),
+        "deadline_worsened": sum(x["deadline_worsened"] for x in pairs),
         "common_successes": len(both),
         "baseline_normalized_rmse_median": float(base_rmse) if both else None,
         "candidate_normalized_rmse_median": float(cand_rmse) if both else None,
@@ -64,13 +74,17 @@ def summarize_pairs(candidate, baseline):
         "completion_time_relative_change": float(cand_time/base_time-1.) if both and base_time else None,
         "baseline_speed_mae_median": float(np.median([x["baseline_speed_mae"] for x in both])) if both else None,
         "candidate_speed_mae_median": float(np.median([x["candidate_speed_mae"] for x in both])) if both else None,
-        "baseline_intervention_rate": base_rate,
-        "candidate_intervention_rate": cand_rate}
+        "backup_periods": None,
+        "baseline_fallback_rate": base_rate,
+        "candidate_fallback_rate": cand_rate}
 
 
 def load_runs(directory):
-    return {(Path(x["path"]).stem, x["seed"], x["method"]): x for x in
-            (json.loads(p.read_text()) for p in directory.glob("*/episode.json"))}
+    runs = [json.loads(p.read_text()) for p in directory.glob("*/episode.json")]
+    if any(row.get("command_schema") != "issued_v2" or row.get("schema", 0) < 2
+           for row in runs):
+        raise RuntimeError("refusing to mix legacy and issued_v2 episode logs")
+    return {(Path(x["path"]).stem, x["seed"], x["method"]): x for x in runs}
 
 
 def main():
@@ -105,9 +119,9 @@ def main():
             "rule3": (a0["normalized_rmse_relative_change"] is not None and
                 a0["normalized_rmse_relative_change"] <= 0. and
                 a0["candidate_speed_mae_median"] <= a0["baseline_speed_mae_median"] and
-                a0["baseline_intervention_rate"] > 0. and
-                a0["candidate_intervention_rate"] <=
-                    .8*a0["baseline_intervention_rate"]),
+                a0["baseline_fallback_rate"] > 0. and
+                a0["candidate_fallback_rate"] <=
+                    .8*a0["baseline_fallback_rate"]),
             "versus_A4_mainline_improved": comparisons["A4"]["improved"],
             "versus_A4_mainline_worsened": comparisons["A4"]["worsened"]}
     result = {"schema": 1, "dev_units": len(fixed)//5,
