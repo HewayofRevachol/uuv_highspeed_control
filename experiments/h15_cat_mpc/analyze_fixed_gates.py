@@ -5,6 +5,8 @@ from pathlib import Path
 
 import numpy as np
 
+from experiments.h15_cat_mpc.analyze_ppo import summarize_pairs
+
 
 def main():
     parser = argparse.ArgumentParser()
@@ -21,8 +23,11 @@ def main():
     units = sorted({(key[0], key[1]) for key in keyed})
     pair_report = {}
     for method in ("A1", "A2", "A3", "A4"):
+        statistics = summarize_pairs(
+            {(geometry, seed): keyed[(geometry, seed, method)] for geometry, seed in units},
+            {(geometry, seed): keyed[(geometry, seed, "A0")] for geometry, seed in units})
         pairs = []
-        for geometry, seed in units:
+        for index, (geometry, seed) in enumerate(units):
             a, b = keyed[(geometry, seed, "A0")], keyed[(geometry, seed, method)]
             count = min(len(a["trace"]), len(b["trace"]))
             diffs = []
@@ -37,11 +42,13 @@ def main():
                 "types": [kind for kind, flag in s["physical_flags"].items() if flag]}
                 for s in row["strict_substeps"]
                 if any(s["physical_flags"].values())), None)
-            pairs.append({"geometry": geometry, "seed": seed,
+            pairs.append({**statistics["pairs"][index], "geometry": geometry, "seed": seed,
                 "A0_strict_hist": a["strict_hist"],
                 "method_strict_hist": b["strict_hist"],
                 "A0_physical_strict": a["physical_strict"],
                 "method_physical_strict": b["physical_strict"],
+                "A0_no_fallback_physical": a["no_fallback_physical"],
+                "method_no_fallback_physical": b["no_fallback_physical"],
                 "A0_strict_mainline": a["strict_mainline"],
                 "method_strict_mainline": b["strict_mainline"],
                 "improved_physical": not a["physical_strict"] and b["physical_strict"],
@@ -52,7 +59,7 @@ def main():
                 "max_normalized_command_delta": max(diffs, default=0.),
                 "first_violations_A0": first_violation(a),
                 "first_violations_method": first_violation(b)})
-        pair_report[method] = {"pairs": pairs,
+        pair_report[method] = {**statistics, "pairs": pairs,
             "physical_strict_improved": sum(x["improved_physical"] for x in pairs),
             "physical_strict_worsened": sum(x["worsened_physical"] for x in pairs),
             "deadline_improved": sum(x["deadline_improved"] for x in pairs),
@@ -66,9 +73,11 @@ def main():
         records = [row["residual_forecast_errors"][horizon] for row in episodes
                    if row["residual_forecast_errors"][horizon]["count"]]
         prediction[horizon] = {"episodes": len(records),
-            "ar1_mae": np.mean([x["ar1_mae"] for x in records], axis=0).tolist(),
-            "persistence_mae": np.mean([x["persistence_mae"] for x in records], axis=0).tolist()}
-    result = {"schema": 1, "split": "dev", "episodes": len(episodes),
+            "ar1_mae": np.mean([x["ar1_mae"] for x in records], axis=0).tolist() if records else None,
+            "persistence_mae": np.mean([x["persistence_mae"] for x in records], axis=0).tolist() if records else None}
+    result = {"schema": 2, "metric_protocol": "paired_no_fallback_precision_v2",
+              "scope": "paired diagnostic summary; not E4/E5 acceptance",
+              "split": "dev", "episodes": len(episodes),
               "paired_units": len(units), "paired_vs_A0": pair_report,
               "residual_prediction_mae": prediction,
               "note": "paired scenario units; control periods are not treated as independent samples"}

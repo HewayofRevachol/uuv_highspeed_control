@@ -6,6 +6,20 @@ from pathlib import Path
 import numpy as np
 
 
+P2_PROTOCOL = {
+    "version": "legacy_p2_audit_repaired_v2",
+    "scope": "legacy P2 exploration only; not E4/E5 acceptance",
+    "safety_precondition": "no paired physical/no-fallback regression; no paired fallback-count increase",
+    "precision_set": "both success and no_fallback_physical",
+    "relative_statistic": "median of per-pair relative changes",
+    "zero_baseline": "0 to 0 is zero change; positive error from zero blocks precision rules",
+    "thresholds": {"rule1_minimum_no_fallback_improvements": 2,
+                   "rule2_rmse_relative_change_max": -.10,
+                   "rule2_time_relative_change_max": .03,
+                   "rule3_fallback_rate_ratio_max": .8},
+}
+
+
 def normalized_rmse(episode):
     values = []
     for row in episode["strict_substeps"]:
@@ -17,66 +31,128 @@ def normalized_rmse(episode):
 
 
 def speed_mae(episode):
-    return float(np.mean([abs(float(x["speed_error_mps"]))
-                          for x in episode["strict_substeps"]]))
+    values = [abs(float(x["speed_error_mps"])) for x in episode["strict_substeps"]]
+    return float(np.mean(values)) if values else None
+
+
+def _relative_change(candidate, baseline):
+    if candidate is None or baseline is None:
+        return None
+    if not np.isfinite([candidate, baseline]).all():
+        return None
+    if baseline == 0.:
+        return 0. if candidate == 0. else None
+    return float(candidate / baseline - 1.)
+
+
+def _median_complete(rows, key):
+    values = [row[key] for row in rows]
+    if not values or any(value is None or not np.isfinite(value) for value in values):
+        return None
+    return float(np.median(values))
 
 
 def summarize_pairs(candidate, baseline):
+    if set(candidate) != set(baseline) or not baseline:
+        raise ValueError("candidate and baseline must contain the same nonempty paired units")
     pairs = []
     for key in sorted(baseline):
         a, b = baseline[key], candidate[key]
-        common = bool(a["success"] and b["success"])
+        common = bool(a["success"] and b["success"] and
+                      a["no_fallback_physical"] and b["no_fallback_physical"])
+        baseline_rmse = normalized_rmse(a) if common else None
+        candidate_rmse = normalized_rmse(b) if common else None
         pairs.append({"unit": key, "baseline_physical_strict": a["physical_strict"],
             "candidate_physical_strict": b["physical_strict"],
+            "baseline_no_fallback_physical": a["no_fallback_physical"],
+            "candidate_no_fallback_physical": b["no_fallback_physical"],
             "baseline_deadline_clean": a["deadline_clean"],
             "candidate_deadline_clean": b["deadline_clean"],
             "baseline_strict_mainline": a["strict_mainline"],
             "candidate_strict_mainline": b["strict_mainline"],
+            "physical_improved": not a["physical_strict"] and b["physical_strict"],
+            "physical_worsened": a["physical_strict"] and not b["physical_strict"],
+            "no_fallback_improved": not a["no_fallback_physical"] and b["no_fallback_physical"],
+            "no_fallback_worsened": a["no_fallback_physical"] and not b["no_fallback_physical"],
             "improved_to_unintervened_physical_finish":
-                not a["physical_strict"] and b["physical_strict"],
+                not a["no_fallback_physical"] and b["no_fallback_physical"],
             "worsened_from_unintervened_physical_finish":
-                a["physical_strict"] and not b["physical_strict"],
+                a["no_fallback_physical"] and not b["no_fallback_physical"],
             "deadline_improved": not a["deadline_clean"] and b["deadline_clean"],
             "deadline_worsened": a["deadline_clean"] and not b["deadline_clean"],
+            "baseline_fallback_periods": a["fallback_periods"],
+            "candidate_fallback_periods": b["fallback_periods"],
+            "fallback_increased": b["fallback_periods"] > a["fallback_periods"],
+            "common_no_fallback_success": common,
             "common_success": common,
-            "baseline_normalized_rmse": normalized_rmse(a) if common else None,
-            "candidate_normalized_rmse": normalized_rmse(b) if common else None,
+            "baseline_normalized_rmse": baseline_rmse,
+            "candidate_normalized_rmse": candidate_rmse,
+            "normalized_rmse_relative_change": _relative_change(candidate_rmse, baseline_rmse),
+            "normalized_rmse_absolute_change": (candidate_rmse-baseline_rmse
+                if baseline_rmse is not None and candidate_rmse is not None else None),
+            "completion_time_relative_change": _relative_change(b["periods"], a["periods"])
+                if common else None,
             "baseline_time_s": a["periods"]*.1 if common else None,
             "candidate_time_s": b["periods"]*.1 if common else None,
             "baseline_speed_mae": speed_mae(a) if common else None,
             "candidate_speed_mae": speed_mae(b) if common else None})
     both = [x for x in pairs if x["common_success"]]
-    base_rmse = np.median([x["baseline_normalized_rmse"] for x in both]) if both else None
-    cand_rmse = np.median([x["candidate_normalized_rmse"] for x in both]) if both else None
-    base_time = np.median([x["baseline_time_s"] for x in both]) if both else None
-    cand_time = np.median([x["candidate_time_s"] for x in both]) if both else None
     base_interventions = sum(a["fallback_periods"] for a in baseline.values())
     cand_interventions = sum(candidate[k]["fallback_periods"] for k in baseline)
     base_periods = sum(a["periods"] for a in baseline.values())
     cand_periods = sum(candidate[k]["periods"] for k in baseline)
     base_rate = base_interventions/base_periods if base_periods else 0.
     cand_rate = cand_interventions/cand_periods if cand_periods else 0.
-    return {"pairs": pairs,
+    physical_worsened = sum(x["physical_worsened"] for x in pairs)
+    no_fallback_worsened = sum(x["no_fallback_worsened"] for x in pairs)
+    fallback_increased = sum(x["fallback_increased"] for x in pairs)
+    return {"protocol_version": P2_PROTOCOL["version"], "pairs": pairs,
         "improved": sum(x["improved_to_unintervened_physical_finish"] for x in pairs),
         "worsened": sum(x["worsened_from_unintervened_physical_finish"] for x in pairs),
         "baseline_strict_mainline": sum(x["baseline_strict_mainline"] for x in pairs),
         "candidate_strict_mainline": sum(x["candidate_strict_mainline"] for x in pairs),
         "baseline_physical_strict": sum(x["baseline_physical_strict"] for x in pairs),
         "candidate_physical_strict": sum(x["candidate_physical_strict"] for x in pairs),
-        "physical_improved": sum(x["improved_to_unintervened_physical_finish"] for x in pairs),
-        "physical_worsened": sum(x["worsened_from_unintervened_physical_finish"] for x in pairs),
+        "baseline_no_fallback_physical": sum(x["baseline_no_fallback_physical"] for x in pairs),
+        "candidate_no_fallback_physical": sum(x["candidate_no_fallback_physical"] for x in pairs),
+        "physical_improved": sum(x["physical_improved"] for x in pairs),
+        "physical_worsened": physical_worsened,
+        "no_fallback_improved": sum(x["no_fallback_improved"] for x in pairs),
+        "no_fallback_worsened": no_fallback_worsened,
         "deadline_improved": sum(x["deadline_improved"] for x in pairs),
         "deadline_worsened": sum(x["deadline_worsened"] for x in pairs),
         "common_successes": len(both),
-        "baseline_normalized_rmse_median": float(base_rmse) if both else None,
-        "candidate_normalized_rmse_median": float(cand_rmse) if both else None,
-        "normalized_rmse_relative_change": float(cand_rmse/base_rmse-1.) if both and base_rmse else None,
-        "completion_time_relative_change": float(cand_time/base_time-1.) if both and base_time else None,
-        "baseline_speed_mae_median": float(np.median([x["baseline_speed_mae"] for x in both])) if both else None,
-        "candidate_speed_mae_median": float(np.median([x["candidate_speed_mae"] for x in both])) if both else None,
+        "common_no_fallback_successes": len(both),
+        "baseline_normalized_rmse_median": _median_complete(both, "baseline_normalized_rmse"),
+        "candidate_normalized_rmse_median": _median_complete(both, "candidate_normalized_rmse"),
+        "normalized_rmse_relative_change": _median_complete(both, "normalized_rmse_relative_change"),
+        "completion_time_relative_change": _median_complete(both, "completion_time_relative_change"),
+        "baseline_speed_mae_median": _median_complete(both, "baseline_speed_mae"),
+        "candidate_speed_mae_median": _median_complete(both, "candidate_speed_mae"),
+        "paired_fallback_increases": fallback_increased,
+        "safety_precondition": not (physical_worsened or no_fallback_worsened or fallback_increased),
         "backup_periods": None,
+        "baseline_fallback_periods": base_interventions,
+        "candidate_fallback_periods": cand_interventions,
         "baseline_fallback_rate": base_rate,
         "candidate_fallback_rate": cand_rate}
+
+
+def exploration_rules(summary):
+    """Legacy P2 thresholds with corrected physical and fallback prerequisites."""
+    safe = summary["safety_precondition"]
+    rmse = summary["normalized_rmse_relative_change"]
+    duration = summary["completion_time_relative_change"]
+    speeds = (summary["candidate_speed_mae_median"], summary["baseline_speed_mae_median"])
+    speed_ok = all(value is not None for value in speeds) and speeds[0] <= speeds[1]
+    return {"safety_precondition": safe,
+        "rule1": bool(safe and summary["no_fallback_improved"] >= 2),
+        "rule2": bool(safe and summary["common_no_fallback_successes"] > 0 and
+            rmse is not None and rmse <= -.10 and duration is not None and
+            duration <= .03 and speed_ok),
+        "rule3": bool(safe and rmse is not None and rmse <= 0. and speed_ok and
+            summary["baseline_fallback_rate"] > 0. and summary["candidate_fallback_rate"] <=
+            .8*summary["baseline_fallback_rate"])}
 
 
 def load_runs(directory):
@@ -108,23 +184,10 @@ def main():
     rule_results = {}
     for checkpoint, comparisons in results.items():
         a0 = comparisons["A0"]
-        rule_results[checkpoint] = {
-            "rule1": a0["improved"] >= 2 and a0["worsened"] == 0,
-            "rule2": (a0["common_successes"] > 0 and
-                a0["normalized_rmse_relative_change"] is not None and
-                a0["normalized_rmse_relative_change"] <= -.10 and
-                a0["completion_time_relative_change"] is not None and
-                a0["completion_time_relative_change"] <= .03 and
-                a0["candidate_speed_mae_median"] <= a0["baseline_speed_mae_median"]),
-            "rule3": (a0["normalized_rmse_relative_change"] is not None and
-                a0["normalized_rmse_relative_change"] <= 0. and
-                a0["candidate_speed_mae_median"] <= a0["baseline_speed_mae_median"] and
-                a0["baseline_fallback_rate"] > 0. and
-                a0["candidate_fallback_rate"] <=
-                    .8*a0["baseline_fallback_rate"]),
-            "versus_A4_mainline_improved": comparisons["A4"]["improved"],
-            "versus_A4_mainline_worsened": comparisons["A4"]["worsened"]}
-    result = {"schema": 1, "dev_units": len(fixed)//5,
+        rule_results[checkpoint] = {**exploration_rules(a0),
+            "versus_A4_no_fallback_improved": comparisons["A4"]["no_fallback_improved"],
+            "versus_A4_no_fallback_worsened": comparisons["A4"]["no_fallback_worsened"]}
+    result = {"schema": 2, "protocol": P2_PROTOCOL, "dev_units": len(baselines["A0"]),
         "P2_exploration_rules": rule_results,
         "checkpoint_comparisons": results,
         "training_curve": training,

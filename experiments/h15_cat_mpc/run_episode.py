@@ -14,8 +14,11 @@ from aav_mpc.h15_target_domain import (SecondOrderActuator,
     install_target_domain, midpoint_two_substeps)
 from experiments.h15_cat_mpc.adapter import FrozenResponseAdapter, THETA0
 from experiments.h15_cat_mpc.continuous_gate import ActorCritic
+from experiments.h15_cat_mpc.contracts import load_matching_predictor
+from experiments.h15_cat_mpc.method_contract import (FIXED_GATES, METHODS,
+    policy_execution_metadata)
 from experiments.h15_cat_mpc.residual_predictor import (ResidualAR1,
-    nominal_delay_tau, nominal_period_rollout)
+    RESIDUAL_LABEL_VERSION, nominal_delay_tau, nominal_period_rollout)
 from simulator.batch_mpc import CONTROL_SCALE
 from simulator.batch_path_env import PathBank
 from simulator.model import MISMATCHED_PLANT
@@ -48,6 +51,8 @@ class GateEnv(EndpointExtendedCondensedEnv):
 
     def _start_pending(self):
         if self.pending is None and not bool(self.finished[0]):
+            nominal_delay, effective_tau = nominal_delay_tau(self.device, self.dtype,
+                fin_tau_scale=self.theta_hat[1])
             self.pending = {
                 "state_before": self.state[0].detach().cpu().numpy().copy(),
                 "actuator_before": self.actuator[0].detach().cpu().numpy().copy(),
@@ -56,10 +61,8 @@ class GateEnv(EndpointExtendedCondensedEnv):
                 "mpc_command": self.base_command[0].detach().cpu().numpy().copy(),
                 "issued_command": None,
                 "low_level_compensation": None,
-                "nominal_delay_steps": nominal_delay_tau(self.device, self.dtype,
-                    fin_tau_scale=self.theta_hat[1])[0][0].cpu().numpy().copy(),
-                "nominal_tau": nominal_delay_tau(self.device, self.dtype,
-                    fin_tau_scale=self.theta_hat[1])[1][0].cpu().numpy().copy(),
+                "nominal_delay_steps": nominal_delay[0].cpu().numpy().copy(),
+                "nominal_tau": effective_tau[0].cpu().numpy().copy(),
                 "plan": (self.mpc.plan[0].detach().cpu().numpy().copy() *
                          np.asarray(CONTROL_SCALE)),
                 "theta_used": self.theta_hat.copy(),
@@ -127,7 +130,6 @@ class GateEnv(EndpointExtendedCondensedEnv):
         nominal_state, _, nominal_rate_after, _ = nominal_period_rollout(self.model, nominal_state,
             nominal_actuator, nominal_rate, nominal_queue, delay, tau, issued,
             model_parameters, second_order=p["second_order"],
-            fin_tau_scale=p["theta_used"][1],
             integrator=p["integrator"])
         self.nominal_actuator_rate[0] = nominal_rate_after[0]
         residual = (state_after[5:10]-nominal_state[0, 5:10].detach().cpu().numpy())/.1
@@ -135,7 +137,7 @@ class GateEnv(EndpointExtendedCondensedEnv):
             row["residual_valid"] = True
             self.residual_history.append(residual.copy())
         row["residual_body_acc"] = residual.tolist() if row["residual_valid"] else [0.]*5
-        row["residual_label_version"] = "nominal_5x20ms_issued_v2"
+        row["residual_label_version"] = RESIDUAL_LABEL_VERSION
         self.completed_rows.append(row)
         self.pending = None
         self.period_index += 1
@@ -283,6 +285,18 @@ def run_episode(path, seed, out, method="A0", target_domain=True,
                 known_disturbance=None, predictor_mode="ar_or_persistence",
                 environment_profile=None, action_seed=None,
                 policy_deterministic=False):
+    execution_metadata = policy_execution_metadata(method, policy_checkpoint,
+                                                    policy_deterministic)
+    policy_deterministic = execution_metadata["policy_deterministic"]
+    normalization_path = (adapter_artifacts or {}).get("normalization_path")
+    if predictor_mode not in ("zero", "persistence", "ar_or_persistence"):
+        raise ValueError("predictor_mode must be zero, persistence, or ar_or_persistence")
+    if predictor_checkpoint is not None:
+        if normalization_path is None:
+            raise ValueError("predictor checkpoint requires the matching adapter normalization")
+        load_matching_predictor(normalization_path, predictor_checkpoint,
+                                compensation_mode, RESIDUAL_LABEL_VERSION)
+    normalization_sha = sha256(normalization_path) if normalization_path is not None else None
     path = Path(path)
     out = Path(out)
     if out.exists():
@@ -346,16 +360,15 @@ def run_episode(path, seed, out, method="A0", target_domain=True,
                           integrator=True) if target_domain else None)
     adapter = FrozenResponseAdapter(**(adapter_artifacts or {}),
                                     expected_compensation_mode=compensation_mode)
-    if predictor_mode not in ("zero", "persistence", "ar_or_persistence"):
-        raise ValueError("predictor_mode must be zero, persistence, or ar_or_persistence")
     if predictor_mode == "zero":
         predictor = ResidualAR1(np.zeros(5), np.zeros(5), "zero_v1")
     elif predictor_mode == "persistence":
         predictor = ResidualAR1(version="persistence_v1")
     else:
         predictor = (ResidualAR1.load(predictor_checkpoint,
-            expected_label_version="nominal_5x20ms_issued_v2",
-            expected_compensation_mode=compensation_mode)
+            expected_label_version=RESIDUAL_LABEL_VERSION,
+            expected_compensation_mode=compensation_mode,
+            expected_normalization_sha256=normalization_sha)
             if predictor_checkpoint else ResidualAR1())
     model, policy_previous, alpha = None, None, np.zeros(2)
     if policy_checkpoint:
@@ -363,10 +376,8 @@ def run_episode(path, seed, out, method="A0", target_domain=True,
         checkpoint = torch.load(policy_checkpoint, map_location="cpu", weights_only=False)
         model.load_state_dict(checkpoint["policy"])
         model.eval()
-    fixed = {"A0": (0., 0.), "A1": (1., 0.), "A2": (0., 1.),
-             "A3": (1., 1.), "A4": (.5, .5)}
-    if method in fixed:
-        alpha = np.asarray(fixed[method])
+    if method in FIXED_GATES:
+        alpha = np.asarray(FIXED_GATES[method])
 
     def choose(current):
         nonlocal alpha, policy_previous
@@ -525,7 +536,7 @@ def run_episode(path, seed, out, method="A0", target_domain=True,
         "pitch_deg": max((abs(float(np.rad2deg(x["pitch_rad"]))) for x in substeps), default=0.)}
     period_array = np.asarray(period_ms, dtype=float)
     result = {"schema": 2, "command_schema": "issued_v2",
-        "residual_label_version": "nominal_5x20ms_issued_v2",
+        "residual_label_version": RESIDUAL_LABEL_VERSION,
         "method": method, "seed": int(seed),
         "path": str(path), "periods": len(trace), "wall_s": time.perf_counter()-started,
         "success": bool(info["success"][0]), "failed": bool(info["failed"][0]),
@@ -565,7 +576,7 @@ def run_episode(path, seed, out, method="A0", target_domain=True,
         "environment_profile": environment_profile or ("target" if target_domain else "baseline"),
         "environment_reset_snapshot": env_reset_snapshot,
         "action_seed": int(seed if action_seed is None else action_seed),
-        "policy_deterministic": bool(policy_deterministic),
+        **execution_metadata,
         "target_domain_config": target_config,
         "target_domain_reset_snapshot": getattr(env, "_target_domain_reset_snapshot", None),
         "target_domain_applied_after_reset": bool(target_domain and
@@ -573,6 +584,8 @@ def run_episode(path, seed, out, method="A0", target_domain=True,
         "reward_sum": sum(rewards)}
     (out/"episode.json").write_text(json.dumps(result, indent=2)+"\n")
     source_files = [ROOT/"experiments/h15_cat_mpc/run_episode.py",
+                    ROOT/"experiments/h15_cat_mpc/contracts.py",
+                    ROOT/"experiments/h15_cat_mpc/method_contract.py",
                     ROOT/"experiments/h15_cat_mpc/adapter.py",
                     ROOT/"experiments/h15_cat_mpc/residual_predictor.py",
                     ROOT/"experiments/h15_cat_mpc/continuous_gate.py",
@@ -593,13 +606,12 @@ def run_episode(path, seed, out, method="A0", target_domain=True,
               "action_profile": action_profile,
               "environment_profile": environment_profile or ("target" if target_domain else "baseline"),
               "action_seed": int(seed if action_seed is None else action_seed),
-              "policy_deterministic": bool(policy_deterministic),
+              **execution_metadata,
               "environment_reset_snapshot": env_reset_snapshot,
               "known_disturbance_test_oracle": (list(known_disturbance)
                   if known_disturbance is not None else None),
               "target_domain_applied_after_reset": bool(target_domain),
               "target_domain_reset_snapshot": getattr(env, "_target_domain_reset_snapshot", None),
-              "policy_checkpoint": str(policy_checkpoint) if policy_checkpoint else None,
               "adapter_artifacts": ({k: str(v) for k, v in adapter_artifacts.items()}
                                      if adapter_artifacts else None),
               "predictor_checkpoint": str(predictor_checkpoint) if predictor_checkpoint else None}
@@ -612,11 +624,15 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--path", type=Path, required=True)
     parser.add_argument("--seed", type=int, required=True)
-    parser.add_argument("--method", choices=("A0", "A1", "A2", "A3", "A4", "PPO"), default="A0")
+    parser.add_argument("--method", choices=METHODS, default="A0")
     parser.add_argument("--adapter-normalization", type=Path)
     parser.add_argument("--adapter-calibration", type=Path)
     parser.add_argument("--predictor", type=Path)
     parser.add_argument("--policy-checkpoint", type=Path)
+    policy_mode = parser.add_mutually_exclusive_group()
+    policy_mode.add_argument("--deterministic-policy", dest="policy_deterministic", action="store_true")
+    policy_mode.add_argument("--stochastic-policy", dest="policy_deterministic", action="store_false")
+    parser.set_defaults(policy_deterministic=False)
     parser.add_argument("--target-domain", action="store_true")
     parser.add_argument("--max-steps", type=int)
     parser.add_argument("--out", type=Path, required=True)
@@ -626,7 +642,8 @@ def main():
         {"normalization_path": args.adapter_normalization,
          "calibration_path": args.adapter_calibration}
         if args.adapter_normalization else None,
-        args.predictor, args.policy_checkpoint, args.max_steps)
+        args.predictor, args.policy_checkpoint, args.max_steps,
+        policy_deterministic=args.policy_deterministic)
     print(json.dumps({k: v for k, v in result.items()
                       if k not in ("trace", "strict_substeps", "completed_rows")}, indent=2))
 

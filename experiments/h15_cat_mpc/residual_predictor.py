@@ -7,9 +7,20 @@ import torch
 from simulator.model import MISMATCHED_PLANT
 
 
+RESIDUAL_LABEL_VERSION = "nominal_5x20ms_issued_tau_once_v3"
+
+
 def nominal_delay_tau(device="cpu", dtype=torch.float64, substep_s=.02,
                       fin_tau_scale=1.):
-    """Fixed nominal actuator contract; never read randomized plant delay/tau."""
+    """Return nominal delay and *effective* tau, with fin scaling applied once.
+
+    The returned tau is ready for either actuator model; rollout callers must
+    not rescale it. These values never use randomized plant delay/tau.
+    """
+    if not np.isfinite(fin_tau_scale) or fin_tau_scale <= 0:
+        raise ValueError("fin_tau_scale must be positive and finite")
+    if not np.isfinite(substep_s) or substep_s <= 0:
+        raise ValueError("substep_s must be positive and finite")
     delays_s = (MISMATCHED_PLANT.thrust_delay_s,
                 MISMATCHED_PLANT.fin_delay_s,
                 MISMATCHED_PLANT.fin_delay_s)
@@ -23,9 +34,14 @@ def nominal_delay_tau(device="cpu", dtype=torch.float64, substep_s=.02,
 
 def nominal_period_rollout(model, state, actuator, actuator_rate, queue,
                            delay_steps, tau, issued_command, parameters,
-                           second_order=True, fin_tau_scale=1., integrator=True,
+                           second_order=True, integrator=True,
                            period_s=.1, substep_s=.02):
-    """Roll out one observable nominal control period through queue and actuator."""
+    """Roll out a period using effective tau in seconds, without further scaling.
+
+    Use ``nominal_delay_tau(fin_tau_scale=theta[1])`` to construct tau. Keeping
+    scaling outside this function makes first- and second-order models obey
+    the same contract and prevents applying theta twice.
+    """
     steps = round(period_s/substep_s)
     if steps < 1 or abs(steps*substep_s-period_s) > 1e-12:
         raise ValueError("period must be an integer number of actuator substeps")
@@ -33,9 +49,9 @@ def nominal_period_rollout(model, state, actuator, actuator_rate, queue,
     actuator_rate, queue = actuator_rate.clone(), queue.clone()
     delays = torch.as_tensor(delay_steps, device=state.device, dtype=torch.long)
     issued = issued_command
-    tau_used = tau.clone()
-    if second_order:
-        tau_used[:, 1:] *= float(fin_tau_scale)
+    tau_used = torch.as_tensor(tau, device=state.device, dtype=state.dtype)
+    if not torch.isfinite(tau_used).all() or (tau_used <= 0).any():
+        raise ValueError("effective actuator tau must be positive and finite")
     for _ in range(steps):
         delayed = queue.gather(1, (delays-1).clamp_min(0)[:, None]).squeeze(1)
         target = torch.where(delays > 0, delayed, issued)
@@ -97,7 +113,8 @@ class ResidualAR1:
 
     @classmethod
     def load(cls, path, expected_label_version=None,
-             expected_compensation_mode=None):
+             expected_compensation_mode=None,
+             expected_normalization_sha256=None):
         value = json.loads(Path(path).read_text())
         label_version = value.get("manifest", {}).get("label_version")
         if expected_label_version is not None and label_version != expected_label_version:
@@ -108,6 +125,10 @@ class ResidualAR1:
                 comp_mode != expected_compensation_mode):
             raise ValueError(f"predictor compensation mode {comp_mode!r} is incompatible; "
                              f"expected {expected_compensation_mode!r}")
+        normalization_sha = value.get("manifest", {}).get("normalization_sha256")
+        if (expected_normalization_sha256 is not None and
+                normalization_sha != expected_normalization_sha256):
+            raise ValueError("predictor normalization hash is incompatible with adapter")
         return cls(value["phi"], value["mean"], value["version"])
 
     def predict(self, history, horizon=35):

@@ -6,6 +6,8 @@ from pathlib import Path
 
 import numpy as np
 
+from experiments.h15_cat_mpc.residual_predictor import RESIDUAL_LABEL_VERSION
+
 
 def sha(path):
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
@@ -22,7 +24,7 @@ def main():
         run = json.loads((episode_path.parent/"run.json").read_text())
         if episode.get("command_schema") != "issued_v2" or episode.get("schema") != 2:
             raise ValueError(f"legacy episode schema: {episode_path}")
-        if episode.get("residual_label_version") != "nominal_5x20ms_issued_v2":
+        if episode.get("residual_label_version") != RESIDUAL_LABEL_VERSION:
             raise ValueError(f"unexpected residual labels: {episode_path}")
         if not episode.get("target_domain_applied_after_reset"):
             raise ValueError(f"target domain was not applied in reset: {episode_path}")

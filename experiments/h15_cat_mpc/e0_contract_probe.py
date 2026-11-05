@@ -10,6 +10,7 @@ import numpy as np
 import torch
 
 from experiments.h15_cat_mpc.run_episode import ROOT, run_episode, sha256
+from experiments.h15_cat_mpc.residual_predictor import RESIDUAL_LABEL_VERSION
 from experiments.h15_cat_mpc.p0_probe import CASES, run_one as run_gate_control
 
 
@@ -71,7 +72,7 @@ def main():
             if not np.allclose(issued, compat, atol=1e-6, rtol=0.) or not np.allclose(
                     issued, trace["command"], atol=1e-6, rtol=0.):
                 errors.append(f"command mismatch: {job['out'].name}")
-            if command_row.get("residual_label_version") != "nominal_5x20ms_issued_v2":
+            if command_row.get("residual_label_version") != RESIDUAL_LABEL_VERSION:
                 errors.append(f"label version mismatch: {job['out'].name}")
             if int(round(float(command_row["time_s"])/.1)) != period:
                 errors.append(f"period alignment mismatch: {job['out'].name}")
