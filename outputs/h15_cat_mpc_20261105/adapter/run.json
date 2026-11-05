@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "method": "h15_train_observation_normalization",
+  "input_collection_run_sha256": "ed5e7d56b054c03ecebed20e9b1d820d757736b7d2a08015d7353406b87060b0",
+  "input_collection_summary_sha256": "d06f4d6b96ff7100ca73a8f1b97e1146d22f7ccbf0104bde858464513dd853c5",
+  "train_manifest_sha256": "dd1ed3836bd4a124e55d20b529fd102f8940b19ef489d61b848a0acb268b8e75",
+  "normalization_sha256": "8be630dd5dceae8cd3ac8c11b1b67e7fd49761b4dae005258913475e5b71d34f",
+  "source_sha256": {
+    "experiments/h15_mainline/observation_features.py": "c63dadd31027b9986d6af0764c2c058d67ee2bd039ba4a750d26f2f7b8d33f2d",
+    "experiments/h15_mainline/fit_normalization.py": "a0ca82f38da1ca66695c7088cf2dd4aaeeba080a20ed3c92db5c393b3941f1da"
+  },
+  "python_executable": "/bin/python3"
+}

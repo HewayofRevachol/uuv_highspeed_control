@@ -1,0 +1,73 @@
+{
+  "schema": 1,
+  "split": "train",
+  "count": 2388,
+  "feature_names": [
+    "lateral_error_m",
+    "depth_error_m",
+    "speed_error_mps",
+    "pitch_deg",
+    "actual_thrust_fraction",
+    "actual_elevator_rad",
+    "actual_rudder_rad",
+    "issued_thrust_fraction",
+    "issued_elevator_rad",
+    "issued_rudder_rad",
+    "previous_queue_thrust_fraction",
+    "previous_queue_elevator_rad",
+    "previous_queue_rudder_rad"
+  ],
+  "mean": [
+    -0.0685102080757739,
+    -0.002408296431175951,
+    0.06202759558958436,
+    -0.08844799109178987,
+    0.6851468982673702,
+    -0.0038959174841027813,
+    0.04670280003665043,
+    0.689117933002403,
+    -0.003869854340129734,
+    0.04526832309172728,
+    0.6857458601316031,
+    -0.0038924562673430534,
+    0.0459894625584428
+  ],
+  "scale": [
+    0.16972887595880706,
+    0.03295298710565711,
+    0.11800658881111163,
+    2.49480297358559,
+    0.05753932766604052,
+    0.10121123812652986,
+    0.15297589614102725,
+    0.062113552324352554,
+    0.10629720411791069,
+    0.16242216511846747,
+    0.0788666538391457,
+    0.10629287018491083,
+    0.16100498187337775
+  ],
+  "collection_run_sha256": "ed5e7d56b054c03ecebed20e9b1d820d757736b7d2a08015d7353406b87060b0",
+  "collection_summary_sha256": "d06f4d6b96ff7100ca73a8f1b97e1146d22f7ccbf0104bde858464513dd853c5",
+  "train_manifest_sha256": "dd1ed3836bd4a124e55d20b529fd102f8940b19ef489d61b848a0acb268b8e75",
+  "trace_sha256": {
+    "outputs/h15_cat_mpc_20261105/train_collection/train_turn_wide_s31001.csv": "39fdb95af84606a2ecb78445534c2cbc04296e3ec22994e985669cfcb4ac26db",
+    "outputs/h15_cat_mpc_20261105/train_collection/train_turn_wide_s31002.csv": "dd0a3e8c816c60402e148f54088f7b8b806a64235c7285611729b992586240da",
+    "outputs/h15_cat_mpc_20261105/train_collection/train_turn_wide_s31003.csv": "8531afa08c4d37fdf0dc48047d487701b64196fac70ff4311e933c93837c4a49",
+    "outputs/h15_cat_mpc_20261105/train_collection/train_reversal_wide_s31001.csv": "524c1360d7c535e6280866d1d1e786978b8c72f8a6786bccf916ba44a5cfe5e7",
+    "outputs/h15_cat_mpc_20261105/train_collection/train_reversal_wide_s31002.csv": "689e5257aa57bf9f01179664613e809605ef90f50160ae3039ac09cd4af362e9",
+    "outputs/h15_cat_mpc_20261105/train_collection/train_reversal_wide_s31003.csv": "e8d294327fdd28bdc4a4ef3e4f9c6a2f200d495e0f2687ac25aa3581d2e16e2e",
+    "outputs/h15_cat_mpc_20261105/train_collection/train_coupled_shallow_s31001.csv": "201656be2ab2ac50e0c29ec997359b8fb27b02721941686c2c6ab89c0d89522e",
+    "outputs/h15_cat_mpc_20261105/train_collection/train_coupled_shallow_s31002.csv": "976f543e72dfba45b91d26c71375d7abc952ad3d31d380c63e02e59e024b58e4",
+    "outputs/h15_cat_mpc_20261105/train_collection/train_coupled_shallow_s31003.csv": "7b012d7ad9f12ab2a184d1ad634a0e300c8d95e2939fd158165feac6cbc5fb7a",
+    "outputs/h15_cat_mpc_20261105/train_collection/train_late_entry_s31001.csv": "6af235cfa00761869817e0c5235a7f939438f44321eec6159fd38209cc1925eb",
+    "outputs/h15_cat_mpc_20261105/train_collection/train_late_entry_s31002.csv": "167424d48fe9aa0d0615fe8ae4ad3a84627d92f0568fc4f645064e52cecaf226",
+    "outputs/h15_cat_mpc_20261105/train_collection/train_late_entry_s31003.csv": "8b7a0cce71bc9d1e363ec6a995f2c3f55353edc2072d3c46f8c05937085ef7ce"
+  },
+  "fit_method": "per-feature sample mean and sample standard deviation; 1e-6 floor",
+  "excluded_inputs": [
+    "target-domain true parameters",
+    "future disturbance",
+    "oracle labels"
+  ]
+}

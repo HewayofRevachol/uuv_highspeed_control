@@ -1,0 +1,25 @@
+{
+  "schema": 1,
+  "method": "PPO_4000",
+  "seed": 32003,
+  "path": "/home/prufrock/uuv_workspace/data/datasets/h15_mainline_quickstart/dev_reversal.csv",
+  "path_sha256": "a23737493f584228b64adc8198f1220aeb807b8d99a92ef150691c1cf8e1fbc4",
+  "config_sha256": "df475d5ebfdcadc7d10aa3b45cdbf709ec3e66a2747f6fe70341a9555a165dd1",
+  "source_sha256": {
+    "experiments/h15_cat_mpc/run_episode.py": "8b09f514a00e4e3959fcd88c96ca586b6cbd20afbc0c99a6e645ab3354a43c0b",
+    "experiments/h15_cat_mpc/adapter.py": "94759abd6b6a8d028208e73bc87baebdcf5af6427ecd18ae30798d74b1ba38ca",
+    "experiments/h15_cat_mpc/residual_predictor.py": "23acadb79e0e76878d3452371dedde598551eb57f6b8b9c75a986896bf12f4aa",
+    "experiments/h15_cat_mpc/continuous_gate.py": "e0ea5bbf11bda48383f838af63c6c7b834c9af0c110e9f1599e029b60633290b",
+    "aav_mpc/condensed_mpc.py": "2fdd68252f5728a83a978f7ed0194cd6302c6d54622b6beb873aa9431dfc456a",
+    "simulator/rti_symbolic.py": "bf6a3f66564df1d24af9196bea83f3342b18fd19baa2fa4902218951c90028e7"
+  },
+  "episode_sha256": "3ff5f5f1a8af894002826090c9a4e7e244aac211006d6972576d311f7370bca4",
+  "python_executable": "/bin/python3",
+  "target_domain": true,
+  "policy_checkpoint": "outputs/h15_cat_mpc_20261105/p2_seed41001/ckpt_4000.pt",
+  "adapter_artifacts": {
+    "normalization_path": "outputs/h15_cat_mpc_20261105/adapter/normalization.json",
+    "calibration_path": "None"
+  },
+  "predictor_checkpoint": "outputs/h15_cat_mpc_20261105/predictor/predictor.json"
+}

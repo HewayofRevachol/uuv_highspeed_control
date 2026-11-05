@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "method": "existing_bounded_sliding_window_wls",
+  "normalization": "outputs/h15_cat_mpc_20261105/adapter/normalization.json",
+  "normalization_sha256": "8be630dd5dceae8cd3ac8c11b1b67e7fd49761b4dae005258913475e5b71d34f",
+  "estimator_source": "experiments/h15_mainline/response_estimator.py",
+  "estimator_source_sha256": "35259427c3b22a8dc099368f6db134bbe091f023836e23073ff6f86c93f5b06e",
+  "fallback_theta0": [
+    0.85,
+    2.0
+  ],
+  "window_periods": 10,
+  "parameters": "SlidingWindowResponseEstimator.DEFAULTS",
+  "split": "train",
+  "formal_interval_calibration": false
+}

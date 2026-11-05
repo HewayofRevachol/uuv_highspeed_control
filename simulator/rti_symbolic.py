@@ -97,6 +97,8 @@ def actuator_aware_function(dt=.1, fin_gain_scale=1., fin_tau_scale=1.):
     p = MISMATCHED_PLANT
     z = ca.SX.sym("z", AUGMENTED_NX)
     command = ca.SX.sym("command", NU)
+    model_parameters = ca.SX.sym("model_parameters", 2)
+    residual_acceleration = ca.SX.sym("residual_acceleration", 5)
     x, actual, queue = z[:NX], z[NX:NX+NU], z[NX+NU:]
     inverse_mass = ca.DM(np.linalg.inv(p.mass_scale * M_EFF))
     damping = ca.DM(D_COEFF)
@@ -106,9 +108,9 @@ def actuator_aware_function(dt=.1, fin_gain_scale=1., fin_tau_scale=1.):
     delay = np.array([int(np.ceil(p.thrust_delay_s/DT-1e-12)),
                       int(np.ceil(p.fin_delay_s/DT-1e-12))] * 1)
     delays = [delay[0], delay[1], delay[1]]
-    alpha = [-np.expm1(-DT/t) if t else 1. for t in
-             (p.thrust_tau_s, p.fin_tau_s*fin_tau_scale,
-              p.fin_tau_s*fin_tau_scale)]
+    alpha = [-np.expm1(-DT/p.thrust_tau_s),
+             -np.expm1(-DT/(p.fin_tau_s*model_parameters[1])),
+             -np.expm1(-DT/(p.fin_tau_s*model_parameters[1]))]
 
     def body_derivative(state, physical):
         theta, psi = state[3], state[4]
@@ -118,9 +120,10 @@ def actuator_aware_function(dt=.1, fin_gain_scale=1., fin_tau_scale=1.):
                                   sp*ct*u+cp*v+sp*st*w, -st*u+ct*w)
         coriolis = p.mass_scale*MASS*ca.vertcat(-r*v+q*w, r*u, -q*u, 0, 0)
         force = ca.vertcat(p.thrust_gain*physical[0], 0, 0, 0, 0)
-        force += u*u*fin_gain_scale*(p.elevator_gain*elevator*physical[1] +
+        force += u*u*model_parameters[0]*(p.elevator_gain*elevator*physical[1] +
                                      p.rudder_gain*rudder*physical[2])
         acceleration = inverse_mass @ (force-coriolis-p.damping_scale*u*damping@state[5:10])
+        acceleration += residual_acceleration
         return ca.vertcat(position_dot, q, r/ct, acceleration)
 
     for _ in range(count):
@@ -136,7 +139,8 @@ def actuator_aware_function(dt=.1, fin_gain_scale=1., fin_tau_scale=1.):
         k4 = body_derivative(x+DT*k3, physical)
         x = x+DT*(k1+2*k2+2*k3+k4)/6
     end = ca.vertcat(x, actual, queue)
-    return ca.Function("uuv_aug_fd_jac", [z, command],
+    return ca.Function("uuv_aug_fd_jac", [z, command, model_parameters,
+                                           residual_acceleration],
                        [end, ca.jacobian(end, z), ca.jacobian(end, command)])
 
 
@@ -149,13 +153,22 @@ class ActuatorAwareCpuDynamics:
         self.function = actuator_aware_function(dt, self.fin_gain_scale,
                                                 self.fin_tau_scale)
 
-    def evaluate(self, states, controls):
+    def evaluate(self, states, controls, model_parameters=None,
+                 residual_acceleration=None):
         states, controls = np.asarray(states), np.asarray(controls)
         if states.shape[:-1] != controls.shape[:-1] or states.shape[-1] != self.nx or controls.shape[-1] != NU:
             raise ValueError("invalid augmented state/control shape")
         count = int(np.prod(states.shape[:-1]))
+        parameters = np.broadcast_to(
+            np.asarray(model_parameters if model_parameters is not None else
+                       [self.fin_gain_scale, self.fin_tau_scale], dtype=float),
+            (*states.shape[:-1], 2)).reshape(count, 2)
+        residual = np.broadcast_to(
+            np.asarray(residual_acceleration if residual_acceleration is not None else
+                       np.zeros(5), dtype=float), (*states.shape[:-1], 5)).reshape(count, 5)
         values = [self.function(states.reshape(count, self.nx)[i],
-                                controls.reshape(count, NU)[i]) for i in range(count)]
+                                controls.reshape(count, NU)[i], parameters[i],
+                                residual[i]) for i in range(count)]
         f = np.stack([np.asarray(item[0]).reshape(self.nx) for item in values])
         a = np.stack([np.asarray(item[1]).reshape(self.nx, self.nx) for item in values])
         b = np.stack([np.asarray(item[2]).reshape(self.nx, NU) for item in values])

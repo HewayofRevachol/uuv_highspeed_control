@@ -41,6 +41,23 @@ class CondensedActuatorMPC:
         self.screen_path = None
         self.screen_progress = 0.
         self.sqp_iterations = 1
+        self.alpha = np.zeros(2, dtype=float)
+        self.theta_hat = np.array([self.dynamics.fin_gain_scale,
+                                   self.dynamics.fin_tau_scale], dtype=float)
+        self.d_hat = None
+
+    def set_continuous_model(self, alpha=(0., 0.), theta_hat=None, d_hat=None):
+        """Set the continuously gated point model used by subsequent QPs."""
+        values = np.asarray(alpha, dtype=float)
+        theta = np.asarray(theta_hat if theta_hat is not None else
+                           [self.dynamics.fin_gain_scale,
+                            self.dynamics.fin_tau_scale], dtype=float)
+        if (values.shape != (2,) or theta.shape != (2,) or
+                not np.isfinite(values).all() or not np.isfinite(theta).all() or
+                np.any(values < 0) or np.any(values > 1)):
+            raise ValueError("alpha and theta_hat must be finite bounded 2-vectors")
+        self.alpha, self.theta_hat = values.copy(), theta.copy()
+        self.d_hat = None if d_hat is None else np.asarray(d_hat, dtype=float).copy()
 
     def set_sqp_iterations(self, count):
         if isinstance(count, bool) or not isinstance(count, int) or not 1 <= count <= 5:
@@ -91,7 +108,8 @@ class CondensedActuatorMPC:
         self.last_primal_residual[mask] = 0
         self.last_dual_residual[mask] = 0
 
-    def _one(self, state, reference, plan, previous):
+    def _one(self, state, reference, plan, previous, model_parameters,
+             residual_forecast):
         n, nx, nu = self.horizon, AUGMENTED_NX, 3
         dim = n * nu
         trajectory = np.zeros((n+1, nx))
@@ -113,7 +131,10 @@ class CondensedActuatorMPC:
         hessian += difference.T @ (rate_weight[:, None] * difference)
         gradient += difference.T @ (rate_weight * rate_nominal)
         for k in range(n):
-            f, a, b = self.dynamics.evaluate(trajectory[k][None, None], plan[k][None, None])
+            f, a, b = self.dynamics.evaluate(
+                trajectory[k][None, None], plan[k][None, None],
+                model_parameters=model_parameters,
+                residual_acceleration=residual_forecast[k])
             trajectory[k+1] = f[0, 0]
             influence = a[0, 0] @ influence
             influence[:, 3*k:3*k+3] += b[0, 0]
@@ -192,9 +213,29 @@ class CondensedActuatorMPC:
                     prior = plan[k]
         return plan, trajectory, valid, solution.info
 
-    def solve(self, state, reference):
+    def solve(self, state, reference, alpha=None, theta_hat=None,
+              d_hat=None):
         if state.shape != (self.batch_size, AUGMENTED_NX) or reference.shape != (self.batch_size, self.horizon, 8):
             raise ValueError("invalid state/reference dimensions")
+        alpha = np.asarray(alpha if alpha is not None else self.alpha, dtype=float)
+        theta_hat = np.asarray(theta_hat if theta_hat is not None else
+                               self.theta_hat, dtype=float)
+        if alpha.shape != (2,) or theta_hat.shape != (2,) or not np.isfinite(alpha).all() or not np.isfinite(theta_hat).all() or np.any(alpha < 0) or np.any(alpha > 1):
+            raise ValueError("alpha and theta_hat must be finite bounded 2-vectors")
+        base_theta = np.array([self.dynamics.fin_gain_scale,
+                               self.dynamics.fin_tau_scale])
+        model_parameters = base_theta + alpha[0] * (theta_hat-base_theta)
+        d_hat = self.d_hat if d_hat is None else d_hat
+        if d_hat is None:
+            residual_forecast = np.zeros((self.batch_size, self.horizon, 5))
+        else:
+            residual_forecast = np.asarray(d_hat, dtype=float)
+            if residual_forecast.shape == (self.horizon, 5):
+                residual_forecast = np.broadcast_to(
+                    residual_forecast, (self.batch_size, self.horizon, 5))
+            if residual_forecast.shape != (self.batch_size, self.horizon, 5) or not np.isfinite(residual_forecast).all():
+                raise ValueError("d_hat must have shape [N,5] or [B,N,5]")
+        residual_forecast = residual_forecast * alpha[1]
         shifted = torch.cat((self.plan[:, 1:], self.plan[:, -1:]), 1).numpy()
         previous = self.previous.numpy()
         outputs = []
@@ -202,7 +243,8 @@ class CondensedActuatorMPC:
             plan = shifted[i]
             for _ in range(self.sqp_iterations):
                 plan, trajectory, valid, info = self._one(
-                    state[i].numpy(), reference[i].numpy(), plan, previous[i])
+                    state[i].numpy(), reference[i].numpy(), plan, previous[i],
+                    model_parameters, residual_forecast[i])
                 if not valid:
                     break
             self.plan[i] = self.model.tensor(plan)

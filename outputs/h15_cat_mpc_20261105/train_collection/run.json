@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "method": "h15_train_observation_collection",
+  "freeze_sha256": "a42d1a69062a25bd70c61a9ebb37345ab86fef0d78b919373d7fec720a32d999",
+  "train_manifest_sha256": "dd1ed3836bd4a124e55d20b529fd102f8940b19ef489d61b848a0acb268b8e75",
+  "h15_config_sha256": "6619d39656e9161a5044043fa62290759d0711f9761e7b77f7bc2731e56e3d8f",
+  "source_sha256": {
+    "aav_mpc/diagnose.py": "178b30a9fca6d423e12b4685c93228f9d58f0566d683e9f0299a3f71a76bb8aa",
+    "simulator/batch_path_env.py": "64e10602e516fd87b459c6cf582fbb0673b69d5aa6701299128f5422ac7b9b9f",
+    "experiments/h15_mainline/progress_reference.py": "d0cecb8de63fb56c5e87f517086db4da2a414e8c80547f280a9e95d51cbf2b5f",
+    "experiments/h15_mainline/observation_features.py": "c63dadd31027b9986d6af0764c2c058d67ee2bd039ba4a750d26f2f7b8d33f2d",
+    "experiments/h15_mainline/collect_train_observations.py": "8d2d8f22584251ed44c934516547273a8a209d9b1111f124e07c7c009383b2d3"
+  },
+  "cases": [
+    "train_turn_wide",
+    "train_reversal_wide",
+    "train_coupled_shallow",
+    "train_late_entry"
+  ],
+  "seed_modes": {
+    "31001": {
+      "target_domain": false,
+      "process_noise": false,
+      "current_max": 0.0
+    },
+    "31002": {
+      "target_domain": true,
+      "target_fin_gain_scale": 0.9,
+      "process_noise": true,
+      "current_max": 0.5
+    },
+    "31003": {
+      "target_domain": true,
+      "target_fin_gain_scale": 0.8,
+      "process_noise": true,
+      "current_max": 1.0
+    }
+  },
+  "observation_features": [
+    "lateral_error_m",
+    "depth_error_m",
+    "speed_error_mps",
+    "pitch_deg",
+    "actual_thrust_fraction",
+    "actual_elevator_rad",
+    "actual_rudder_rad",
+    "issued_thrust_fraction",
+    "issued_elevator_rad",
+    "issued_rudder_rad",
+    "previous_queue_thrust_fraction",
+    "previous_queue_elevator_rad",
+    "previous_queue_rudder_rad"
+  ],
+  "python_executable": "/bin/python3",
+  "python": "3.10.12",
+  "threads": {
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": null,
+    "MKL_NUM_THREADS": null
+  },
+  "scope": "train only; no dev or test observation files"
+}

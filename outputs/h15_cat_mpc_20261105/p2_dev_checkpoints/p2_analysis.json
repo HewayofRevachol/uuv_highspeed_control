@@ -1,0 +1,1056 @@
+{
+  "schema": 1,
+  "dev_units": 6,
+  "P2_exploration_rules": {
+    "0000": {
+      "rule1": false,
+      "rule2": false,
+      "rule3": false,
+      "versus_A4_mainline_improved": 1,
+      "versus_A4_mainline_worsened": 1
+    },
+    "1000": {
+      "rule1": false,
+      "rule2": false,
+      "rule3": false,
+      "versus_A4_mainline_improved": 1,
+      "versus_A4_mainline_worsened": 1
+    },
+    "2000": {
+      "rule1": false,
+      "rule2": false,
+      "rule3": false,
+      "versus_A4_mainline_improved": 1,
+      "versus_A4_mainline_worsened": 1
+    },
+    "4000": {
+      "rule1": false,
+      "rule2": false,
+      "rule3": false,
+      "versus_A4_mainline_improved": 1,
+      "versus_A4_mainline_worsened": 1
+    }
+  },
+  "checkpoint_comparisons": {
+    "0000": {
+      "A0": {
+        "pairs": [
+          {
+            "unit": [
+              "dev_coupled",
+              32001
+            ],
+            "baseline_strict_mainline": false,
+            "candidate_strict_mainline": false,
+            "improved_to_unintervened_physical_finish": false,
+            "worsened_from_unintervened_physical_finish": false,
+            "common_success": false,
+            "baseline_normalized_rmse": null,
+            "candidate_normalized_rmse": null,
+            "baseline_time_s": null,
+            "candidate_time_s": null,
+            "baseline_speed_mae": null,
+            "candidate_speed_mae": null
+          },
+          {
+            "unit": [
+              "dev_coupled",
+              32002
+            ],
+            "baseline_strict_mainline": true,
+            "candidate_strict_mainline": true,
+            "improved_to_unintervened_physical_finish": false,
+            "worsened_from_unintervened_physical_finish": false,
+            "common_success": true,
+            "baseline_normalized_rmse": 0.21569308347614408,
+            "candidate_normalized_rmse": 0.22784442550146028,
+            "baseline_time_s": 19.900000000000002,
+            "candidate_time_s": 19.900000000000002,
+            "baseline_speed_mae": 0.13809132091257045,
+            "candidate_speed_mae": 0.1511874318034907
+          },
+          {
+            "unit": [
+              "dev_coupled",
+              32003
+            ],
+            "baseline_strict_mainline": false,
+            "candidate_strict_mainline": true,
+            "improved_to_unintervened_physical_finish": true,
+            "worsened_from_unintervened_physical_finish": false,
+            "common_success": true,
+            "baseline_normalized_rmse": 0.23256696270944388,
+            "candidate_normalized_rmse": 0.23022174048264013,
+            "baseline_time_s": 19.900000000000002,
+            "candidate_time_s": 19.900000000000002,
+            "baseline_speed_mae": 0.2104040930880039,
+            "candidate_speed_mae": 0.19606124554419785
+          },
+          {
+            "unit": [
+              "dev_reversal",
+              32001
+            ],
+            "baseline_strict_mainline": true,
+            "candidate_strict_mainline": true,
+            "improved_to_unintervened_physical_finish": false,
+            "worsened_from_unintervened_physical_finish": false,
+            "common_success": true,
+            "baseline_normalized_rmse": 0.12842787278375958,
+            "candidate_normalized_rmse": 0.12282516401739023,
+            "baseline_time_s": 19.900000000000002,
+            "candidate_time_s": 19.900000000000002,
+            "baseline_speed_mae": 0.2171724066510186,
+            "candidate_speed_mae": 0.20769170860600414
+          },
+          {
+            "unit": [
+              "dev_reversal",
+              32002
+            ],
+            "baseline_strict_mainline": true,
+            "candidate_strict_mainline": true,
+            "improved_to_unintervened_physical_finish": false,
+            "worsened_from_unintervened_physical_finish": false,
+            "common_success": true,
+            "baseline_normalized_rmse": 0.08822014113545865,
+            "candidate_normalized_rmse": 0.08810991837803446,
+            "baseline_time_s": 19.900000000000002,
+            "candidate_time_s": 19.900000000000002,
+            "baseline_speed_mae": 0.13779840995100762,
+            "candidate_speed_mae": 0.13874391268709027
+          },
+          {
+            "unit": [
+              "dev_reversal",
+              32003
+            ],
+            "baseline_strict_mainline": true,
+            "candidate_strict_mainline": true,
+            "improved_to_unintervened_physical_finish": false,
+            "worsened_from_unintervened_physical_finish": false,
+            "common_success": true,
+            "baseline_normalized_rmse": 0.10466151595446041,
+            "candidate_normalized_rmse": 0.1047784239081332,
+            "baseline_time_s": 19.900000000000002,
+            "candidate_time_s": 19.900000000000002,
+            "baseline_speed_mae": 0.1671158143821095,
+            "candidate_speed_mae": 0.1686279930152494
+          }
+        ],
+        "improved": 1,
+        "worsened": 0,
+        "baseline_strict_mainline": 4,
+        "candidate_strict_mainline": 5,
+        "common_successes": 5,
+        "baseline_normalized_rmse_median": 0.12842787278375958,
+        "candidate_normalized_rmse_median": 0.12282516401739023,
+        "normalized_rmse_relative_change": -0.043625333386958065,
+        "completion_time_relative_change": 0.0,
+        "baseline_speed_mae_median": 0.1671158143821095,
+        "candidate_speed_mae_median": 0.1686279930152494,
+        "baseline_intervention_rate": 0.0,
+        "candidate_intervention_rate": 0.0
+      },
+      "A4": {
+        "pairs": [
+          {
+            "unit": [
+              "dev_coupled",
+              32001
+            ],
+            "baseline_strict_mainline": true,
+            "candidate_strict_mainline": false,
+            "improved_to_unintervened_physical_finish": false,
+            "worsened_from_unintervened_physical_finish": true,
+            "common_success": false,
+            "baseline_normalized_rmse": null,
+            "candidate_normalized_rmse": null,
+            "baseline_time_s": null,
+            "candidate_time_s": null,
+            "baseline_speed_mae": null,
+            "candidate_speed_mae": null
+          },
+          {
+            "unit": [
+              "dev_coupled",
+              32002
+            ],
+            "baseline_strict_mainline": true,
+            "candidate_strict_mainline": true,
+            "improved_to_unintervened_physical_finish": false,
+            "worsened_from_unintervened_physical_finish": false,
+            "common_success": true,
+            "baseline_normalized_rmse": 0.21542863842186993,
+            "candidate_normalized_rmse": 0.22784442550146028,
+            "baseline_time_s": 19.900000000000002,
+            "candidate_time_s": 19.900000000000002,
+            "baseline_speed_mae": 0.1275708542904853,
+            "candidate_speed_mae": 0.1511874318034907
+          },
+          {
+            "unit": [
+              "dev_coupled",
+              32003
+            ],
+            "baseline_strict_mainline": true,
+            "candidate_strict_mainline": true,
+            "improved_to_unintervened_physical_finish": false,
+            "worsened_from_unintervened_physical_finish": false,
+            "common_success": true,
+            "baseline_normalized_rmse": 0.2380454666450442,
+            "candidate_normalized_rmse": 0.23022174048264013,
+            "baseline_time_s": 19.900000000000002,
+            "candidate_time_s": 19.900000000000002,
+            "baseline_speed_mae": 0.21954336692924645,
+            "candidate_speed_mae": 0.19606124554419785
+          },
+          {
+            "unit": [
+              "dev_reversal",
+              32001
+            ],
+            "baseline_strict_mainline": true,
+            "candidate_strict_mainline": true,
+            "improved_to_unintervened_physical_finish": false,
+            "worsened_from_unintervened_physical_finish": false,
+            "common_success": true,
+            "baseline_normalized_rmse": 0.12336803657031266,
+            "candidate_normalized_rmse": 0.12282516401739023,
+            "baseline_time_s": 19.900000000000002,
+            "candidate_time_s": 19.900000000000002,
+            "baseline_speed_mae": 0.20864769917777087,
+            "candidate_speed_mae": 0.20769170860600414
+          },
+          {
+            "unit": [
+              "dev_reversal",
+              32002
+            ],
+            "baseline_strict_mainline": true,
+            "candidate_strict_mainline": true,
+            "improved_to_unintervened_physical_finish": false,
+            "worsened_from_unintervened_physical_finish": false,
+            "common_success": true,
+            "baseline_normalized_rmse": 0.08828930479642864,
+            "candidate_normalized_rmse": 0.08810991837803446,
+            "baseline_time_s": 19.900000000000002,
+            "candidate_time_s": 19.900000000000002,
+            "baseline_speed_mae": 0.1391599499572826,
+            "candidate_speed_mae": 0.13874391268709027
+          },
+          {
+            "unit": [
+              "dev_reversal",
+              32003
+            ],
+            "baseline_strict_mainline": false,
+            "candidate_strict_mainline": true,
+            "improved_to_unintervened_physical_finish": true,
+            "worsened_from_unintervened_physical_finish": false,
+            "common_success": true,
+            "baseline_normalized_rmse": 0.10478509114534332,
+            "candidate_normalized_rmse": 0.1047784239081332,
+            "baseline_time_s": 19.900000000000002,
+            "candidate_time_s": 19.900000000000002,
+            "baseline_speed_mae": 0.16850655889185345,
+            "candidate_speed_mae": 0.1686279930152494
+          }
+        ],
+        "improved": 1,
+        "worsened": 1,
+        "baseline_strict_mainline": 5,
+        "candidate_strict_mainline": 5,
+        "common_successes": 5,
+        "baseline_normalized_rmse_median": 0.12336803657031266,
+        "candidate_normalized_rmse_median": 0.12282516401739023,
+        "normalized_rmse_relative_change": -0.004400431165272112,
+        "completion_time_relative_change": 0.0,
+        "baseline_speed_mae_median": 0.16850655889185345,
+        "candidate_speed_mae_median": 0.1686279930152494,
+        "baseline_intervention_rate": 0.0,
+        "candidate_intervention_rate": 0.0
+      }
+    },
+    "1000": {
+      "A0": {
+        "pairs": [
+          {
+            "unit": [
+              "dev_coupled",
+              32001
+            ],
+            "baseline_strict_mainline": false,
+            "candidate_strict_mainline": false,
+            "improved_to_unintervened_physical_finish": false,
+            "worsened_from_unintervened_physical_finish": false,
+            "common_success": false,
+            "baseline_normalized_rmse": null,
+            "candidate_normalized_rmse": null,
+            "baseline_time_s": null,
+            "candidate_time_s": null,
+            "baseline_speed_mae": null,
+            "candidate_speed_mae": null
+          },
+          {
+            "unit": [
+              "dev_coupled",
+              32002
+            ],
+            "baseline_strict_mainline": true,
+            "candidate_strict_mainline": true,
+            "improved_to_unintervened_physical_finish": false,
+            "worsened_from_unintervened_physical_finish": false,
+            "common_success": true,
+            "baseline_normalized_rmse": 0.21569308347614408,
+            "candidate_normalized_rmse": 0.22731480172361318,
+            "baseline_time_s": 19.900000000000002,
+            "candidate_time_s": 19.900000000000002,
+            "baseline_speed_mae": 0.13809132091257045,
+            "candidate_speed_mae": 0.14948993981811443
+          },
+          {
+            "unit": [
+              "dev_coupled",
+              32003
+            ],
+            "baseline_strict_mainline": false,
+            "candidate_strict_mainline": true,
+            "improved_to_unintervened_physical_finish": true,
+            "worsened_from_unintervened_physical_finish": false,
+            "common_success": true,
+            "baseline_normalized_rmse": 0.23256696270944388,
+            "candidate_normalized_rmse": 0.23025391907392137,
+            "baseline_time_s": 19.900000000000002,
+            "candidate_time_s": 19.900000000000002,
+            "baseline_speed_mae": 0.2104040930880039,
+            "candidate_speed_mae": 0.19675109348696893
+          },
+          {
+            "unit": [
+              "dev_reversal",
+              32001
+            ],
+            "baseline_strict_mainline": true,
+            "candidate_strict_mainline": true,
+            "improved_to_unintervened_physical_finish": false,
+            "worsened_from_unintervened_physical_finish": false,
+            "common_success": true,
+            "baseline_normalized_rmse": 0.12842787278375958,
+            "candidate_normalized_rmse": 0.12302825142780602,
+            "baseline_time_s": 19.900000000000002,
+            "candidate_time_s": 19.900000000000002,
+            "baseline_speed_mae": 0.2171724066510186,
+            "candidate_speed_mae": 0.20806016438938796
+          },
+          {
+            "unit": [
+              "dev_reversal",
+              32002
+            ],
+            "baseline_strict_mainline": true,
+            "candidate_strict_mainline": true,
+            "improved_to_unintervened_physical_finish": false,
+            "worsened_from_unintervened_physical_finish": false,
+            "common_success": true,
+            "baseline_normalized_rmse": 0.08822014113545865,
+            "candidate_normalized_rmse": 0.08811585196941503,
+            "baseline_time_s": 19.900000000000002,
+            "candidate_time_s": 19.900000000000002,
+            "baseline_speed_mae": 0.13779840995100762,
+            "candidate_speed_mae": 0.1387149254850101
+          },
+          {
+            "unit": [
+              "dev_reversal",
+              32003
+            ],
+            "baseline_strict_mainline": true,
+            "candidate_strict_mainline": true,
+            "improved_to_unintervened_physical_finish": false,
+            "worsened_from_unintervened_physical_finish": false,
+            "common_success": true,
+            "baseline_normalized_rmse": 0.10466151595446041,
+            "candidate_normalized_rmse": 0.10478600378495923,
+            "baseline_time_s": 19.900000000000002,
+            "candidate_time_s": 19.900000000000002,
+            "baseline_speed_mae": 0.1671158143821095,
+            "candidate_speed_mae": 0.16867152851805217
+          }
+        ],
+        "improved": 1,
+        "worsened": 0,
+        "baseline_strict_mainline": 4,
+        "candidate_strict_mainline": 5,
+        "common_successes": 5,
+        "baseline_normalized_rmse_median": 0.12842787278375958,
+        "candidate_normalized_rmse_median": 0.12302825142780602,
+        "normalized_rmse_relative_change": -0.042043999008261834,
+        "completion_time_relative_change": 0.0,
+        "baseline_speed_mae_median": 0.1671158143821095,
+        "candidate_speed_mae_median": 0.16867152851805217,
+        "baseline_intervention_rate": 0.0,
+        "candidate_intervention_rate": 0.0
+      },
+      "A4": {
+        "pairs": [
+          {
+            "unit": [
+              "dev_coupled",
+              32001
+            ],
+            "baseline_strict_mainline": true,
+            "candidate_strict_mainline": false,
+            "improved_to_unintervened_physical_finish": false,
+            "worsened_from_unintervened_physical_finish": true,
+            "common_success": false,
+            "baseline_normalized_rmse": null,
+            "candidate_normalized_rmse": null,
+            "baseline_time_s": null,
+            "candidate_time_s": null,
+            "baseline_speed_mae": null,
+            "candidate_speed_mae": null
+          },
+          {
+            "unit": [
+              "dev_coupled",
+              32002
+            ],
+            "baseline_strict_mainline": true,
+            "candidate_strict_mainline": true,
+            "improved_to_unintervened_physical_finish": false,
+            "worsened_from_unintervened_physical_finish": false,
+            "common_success": true,
+            "baseline_normalized_rmse": 0.21542863842186993,
+            "candidate_normalized_rmse": 0.22731480172361318,
+            "baseline_time_s": 19.900000000000002,
+            "candidate_time_s": 19.900000000000002,
+            "baseline_speed_mae": 0.1275708542904853,
+            "candidate_speed_mae": 0.14948993981811443
+          },
+          {
+            "unit": [
+              "dev_coupled",
+              32003
+            ],
+            "baseline_strict_mainline": true,
+            "candidate_strict_mainline": true,
+            "improved_to_unintervened_physical_finish": false,
+            "worsened_from_unintervened_physical_finish": false,
+            "common_success": true,
+            "baseline_normalized_rmse": 0.2380454666450442,
+            "candidate_normalized_rmse": 0.23025391907392137,
+            "baseline_time_s": 19.900000000000002,
+            "candidate_time_s": 19.900000000000002,
+            "baseline_speed_mae": 0.21954336692924645,
+            "candidate_speed_mae": 0.19675109348696893
+          },
+          {
+            "unit": [
+              "dev_reversal",
+              32001
+            ],
+            "baseline_strict_mainline": true,
+            "candidate_strict_mainline": true,
+            "improved_to_unintervened_physical_finish": false,
+            "worsened_from_unintervened_physical_finish": false,
+            "common_success": true,
+            "baseline_normalized_rmse": 0.12336803657031266,
+            "candidate_normalized_rmse": 0.12302825142780602,
+            "baseline_time_s": 19.900000000000002,
+            "candidate_time_s": 19.900000000000002,
+            "baseline_speed_mae": 0.20864769917777087,
+            "candidate_speed_mae": 0.20806016438938796
+          },
+          {
+            "unit": [
+              "dev_reversal",
+              32002
+            ],
+            "baseline_strict_mainline": true,
+            "candidate_strict_mainline": true,
+            "improved_to_unintervened_physical_finish": false,
+            "worsened_from_unintervened_physical_finish": false,
+            "common_success": true,
+            "baseline_normalized_rmse": 0.08828930479642864,
+            "candidate_normalized_rmse": 0.08811585196941503,
+            "baseline_time_s": 19.900000000000002,
+            "candidate_time_s": 19.900000000000002,
+            "baseline_speed_mae": 0.1391599499572826,
+            "candidate_speed_mae": 0.1387149254850101
+          },
+          {
+            "unit": [
+              "dev_reversal",
+              32003
+            ],
+            "baseline_strict_mainline": false,
+            "candidate_strict_mainline": true,
+            "improved_to_unintervened_physical_finish": true,
+            "worsened_from_unintervened_physical_finish": false,
+            "common_success": true,
+            "baseline_normalized_rmse": 0.10478509114534332,
+            "candidate_normalized_rmse": 0.10478600378495923,
+            "baseline_time_s": 19.900000000000002,
+            "candidate_time_s": 19.900000000000002,
+            "baseline_speed_mae": 0.16850655889185345,
+            "candidate_speed_mae": 0.16867152851805217
+          }
+        ],
+        "improved": 1,
+        "worsened": 1,
+        "baseline_strict_mainline": 5,
+        "candidate_strict_mainline": 5,
+        "common_successes": 5,
+        "baseline_normalized_rmse_median": 0.12336803657031266,
+        "candidate_normalized_rmse_median": 0.12302825142780602,
+        "normalized_rmse_relative_change": -0.0027542396876275577,
+        "completion_time_relative_change": 0.0,
+        "baseline_speed_mae_median": 0.16850655889185345,
+        "candidate_speed_mae_median": 0.16867152851805217,
+        "baseline_intervention_rate": 0.0,
+        "candidate_intervention_rate": 0.0
+      }
+    },
+    "2000": {
+      "A0": {
+        "pairs": [
+          {
+            "unit": [
+              "dev_coupled",
+              32001
+            ],
+            "baseline_strict_mainline": false,
+            "candidate_strict_mainline": false,
+            "improved_to_unintervened_physical_finish": false,
+            "worsened_from_unintervened_physical_finish": false,
+            "common_success": false,
+            "baseline_normalized_rmse": null,
+            "candidate_normalized_rmse": null,
+            "baseline_time_s": null,
+            "candidate_time_s": null,
+            "baseline_speed_mae": null,
+            "candidate_speed_mae": null
+          },
+          {
+            "unit": [
+              "dev_coupled",
+              32002
+            ],
+            "baseline_strict_mainline": true,
+            "candidate_strict_mainline": true,
+            "improved_to_unintervened_physical_finish": false,
+            "worsened_from_unintervened_physical_finish": false,
+            "common_success": true,
+            "baseline_normalized_rmse": 0.21569308347614408,
+            "candidate_normalized_rmse": 0.22465841958481186,
+            "baseline_time_s": 19.900000000000002,
+            "candidate_time_s": 19.900000000000002,
+            "baseline_speed_mae": 0.13809132091257045,
+            "candidate_speed_mae": 0.1365448815638479
+          },
+          {
+            "unit": [
+              "dev_coupled",
+              32003
+            ],
+            "baseline_strict_mainline": false,
+            "candidate_strict_mainline": true,
+            "improved_to_unintervened_physical_finish": true,
+            "worsened_from_unintervened_physical_finish": false,
+            "common_success": true,
+            "baseline_normalized_rmse": 0.23256696270944388,
+            "candidate_normalized_rmse": 0.23412219643434648,
+            "baseline_time_s": 19.900000000000002,
+            "candidate_time_s": 19.900000000000002,
+            "baseline_speed_mae": 0.2104040930880039,
+            "candidate_speed_mae": 0.21110326946890456
+          },
+          {
+            "unit": [
+              "dev_reversal",
+              32001
+            ],
+            "baseline_strict_mainline": true,
+            "candidate_strict_mainline": true,
+            "improved_to_unintervened_physical_finish": false,
+            "worsened_from_unintervened_physical_finish": false,
+            "common_success": true,
+            "baseline_normalized_rmse": 0.12842787278375958,
+            "candidate_normalized_rmse": 0.12322324419239157,
+            "baseline_time_s": 19.900000000000002,
+            "candidate_time_s": 19.900000000000002,
+            "baseline_speed_mae": 0.2171724066510186,
+            "candidate_speed_mae": 0.20842067523168364
+          },
+          {
+            "unit": [
+              "dev_reversal",
+              32002
+            ],
+            "baseline_strict_mainline": true,
+            "candidate_strict_mainline": true,
+            "improved_to_unintervened_physical_finish": false,
+            "worsened_from_unintervened_physical_finish": false,
+            "common_success": true,
+            "baseline_normalized_rmse": 0.08822014113545865,
+            "candidate_normalized_rmse": 0.08812518827835435,
+            "baseline_time_s": 19.900000000000002,
+            "candidate_time_s": 19.900000000000002,
+            "baseline_speed_mae": 0.13779840995100762,
+            "candidate_speed_mae": 0.1386907810789126
+          },
+          {
+            "unit": [
+              "dev_reversal",
+              32003
+            ],
+            "baseline_strict_mainline": true,
+            "candidate_strict_mainline": true,
+            "improved_to_unintervened_physical_finish": false,
+            "worsened_from_unintervened_physical_finish": false,
+            "common_success": true,
+            "baseline_normalized_rmse": 0.10466151595446041,
+            "candidate_normalized_rmse": 0.10479173893277577,
+            "baseline_time_s": 19.900000000000002,
+            "candidate_time_s": 19.900000000000002,
+            "baseline_speed_mae": 0.1671158143821095,
+            "candidate_speed_mae": 0.1687068144981846
+          }
+        ],
+        "improved": 1,
+        "worsened": 0,
+        "baseline_strict_mainline": 4,
+        "candidate_strict_mainline": 5,
+        "common_successes": 5,
+        "baseline_normalized_rmse_median": 0.12842787278375958,
+        "candidate_normalized_rmse_median": 0.12322324419239157,
+        "normalized_rmse_relative_change": -0.04052569336043821,
+        "completion_time_relative_change": 0.0,
+        "baseline_speed_mae_median": 0.1671158143821095,
+        "candidate_speed_mae_median": 0.1687068144981846,
+        "baseline_intervention_rate": 0.0,
+        "candidate_intervention_rate": 0.0
+      },
+      "A4": {
+        "pairs": [
+          {
+            "unit": [
+              "dev_coupled",
+              32001
+            ],
+            "baseline_strict_mainline": true,
+            "candidate_strict_mainline": false,
+            "improved_to_unintervened_physical_finish": false,
+            "worsened_from_unintervened_physical_finish": true,
+            "common_success": false,
+            "baseline_normalized_rmse": null,
+            "candidate_normalized_rmse": null,
+            "baseline_time_s": null,
+            "candidate_time_s": null,
+            "baseline_speed_mae": null,
+            "candidate_speed_mae": null
+          },
+          {
+            "unit": [
+              "dev_coupled",
+              32002
+            ],
+            "baseline_strict_mainline": true,
+            "candidate_strict_mainline": true,
+            "improved_to_unintervened_physical_finish": false,
+            "worsened_from_unintervened_physical_finish": false,
+            "common_success": true,
+            "baseline_normalized_rmse": 0.21542863842186993,
+            "candidate_normalized_rmse": 0.22465841958481186,
+            "baseline_time_s": 19.900000000000002,
+            "candidate_time_s": 19.900000000000002,
+            "baseline_speed_mae": 0.1275708542904853,
+            "candidate_speed_mae": 0.1365448815638479
+          },
+          {
+            "unit": [
+              "dev_coupled",
+              32003
+            ],
+            "baseline_strict_mainline": true,
+            "candidate_strict_mainline": true,
+            "improved_to_unintervened_physical_finish": false,
+            "worsened_from_unintervened_physical_finish": false,
+            "common_success": true,
+            "baseline_normalized_rmse": 0.2380454666450442,
+            "candidate_normalized_rmse": 0.23412219643434648,
+            "baseline_time_s": 19.900000000000002,
+            "candidate_time_s": 19.900000000000002,
+            "baseline_speed_mae": 0.21954336692924645,
+            "candidate_speed_mae": 0.21110326946890456
+          },
+          {
+            "unit": [
+              "dev_reversal",
+              32001
+            ],
+            "baseline_strict_mainline": true,
+            "candidate_strict_mainline": true,
+            "improved_to_unintervened_physical_finish": false,
+            "worsened_from_unintervened_physical_finish": false,
+            "common_success": true,
+            "baseline_normalized_rmse": 0.12336803657031266,
+            "candidate_normalized_rmse": 0.12322324419239157,
+            "baseline_time_s": 19.900000000000002,
+            "candidate_time_s": 19.900000000000002,
+            "baseline_speed_mae": 0.20864769917777087,
+            "candidate_speed_mae": 0.20842067523168364
+          },
+          {
+            "unit": [
+              "dev_reversal",
+              32002
+            ],
+            "baseline_strict_mainline": true,
+            "candidate_strict_mainline": true,
+            "improved_to_unintervened_physical_finish": false,
+            "worsened_from_unintervened_physical_finish": false,
+            "common_success": true,
+            "baseline_normalized_rmse": 0.08828930479642864,
+            "candidate_normalized_rmse": 0.08812518827835435,
+            "baseline_time_s": 19.900000000000002,
+            "candidate_time_s": 19.900000000000002,
+            "baseline_speed_mae": 0.1391599499572826,
+            "candidate_speed_mae": 0.1386907810789126
+          },
+          {
+            "unit": [
+              "dev_reversal",
+              32003
+            ],
+            "baseline_strict_mainline": false,
+            "candidate_strict_mainline": true,
+            "improved_to_unintervened_physical_finish": true,
+            "worsened_from_unintervened_physical_finish": false,
+            "common_success": true,
+            "baseline_normalized_rmse": 0.10478509114534332,
+            "candidate_normalized_rmse": 0.10479173893277577,
+            "baseline_time_s": 19.900000000000002,
+            "candidate_time_s": 19.900000000000002,
+            "baseline_speed_mae": 0.16850655889185345,
+            "candidate_speed_mae": 0.1687068144981846
+          }
+        ],
+        "improved": 1,
+        "worsened": 1,
+        "baseline_strict_mainline": 5,
+        "candidate_strict_mainline": 5,
+        "common_successes": 5,
+        "baseline_normalized_rmse_median": 0.12336803657031266,
+        "candidate_normalized_rmse_median": 0.12322324419239157,
+        "normalized_rmse_relative_change": -0.0011736620112177132,
+        "completion_time_relative_change": 0.0,
+        "baseline_speed_mae_median": 0.16850655889185345,
+        "candidate_speed_mae_median": 0.1687068144981846,
+        "baseline_intervention_rate": 0.0,
+        "candidate_intervention_rate": 0.0
+      }
+    },
+    "4000": {
+      "A0": {
+        "pairs": [
+          {
+            "unit": [
+              "dev_coupled",
+              32001
+            ],
+            "baseline_strict_mainline": false,
+            "candidate_strict_mainline": false,
+            "improved_to_unintervened_physical_finish": false,
+            "worsened_from_unintervened_physical_finish": false,
+            "common_success": false,
+            "baseline_normalized_rmse": null,
+            "candidate_normalized_rmse": null,
+            "baseline_time_s": null,
+            "candidate_time_s": null,
+            "baseline_speed_mae": null,
+            "candidate_speed_mae": null
+          },
+          {
+            "unit": [
+              "dev_coupled",
+              32002
+            ],
+            "baseline_strict_mainline": true,
+            "candidate_strict_mainline": true,
+            "improved_to_unintervened_physical_finish": false,
+            "worsened_from_unintervened_physical_finish": false,
+            "common_success": true,
+            "baseline_normalized_rmse": 0.21569308347614408,
+            "candidate_normalized_rmse": 0.22456111292851827,
+            "baseline_time_s": 19.900000000000002,
+            "candidate_time_s": 19.900000000000002,
+            "baseline_speed_mae": 0.13809132091257045,
+            "candidate_speed_mae": 0.13642262353117776
+          },
+          {
+            "unit": [
+              "dev_coupled",
+              32003
+            ],
+            "baseline_strict_mainline": false,
+            "candidate_strict_mainline": true,
+            "improved_to_unintervened_physical_finish": true,
+            "worsened_from_unintervened_physical_finish": false,
+            "common_success": true,
+            "baseline_normalized_rmse": 0.23256696270944388,
+            "candidate_normalized_rmse": 0.2341207670470627,
+            "baseline_time_s": 19.900000000000002,
+            "candidate_time_s": 19.900000000000002,
+            "baseline_speed_mae": 0.2104040930880039,
+            "candidate_speed_mae": 0.21125728926825216
+          },
+          {
+            "unit": [
+              "dev_reversal",
+              32001
+            ],
+            "baseline_strict_mainline": true,
+            "candidate_strict_mainline": true,
+            "improved_to_unintervened_physical_finish": false,
+            "worsened_from_unintervened_physical_finish": false,
+            "common_success": true,
+            "baseline_normalized_rmse": 0.12842787278375958,
+            "candidate_normalized_rmse": 0.12324140496456672,
+            "baseline_time_s": 19.900000000000002,
+            "candidate_time_s": 19.900000000000002,
+            "baseline_speed_mae": 0.2171724066510186,
+            "candidate_speed_mae": 0.20844498568139475
+          },
+          {
+            "unit": [
+              "dev_reversal",
+              32002
+            ],
+            "baseline_strict_mainline": true,
+            "candidate_strict_mainline": true,
+            "improved_to_unintervened_physical_finish": false,
+            "worsened_from_unintervened_physical_finish": false,
+            "common_success": true,
+            "baseline_normalized_rmse": 0.08822014113545865,
+            "candidate_normalized_rmse": 0.08813007566573518,
+            "baseline_time_s": 19.900000000000002,
+            "candidate_time_s": 19.900000000000002,
+            "baseline_speed_mae": 0.13779840995100762,
+            "candidate_speed_mae": 0.13869789775894736
+          },
+          {
+            "unit": [
+              "dev_reversal",
+              32003
+            ],
+            "baseline_strict_mainline": true,
+            "candidate_strict_mainline": true,
+            "improved_to_unintervened_physical_finish": false,
+            "worsened_from_unintervened_physical_finish": false,
+            "common_success": true,
+            "baseline_normalized_rmse": 0.10466151595446041,
+            "candidate_normalized_rmse": 0.1047944843567165,
+            "baseline_time_s": 19.900000000000002,
+            "candidate_time_s": 19.900000000000002,
+            "baseline_speed_mae": 0.1671158143821095,
+            "candidate_speed_mae": 0.1687185423748295
+          }
+        ],
+        "improved": 1,
+        "worsened": 0,
+        "baseline_strict_mainline": 4,
+        "candidate_strict_mainline": 5,
+        "common_successes": 5,
+        "baseline_normalized_rmse_median": 0.12842787278375958,
+        "candidate_normalized_rmse_median": 0.12324140496456672,
+        "normalized_rmse_relative_change": -0.040384285021411004,
+        "completion_time_relative_change": 0.0,
+        "baseline_speed_mae_median": 0.1671158143821095,
+        "candidate_speed_mae_median": 0.1687185423748295,
+        "baseline_intervention_rate": 0.0,
+        "candidate_intervention_rate": 0.0
+      },
+      "A4": {
+        "pairs": [
+          {
+            "unit": [
+              "dev_coupled",
+              32001
+            ],
+            "baseline_strict_mainline": true,
+            "candidate_strict_mainline": false,
+            "improved_to_unintervened_physical_finish": false,
+            "worsened_from_unintervened_physical_finish": true,
+            "common_success": false,
+            "baseline_normalized_rmse": null,
+            "candidate_normalized_rmse": null,
+            "baseline_time_s": null,
+            "candidate_time_s": null,
+            "baseline_speed_mae": null,
+            "candidate_speed_mae": null
+          },
+          {
+            "unit": [
+              "dev_coupled",
+              32002
+            ],
+            "baseline_strict_mainline": true,
+            "candidate_strict_mainline": true,
+            "improved_to_unintervened_physical_finish": false,
+            "worsened_from_unintervened_physical_finish": false,
+            "common_success": true,
+            "baseline_normalized_rmse": 0.21542863842186993,
+            "candidate_normalized_rmse": 0.22456111292851827,
+            "baseline_time_s": 19.900000000000002,
+            "candidate_time_s": 19.900000000000002,
+            "baseline_speed_mae": 0.1275708542904853,
+            "candidate_speed_mae": 0.13642262353117776
+          },
+          {
+            "unit": [
+              "dev_coupled",
+              32003
+            ],
+            "baseline_strict_mainline": true,
+            "candidate_strict_mainline": true,
+            "improved_to_unintervened_physical_finish": false,
+            "worsened_from_unintervened_physical_finish": false,
+            "common_success": true,
+            "baseline_normalized_rmse": 0.2380454666450442,
+            "candidate_normalized_rmse": 0.2341207670470627,
+            "baseline_time_s": 19.900000000000002,
+            "candidate_time_s": 19.900000000000002,
+            "baseline_speed_mae": 0.21954336692924645,
+            "candidate_speed_mae": 0.21125728926825216
+          },
+          {
+            "unit": [
+              "dev_reversal",
+              32001
+            ],
+            "baseline_strict_mainline": true,
+            "candidate_strict_mainline": true,
+            "improved_to_unintervened_physical_finish": false,
+            "worsened_from_unintervened_physical_finish": false,
+            "common_success": true,
+            "baseline_normalized_rmse": 0.12336803657031266,
+            "candidate_normalized_rmse": 0.12324140496456672,
+            "baseline_time_s": 19.900000000000002,
+            "candidate_time_s": 19.900000000000002,
+            "baseline_speed_mae": 0.20864769917777087,
+            "candidate_speed_mae": 0.20844498568139475
+          },
+          {
+            "unit": [
+              "dev_reversal",
+              32002
+            ],
+            "baseline_strict_mainline": true,
+            "candidate_strict_mainline": true,
+            "improved_to_unintervened_physical_finish": false,
+            "worsened_from_unintervened_physical_finish": false,
+            "common_success": true,
+            "baseline_normalized_rmse": 0.08828930479642864,
+            "candidate_normalized_rmse": 0.08813007566573518,
+            "baseline_time_s": 19.900000000000002,
+            "candidate_time_s": 19.900000000000002,
+            "baseline_speed_mae": 0.1391599499572826,
+            "candidate_speed_mae": 0.13869789775894736
+          },
+          {
+            "unit": [
+              "dev_reversal",
+              32003
+            ],
+            "baseline_strict_mainline": false,
+            "candidate_strict_mainline": true,
+            "improved_to_unintervened_physical_finish": true,
+            "worsened_from_unintervened_physical_finish": false,
+            "common_success": true,
+            "baseline_normalized_rmse": 0.10478509114534332,
+            "candidate_normalized_rmse": 0.1047944843567165,
+            "baseline_time_s": 19.900000000000002,
+            "candidate_time_s": 19.900000000000002,
+            "baseline_speed_mae": 0.16850655889185345,
+            "candidate_speed_mae": 0.1687185423748295
+          }
+        ],
+        "improved": 1,
+        "worsened": 1,
+        "baseline_strict_mainline": 5,
+        "candidate_strict_mainline": 5,
+        "common_successes": 5,
+        "baseline_normalized_rmse_median": 0.12336803657031266,
+        "candidate_normalized_rmse_median": 0.12324140496456672,
+        "normalized_rmse_relative_change": -0.0010264539281515939,
+        "completion_time_relative_change": 0.0,
+        "baseline_speed_mae_median": 0.16850655889185345,
+        "candidate_speed_mae_median": 0.1687185423748295,
+        "baseline_intervention_rate": 0.0,
+        "candidate_intervention_rate": 0.0
+      }
+    }
+  },
+  "training_curve": [
+    {
+      "decisions": 1000,
+      "rollout_episodes": 28,
+      "decisions_collected_before_truncation": 1120,
+      "mean_decision_reward": 7.370765192044638,
+      "alpha_mean": [
+        0.4327975235953927,
+        0.4931850894391537
+      ],
+      "alpha_std": [
+        0.15834826595812826,
+        0.1690292057971704
+      ],
+      "policy_loss": -0.0031215344788506627,
+      "value_loss": 3044.3577842712402,
+      "entropy": 2.8294285349547863,
+      "ratio_median": 0.9981747921556234,
+      "checkpoint": "outputs/h15_cat_mpc_20261105/p2_seed41001/ckpt_1000.pt"
+    },
+    {
+      "decisions": 2000,
+      "rollout_episodes": 28,
+      "decisions_collected_before_truncation": 1120,
+      "mean_decision_reward": 7.371393018836752,
+      "alpha_mean": [
+        0.4229230589196086,
+        0.4691865248531103
+      ],
+      "alpha_std": [
+        0.1562089971029592,
+        0.16713598375439256
+      ],
+      "policy_loss": -0.006351266929414123,
+      "value_loss": 2903.729351043701,
+      "entropy": 2.8158165104687214,
+      "ratio_median": 1.0017474871128798,
+      "checkpoint": "outputs/h15_cat_mpc_20261105/p2_seed41001/ckpt_2000.pt"
+    },
+    {
+      "decisions": 4000,
+      "rollout_episodes": 52,
+      "decisions_collected_before_truncation": 2080,
+      "mean_decision_reward": 7.371123911059317,
+      "alpha_mean": [
+        0.42067474576830866,
+        0.4529670298099518
+      ],
+      "alpha_std": [
+        0.15616779583885715,
+        0.165975785148391
+      ],
+      "policy_loss": -0.006173567984660622,
+      "value_loss": 2737.42573928833,
+      "entropy": 2.7976893540471792,
+      "ratio_median": 1.0010204599238932,
+      "checkpoint": "outputs/h15_cat_mpc_20261105/p2_seed41001/ckpt_4000.pt"
+    }
+  ],
+  "interpretation": "pilot only; unit of pairing is geometry x seed"
+}

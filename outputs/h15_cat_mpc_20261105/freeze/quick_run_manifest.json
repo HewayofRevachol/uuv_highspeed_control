@@ -1,0 +1,63 @@
+{
+  "candidate_grid_mps": [
+    13.0,
+    14.0,
+    15.0,
+    16.0,
+    17.0
+  ],
+  "candidate_limit_k": 5,
+  "dirty_worktree": true,
+  "environment": {
+    "cpu": "13th Gen Intel(R) Core(TM) i9-13980HX",
+    "numpy": "2.2.6",
+    "osqp": "1.1.3",
+    "python": "3.10.12",
+    "python_executable": "/usr/bin/python3.10",
+    "scipy": "1.15.3",
+    "threads": {
+      "MKL_NUM_THREADS": null,
+      "OMP_NUM_THREADS": null,
+      "OPENBLAS_NUM_THREADS": null
+    },
+    "torch": "2.14.0+cu130"
+  },
+  "evaluation": {
+    "control_period_s": 0.1,
+    "integration_period_s": 0.02,
+    "strict_hist": "sampled 0.1 s legacy H15",
+    "strict_mainline": "all 0.02 s substeps plus fallback, empty set, deadline"
+  },
+  "git_commit": "46b329c1d70681f389ae82b030ac4ae78d782434",
+  "intent_update_periods": 5,
+  "manifests": {
+    "dev": {
+      "cases": 2,
+      "path": "experiments/h15_mainline/manifests/dev.json",
+      "seeds": 3,
+      "sha256": "890c3c6a98e1fd1069929f37e5fe37abfbde5ce6d4d50afb8cb9259162b10499"
+    },
+    "test": {
+      "cases": 8,
+      "path": "experiments/h15_mainline/manifests/test.json",
+      "seeds": 20,
+      "sha256": "1937476972ee8d86d4d680e35c6f9855e3f633e1048dd053799e0f9f4626f3a5"
+    },
+    "train": {
+      "cases": 4,
+      "path": "experiments/h15_mainline/manifests/train.json",
+      "seeds": 3,
+      "sha256": "dd1ed3836bd4a124e55d20b529fd102f8940b19ef489d61b848a0acb268b8e75"
+    }
+  },
+  "method": "quickstart_freeze",
+  "normalization": {
+    "status": "unfitted; train only"
+  },
+  "schema": 1,
+  "screen_budget_ms": 5.0,
+  "task_config": "aav_mpc/configs/h15.json",
+  "task_config_sha256": "6619d39656e9161a5044043fa62290759d0711f9761e7b77f7bc2731e56e3d8f",
+  "task_contract_sha256": "9d56286ec3e024957a3b72043027b6641c7daa9bd3c36f7d985d045d76c78b76",
+  "test_use": "Frozen before evaluation; no test threshold or checkpoint selection"
+}

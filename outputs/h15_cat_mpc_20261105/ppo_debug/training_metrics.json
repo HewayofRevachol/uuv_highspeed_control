@@ -1,0 +1,21 @@
+[
+  {
+    "decisions": 8,
+    "rollout_episodes": 2,
+    "decisions_collected_before_truncation": 80,
+    "mean_decision_reward": 4.881646535178437,
+    "alpha_mean": [
+      0.3586570620536804,
+      0.47198453545570374
+    ],
+    "alpha_std": [
+      0.10821003996601307,
+      0.1397923749892382
+    ],
+    "policy_loss": -0.007621971890330315,
+    "value_loss": 2406.3663940429688,
+    "entropy": 2.837876260280609,
+    "ratio_median": 1.0101055204868317,
+    "checkpoint": "outputs/h15_cat_mpc_20261105/ppo_debug/ckpt_0008.pt"
+  }
+]
