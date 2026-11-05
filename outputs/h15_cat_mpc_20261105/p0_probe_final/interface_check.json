@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "git_reference": "HEAD:simulator/rti_symbolic.py",
+  "git_reference_source_sha256": "cb4086fcc8b4b87af29cc47ddde29b8b5c05a7f8d768580f3bf6795a028db7db",
+  "old_to_new_dynamics_max_abs": 0.0,
+  "gate_checks": {
+    "alpha_0_0_finite": true,
+    "alpha_0_1_zero_d_delta": 0.0,
+    "alpha_1_0_theta0_delta": 0.0,
+    "residual_changes_hull": true,
+    "residual_preserves_actual_queue": true,
+    "theta_changes_hull": true,
+    "finite_f_A_B": true
+  },
+  "zero_gate_first_command_max_abs": 0.0,
+  "zero_gate_prediction_22_state_max_abs": 0.0,
+  "qp_status": [
+    "solved"
+  ]
+}

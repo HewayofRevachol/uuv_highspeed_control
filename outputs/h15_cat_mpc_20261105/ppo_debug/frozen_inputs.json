@@ -1,0 +1,68 @@
+{
+  "schema": 1,
+  "status": "frozen P1 inputs",
+  "normalization": "outputs/h15_cat_mpc_20261105/adapter/normalization.json",
+  "normalization_sha256": "8be630dd5dceae8cd3ac8c11b1b67e7fd49761b4dae005258913475e5b71d34f",
+  "adapter": "outputs/h15_cat_mpc_20261105/adapter/frozen/frozen_adapter.json",
+  "adapter_sha256": "da47d0abe1b1763d414f20309b747793cab122bb4b50fb3e680b353a958fb813",
+  "predictor": "outputs/h15_cat_mpc_20261105/predictor/predictor.json",
+  "predictor_sha256": "5363c3fb21a4e189974b4f25a1dd19b20f7eb65c8f1efc7f83f4f5975b4cb316",
+  "p1_analysis": "outputs/h15_cat_mpc_20261105/p1_dev_strict/paired_analysis.json",
+  "p1_analysis_sha256": "056335e961294c083e8d2b50fd92e557533eda7742567dfc5a1a51bc28dba35b",
+  "P1_dev_residual_prediction_mae": {
+    "1": {
+      "episodes": 30,
+      "ar1_mae": [
+        0.058707988270269,
+        0.039975293213951026,
+        0.03163159853393275,
+        0.00485133845585042,
+        0.006060693294421804
+      ],
+      "persistence_mae": [
+        0.05915480844303976,
+        0.040121884193197496,
+        0.031713933639707995,
+        0.004885005709813234,
+        0.006098362962749706
+      ]
+    },
+    "5": {
+      "episodes": 30,
+      "ar1_mae": [
+        0.13924443745155132,
+        0.12569881871467192,
+        0.07867101646321101,
+        0.01186194653519179,
+        0.01873082963679767
+      ],
+      "persistence_mae": [
+        0.1652921937624842,
+        0.1331632872543674,
+        0.08743133725480551,
+        0.013322406169345768,
+        0.020235220934168505
+      ]
+    },
+    "25": {
+      "episodes": 30,
+      "ar1_mae": [
+        0.14700285261469226,
+        0.13642547926725315,
+        0.09526981115542824,
+        0.01363652492368405,
+        0.019382487133957346
+      ],
+      "persistence_mae": [
+        0.16990120875361675,
+        0.17166719824035764,
+        0.1281733340985563,
+        0.018592819675478333,
+        0.025726301813815817
+      ]
+    }
+  },
+  "train_manifest_sha256": "dd1ed3836bd4a124e55d20b529fd102f8940b19ef489d61b848a0acb268b8e75",
+  "dev_manifest_sha256": "890c3c6a98e1fd1069929f37e5fe37abfbde5ce6d4d50afb8cb9259162b10499",
+  "holdout_used": false
+}

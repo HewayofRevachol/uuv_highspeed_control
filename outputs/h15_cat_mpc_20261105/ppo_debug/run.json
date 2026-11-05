@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "status": "completed",
+  "seed": 41001,
+  "requested_decisions": 8,
+  "workers": 2,
+  "device": "cpu",
+  "train_manifest": "/home/prufrock/uuv_workspace/experiments/h15_mainline/manifests/train.json",
+  "train_manifest_sha256": "dd1ed3836bd4a124e55d20b529fd102f8940b19ef489d61b848a0acb268b8e75",
+  "frozen_inputs_sha256": "31e18cfc5ca9f7a93944ad4fd9b8017cbe33e48c8e193f1d5a4cea55fe531fc6",
+  "ppo": {
+    "lr": 0.0003,
+    "clip": 0.2,
+    "epochs": 4,
+    "minibatch": 64,
+    "gradient_clip": 1.0,
+    "entropy_coef": 0.01
+  },
+  "gamma_control": 0.995,
+  "gae_lambda": 0.95,
+  "decision_periods": 5,
+  "policy_architecture": [
+    37,
+    64,
+    64,
+    2
+  ],
+  "checkpoint_decisions": [
+    0,
+    1000,
+    2000,
+    4000
+  ],
+  "completed_decisions": 8
+}

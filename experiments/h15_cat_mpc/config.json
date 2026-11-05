@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "algorithm": "CAT-MPC",
+  "python_executable": "/bin/python3",
+  "task": "H15",
+  "reference_speed_mps": 15.0,
+  "control_period_s": 0.1,
+  "plant_substep_s": 0.02,
+  "plant_substeps_per_control": 5,
+  "state_dimension": 22,
+  "prediction_horizon": 35,
+  "policy_update_periods": 5,
+  "history_periods": 10,
+  "baseline_method": "robust_condensed_endpoint35",
+  "theta0": {"gain": 0.85, "tau_scale": 2.0},
+  "theta_bounds": {"gain": [0.6, 1.1], "tau_scale": [0.5, 3.0]},
+  "target_plant": {
+    "fin_gain_scale": 0.9,
+    "second_order_actuator": true,
+    "current_max_mps": 1.0,
+    "current_profile": "harmonic",
+    "process_noise": true,
+    "randomize_plant": true
+  },
+  "parallel": {
+    "workers": 4,
+    "start_method": "spawn",
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "torch_threads": 1
+  },
+  "train_manifest": "experiments/h15_mainline/manifests/train.json",
+  "dev_manifest": "experiments/h15_mainline/manifests/dev.json",
+  "holdout_manifest": "data/datasets/h15_mpc_fix_holdout/manifest.json",
+  "status": "inputs defined; P0 interface checks pending"
+}

@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "split": "dev",
+  "methods": [
+    "PPO"
+  ],
+  "workers": 3,
+  "manifest": "/home/prufrock/uuv_workspace/experiments/h15_mainline/manifests/dev.json",
+  "jobs": 24,
+  "config": "experiments/h15_cat_mpc/config.json",
+  "policy_checkpoints": [
+    "outputs/h15_cat_mpc_20261105/p2_seed41001/ckpt_0000.pt",
+    "outputs/h15_cat_mpc_20261105/p2_seed41001/ckpt_1000.pt",
+    "outputs/h15_cat_mpc_20261105/p2_seed41001/ckpt_2000.pt",
+    "outputs/h15_cat_mpc_20261105/p2_seed41001/ckpt_4000.pt"
+  ]
+}
