@@ -2,7 +2,32 @@
 
 - [ ] 总体顺序：先重建与修正接口兼容的 adapter/predictor，确认 gate 确实改变了模型，再验证固定/规则 gate，最后有条件地训练 PPO。不要把本轮 A0/A4 相同的完成数当作完整算法无效，也不要直接恢复原来的长程训练。
 
-执行工作区按用户指定为 `~/uuv_workspace`，下文路径均相对此项目根目录。此文档是补充实验执行计划；本轮没有运行其中的仿真或训练。
+执行工作区按用户指定为 `~/uuv_workspace`，下文路径均相对此项目根目录。脚本索引已按包含修复提交 `ee230f0` 的主线核对；本次只更新文档，没有新增仿真或训练。
+
+### 实验阶段与已有脚本位置
+
+在仓库根目录用 Python 3.11 环境执行模块，例如 `python -m experiments.h15_cat_mpc.collect_training --help`。表中“待补齐”表示只有可复用基础入口，不能直接当作该阶段已经实现或验收。
+
+| 阶段/任务 | 已有脚本位置 | 用途、关键参数与边界 |
+| --- | --- | --- |
+| E0 短探针 | `experiments/h15_cat_mpc/e0_contract_probe.py` | `--out --workers`；12×40 周期的环境/补偿/命令契约检查，输出 `e0_report.json`。 |
+| E0 接口与 parity 复核 | `experiments/h15_cat_mpc/p0_interface_check.py`、`experiments/h15_cat_mpc/p0_probe.py`、`experiments/h15_cat_mpc/audit_repair_parity.py` | 数值接口检查、人工 gate 正控制、12 回合 A0/A4 日志复算；当前 parity 校验要求 v3 标签，旧日志不能改名冒充新版。 |
+| E1 采集 | `experiments/h15_cat_mpc/collect_training.py` | `--out --workers`；按 T_fit 采集 on/off 共24回合，产出 `summary.json` 和分模式 `traces/`。不足100周期会报错，须记录缺口。 |
+| E1 normalization | `experiments/h15_mainline/fit_normalization.py` | `--collection --compensation-mode on/off --out`；两个模式分别拟合，`--out` 为 normalization JSON 文件；使用不同父目录保存各自记录。 |
+| E1 adapter 冻结 | `experiments/h15_cat_mpc/freeze_adapter.py` | `--normalization --out`；输出目录内生成 `frozen_adapter.json`，记录现有确定性估计器及 normalization；不是训练新网络，也不是 interval calibration。 |
+| E1 predictor | `experiments/h15_cat_mpc/train_predictor.py` | `--collection --normalization --compensation-mode on/off --out`；分别因果重放并拟合 v3 AR，生成 `residual_labels.csv`、`predictor.json`、`training_metrics.json`。 |
+| E2 选择门与66回合矩阵 | `experiments/h15_cat_mpc/e2_matrix.py` | `--normalization-on --normalization-off --predictor-on --predictor-off --out --workers`；先6个 on/A0，写 `predictor_selection.json`，再60回合；输出 `summary.json`、`fixed_gate_pairs.csv`、`ablation_pairs.csv`。 |
+| E2 固定门分析 | `experiments/h15_cat_mpc/analyze_fixed_gates.py`、`experiments/h15_cat_mpc/aggregate.py` | `--runs --out`；处理直接子目录中的 episode。分析 E2 主矩阵时传 `<E2输出>/main`，完整消融结果读取 E2 自带 summary/CSV。 |
+| E3 局部分支 | `experiments/h15_cat_mpc/run_episode.py`、`experiments/h15_cat_mpc/p0_probe.py`（基础能力） | **待补齐**：完整 snapshot 保存/恢复、156个短分支编排及共同前缀比较，没有现成 E3 专用入口。 |
+| E4 新开发集 | `experiments/h15_cat_mpc/evaluate.py`（基础评估入口） | 可用 `--split dev --manifest <D_select文件> --methods A0 A4` 评估已支持方法；manifest 内 split 需为 `dev`。**待补齐**：G*/规则 gate、D_select 数据冻结及 E4 专用验收。 |
+| E5 PPO 与 checkpoint 评估 | `experiments/h15_cat_mpc/freeze_inputs.py`、`experiments/h15_cat_mpc/ppo_train.py`、`experiments/h15_cat_mpc/evaluate.py` | PPO 已支持 `--boundary-manifest --seed --decisions 4000 --update-interval 500`；训练前需输出目录内的 `frozen_inputs.json`。评估用 `--methods PPO --policy-checkpoints ...`，默认 policy mean。**待补齐/验收**：T_boundary、learned-mean 对照和 E4/E5 门；`freeze_inputs.py` 仍接收旧 P1 的30回合分析格式，冻结/训练链尚未自动继承 E2 的预测器选择，尤其是 persistence 回退。 |
+| E5 分析/绘图 | `experiments/h15_cat_mpc/analyze_ppo.py`、`experiments/h15_cat_mpc/plot_p2.py` | 现有分析针对旧 P2 pilot（修复统计口径后的版本），不能作为本计划 E4/E5 新门的验收器。 |
+| E6 最终留出 | `experiments/h15_cat_mpc/evaluate.py`（基础评估入口） | 有 `--split holdout --manifest`，但当前读取旧式嵌套 manifest；默认历史 holdout 不是 H_final。**待补齐**：H_final 冻结/格式适配与最终配对统计。 |
+| E7 实时性 | `experiments/h15_cat_mpc/run_episode.py`、`experiments/h15_cat_mpc/evaluate.py`（已有耗时日志） | 可串行执行 `--workers 1`；**待补齐**：纯 B0、固定预热、126回合编排及完整分项计时报告。 |
+
+- [ ] 接手时先按 E1 的“采集 → 分模式 normalization → adapter 冻结 → predictor”顺序，再调用 E2。完整参数以相应模块的 `--help` 为准，输出使用新目录。
+- [ ] 当前 T_fit 位于 `experiments/h15_cat_mpc/manifests/t_fit.json`，D_diag 位于 `experiments/h15_mainline/manifests/dev.json`；D_select/H_final/T_boundary 仍需按本计划生成和冻结。
+- [ ] 执行前同时核对 `docs/GS-11_H15_REPAIR_VALIDATION_20261105.md` 的剩余审计项；脚本存在不代表阶段性能实验已经完成。
 
 ### 已有证据及边界
 
@@ -13,7 +38,7 @@
 | A0 `(0,0)` | 5/6 | 0 | 4/6 | — |
 | A4 `(.5,.5)` | 5/6 | 0 | 4/6 | +0/−0 |
 
-A4 的 deadline 配对为 +1/−1。证据位置由该评论给出：`docs/GS-11_H15_REPAIR_VALIDATION_20261105.md` 和 `outputs/h15_cat_mpc_20261105/repair_parity_verified_20261105/`。本次规划运行可访问的 GitHub 检出仍为修正前 `c9120d0`，未取得这些修正源码/原始日志；上述数字属于执行者报告，未在本次独立复算。执行 E0 时应直接在 `uuv_workspace` 核对，不能用旧 GitHub 版本替代修正版。
+A4 的 deadline 配对为 +1/−1。证据位置由该评论给出：`docs/GS-11_H15_REPAIR_VALIDATION_20261105.md` 和 `outputs/h15_cat_mpc_20261105/repair_parity_verified_20261105/`。以上是 v3 追加修复前的历史 parity，不能作为当前代码的性能结果。修复提交 `ee230f0` 已推送主线，120项单测及实际 E0 的12×40周期检查通过；完整 E1/E2、PPO 和最终留出尚未重跑，详细证据与剩余项见修复验证文档。
 
 修复说明同时明确：adapter/predictor 尚未重新拟合、旧 predictor 标签不兼容。旧实现中，无 adapter normalization 会回退 E0，令 `theta_hat=theta0`，因此 theta gate 无作用；无 predictor checkpoint 的默认行为是 persistence，初始无历史时为零，之后跟随最近 residual，**不是必然全程零预测**。修正版必须记录实际加载和回退情况，才能解释本轮 parity。
 
