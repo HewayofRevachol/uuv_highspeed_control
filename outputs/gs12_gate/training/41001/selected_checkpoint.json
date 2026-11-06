@@ -1,0 +1,1 @@
+{"scores":{"checkpoint_004096.pt":{"failures":1,"mean_cost":1.797892990052084},"checkpoint_008192.pt":{"failures":0,"mean_cost":1.8135225218978317}},"seed":41001,"selected":"checkpoint_008192.pt","selection_split":"dev_quick","variant":"standard"}

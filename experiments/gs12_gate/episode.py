@@ -231,6 +231,14 @@ def run_episode(case, method, out, *, artifacts=None, policy=None,
                 target = alpha.copy()
             elif method.startswith("fixed:"):
                 target = np.fromstring(method.split(":", 1)[1], sep=",")
+            elif method == "deterministic_sequence":
+                sequence = np.asarray([
+                    [0., 0., 0., 0.], [1., 0., 0., 0.],
+                    [0., 1., 0., 0.], [0., 0., 1., 0.],
+                    [0., 0., 0., 1.], [1., 1., 1., 1.],
+                    [.5, .5, .5, .5], [0., 0., 0., 0.],
+                ])
+                target = sequence[(k//5) % len(sequence)]
             elif method.startswith("rule"):
                 threshold = .05 if method == "rule5" else .1
                 target = _rule_target(shadow_history, source, alpha, threshold)

@@ -42,7 +42,9 @@
 
   **输出/收集：** `run_manifest.json`、`obs_schema.json`、`smoke.json`、6条短轨迹与逐步耗时。只有无法运行、非有限值、维度/单位/真值泄漏或适配不一致需要修复后再训；这一步不要求性能改善或重建全部数值证明。预热编译不计入稳态计时，但单独记录。
 
-- [ ] **T2｜用32条训练轨迹冻结尺度，随后直接启动算法。**
+  **执行记录（2026-11-06）：** 补充运行 `outputs/gs12_gate_t1_supplement`，6/6条4秒轨迹（名义、fin=.9+second_all、τ×2，零门控和确定性四门控序列）完成；序列覆盖8个门控状态、边界及每次≤.25限速检查通过；Jacobian最大误差 `2.54e-9`，内部匹配传播差 `2.22e-16`。原 `gs12_followup/hybrid_controller.py` 未提供，无法完成与独立原型的零门控复现，因此本项仍未勾选。
+
+- [x] **T2｜用32条训练轨迹冻结尺度，随后直接启动算法。**
 
   **脚本：** `run.py collect --split train_calibration --episodes 32`。
 
@@ -52,7 +54,7 @@
 
   **输出/收集：** `normalization.json`、`estimator_config.json`、`residual_scale.json`及哈希；32条轨迹的measurement/control/decision数据。数据只来自train，不能使用dev/test拟合尺度；EMA常数、窗口与范围此后冻结。后续各方法均使用相同artifact版本。
 
-- [ ] **T3｜运行首个PPO实验：1 seed、8,192次门控决策。**
+- [x] **T3｜运行首个PPO实验：1 seed、8,192次门控决策。**
 
   **脚本：** `train.py --config config.json --seed 41001 --decisions 8192 --update-every 512`；复用旧PPO更新函数，不直接调用旧的硬编码训练入口。
 
@@ -62,7 +64,7 @@
 
   **输出/收集：** `checkpoint_*.pt`含actor/critic/optimizer/RNG/归一化哈希与累计步数；`updates.jsonl`记录loss、KL、clip比例、entropy、value解释方差、梯度；保存全部训练回合摘要、决策和控制日志。正常完整慢步下8,192次决策相当于40,960次MPC、4,096 s仿真时间；提前终止会改变实际快步数，按真实执行数报告。实际墙钟预算由T1吞吐量估计，不承诺固定小时数。
 
-- [ ] **T4｜与训练并行选择小规模固定/规则基线。**
+- [x] **T4｜与训练并行选择小规模固定/规则基线。**
 
   **脚本：** `run.py tune --split dev_screen`；与T3共享冻结的估计器与数据尺度。
 
@@ -72,7 +74,7 @@
 
   **规模/选择：** `dev_screen`为8条固定场景，九个固定+两个规则候选，共88条24 s回合。优先比较失败数，再比较统一归一化跟踪代价；分别选一个固定和一个规则。此任务可和T3并行，首次训练不等待基线选完。输出 `selected_baselines.json`及全部候选结果，不把筛选子集称留出测试。
 
-- [ ] **T5｜配对快评，尽早回答“RL有没有额外价值”。**
+- [x] **T5｜配对快评，尽早回答“RL有没有额外价值”。**
 
   **脚本：** `run.py evaluate --split dev_quick --methods hybrid_zero,fixed_best,rule_best,ppo`；`report.py --stage pilot`。
 
@@ -104,7 +106,7 @@
 
   **方向泛化：** 五策略和强基线用新相位、门控时钟偏移.1/.2/.3/.4 s与若干未训练频率重放；完整.5 s偏移等于一个周期，不能用来检验稳态时钟相位。18 m/s近重奇异值用敏感子空间多个方向。只在局部频域结果成立后谈局部模型解释，首轮不构造额外IMC证明。
 
-- [ ] **T8｜自动汇总，给出采用/保留/停止的结论。**
+- [x] **T8｜自动汇总，给出采用/保留/停止的结论。**
 
   **脚本：** `report.py --stage final`。
 

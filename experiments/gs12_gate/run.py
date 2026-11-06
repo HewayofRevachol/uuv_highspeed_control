@@ -235,7 +235,7 @@ def smoke(run):
     checks = []
     for case in cases:
         if case["split"] != "smoke": continue
-        for method in ("hybrid_zero", "fixed:0.5,0.5,0.5,0.5"):
+        for method in ("hybrid_zero", "deterministic_sequence"):
             target = (Path(run)/"episodes"/"smoke"/case["case_id"]/
                       method.replace(":", "_").replace(",", "_"))
             results.append(run_episode(case, method, target, artifacts={"bootstrap": True}))
