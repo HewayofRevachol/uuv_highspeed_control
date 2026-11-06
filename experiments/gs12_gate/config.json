@@ -1,0 +1,13 @@
+{
+  "protocol": "gs12_gate_v1",
+  "seed": 41001,
+  "dt_plant_s": 0.02,
+  "dt_control_s": 0.1,
+  "dt_gate_s": 0.5,
+  "horizon": 35,
+  "train_cases": 12000,
+  "calibration_cases": 32,
+  "smoke_duration_s": 4.0,
+  "episode_duration_s": 24.0,
+  "direction_duration_s": 64.0
+}
