@@ -1,0 +1,41 @@
+{
+  "version": "gs13_srppo_v1",
+  "seed": 41002,
+  "teacher_gate": [
+    1.0,
+    1.0,
+    1.0,
+    0.0
+  ],
+  "observation_dim": 200,
+  "hidden": 128,
+  "residual_limit": 0.2,
+  "cost_dim": 4,
+  "dt_control_s": 0.1,
+  "dt_plant_s": 0.02,
+  "gate_period_s": 0.5,
+  "horizon": 35,
+  "normalization": "frozen_gs12_engineering_scales",
+  "duration_s": 24.0,
+  "train_cases": 300,
+  "dev_cases": 24,
+  "test_cases": 120,
+  "gamma": 0.99,
+  "gae_lambda": 0.95,
+  "clip": 0.2,
+  "policy_epochs": 4,
+  "minibatch": 256,
+  "learning_rate": 0.0003,
+  "entropy_weight": 0.001,
+  "value_weight": 0.5,
+  "grad_norm": 0.5,
+  "teacher_warmup": 5,
+  "safety_budget": [
+    0.08,
+    0.03,
+    0.02,
+    0.02
+  ],
+  "lagrange_lr": 0.02,
+  "lagrange_max": 20.0
+}
