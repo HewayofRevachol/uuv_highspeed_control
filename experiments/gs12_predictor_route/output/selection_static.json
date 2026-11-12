@@ -1,0 +1,54 @@
+{
+  "frozen": true,
+  "protocol_sha256": "2b2eac4e9ba6d05595e236ace6ea31eb1ffe854b90cbe58509a2d60cdb6c655b",
+  "dev_metrics_sha256": "cfd7bd09bfc1ebdfe7bffc9fe8c700a18cf49ac95eee7459fb0bd2b15629ad3e",
+  "candidate_beta": 0.5,
+  "F_dev": 0.75,
+  "Jbar_by_beta": {
+    "0.0": 4.3589455216386563e-07,
+    "0.25": 1.4694174946839562e-07,
+    "0.5": 2.1518720106403222e-08,
+    "0.75": 1.6977526434804153e-08,
+    "1.0": 1.0834045434586278e-07
+  },
+  "worst_regret_by_beta": {
+    "0.0": 0.7925910820835154,
+    "0.25": 0.16569474686158528,
+    "0.5": 0.30710670471084783,
+    "0.75": 0.5321312320177597,
+    "1.0": 0.8402368351952537
+  },
+  "G1_A_pass": true,
+  "G1_B_pass": false,
+  "G1_C_stop": false,
+  "endpoint_cross": true,
+  "taskwise_beta_leq_both_endpoints": {
+    "0.25": false,
+    "0.5": false,
+    "0.75": false
+  },
+  "m2_frozen_sha256": "08019a5455a5cf4d07cc9187f2560ec808351b2b2fac5108c3521bfe8a31f421",
+  "dev_run_ids": [
+    "05a3e869876efc537a99",
+    "0f5221563d6fcddcbefd",
+    "10cec0f88f492d2bed39",
+    "13ed7a463b12e4d14d36",
+    "1771821b8cd67461f74c",
+    "281cf3758da743b24c7a",
+    "2ed2942ae61de5dc678d",
+    "6b69b132399912e55d2e",
+    "7ecd255a54fba8498ac4",
+    "82d40cbc92432ecec74d",
+    "8fa7fb1a767584613152",
+    "8fb7dea7ccd2f5c21a9b",
+    "919d04eb4b9f03f3ae0f",
+    "b40a1af1c8606a4c93eb",
+    "bcd0c5b6de28a090e96a",
+    "cede07766ade6a05aefd",
+    "cf1285dd3235c0178ac9",
+    "e714d02aa7fefc78e788",
+    "edf67a2574500c040d20",
+    "fdd4369fd54cec9069b4"
+  ],
+  "G1_formula": "G1-A minimax-regret R improvement >=0.05 and Jbar<=1.05*min(endpoint Jbar); candidate selected by R then Jbar then lower beta"
+}

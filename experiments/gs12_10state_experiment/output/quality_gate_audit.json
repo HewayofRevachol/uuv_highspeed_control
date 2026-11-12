@@ -1,0 +1,5561 @@
+{
+  "protocol_sha256": "54b768131bb1139d9a18c0cf628c460bc0fed8d80f743ba21ab4d146e0cfa69a",
+  "runs_audited": 335,
+  "groups": [
+    {
+      "speed_mps": 10.0,
+      "condition": "C0",
+      "regime": "coupled",
+      "label": "_periodic",
+      "zero": {
+        "status": "complete_valid",
+        "duration_s": 256.0,
+        "no_sat_W2_W3": true,
+        "sat": {
+          "W2": {
+            "command": false,
+            "actual": false
+          },
+          "W3": {
+            "command": false,
+            "actual": false
+          }
+        }
+      },
+      "excitation_groups": [
+        {
+          "probe_or_band": "10",
+          "axes": {
+            "2": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "1": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "0": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": true
+        },
+        {
+          "probe_or_band": "18",
+          "axes": {
+            "0": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "1": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "2": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": true
+        },
+        {
+          "probe_or_band": "30",
+          "axes": {
+            "0": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "2": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "1": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": true
+        },
+        {
+          "probe_or_band": "32",
+          "axes": {
+            "1": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "0": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "2": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": true
+        },
+        {
+          "probe_or_band": "4",
+          "axes": {
+            "0": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "1": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "2": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": true
+        },
+        {
+          "probe_or_band": "6",
+          "axes": {
+            "0": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "2": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "1": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": true
+        }
+      ]
+    },
+    {
+      "speed_mps": 10.0,
+      "condition": "C0",
+      "regime": "s_bend",
+      "label": "_periodic",
+      "zero": {
+        "status": "complete_valid",
+        "duration_s": 256.0,
+        "no_sat_W2_W3": true,
+        "sat": {
+          "W2": {
+            "command": false,
+            "actual": false
+          },
+          "W3": {
+            "command": false,
+            "actual": false
+          }
+        }
+      },
+      "excitation_groups": [
+        {
+          "probe_or_band": "10",
+          "axes": {
+            "2": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "1": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "0": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": true
+        },
+        {
+          "probe_or_band": "18",
+          "axes": {
+            "1": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "2": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "0": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": true
+        },
+        {
+          "probe_or_band": "30",
+          "axes": {
+            "1": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "0": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "2": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": true
+        },
+        {
+          "probe_or_band": "32",
+          "axes": {
+            "1": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "2": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "0": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": true
+        },
+        {
+          "probe_or_band": "4",
+          "axes": {
+            "2": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "0": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "1": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": true
+        },
+        {
+          "probe_or_band": "6",
+          "axes": {
+            "2": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "1": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "0": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": true
+        }
+      ]
+    },
+    {
+      "speed_mps": 10.0,
+      "condition": "C0",
+      "regime": "slope",
+      "label": "_climb",
+      "zero": {
+        "status": "complete_valid",
+        "duration_s": 256.0,
+        "no_sat_W2_W3": true,
+        "sat": {
+          "W2": {
+            "command": false,
+            "actual": false
+          },
+          "W3": {
+            "command": false,
+            "actual": false
+          }
+        }
+      },
+      "excitation_groups": [
+        {
+          "probe_or_band": "B1",
+          "axes": {
+            "2": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "1": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "0": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": true
+        },
+        {
+          "probe_or_band": "B4",
+          "axes": {
+            "1": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            },
+            "2": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "0": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        }
+      ]
+    },
+    {
+      "speed_mps": 10.0,
+      "condition": "C0",
+      "regime": "slope",
+      "label": "_dive",
+      "zero": {
+        "status": "complete_valid",
+        "duration_s": 256.0,
+        "no_sat_W2_W3": true,
+        "sat": {
+          "W2": {
+            "command": false,
+            "actual": false
+          },
+          "W3": {
+            "command": false,
+            "actual": false
+          }
+        }
+      },
+      "excitation_groups": [
+        {
+          "probe_or_band": "B1",
+          "axes": {
+            "0": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "2": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "1": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": true
+        },
+        {
+          "probe_or_band": "B4",
+          "axes": {
+            "1": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            },
+            "0": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            },
+            "2": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        }
+      ]
+    },
+    {
+      "speed_mps": 10.0,
+      "condition": "C0",
+      "regime": "straight",
+      "label": "",
+      "zero": {
+        "status": "complete_valid",
+        "duration_s": 256.0,
+        "no_sat_W2_W3": true,
+        "sat": {
+          "W2": {
+            "command": false,
+            "actual": false
+          },
+          "W3": {
+            "command": false,
+            "actual": false
+          }
+        }
+      },
+      "excitation_groups": [
+        {
+          "probe_or_band": "B1",
+          "axes": {
+            "2": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "1": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "0": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": true
+        },
+        {
+          "probe_or_band": "B2",
+          "axes": {
+            "2": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "1": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "0": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": true
+        },
+        {
+          "probe_or_band": "B3",
+          "axes": {
+            "0": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "2": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "1": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": true
+        },
+        {
+          "probe_or_band": "B4",
+          "axes": {
+            "0": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            },
+            "1": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            },
+            "2": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        }
+      ]
+    },
+    {
+      "speed_mps": 10.0,
+      "condition": "C0",
+      "regime": "turn",
+      "label": "_left",
+      "zero": {
+        "status": "complete_constrained",
+        "duration_s": 256.0,
+        "no_sat_W2_W3": true,
+        "sat": {
+          "W2": {
+            "command": false,
+            "actual": false
+          },
+          "W3": {
+            "command": false,
+            "actual": false
+          }
+        }
+      },
+      "excitation_groups": [
+        {
+          "probe_or_band": "B1",
+          "axes": {
+            "0": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "1": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "2": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        },
+        {
+          "probe_or_band": "B4",
+          "axes": {
+            "1": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            },
+            "0": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": true
+                },
+                "W3": {
+                  "command": true,
+                  "actual": true
+                }
+              }
+            },
+            "2": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        }
+      ]
+    },
+    {
+      "speed_mps": 10.0,
+      "condition": "C0",
+      "regime": "turn",
+      "label": "_right",
+      "zero": {
+        "status": "complete_constrained",
+        "duration_s": 256.0,
+        "no_sat_W2_W3": true,
+        "sat": {
+          "W2": {
+            "command": false,
+            "actual": false
+          },
+          "W3": {
+            "command": false,
+            "actual": false
+          }
+        }
+      },
+      "excitation_groups": [
+        {
+          "probe_or_band": "B1",
+          "axes": {
+            "0": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "1": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "2": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        },
+        {
+          "probe_or_band": "B4",
+          "axes": {
+            "2": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "1": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            },
+            "0": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": true
+                },
+                "W3": {
+                  "command": true,
+                  "actual": true
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        }
+      ]
+    },
+    {
+      "speed_mps": 10.0,
+      "condition": "C4",
+      "regime": "coupled",
+      "label": "_periodic",
+      "zero": {
+        "status": "complete_valid",
+        "duration_s": 256.0,
+        "no_sat_W2_W3": true,
+        "sat": {
+          "W2": {
+            "command": false,
+            "actual": false
+          },
+          "W3": {
+            "command": false,
+            "actual": false
+          }
+        }
+      },
+      "excitation_groups": [
+        {
+          "probe_or_band": "32",
+          "axes": {
+            "2": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "1": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            },
+            "0": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        },
+        {
+          "probe_or_band": "4",
+          "axes": {
+            "0": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "1": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "2": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": true
+        }
+      ]
+    },
+    {
+      "speed_mps": 10.0,
+      "condition": "C4",
+      "regime": "s_bend",
+      "label": "_periodic",
+      "zero": {
+        "status": "complete_valid",
+        "duration_s": 256.0,
+        "no_sat_W2_W3": true,
+        "sat": {
+          "W2": {
+            "command": false,
+            "actual": false
+          },
+          "W3": {
+            "command": false,
+            "actual": false
+          }
+        }
+      },
+      "excitation_groups": [
+        {
+          "probe_or_band": "32",
+          "axes": {
+            "1": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            },
+            "2": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "0": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        },
+        {
+          "probe_or_band": "4",
+          "axes": {
+            "0": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "1": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "2": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": true
+        }
+      ]
+    },
+    {
+      "speed_mps": 10.0,
+      "condition": "C4",
+      "regime": "slope",
+      "label": "_climb",
+      "zero": {
+        "status": "complete_valid",
+        "duration_s": 256.0,
+        "no_sat_W2_W3": true,
+        "sat": {
+          "W2": {
+            "command": false,
+            "actual": false
+          },
+          "W3": {
+            "command": false,
+            "actual": false
+          }
+        }
+      },
+      "excitation_groups": [
+        {
+          "probe_or_band": "B1",
+          "axes": {
+            "0": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "2": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "1": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": true
+        },
+        {
+          "probe_or_band": "B4",
+          "axes": {
+            "1": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            },
+            "2": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "0": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        }
+      ]
+    },
+    {
+      "speed_mps": 10.0,
+      "condition": "C4",
+      "regime": "slope",
+      "label": "_dive",
+      "zero": {
+        "status": "complete_valid",
+        "duration_s": 256.0,
+        "no_sat_W2_W3": true,
+        "sat": {
+          "W2": {
+            "command": false,
+            "actual": false
+          },
+          "W3": {
+            "command": false,
+            "actual": false
+          }
+        }
+      },
+      "excitation_groups": [
+        {
+          "probe_or_band": "B1",
+          "axes": {
+            "1": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "2": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "0": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": true
+        },
+        {
+          "probe_or_band": "B4",
+          "axes": {
+            "0": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            },
+            "1": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            },
+            "2": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        }
+      ]
+    },
+    {
+      "speed_mps": 10.0,
+      "condition": "C4",
+      "regime": "straight",
+      "label": "",
+      "zero": {
+        "status": "complete_valid",
+        "duration_s": 256.0,
+        "no_sat_W2_W3": true,
+        "sat": {
+          "W2": {
+            "command": false,
+            "actual": false
+          },
+          "W3": {
+            "command": false,
+            "actual": false
+          }
+        }
+      },
+      "excitation_groups": [
+        {
+          "probe_or_band": "B1",
+          "axes": {
+            "2": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "1": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "0": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": true
+        },
+        {
+          "probe_or_band": "B2",
+          "axes": {
+            "1": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "2": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "0": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": true
+        },
+        {
+          "probe_or_band": "B3",
+          "axes": {
+            "1": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "0": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            },
+            "2": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        },
+        {
+          "probe_or_band": "B4",
+          "axes": {
+            "0": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            },
+            "2": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "1": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        }
+      ]
+    },
+    {
+      "speed_mps": 10.0,
+      "condition": "C4",
+      "regime": "turn",
+      "label": "_left",
+      "zero": {
+        "status": "complete_constrained",
+        "duration_s": 256.0,
+        "no_sat_W2_W3": true,
+        "sat": {
+          "W2": {
+            "command": false,
+            "actual": false
+          },
+          "W3": {
+            "command": false,
+            "actual": false
+          }
+        }
+      },
+      "excitation_groups": [
+        {
+          "probe_or_band": "B1",
+          "axes": {
+            "1": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "2": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "0": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        },
+        {
+          "probe_or_band": "B4",
+          "axes": {
+            "1": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            },
+            "2": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "0": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        }
+      ]
+    },
+    {
+      "speed_mps": 10.0,
+      "condition": "C4",
+      "regime": "turn",
+      "label": "_right",
+      "zero": {
+        "status": "complete_constrained",
+        "duration_s": 256.0,
+        "no_sat_W2_W3": true,
+        "sat": {
+          "W2": {
+            "command": false,
+            "actual": false
+          },
+          "W3": {
+            "command": false,
+            "actual": false
+          }
+        }
+      },
+      "excitation_groups": [
+        {
+          "probe_or_band": "B1",
+          "axes": {
+            "2": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "0": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "1": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        },
+        {
+          "probe_or_band": "B4",
+          "axes": {
+            "1": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            },
+            "2": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "0": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        }
+      ]
+    },
+    {
+      "speed_mps": 10.0,
+      "condition": "C5g",
+      "regime": "straight",
+      "label": "",
+      "zero": {
+        "status": "complete_valid",
+        "duration_s": 256.0,
+        "no_sat_W2_W3": true,
+        "sat": {
+          "W2": {
+            "command": false,
+            "actual": false
+          },
+          "W3": {
+            "command": false,
+            "actual": false
+          }
+        }
+      },
+      "excitation_groups": [
+        {
+          "probe_or_band": "B1",
+          "axes": {
+            "0": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "1": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            },
+            "2": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        }
+      ]
+    },
+    {
+      "speed_mps": 12.0,
+      "condition": "C0",
+      "regime": "straight",
+      "label": "",
+      "zero": {
+        "status": "complete_valid",
+        "duration_s": 256.0,
+        "no_sat_W2_W3": true,
+        "sat": {
+          "W2": {
+            "command": false,
+            "actual": false
+          },
+          "W3": {
+            "command": false,
+            "actual": false
+          }
+        }
+      },
+      "excitation_groups": [
+        {
+          "probe_or_band": "B1",
+          "axes": {
+            "2": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "0": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "1": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": true
+        },
+        {
+          "probe_or_band": "B2",
+          "axes": {
+            "2": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "0": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "1": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": true
+        },
+        {
+          "probe_or_band": "B3",
+          "axes": {
+            "2": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "1": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "0": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": true
+        },
+        {
+          "probe_or_band": "B4",
+          "axes": {
+            "0": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            },
+            "1": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "2": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        }
+      ]
+    },
+    {
+      "speed_mps": 12.0,
+      "condition": "C4",
+      "regime": "straight",
+      "label": "",
+      "zero": {
+        "status": "complete_valid",
+        "duration_s": 256.0,
+        "no_sat_W2_W3": true,
+        "sat": {
+          "W2": {
+            "command": false,
+            "actual": false
+          },
+          "W3": {
+            "command": false,
+            "actual": false
+          }
+        }
+      },
+      "excitation_groups": [
+        {
+          "probe_or_band": "B1",
+          "axes": {
+            "1": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            },
+            "0": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "2": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        }
+      ]
+    },
+    {
+      "speed_mps": 12.0,
+      "condition": "C5g",
+      "regime": "straight",
+      "label": "",
+      "zero": {
+        "status": "complete_valid",
+        "duration_s": 256.0,
+        "no_sat_W2_W3": true,
+        "sat": {
+          "W2": {
+            "command": false,
+            "actual": false
+          },
+          "W3": {
+            "command": false,
+            "actual": false
+          }
+        }
+      },
+      "excitation_groups": [
+        {
+          "probe_or_band": "B1",
+          "axes": {
+            "0": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "1": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            },
+            "2": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        }
+      ]
+    },
+    {
+      "speed_mps": 15.0,
+      "condition": "C0",
+      "regime": "coupled",
+      "label": "_periodic",
+      "zero": {
+        "status": "complete_constrained",
+        "duration_s": 256.0,
+        "no_sat_W2_W3": false,
+        "sat": {
+          "W2": {
+            "command": true,
+            "actual": false
+          },
+          "W3": {
+            "command": true,
+            "actual": false
+          }
+        }
+      },
+      "excitation_groups": [
+        {
+          "probe_or_band": "32",
+          "axes": {
+            "1": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            },
+            "2": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            },
+            "0": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        },
+        {
+          "probe_or_band": "4",
+          "axes": {
+            "1": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            },
+            "2": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            },
+            "0": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        }
+      ]
+    },
+    {
+      "speed_mps": 15.0,
+      "condition": "C0",
+      "regime": "s_bend",
+      "label": "_periodic",
+      "zero": {
+        "status": "complete_valid",
+        "duration_s": 256.0,
+        "no_sat_W2_W3": true,
+        "sat": {
+          "W2": {
+            "command": false,
+            "actual": false
+          },
+          "W3": {
+            "command": false,
+            "actual": false
+          }
+        }
+      },
+      "excitation_groups": [
+        {
+          "probe_or_band": "32",
+          "axes": {
+            "2": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "0": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "1": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        },
+        {
+          "probe_or_band": "4",
+          "axes": {
+            "1": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            },
+            "0": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "2": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        }
+      ]
+    },
+    {
+      "speed_mps": 15.0,
+      "condition": "C0",
+      "regime": "slope",
+      "label": "_climb",
+      "zero": {
+        "status": "complete_valid",
+        "duration_s": 256.0,
+        "no_sat_W2_W3": true,
+        "sat": {
+          "W2": {
+            "command": false,
+            "actual": false
+          },
+          "W3": {
+            "command": false,
+            "actual": false
+          }
+        }
+      },
+      "excitation_groups": [
+        {
+          "probe_or_band": "B1",
+          "axes": {
+            "0": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "2": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "1": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        },
+        {
+          "probe_or_band": "B4",
+          "axes": {
+            "1": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            },
+            "0": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            },
+            "2": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        }
+      ]
+    },
+    {
+      "speed_mps": 15.0,
+      "condition": "C0",
+      "regime": "slope",
+      "label": "_dive",
+      "zero": {
+        "status": "complete_valid",
+        "duration_s": 256.0,
+        "no_sat_W2_W3": true,
+        "sat": {
+          "W2": {
+            "command": false,
+            "actual": false
+          },
+          "W3": {
+            "command": false,
+            "actual": false
+          }
+        }
+      },
+      "excitation_groups": [
+        {
+          "probe_or_band": "B1",
+          "axes": {
+            "0": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "1": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            },
+            "2": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        },
+        {
+          "probe_or_band": "B4",
+          "axes": {
+            "1": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            },
+            "0": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            },
+            "2": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        }
+      ]
+    },
+    {
+      "speed_mps": 15.0,
+      "condition": "C0",
+      "regime": "straight",
+      "label": "",
+      "zero": {
+        "status": "complete_valid",
+        "duration_s": 256.0,
+        "no_sat_W2_W3": true,
+        "sat": {
+          "W2": {
+            "command": false,
+            "actual": false
+          },
+          "W3": {
+            "command": false,
+            "actual": false
+          }
+        }
+      },
+      "excitation_groups": [
+        {
+          "probe_or_band": "B1",
+          "axes": {
+            "1": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            },
+            "0": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "2": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        },
+        {
+          "probe_or_band": "B4",
+          "axes": {
+            "1": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            },
+            "2": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "0": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        }
+      ]
+    },
+    {
+      "speed_mps": 15.0,
+      "condition": "C0",
+      "regime": "turn",
+      "label": "_left",
+      "zero": {
+        "status": "complete_constrained",
+        "duration_s": 256.0,
+        "no_sat_W2_W3": true,
+        "sat": {
+          "W2": {
+            "command": false,
+            "actual": false
+          },
+          "W3": {
+            "command": false,
+            "actual": false
+          }
+        }
+      },
+      "excitation_groups": [
+        {
+          "probe_or_band": "B1",
+          "axes": {
+            "2": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "0": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "1": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        },
+        {
+          "probe_or_band": "B4",
+          "axes": {
+            "1": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            },
+            "0": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "2": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        }
+      ]
+    },
+    {
+      "speed_mps": 15.0,
+      "condition": "C0",
+      "regime": "turn",
+      "label": "_right",
+      "zero": {
+        "status": "complete_constrained",
+        "duration_s": 256.0,
+        "no_sat_W2_W3": true,
+        "sat": {
+          "W2": {
+            "command": false,
+            "actual": false
+          },
+          "W3": {
+            "command": false,
+            "actual": false
+          }
+        }
+      },
+      "excitation_groups": [
+        {
+          "probe_or_band": "B1",
+          "axes": {
+            "2": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "0": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "1": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        },
+        {
+          "probe_or_band": "B4",
+          "axes": {
+            "0": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "2": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "1": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        }
+      ]
+    },
+    {
+      "speed_mps": 15.0,
+      "condition": "C1",
+      "regime": "straight",
+      "label": "",
+      "zero": {
+        "status": "complete_valid",
+        "duration_s": 256.0,
+        "no_sat_W2_W3": true,
+        "sat": {
+          "W2": {
+            "command": false,
+            "actual": false
+          },
+          "W3": {
+            "command": false,
+            "actual": false
+          }
+        }
+      },
+      "excitation_groups": [
+        {
+          "probe_or_band": "B1",
+          "axes": {
+            "0": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "1": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "2": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        },
+        {
+          "probe_or_band": "B2",
+          "axes": {
+            "2": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "0": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "1": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        },
+        {
+          "probe_or_band": "B3",
+          "axes": {
+            "0": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "2": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "1": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        },
+        {
+          "probe_or_band": "B4",
+          "axes": {
+            "2": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "0": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "1": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        }
+      ]
+    },
+    {
+      "speed_mps": 15.0,
+      "condition": "C2",
+      "regime": "straight",
+      "label": "",
+      "zero": {
+        "status": "complete_valid",
+        "duration_s": 256.0,
+        "no_sat_W2_W3": true,
+        "sat": {
+          "W2": {
+            "command": false,
+            "actual": false
+          },
+          "W3": {
+            "command": false,
+            "actual": false
+          }
+        }
+      },
+      "excitation_groups": [
+        {
+          "probe_or_band": "B1",
+          "axes": {
+            "1": {
+              "status": "early_violation",
+              "observed_s": 19.8,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": null,
+                "W3": null
+              }
+            },
+            "0": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            },
+            "2": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        },
+        {
+          "probe_or_band": "B2",
+          "axes": {
+            "1": {
+              "status": "early_violation",
+              "observed_s": 16.3,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": null,
+                "W3": null
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        },
+        {
+          "probe_or_band": "B3",
+          "axes": {
+            "1": {
+              "status": "early_violation",
+              "observed_s": 17.3,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": null,
+                "W3": null
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        }
+      ]
+    },
+    {
+      "speed_mps": 15.0,
+      "condition": "C3",
+      "regime": "straight",
+      "label": "",
+      "zero": null,
+      "excitation_groups": [
+        {
+          "probe_or_band": "B1",
+          "axes": {
+            "1": {
+              "status": "early_violation",
+              "observed_s": 17.3,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": null,
+                "W3": null
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        }
+      ]
+    },
+    {
+      "speed_mps": 15.0,
+      "condition": "C4",
+      "regime": "coupled",
+      "label": "_periodic",
+      "zero": {
+        "status": "early_violation",
+        "duration_s": 11.3,
+        "no_sat_W2_W3": true,
+        "sat": {
+          "W2": null,
+          "W3": null
+        }
+      },
+      "excitation_groups": [
+        {
+          "probe_or_band": "32",
+          "axes": {
+            "0": {
+              "status": "early_violation",
+              "observed_s": 11.4,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": null,
+                "W3": null
+              }
+            },
+            "2": {
+              "status": "early_violation",
+              "observed_s": 11.3,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": null,
+                "W3": null
+              }
+            },
+            "1": {
+              "status": "early_violation",
+              "observed_s": 11.5,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": null,
+                "W3": null
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        },
+        {
+          "probe_or_band": "4",
+          "axes": {
+            "0": {
+              "status": "early_violation",
+              "observed_s": 11.1,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": null,
+                "W3": null
+              }
+            },
+            "2": {
+              "status": "early_violation",
+              "observed_s": 11.200000000000001,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": null,
+                "W3": null
+              }
+            },
+            "1": {
+              "status": "early_violation",
+              "observed_s": 11.4,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": null,
+                "W3": null
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        }
+      ]
+    },
+    {
+      "speed_mps": 15.0,
+      "condition": "C4",
+      "regime": "s_bend",
+      "label": "_periodic",
+      "zero": {
+        "status": "complete_constrained",
+        "duration_s": 256.0,
+        "no_sat_W2_W3": false,
+        "sat": {
+          "W2": {
+            "command": true,
+            "actual": false
+          },
+          "W3": {
+            "command": true,
+            "actual": false
+          }
+        }
+      },
+      "excitation_groups": [
+        {
+          "probe_or_band": "32",
+          "axes": {
+            "1": {
+              "status": "early_violation",
+              "observed_s": 16.3,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": null,
+                "W3": null
+              }
+            },
+            "0": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            },
+            "2": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        },
+        {
+          "probe_or_band": "4",
+          "axes": {
+            "0": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            },
+            "2": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            },
+            "1": {
+              "status": "early_violation",
+              "observed_s": 17.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": null,
+                "W3": null
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        }
+      ]
+    },
+    {
+      "speed_mps": 15.0,
+      "condition": "C4",
+      "regime": "slope",
+      "label": "_climb",
+      "zero": {
+        "status": "early_violation",
+        "duration_s": 57.5,
+        "no_sat_W2_W3": true,
+        "sat": {
+          "W2": null,
+          "W3": null
+        }
+      },
+      "excitation_groups": [
+        {
+          "probe_or_band": "B1",
+          "axes": {
+            "2": {
+              "status": "early_violation",
+              "observed_s": 57.5,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": null,
+                "W3": null
+              }
+            },
+            "0": {
+              "status": "early_violation",
+              "observed_s": 40.5,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": null,
+                "W3": null
+              }
+            },
+            "1": {
+              "status": "early_violation",
+              "observed_s": 20.2,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": null,
+                "W3": null
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        },
+        {
+          "probe_or_band": "B4",
+          "axes": {
+            "0": {
+              "status": "early_violation",
+              "observed_s": 25.900000000000002,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": null,
+                "W3": null
+              }
+            },
+            "2": {
+              "status": "early_violation",
+              "observed_s": 57.6,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": null,
+                "W3": null
+              }
+            },
+            "1": {
+              "status": "early_violation",
+              "observed_s": 14.3,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": null,
+                "W3": null
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        }
+      ]
+    },
+    {
+      "speed_mps": 15.0,
+      "condition": "C4",
+      "regime": "slope",
+      "label": "_dive",
+      "zero": {
+        "status": "early_violation",
+        "duration_s": 57.5,
+        "no_sat_W2_W3": true,
+        "sat": {
+          "W2": null,
+          "W3": null
+        }
+      },
+      "excitation_groups": [
+        {
+          "probe_or_band": "B1",
+          "axes": {
+            "2": {
+              "status": "early_violation",
+              "observed_s": 57.5,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": null,
+                "W3": null
+              }
+            },
+            "0": {
+              "status": "early_violation",
+              "observed_s": 40.5,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": null,
+                "W3": null
+              }
+            },
+            "1": {
+              "status": "early_violation",
+              "observed_s": 20.400000000000002,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": null,
+                "W3": null
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        },
+        {
+          "probe_or_band": "B4",
+          "axes": {
+            "2": {
+              "status": "early_violation",
+              "observed_s": 57.6,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": null,
+                "W3": null
+              }
+            },
+            "1": {
+              "status": "early_violation",
+              "observed_s": 14.3,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": null,
+                "W3": null
+              }
+            },
+            "0": {
+              "status": "early_violation",
+              "observed_s": 25.900000000000002,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": null,
+                "W3": null
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        }
+      ]
+    },
+    {
+      "speed_mps": 15.0,
+      "condition": "C4",
+      "regime": "straight",
+      "label": "",
+      "zero": {
+        "status": "complete_valid",
+        "duration_s": 256.0,
+        "no_sat_W2_W3": true,
+        "sat": {
+          "W2": {
+            "command": false,
+            "actual": false
+          },
+          "W3": {
+            "command": false,
+            "actual": false
+          }
+        }
+      },
+      "excitation_groups": [
+        {
+          "probe_or_band": "B1",
+          "axes": {
+            "2": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "0": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            },
+            "1": {
+              "status": "early_violation",
+              "observed_s": 20.3,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": null,
+                "W3": null
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        },
+        {
+          "probe_or_band": "B4",
+          "axes": {
+            "2": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "0": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            },
+            "1": {
+              "status": "early_violation",
+              "observed_s": 14.3,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": null,
+                "W3": null
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        }
+      ]
+    },
+    {
+      "speed_mps": 15.0,
+      "condition": "C4",
+      "regime": "turn",
+      "label": "_left",
+      "zero": {
+        "status": "complete_constrained",
+        "duration_s": 256.0,
+        "no_sat_W2_W3": false,
+        "sat": {
+          "W2": {
+            "command": true,
+            "actual": false
+          },
+          "W3": {
+            "command": true,
+            "actual": false
+          }
+        }
+      },
+      "excitation_groups": [
+        {
+          "probe_or_band": "B1",
+          "axes": {
+            "1": {
+              "status": "early_violation",
+              "observed_s": 21.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": null,
+                "W3": null
+              }
+            },
+            "2": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            },
+            "0": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        },
+        {
+          "probe_or_band": "B4",
+          "axes": {
+            "2": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            },
+            "0": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            },
+            "1": {
+              "status": "early_violation",
+              "observed_s": 14.4,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": null,
+                "W3": null
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        }
+      ]
+    },
+    {
+      "speed_mps": 15.0,
+      "condition": "C4",
+      "regime": "turn",
+      "label": "_right",
+      "zero": {
+        "status": "complete_constrained",
+        "duration_s": 256.0,
+        "no_sat_W2_W3": false,
+        "sat": {
+          "W2": {
+            "command": true,
+            "actual": false
+          },
+          "W3": {
+            "command": true,
+            "actual": false
+          }
+        }
+      },
+      "excitation_groups": [
+        {
+          "probe_or_band": "B1",
+          "axes": {
+            "2": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            },
+            "0": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            },
+            "1": {
+              "status": "early_violation",
+              "observed_s": 21.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": null,
+                "W3": null
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        },
+        {
+          "probe_or_band": "B4",
+          "axes": {
+            "2": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            },
+            "1": {
+              "status": "early_violation",
+              "observed_s": 14.4,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": null,
+                "W3": null
+              }
+            },
+            "0": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        }
+      ]
+    },
+    {
+      "speed_mps": 15.0,
+      "condition": "C5g",
+      "regime": "straight",
+      "label": "",
+      "zero": {
+        "status": "complete_valid",
+        "duration_s": 256.0,
+        "no_sat_W2_W3": true,
+        "sat": {
+          "W2": {
+            "command": false,
+            "actual": false
+          },
+          "W3": {
+            "command": false,
+            "actual": false
+          }
+        }
+      },
+      "excitation_groups": [
+        {
+          "probe_or_band": "B1",
+          "axes": {
+            "1": {
+              "status": "early_violation",
+              "observed_s": 18.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": null,
+                "W3": null
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        },
+        {
+          "probe_or_band": "B2",
+          "axes": {
+            "1": {
+              "status": "early_violation",
+              "observed_s": 15.1,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": null,
+                "W3": null
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        }
+      ]
+    },
+    {
+      "speed_mps": 18.0,
+      "condition": "C0",
+      "regime": "straight",
+      "label": "",
+      "zero": {
+        "status": "complete_valid",
+        "duration_s": 256.0,
+        "no_sat_W2_W3": true,
+        "sat": {
+          "W2": {
+            "command": false,
+            "actual": false
+          },
+          "W3": {
+            "command": false,
+            "actual": false
+          }
+        }
+      },
+      "excitation_groups": [
+        {
+          "probe_or_band": "B1",
+          "axes": {
+            "2": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "0": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "1": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        }
+      ]
+    },
+    {
+      "speed_mps": 18.0,
+      "condition": "C4",
+      "regime": "straight",
+      "label": "",
+      "zero": null,
+      "excitation_groups": [
+        {
+          "probe_or_band": "B1",
+          "axes": {
+            "1": {
+              "status": "early_violation",
+              "observed_s": 13.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": null,
+                "W3": null
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        }
+      ]
+    },
+    {
+      "speed_mps": 18.0,
+      "condition": "C5g",
+      "regime": "straight",
+      "label": "",
+      "zero": {
+        "status": "complete_valid",
+        "duration_s": 256.0,
+        "no_sat_W2_W3": true,
+        "sat": {
+          "W2": {
+            "command": false,
+            "actual": false
+          },
+          "W3": {
+            "command": false,
+            "actual": false
+          }
+        }
+      },
+      "excitation_groups": [
+        {
+          "probe_or_band": "B1",
+          "axes": {
+            "2": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "0": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            },
+            "1": {
+              "status": "early_violation",
+              "observed_s": 11.700000000000001,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": null,
+                "W3": null
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        }
+      ]
+    },
+    {
+      "speed_mps": 8.0,
+      "condition": "C0",
+      "regime": "straight",
+      "label": "",
+      "zero": {
+        "status": "complete_valid",
+        "duration_s": 256.0,
+        "no_sat_W2_W3": true,
+        "sat": {
+          "W2": {
+            "command": false,
+            "actual": false
+          },
+          "W3": {
+            "command": false,
+            "actual": false
+          }
+        }
+      },
+      "excitation_groups": [
+        {
+          "probe_or_band": "B1",
+          "axes": {
+            "2": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "1": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "0": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": true
+        },
+        {
+          "probe_or_band": "B2",
+          "axes": {
+            "0": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "2": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "1": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": true
+        },
+        {
+          "probe_or_band": "B3",
+          "axes": {
+            "2": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "1": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "0": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        },
+        {
+          "probe_or_band": "B4",
+          "axes": {
+            "0": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            },
+            "2": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "1": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        }
+      ]
+    },
+    {
+      "speed_mps": 8.0,
+      "condition": "C4",
+      "regime": "straight",
+      "label": "",
+      "zero": {
+        "status": "complete_valid",
+        "duration_s": 256.0,
+        "no_sat_W2_W3": true,
+        "sat": {
+          "W2": {
+            "command": false,
+            "actual": false
+          },
+          "W3": {
+            "command": false,
+            "actual": false
+          }
+        }
+      },
+      "excitation_groups": [
+        {
+          "probe_or_band": "B1",
+          "axes": {
+            "0": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "1": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "2": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": true
+        },
+        {
+          "probe_or_band": "B2",
+          "axes": {
+            "0": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "1": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "2": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": true
+        },
+        {
+          "probe_or_band": "B3",
+          "axes": {
+            "0": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        }
+      ]
+    },
+    {
+      "speed_mps": 8.0,
+      "condition": "C5g",
+      "regime": "straight",
+      "label": "",
+      "zero": {
+        "status": "complete_valid",
+        "duration_s": 256.0,
+        "no_sat_W2_W3": true,
+        "sat": {
+          "W2": {
+            "command": false,
+            "actual": false
+          },
+          "W3": {
+            "command": false,
+            "actual": false
+          }
+        }
+      },
+      "excitation_groups": [
+        {
+          "probe_or_band": "B1",
+          "axes": {
+            "2": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "0": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "1": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": true
+        },
+        {
+          "probe_or_band": "B2",
+          "axes": {
+            "0": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "1": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "2": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": true
+        },
+        {
+          "probe_or_band": "B3",
+          "axes": {
+            "2": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "0": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            },
+            "1": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        },
+        {
+          "probe_or_band": "B4",
+          "axes": {
+            "0": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            },
+            "2": {
+              "status": "complete_valid",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": true,
+              "sat": {
+                "W2": {
+                  "command": false,
+                  "actual": false
+                },
+                "W3": {
+                  "command": false,
+                  "actual": false
+                }
+              }
+            },
+            "1": {
+              "status": "complete_constrained",
+              "observed_s": 256.0,
+              "no_sat_W2_W3": false,
+              "sat": {
+                "W2": {
+                  "command": true,
+                  "actual": false
+                },
+                "W3": {
+                  "command": true,
+                  "actual": false
+                }
+              }
+            }
+          },
+          "complete_full_quality_group": false
+        }
+      ]
+    }
+  ]
+}

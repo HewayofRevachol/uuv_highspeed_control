@@ -1,0 +1,218 @@
+{
+  "id": "GS12-WEIGHT-ROUTE-2026-11-11",
+  "version": 1,
+  "created_local": "2026-11-11T15:45:27+0800",
+  "repo_commit": "7ac1394d0d5e2fa7d02b4c72b0097b402d3ddb4e",
+  "source_sha256": {
+    "aav_mpc/condensed_mpc.py": "5723535249ddf9a186032f37989181e674fa95d209578ef883da85bf6f8cfb05",
+    "simulator/batch_mpc.py": "4d945b436b8d5abd4addb8c4efc67a70da5707692b851c08f18fd29190db7f9a",
+    "simulator/rti_symbolic.py": "bf6a3f66564df1d24af9196bea83f3342b18fd19baa2fa4902218951c90028e7",
+    "simulator/model.py": "ad1e22f5e11a4c9dd7466a2811603e953f891f4bb5a0d0fe198b6b224f9ecff8",
+    "experiments/gs12_analaysis/frequency_extension_src/plant_harness.py": "2b6f6f32c2a488380154aaa5f5f175a13fca05829cc4070aac4c9ecf95fb5a9b",
+    "experiments/gs12_analaysis/frequency_extension_src/run_frequency_extension.py": "948a0e1ac0f849ae2d87c18dd5913cce5084683a72ca67741705d9fb40ae3b49",
+    "experiments/gs12_weight_route/reference_tasks.py": "131985a2044ec2f3b84557250934d50ce9d98869bb9c0e378017ed783f59c0c7",
+    "experiments/gs12_weight_route/runner_core.py": "8411ecf9d15e25a677d592f0781e07ddaeb9a9632e0c9cbc845dc1ce338bbc83",
+    "experiments/gs12_weight_route/run_weight_route.py": "9f5143f83e55bf2d0448ad948bfb2df56f157361334fe2e98af4b4c463d7b19b",
+    "experiments/gs12_weight_route/verify_route.py": "0441d066332018b1a721e49af059a015dcfbdd88ff335de7b3979d15943af527",
+    "experiments/gs12_weight_route/analyze_weight_route.py": "85f908d75c1fe96770d206c05505a9ef8c90ee49decfa7b128b10d07e51dad4e"
+  },
+  "python": "3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]",
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+  "packages": {
+    "numpy": "2.2.6",
+    "torch": "2.14.0+cu130",
+    "scipy": "1.15.3",
+    "osqp": "1.1.3",
+    "casadi": "3.6.5"
+  },
+  "plant": {
+    "speed_mps": 15.0,
+    "config": {
+      "elevator": 0.9,
+      "rudder": 0.9,
+      "order": "second_all"
+    },
+    "true_plant": "C4",
+    "dt_s": 0.1,
+    "substep_s": 0.02,
+    "horizon": 35
+  },
+  "controllers": {
+    "C4": {
+      "model_gain": 1.0,
+      "model_tau": 1.0
+    },
+    "C5": {
+      "model_gain": 0.85,
+      "model_tau": 2.0
+    }
+  },
+  "weight_grid": [
+    [
+      0.7,
+      0.7
+    ],
+    [
+      0.7,
+      1.0
+    ],
+    [
+      0.7,
+      1.4
+    ],
+    [
+      1.0,
+      0.7
+    ],
+    [
+      1.0,
+      1.0
+    ],
+    [
+      1.0,
+      1.4
+    ],
+    [
+      1.4,
+      0.7
+    ],
+    [
+      1.4,
+      1.0
+    ],
+    [
+      1.4,
+      1.4
+    ]
+  ],
+  "tasks": [
+    {
+      "task_id": "scan_depth_k8",
+      "split": "dev_scan",
+      "kind": "single",
+      "axis": "depth",
+      "k": 8,
+      "phase_rad": 0.0,
+      "amplitude": 0.006,
+      "duration_s": 64.0,
+      "speed_mps": 15.0,
+      "window_s": [
+        32.0,
+        64.0
+      ]
+    },
+    {
+      "task_id": "scan_depth_k32",
+      "split": "dev_scan",
+      "kind": "single",
+      "axis": "depth",
+      "k": 32,
+      "phase_rad": 0.73,
+      "amplitude": 0.006,
+      "duration_s": 64.0,
+      "speed_mps": 15.0,
+      "window_s": [
+        32.0,
+        64.0
+      ]
+    },
+    {
+      "task_id": "mixed_dev_1",
+      "split": "dev_rule",
+      "kind": "mixed",
+      "axis": "east_depth",
+      "phase_rad": 0.21,
+      "switch_times_s": [
+        20.0,
+        40.0
+      ],
+      "amplitude": 0.006,
+      "duration_s": 64.0,
+      "speed_mps": 15.0,
+      "window_s": [
+        32.0,
+        64.0
+      ]
+    },
+    {
+      "task_id": "mixed_dev_2",
+      "split": "dev_rule",
+      "kind": "mixed",
+      "axis": "east_depth",
+      "phase_rad": 1.17,
+      "switch_times_s": [
+        22.0,
+        42.0
+      ],
+      "amplitude": 0.006,
+      "duration_s": 64.0,
+      "speed_mps": 15.0,
+      "window_s": [
+        32.0,
+        64.0
+      ]
+    },
+    {
+      "task_id": "locked_depth_k6",
+      "split": "test_locked",
+      "kind": "single",
+      "axis": "depth",
+      "k": 6,
+      "phase_rad": 2.04,
+      "amplitude": 0.006,
+      "duration_s": 64.0,
+      "speed_mps": 15.0,
+      "window_s": [
+        32.0,
+        64.0
+      ]
+    },
+    {
+      "task_id": "locked_east_k30",
+      "split": "test_locked",
+      "kind": "single",
+      "axis": "east",
+      "k": 30,
+      "phase_rad": -1.31,
+      "amplitude": 0.006,
+      "duration_s": 64.0,
+      "speed_mps": 15.0,
+      "window_s": [
+        32.0,
+        64.0
+      ]
+    },
+    {
+      "task_id": "locked_mixed",
+      "split": "test_locked",
+      "kind": "mixed",
+      "axis": "east_depth",
+      "phase_rad": 2.61,
+      "switch_times_s": [
+        18.0,
+        39.0
+      ],
+      "amplitude": 0.006,
+      "duration_s": 64.0,
+      "speed_mps": 15.0,
+      "window_s": [
+        32.0,
+        64.0
+      ]
+    }
+  ],
+  "objective": "mean((Eref-E)^2/8^2 + (Dref-D)^2/5^2 + (VNref-VN)^2/2^2)",
+  "primary_window_s": [
+    32.0,
+    64.0
+  ],
+  "diagnostic_limits": [
+    8.0,
+    5.0,
+    2.0,
+    0.6981317007977318
+  ],
+  "selection_rule": "dev_scan equal task-weighted relative J_track; exclude new early stop or QP failure",
+  "locked_test_rule": "mean J improvement >=5%, no task worse than C4, no added failures",
+  "note": "test_locked tasks frozen before scan; no locked run until explicit selection freeze"
+}

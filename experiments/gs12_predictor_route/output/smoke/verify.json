@@ -1,0 +1,61 @@
+{
+  "reference_derivative_max_abs": 3.516076425653762e-05,
+  "legacy_endpoint_alignment": {
+    "B": {
+      "old_run_id": "7d76d865e3dae547",
+      "max_abs_differences": {
+        "command": 0.0,
+        "state_substep": 0.0,
+        "actual_substep": 0.0,
+        "qp_mismatch_count": 0
+      }
+    },
+    "D": {
+      "old_run_id": "adb65b39ed46e385",
+      "max_abs_differences": {
+        "command": 0.0,
+        "state_substep": 0.0,
+        "actual_substep": 0.0,
+        "qp_mismatch_count": 0
+      }
+    }
+  },
+  "continuous_parameter_injection": [
+    {
+      "beta": 0.0,
+      "actual_model_parameters": [
+        1.0,
+        1.0
+      ],
+      "qp_valid": true
+    },
+    {
+      "beta": 0.5,
+      "actual_model_parameters": [
+        0.925,
+        1.5
+      ],
+      "qp_valid": true
+    },
+    {
+      "beta": 1.0,
+      "actual_model_parameters": [
+        0.85,
+        2.0
+      ],
+      "qp_valid": true
+    }
+  ],
+  "source_sha256": {
+    "experiments/gs12_predictor_route/run_predictor.py": "d251e104d578ec49134815d423e2056591a20b549a7fce25a94e406f642214dd",
+    "experiments/gs12_predictor_route/analyze_predictor.py": "dfdd210712a91b54a234935bfa6341c49a1d5cc65fbeaf04606cce6604d22c1e",
+    "experiments/gs12_joint_route/joint_reference.py": "31039d381c9e12ea33c36249d0e828ad1b5dc9be18c73bbddc071beb04478dc0",
+    "experiments/gs12_weight_route/runner_core.py": "52b2653fb8fc8b888e67ac1ee21f4fe80259717372fde759b7bb2da60d8a332a",
+    "experiments/gs12_weight_route/reference_tasks.py": "7a94ede4e96c332d0261c76189628947556850d0455afd438e1a6eb34ceabd58",
+    "aav_mpc/condensed_mpc.py": "5723535249ddf9a186032f37989181e674fa95d209578ef883da85bf6f8cfb05",
+    "simulator/rti_symbolic.py": "bf6a3f66564df1d24af9196bea83f3342b18fd19baa2fa4902218951c90028e7",
+    "simulator/batch_mpc.py": "4d945b436b8d5abd4addb8c4efc67a70da5707692b851c08f18fd29190db7f9a",
+    "experiments/gs12_analaysis/frequency_extension_src/plant_harness.py": "2b6f6f32c2a488380154aaa5f5f175a13fca05829cc4070aac4c9ecf95fb5a9b"
+  },
+  "note": "Legacy traces and original task definitions used; no locked tasks read."
+}

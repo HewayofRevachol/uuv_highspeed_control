@@ -1,0 +1,38 @@
+{
+  "F00": {
+    "complete": 8,
+    "tasks": 8,
+    "mean_task_J": 4.263698789539577e-07,
+    "quality_failures": 0
+  },
+  "F50": {
+    "complete": 8,
+    "tasks": 8,
+    "mean_task_J": 2.1571479931819442e-08,
+    "quality_failures": 0
+  },
+  "F75": {
+    "complete": 8,
+    "tasks": 8,
+    "mean_task_J": 2.0708541091134945e-08,
+    "quality_failures": 0
+  },
+  "Rule-cap75": {
+    "complete": 8,
+    "tasks": 8,
+    "mean_task_J": 2.7801189059796902e-08,
+    "quality_failures": 0
+  },
+  "checkpoint_update_2": {
+    "complete": 8,
+    "tasks": 8,
+    "mean_task_J": 1.6953041716243465e-07,
+    "quality_failures": 0
+  },
+  "checkpoint_update_4": {
+    "complete": 8,
+    "tasks": 8,
+    "mean_task_J": 1.5835948722952384e-07,
+    "quality_failures": 0
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "run_id": "v15_C3_k16",
+  "speed_mps": 15.0,
+  "condition": "C3",
+  "bin": 16,
+  "omega_radps": 1.5707963267948966,
+  "selection_reasons": [
+    "closest_near_degenerate_top2"
+  ],
+  "gap_ratio": 0.03185259237465859,
+  "right_singular_vector_real": [
+    1.795348885711127e-07,
+    -1.4690985320586762e-05,
+    0.2995820105608444
+  ],
+  "right_singular_vector_imag": [
+    0.0,
+    8.24318215759238e-06,
+    0.9540705522468004
+  ],
+  "status": "complete_valid",
+  "qp_failures": 0,
+  "duration_s": 256.0,
+  "prediction_error_relative": 3.914159094507026e-06,
+  "measured_error_phasor_per_unit_input": {
+    "real": [
+      -4.1186407771563144e-10,
+      -4.903634506742915e-07,
+      -0.014985958065085856
+    ],
+    "imag": [
+      -2.080992290992172e-09,
+      3.646653348280099e-07,
+      -0.03722909607170624
+    ]
+  },
+  "predicted_error_phasor_per_unit_input": {
+    "real": [
+      -4.1236906321676436e-10,
+      -6.028037144521017e-07,
+      -0.014985956299342313
+    ],
+    "imag": [
+      -2.0806529562586197e-09,
+      2.5498843136616346e-07,
+      -0.03722909558917942
+    ]
+  },
+  "trace_sha256": "d3cc6baa1c3dc09b763c89e47f1c6d66f2231762954d420f10f9b729633201d0"
+}

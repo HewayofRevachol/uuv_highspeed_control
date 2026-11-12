@@ -1,0 +1,81 @@
+{
+  "run_id": "p775298e77e84_model10_v15_C4_coupled_coupled_k6_axis0_a0.006_primary",
+  "protocol_sha256": "775298e77e84ce940dc6ed83dba865f8c2efd76f150d1d97968a8967b74ac75a",
+  "source_sha256": {
+    "analyze_experiment.py": "22d0c04ad3f65701e25038dc42c96573a3d0509d1159b36770025ae98d958ff7",
+    "controller10.py": "b97424d055e435d58246119a285c4430c0251a56a6f3c7a6f448865bc3fa1a8e",
+    "reference10.py": "42b4f239470ab82a754572eb2a89c0e461def213ee00ced34637cb70de85a424",
+    "run_experiment.py": "aefc5d4b34c131529bb7345a0f8776a9601dc7e356a183e060223014bc08ccfd"
+  },
+  "reference_sha256": "d44add36311fb45535c2c86c92d46086b43619911b0e387609312c9bc797797a",
+  "controller_state_dim": 10,
+  "controller": "condensed_rti_osqp",
+  "plant_config": {
+    "mass": 1.0,
+    "damping": 1.0,
+    "thrust": 1.0,
+    "elevator": 0.9,
+    "rudder": 0.9,
+    "delay_steps": [
+      3,
+      3,
+      3
+    ],
+    "tau_scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "order": "second_all"
+  },
+  "fin_gain_prediction": 1.0,
+  "operating_regime": "coupled",
+  "regime_parameters": {
+    "probe_k": 6,
+    "label": "_coupled"
+  },
+  "speed_mps": 15.0,
+  "condition": "C4",
+  "axis": 0,
+  "band": null,
+  "probe_k": 6,
+  "amplitude_per_line": 0.006,
+  "phase_id": "primary",
+  "status": "early_violation",
+  "observed_duration_s": 2.8000000000000003,
+  "control_periods": 28,
+  "substeps": 140,
+  "first_violation": {
+    "time_s": 2.74,
+    "substep": 137,
+    "kinds": [
+      "depth_5m"
+    ],
+    "values": [
+      -0.5240733315169124,
+      5.039049536255725,
+      0.7168420697563231,
+      -0.5777414323206651
+    ]
+  },
+  "qp_failures": 1,
+  "mean_qp_iterations": 1283.9285714285713,
+  "mean_osqp_solve_time_s": 0.011179099464285715,
+  "command_saturation_fraction": [
+    0.6785714285714286,
+    0.75,
+    0.6785714285714286
+  ],
+  "actual_saturation_fraction": [
+    0.02142857142857143,
+    0.0,
+    0.0
+  ],
+  "max_actual_normalized_abs": [
+    0.9999991876575256,
+    0.9999988763569613,
+    0.6455687713650685
+  ],
+  "trace_sha256": "0960726d758a0c7e774f605dfcc6fa138a2978c3f01b7e278be52da62a532ae1",
+  "wall_s": 0.6581802950004203
+}

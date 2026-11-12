@@ -1,0 +1,38 @@
+{
+  "A": {
+    "plant_id": "C4",
+    "predictor_id": "P0",
+    "model_gain": 1.0,
+    "model_tau": 1.0,
+    "weight_id": "W0",
+    "a_depth": 1.0,
+    "a_rudder_rate": 1.0
+  },
+  "B": {
+    "plant_id": "C4",
+    "predictor_id": "P0",
+    "model_gain": 1.0,
+    "model_tau": 1.0,
+    "weight_id": "W1",
+    "a_depth": 1.4,
+    "a_rudder_rate": 0.7
+  },
+  "C": {
+    "plant_id": "C4",
+    "predictor_id": "P1",
+    "model_gain": 0.85,
+    "model_tau": 2.0,
+    "weight_id": "W0",
+    "a_depth": 1.0,
+    "a_rudder_rate": 1.0
+  },
+  "D": {
+    "plant_id": "C4",
+    "predictor_id": "P1",
+    "model_gain": 0.85,
+    "model_tau": 2.0,
+    "weight_id": "W1",
+    "a_depth": 1.4,
+    "a_rudder_rate": 0.7
+  }
+}

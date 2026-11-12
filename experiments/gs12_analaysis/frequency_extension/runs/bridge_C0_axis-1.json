@@ -1,0 +1,18 @@
+{
+  "run_id": "bridge_C0_axis-1",
+  "protocol_sha256": "7f3cbbc3db0ca21c5e8101f95a0dba21a9347eeda1197f4a9efc7808d0655a89",
+  "source_sha256": {
+    "frequency_identification.py": "44a81f1bfb022e3d17ff266f9d12b357996b617b1e870cc75e949078e7ef9338",
+    "improved_controller.py": "727372698a5da59b0225d8e52d54958cf46945339b9d9353a397cf06463b364d",
+    "run_frequency_extension.py": "279a79422056c40d82254e97daddf58f9b5f6aae11c3ebd6715e7f7571eab7ab",
+    "plant_harness.py": "2b6f6f32c2a488380154aaa5f5f175a13fca05829cc4070aac4c9ecf95fb5a9b"
+  },
+  "speed_mps": 15.0,
+  "condition": "C0",
+  "axis": -1,
+  "status": "complete",
+  "observed_duration_s": 144.0,
+  "qp_failures": 0,
+  "one_step_max_abs_state_error": 1.7763568394002505e-15,
+  "trace_sha256": "1d86c0bfd4f5591732d46ed6f480dc0bfedddfa72043ea8f8ef161cf741cc602"
+}

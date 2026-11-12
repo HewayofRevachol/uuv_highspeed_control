@@ -1,0 +1,1 @@
+{"version":"segment_reward_v1","tracking":"negative min(J_segment / max(J_F75,1e-9),20)","switch_penalty":"0.02*(beta_target-previous_target)^2","failure_penalty":"20*(9-segment_index)","external_metric":"mean normalized squared E,D,VN error over [32,64] s"}

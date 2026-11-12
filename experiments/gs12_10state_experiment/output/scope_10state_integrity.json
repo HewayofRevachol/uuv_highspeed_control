@@ -1,0 +1,8 @@
+{
+  "scope": "model10 main protocol and ideal-immediate-actuator diagnostic",
+  "main_protocol_sha256": "54b768131bb1139d9a18c0cf628c460bc0fed8d80f743ba21ab4d146e0cfa69a",
+  "main_runs_checked": 347,
+  "ideal_diagnostic_runs_checked": 7,
+  "runs_checked": 354,
+  "trace_hash_errors": []
+}

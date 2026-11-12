@@ -1,0 +1,12 @@
+{
+  "related_existing_tests": "3 passed in 0.59 s",
+  "test_files": [
+    "tests/unit/test_h15_residual_predictor.py",
+    "tests/unit/test_h15_target_domain.py"
+  ],
+  "source_repository_clean": true,
+  "paired_cases": 12,
+  "python_scripts_compile": true,
+  "matched_transition_assertions_passed": true,
+  "paper_and_code_review": "independent reviews completed; corrections incorporated"
+}

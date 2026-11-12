@@ -1,0 +1,60 @@
+{
+  "run_id": "p3c098639c6e7_v15_C4_B4_axis-1_a0.006_primary",
+  "protocol_sha256": "3c098639c6e74c36ebc9ab6eae81ee605dd1b17b6a9777b15961297ed3ecf19d",
+  "source_sha256": {
+    "frequency_identification.py": "44a81f1bfb022e3d17ff266f9d12b357996b617b1e870cc75e949078e7ef9338",
+    "improved_controller.py": "727372698a5da59b0225d8e52d54958cf46945339b9d9353a397cf06463b364d",
+    "run_frequency_extension.py": "b8b659e02129441f6f42b70b53a60d4ca70ab290b8c121ded3916ec0d0159887",
+    "plant_harness.py": "2b6f6f32c2a488380154aaa5f5f175a13fca05829cc4070aac4c9ecf95fb5a9b"
+  },
+  "speed_mps": 15.0,
+  "condition": "C4",
+  "plant_config": {
+    "mass": 1.0,
+    "damping": 1.0,
+    "thrust": 1.0,
+    "elevator": 0.9,
+    "rudder": 0.9,
+    "delay_steps": [
+      3,
+      3,
+      3
+    ],
+    "tau_scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "order": "second_all"
+  },
+  "model_gain": 1.0,
+  "model_tau": 1.0,
+  "band": "B4",
+  "axis": 1,
+  "amplitude_per_line": 0.006,
+  "phase_id": "primary",
+  "status": "complete_valid",
+  "observed_duration_s": 256.0,
+  "first_violation": null,
+  "qp_failures": 0,
+  "command_saturation_fraction": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "actual_saturation_fraction": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "max_actual_normalized_abs": [
+    0.6628256365889168,
+    0.544690008938628,
+    0.0
+  ],
+  "substeps": 12800,
+  "control_periods": 2560,
+  "trace_sha256": "e4a829c2605ea5b84d329e7012e3f2058d1a113cf49ec3e24b7ea3c61cf93af9",
+  "one_step_max_abs_state_error": 0.08575753578968424,
+  "wall_s_not_realtime_benchmark": 86.23825620999924
+}

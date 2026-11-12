@@ -1,0 +1,32 @@
+{
+  "trials": [
+    {
+      "workers": 1,
+      "stage_wall_s": 27.559502574999897,
+      "completed_runs": 4,
+      "sum_episode_wall_s": 26.114992869999696,
+      "runs_per_wall_hour": 522.5058021570643,
+      "parallel_efficiency_eta": 0.9475857845739727,
+      "peak_worker_rss_bytes": 568262656
+    },
+    {
+      "workers": 2,
+      "stage_wall_s": 25.42353503999948,
+      "completed_runs": 4,
+      "sum_episode_wall_s": 36.183671551999396,
+      "runs_per_wall_hour": 566.4043169977788,
+      "parallel_efficiency_eta": 0.711617630968131,
+      "peak_worker_rss_bytes": 565190656
+    },
+    {
+      "workers": 4,
+      "stage_wall_s": 17.589437908000036,
+      "completed_runs": 4,
+      "sum_episode_wall_s": 43.65379282499907,
+      "runs_per_wall_hour": 818.6731193638988,
+      "parallel_efficiency_eta": 0.6204546309740864,
+      "peak_worker_rss_bytes": 564989952
+    }
+  ],
+  "protocol_sha256": "54b768131bb1139d9a18c0cf628c460bc0fed8d80f743ba21ab4d146e0cfa69a"
+}

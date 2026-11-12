@@ -1,0 +1,41 @@
+{
+  "same_four_tasks": [
+    "pilot_depth_k8",
+    "pilot_depth_k32",
+    "pilot_east_k8",
+    "pilot_east_k32"
+  ],
+  "groups": [
+    {
+      "workers": 1,
+      "tasks": 4,
+      "batch_wall_s": 67.1760231340013,
+      "throughput_runs_per_s": 0.05954505511618164,
+      "peak_worker_rss_kb": 561936,
+      "statuses": {
+        "complete_valid": 4
+      }
+    },
+    {
+      "workers": 2,
+      "tasks": 4,
+      "batch_wall_s": 37.323904942999434,
+      "throughput_runs_per_s": 0.10716992249628612,
+      "peak_worker_rss_kb": 560064,
+      "statuses": {
+        "complete_valid": 4
+      }
+    },
+    {
+      "workers": 4,
+      "tasks": 4,
+      "batch_wall_s": 20.89505928700055,
+      "throughput_runs_per_s": 0.1914328140953647,
+      "peak_worker_rss_kb": 561048,
+      "statuses": {
+        "complete_valid": 4
+      }
+    }
+  ],
+  "selected_workers": 4
+}

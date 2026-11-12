@@ -1,0 +1,118 @@
+{
+  "tau_double_scale": {
+    "theta": [
+      0.85,
+      2.0
+    ],
+    "caller_tau_s": [
+      0.1,
+      0.16,
+      0.16
+    ],
+    "production_label_effective_fin_tau_s": [
+      0.32,
+      0.32
+    ],
+    "actual_matched_plant_fin_tau_s": [
+      0.16,
+      0.16
+    ],
+    "issued_physical": [
+      800000.0,
+      0.1,
+      -0.1
+    ],
+    "actual_actuator_after": [
+      81920.0,
+      0.0042724609375,
+      -0.0042724609375
+    ],
+    "production_label_actuator_after": [
+      81920.0,
+      0.00112152099609375,
+      -0.00112152099609375
+    ],
+    "production_label_zero_disturbance_residual": [
+      -2.1322676957424846e-09,
+      0.002149170147046437,
+      -0.0020566541182967875,
+      -0.00032643367652553844,
+      -0.0003346886169562662
+    ],
+    "single_scale_reference_residual_max": 0.0,
+    "single_scale_reference_actuator_error_max": 0.0
+  },
+  "diagnose_install_order": {
+    "parameters_before_install": [
+      1.04,
+      1.05,
+      0.98,
+      0.95,
+      0.95
+    ],
+    "delays_before_install": [
+      3,
+      3,
+      3
+    ],
+    "requested_config": {
+      "fin_gain_scale": 0.5,
+      "fin_tau_scale": 1.0,
+      "fin_delay_scale": 0.5,
+      "integrator": false,
+      "second_order": false
+    },
+    "parameters_after_install": [
+      1.04,
+      1.05,
+      0.98,
+      0.95,
+      0.95
+    ],
+    "delays_after_install": [
+      3,
+      3,
+      3
+    ],
+    "snapshot_present_after_install": false,
+    "parameters_after_one_period": [
+      1.04,
+      1.05,
+      0.98,
+      0.95,
+      0.95
+    ],
+    "delays_after_one_period": [
+      3,
+      3,
+      3
+    ],
+    "parameters_after_subsequent_reset": [
+      1.04,
+      1.05,
+      0.98,
+      0.475,
+      0.475
+    ],
+    "delays_after_subsequent_reset": [
+      3,
+      2,
+      2
+    ]
+  },
+  "existing_e0_excitation": {
+    "periods": 40,
+    "max_abs_fin_command_rad": 0.0,
+    "max_abs_fin_actuator_rad": 0.0,
+    "max_abs_residual": 0.0,
+    "step_action_channels": [
+      0
+    ]
+  },
+  "source_sha256": {
+    "experiments/h15_cat_mpc/residual_predictor.py": "68e1ed14baa988f3c3b962b59fdb30ceec558a7cd740ea20ec4e2e4f7bf5a6fa",
+    "experiments/h15_cat_mpc/run_episode.py": "b31b87d9301a48698aac6c1731dd535ead4b6401f3b817c4c10c7ada4d3e00d5",
+    "aav_mpc/diagnose.py": "178b30a9fca6d423e12b4685c93228f9d58f0566d683e9f0299a3f71a76bb8aa",
+    "aav_mpc/h15_target_domain.py": "45af83cc24635930558c26e9f3c3ad3408ad03b55cac48e84d7c389e0e76c761"
+  }
+}

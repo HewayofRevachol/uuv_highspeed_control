@@ -1,0 +1,13 @@
+{
+  "split": "dev_dynamic",
+  "policy": "R0",
+  "planned": 25,
+  "actual": 25,
+  "missing": [],
+  "sha_mismatch": [],
+  "early_stop": [],
+  "qp_failure": [],
+  "boundary_violation": [],
+  "saturation": [],
+  "pairing_complete": true
+}

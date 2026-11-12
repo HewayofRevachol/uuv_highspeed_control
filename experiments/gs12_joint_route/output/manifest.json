@@ -1,0 +1,201 @@
+{
+  "protocol_sha256": "1943f8a1d3db3934ce85c81869564d3ab2f61ead17086742d883f93960c1cf48",
+  "runs": [
+    {
+      "run_id": "e65554107a407da4",
+      "split": "dev",
+      "task_id": "dev_depth_b1",
+      "predictor_id": "P0",
+      "weight_id": "W0"
+    },
+    {
+      "run_id": "7d76d865e3dae547",
+      "split": "dev",
+      "task_id": "dev_depth_b1",
+      "predictor_id": "P0",
+      "weight_id": "W1"
+    },
+    {
+      "run_id": "c626aeeecb2734e3",
+      "split": "dev",
+      "task_id": "dev_depth_b1",
+      "predictor_id": "P1",
+      "weight_id": "W0"
+    },
+    {
+      "run_id": "adb65b39ed46e385",
+      "split": "dev",
+      "task_id": "dev_depth_b1",
+      "predictor_id": "P1",
+      "weight_id": "W1"
+    },
+    {
+      "run_id": "a656153f94ee1a3f",
+      "split": "dev",
+      "task_id": "dev_depth_b4",
+      "predictor_id": "P0",
+      "weight_id": "W0"
+    },
+    {
+      "run_id": "afa97de93dfc10c3",
+      "split": "dev",
+      "task_id": "dev_depth_b4",
+      "predictor_id": "P0",
+      "weight_id": "W1"
+    },
+    {
+      "run_id": "fc1f03cdb71b641f",
+      "split": "dev",
+      "task_id": "dev_depth_b4",
+      "predictor_id": "P1",
+      "weight_id": "W0"
+    },
+    {
+      "run_id": "5792a52452818953",
+      "split": "dev",
+      "task_id": "dev_depth_b4",
+      "predictor_id": "P1",
+      "weight_id": "W1"
+    },
+    {
+      "run_id": "3df90f0c8edf73ee",
+      "split": "dev",
+      "task_id": "dev_east_b4",
+      "predictor_id": "P0",
+      "weight_id": "W0"
+    },
+    {
+      "run_id": "714d7eaa2381f951",
+      "split": "dev",
+      "task_id": "dev_east_b4",
+      "predictor_id": "P0",
+      "weight_id": "W1"
+    },
+    {
+      "run_id": "6bcf03952c6330c3",
+      "split": "dev",
+      "task_id": "dev_east_b4",
+      "predictor_id": "P1",
+      "weight_id": "W0"
+    },
+    {
+      "run_id": "735d93c4752114a7",
+      "split": "dev",
+      "task_id": "dev_east_b4",
+      "predictor_id": "P1",
+      "weight_id": "W1"
+    },
+    {
+      "run_id": "362333081e407d83",
+      "split": "dev",
+      "task_id": "dev_mixed_switch",
+      "predictor_id": "P0",
+      "weight_id": "W0"
+    },
+    {
+      "run_id": "e0a3e079b5ef1193",
+      "split": "dev",
+      "task_id": "dev_mixed_switch",
+      "predictor_id": "P0",
+      "weight_id": "W1"
+    },
+    {
+      "run_id": "fb42ce18856b9c40",
+      "split": "dev",
+      "task_id": "dev_mixed_switch",
+      "predictor_id": "P1",
+      "weight_id": "W0"
+    },
+    {
+      "run_id": "b2d34a1b17f8fdbc",
+      "split": "dev",
+      "task_id": "dev_mixed_switch",
+      "predictor_id": "P1",
+      "weight_id": "W1"
+    },
+    {
+      "run_id": "423957125c6d05b7",
+      "split": "new_locked",
+      "task_id": "locked_depth_b1",
+      "predictor_id": "P0",
+      "weight_id": "W0"
+    },
+    {
+      "run_id": "271bbecfcc7e1fff",
+      "split": "new_locked",
+      "task_id": "locked_depth_b1",
+      "predictor_id": "P0",
+      "weight_id": "W1"
+    },
+    {
+      "run_id": "2ad34391f744c87e",
+      "split": "new_locked",
+      "task_id": "locked_depth_b1",
+      "predictor_id": "P1",
+      "weight_id": "W0"
+    },
+    {
+      "run_id": "338f4db69a8649b5",
+      "split": "new_locked",
+      "task_id": "locked_depth_b1",
+      "predictor_id": "P1",
+      "weight_id": "W1"
+    },
+    {
+      "run_id": "9a0e02e6cd6018d3",
+      "split": "new_locked",
+      "task_id": "locked_east_b4",
+      "predictor_id": "P0",
+      "weight_id": "W0"
+    },
+    {
+      "run_id": "ce57ab4f6a2dc6a1",
+      "split": "new_locked",
+      "task_id": "locked_east_b4",
+      "predictor_id": "P0",
+      "weight_id": "W1"
+    },
+    {
+      "run_id": "4a7c0a33654270a2",
+      "split": "new_locked",
+      "task_id": "locked_east_b4",
+      "predictor_id": "P1",
+      "weight_id": "W0"
+    },
+    {
+      "run_id": "39c52b19dfa415f0",
+      "split": "new_locked",
+      "task_id": "locked_east_b4",
+      "predictor_id": "P1",
+      "weight_id": "W1"
+    },
+    {
+      "run_id": "06240baa0510efe6",
+      "split": "new_locked",
+      "task_id": "locked_mixed_switch",
+      "predictor_id": "P0",
+      "weight_id": "W0"
+    },
+    {
+      "run_id": "a2adde35d868a9f7",
+      "split": "new_locked",
+      "task_id": "locked_mixed_switch",
+      "predictor_id": "P0",
+      "weight_id": "W1"
+    },
+    {
+      "run_id": "db3097e35c2842ef",
+      "split": "new_locked",
+      "task_id": "locked_mixed_switch",
+      "predictor_id": "P1",
+      "weight_id": "W0"
+    },
+    {
+      "run_id": "ca2947f17ea65586",
+      "split": "new_locked",
+      "task_id": "locked_mixed_switch",
+      "predictor_id": "P1",
+      "weight_id": "W1"
+    }
+  ]
+}

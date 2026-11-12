@@ -1,0 +1,18 @@
+{
+  "planned": {
+    "dev_static": 20,
+    "test_static_locked": 16,
+    "dev_dynamic_R0": 25,
+    "dev_dynamic_R1": 25,
+    "test_dynamic_locked": 0
+  },
+  "actual_run_records": {
+    "test_static_locked": 16,
+    "dev_dynamic": 30,
+    "dev_static": 20
+  },
+  "unique_run_ids": 66,
+  "duplicate_run_ids": [],
+  "test_dynamic_locked_opened": false,
+  "M4_transfer_not_run": true
+}

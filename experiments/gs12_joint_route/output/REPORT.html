@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>REPORT</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+</head>
+<body>
+<h1 id="gs-12-c5-预测器-w1-权重联合实验报告">GS-12 C5 预测器 × W1 权重联合实验报告</h1>
+<p>日期：2026-11-11。植物始终是 C4；C5 指 MPC 预测器参数 P1。所有结果来自新协议 <code>GS12-joint-route-v1</code>，协议 SHA-256：<code>1943f8a1d3db3934ce85c81869564d3ab2f61ead17086742d883f93960c1cf48</code>。仓库提交基线为 <code>7ac1394d0d5e2fa7d02b4c72b0097b402d3ddb4e</code>；执行时工作树已有改动，完整源文件哈希见 <code>protocol.json</code>。</p>
+<h2 id="摘要">摘要</h2>
+<p>本轮开发集 16/16 条、新锁定集 12/12 条，均为完整 64 s 轨迹。完整性审计没有缺失、重复、哈希不符或早停；QP 失败、诊断边界越界和命令/执行器饱和均为 0。</p>
+<p>冻结候选 D（C5/P1 + W1）在新锁定集的任务等权平均 <code>J_track</code> 为 <code>8.4627e-8</code>，B（C4/P0 + W1）为 <code>3.5001e-7</code>，相对改善 <strong>75.82%</strong>。但 D 只有 <strong>2/3</strong> 个任务不劣：深度低频 <code>locked_depth_b1</code> 的 J 从 B 的 <code>2.5498e-10</code> 增至 D 的 <code>2.1751e-9</code>，因此未达到预注册的“每个锁定任务均不劣”严格晋级门槛。结论为<strong>锁定集总体正向、存在低频深度任务退化，未晋级</strong>。D 没有命令尖峰标志或质量阻断。</p>
+<h2 id="历史已证实只作为背景">历史已证实（只作为背景）</h2>
+<p>上一轮旧锁定集曾报告 C4 预测器加 W1 相比 C4+W0 的任务等权平均 <code>J_track</code> 低 <strong>13.46%</strong>。旧锁定集已用于提出本轮假设，本报告不将其当成本轮独立测试或合并本轮数据。</p>
+<h2 id="本轮开发集-m1">本轮开发集 M1</h2>
+<p>配置：A=C4/P0+W0，B=C4/P0+W1，C=C5/P1+W0，D=C5/P1+W1。每个任务在 32–64 s 窗口评分，<code>J_track</code> 是三个已归一化误差平方和的时间平均，先任务评分再任务等权平均。</p>
+<table>
+<thead>
+<tr class="header">
+<th>开发集</th>
+<th style="text-align: right;">A</th>
+<th style="text-align: right;">B</th>
+<th style="text-align: right;">C</th>
+<th style="text-align: right;">D</th>
+<th style="text-align: right;">D 相对 B</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>等权平均 J</td>
+<td style="text-align: right;">6.2010e-7</td>
+<td style="text-align: right;">5.2776e-7</td>
+<td style="text-align: right;">1.4062e-7</td>
+<td style="text-align: right;">1.2587e-7</td>
+<td style="text-align: right;">改善 76.15%</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th>任务</th>
+<th style="text-align: right;">J(A)</th>
+<th style="text-align: right;">J(B)</th>
+<th style="text-align: right;">J(C)</th>
+<th style="text-align: right;">J(D)</th>
+<th style="text-align: right;">D 对 B</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>dev_depth_b1</td>
+<td style="text-align: right;">1.7106e-10</td>
+<td style="text-align: right;">1.1217e-10</td>
+<td style="text-align: right;">1.8662e-8</td>
+<td style="text-align: right;">1.2092e-8</td>
+<td style="text-align: right;">退化；绝对差 1.1980e-8</td>
+</tr>
+<tr class="even">
+<td>dev_depth_b4</td>
+<td style="text-align: right;">1.3369e-6</td>
+<td style="text-align: right;">1.1226e-6</td>
+<td style="text-align: right;">2.8148e-7</td>
+<td style="text-align: right;">2.5756e-7</td>
+<td style="text-align: right;">改善 77.06%</td>
+</tr>
+<tr class="odd">
+<td>dev_east_b4</td>
+<td style="text-align: right;">5.0842e-7</td>
+<td style="text-align: right;">4.4575e-7</td>
+<td style="text-align: right;">1.0497e-7</td>
+<td style="text-align: right;">9.3710e-8</td>
+<td style="text-align: right;">改善 78.98%</td>
+</tr>
+<tr class="even">
+<td>dev_mixed_switch</td>
+<td style="text-align: right;">6.3487e-7</td>
+<td style="text-align: right;">5.4260e-7</td>
+<td style="text-align: right;">1.5737e-7</td>
+<td style="text-align: right;">1.4010e-7</td>
+<td style="text-align: right;">改善 74.18%</td>
+</tr>
+</tbody>
+</table>
+<p>等权平均因子效应（表内差值越负表示 J 越低）：W1 在 P0 下 <code>B−A=-9.2337e-8</code>；P1 在 W0 下 <code>C−A=-4.7947e-7</code>；W1 在 P1 下 <code>D−C=-1.4754e-8</code>；交互 <code>I=+7.7583e-8</code>。因此 P1 的收益远大于联合权重增量，且平均交互项为正（对代价不利）；“D 的 J 低于 B”不能解释成两因素存在有利协同。D 满足预设 dev 选择规则（平均优于 B、至少 3/4 任务不劣、无质量阻断），据此冻结进入 M2。</p>
+<p>D 的工程单位 RMSE，依次为 east/depth/VN：dev_depth_b1 <code>0/5.4981e-4 m/1.4494e-6 m/s</code>；dev_depth_b4 <code>0/2.5348e-3 m/4.7124e-5 m/s</code>；dev_east_b4 <code>2.4071e-3 m/0/1.1270e-4 m/s</code>；dev_mixed_switch <code>1.8076e-3 m/1.4705e-3 m/1.0109e-4 m/s</code>。逐运行峰值、QP、边界、饱和和时延见 <code>dev_metrics.csv</code> 与 <code>dev_quality.csv</code>。</p>
+<h2 id="本轮新锁定集-m2">本轮新锁定集 M2</h2>
+<table>
+<thead>
+<tr class="header">
+<th>新锁定任务</th>
+<th style="text-align: right;">J(A)</th>
+<th style="text-align: right;">J(B)</th>
+<th style="text-align: right;">J(C)</th>
+<th style="text-align: right;">J(D)</th>
+<th style="text-align: right;">D 对 B</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>locked_depth_b1</td>
+<td style="text-align: right;">6.3598e-10</td>
+<td style="text-align: right;">2.5498e-10</td>
+<td style="text-align: right;">3.9857e-9</td>
+<td style="text-align: right;">2.1751e-9</td>
+<td style="text-align: right;">退化；绝对差 1.9201e-9</td>
+</tr>
+<tr class="even">
+<td>locked_east_b4</td>
+<td style="text-align: right;">3.7038e-7</td>
+<td style="text-align: right;">3.2541e-7</td>
+<td style="text-align: right;">7.6790e-8</td>
+<td style="text-align: right;">6.8758e-8</td>
+<td style="text-align: right;">改善 78.87%</td>
+</tr>
+<tr class="odd">
+<td>locked_mixed_switch</td>
+<td style="text-align: right;">8.4938e-7</td>
+<td style="text-align: right;">7.2438e-7</td>
+<td style="text-align: right;">2.0411e-7</td>
+<td style="text-align: right;">1.8295e-7</td>
+<td style="text-align: right;">改善 74.74%</td>
+</tr>
+<tr class="even">
+<td><strong>任务等权平均</strong></td>
+<td style="text-align: right;"><strong>4.0680e-7</strong></td>
+<td style="text-align: right;"><strong>3.5001e-7</strong></td>
+<td style="text-align: right;"><strong>9.4961e-8</strong></td>
+<td style="text-align: right;"><strong>8.4627e-8</strong></td>
+<td style="text-align: right;"><strong>改善 75.82%</strong></td>
+</tr>
+</tbody>
+</table>
+<p>D 的工程单位 RMSE（east/depth/VN）：locked_depth_b1 <code>0/2.3319e-4 m/1.3170e-7 m/s</code>；locked_east_b4 <code>2.0645e-3 m/0/9.2971e-5 m/s</code>；locked_mixed_switch <code>2.1059e-3 m/1.6608e-3 m/1.1517e-4 m/s</code>。低频任务 J 相对比例会被极小基线放大；应结合其绝对 J 与 RMSE 解读。</p>
+<p>锁定集 D 最大归一化单步命令变化分别为 <code>0.00101</code>、<code>0.03084</code>、<code>0.08401</code>；对应 B 为 <code>0.00061</code>、<code>0.03633</code>、<code>0.10847</code>。尖峰标志要求同时大于 <code>0.05</code> 且大于同任务 B 的 <code>1.25×</code>；D 三任务均未触发。最大实际舵面单步变化见 CSV。四配置均 64 s 完成，QP 失败 0，首个边界触发 0，命令/实际饱和 0。</p>
+<p>严格门槛要求平均改善至少 5%、三任务逐个不劣且无质量阻断。平均幅度和质量条件满足，但仅 2/3 任务不劣，故 <code>integrity_audit.json</code> 的 <code>strict_gate_passed=false</code>。新锁定集已打开，不在这些任务上重新选参或复测。</p>
+<h2 id="参考与接线验证">参考与接线验证</h2>
+<p>旧 route 验证通过：参考导数最大误差 <code>4.94e-5</code>；旧/新 runner 命令最大差 <code>8.89e-8</code>（门槛 <code>2e-7</code>），状态/输出/诊断最大差均小于 <code>6.2e-14</code>，QP 有效标志完全一致。新联合参考七任务的密网格导数最大差 <code>2.65e-5</code>（门槛 <code>1e-3</code>）。D 的真实短闭环验证完成 10 个周期。A–D 的预测器/权重参数和 QP 目标差异均已由 <code>verify</code> 检查。</p>
+<h2 id="可选扩展与限制">可选扩展与限制</h2>
+<p>M3 长频带机理测试和跨航速/幅值迁移未运行；本轮只回答注册的 15 m/s、0.006 幅值、七个确定性任务。没有统计置信区间、实艇失效概率或全局稳定性结论。当前结果支持 P1 在这组 east 高频与混合参考上降低 <code>J_track</code>，但深度低频任务存在一致的相对退化；需要新的未使用任务集和预先设计的上下文方案再验证，不能据此直接部署调度器。</p>
+<h2 id="产物索引">产物索引</h2>
+<ul>
+<li><code>protocol.json</code>, <code>tasks.jsonl</code>, <code>controller_matrix.json</code>, <code>selection.json</code></li>
+<li><code>dev_metrics.csv</code>, <code>dev_quality.csv</code>, <code>factor_effects.csv</code>, <code>new_locked_metrics.csv</code>, <code>integrity_audit.json</code></li>
+<li><code>runs/*.json</code>, <code>traces/*.npz</code>, <code>smoke/verify.json</code></li>
+<li><code>figures/dev_factor_grid.png</code>, <code>figures/dev_interaction.png</code>, <code>figures/dev_mixed_trace.png</code></li>
+</ul>
+</body>
+</html>

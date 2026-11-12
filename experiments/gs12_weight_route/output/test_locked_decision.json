@@ -1,0 +1,51 @@
+{
+  "compared_against": "C4 baseline",
+  "expected_tasks": 3,
+  "missing_tasks": [],
+  "candidates": [
+    {
+      "a_depth": 1.4,
+      "a_rudder_rate": 0.7,
+      "task_pairs": [
+        {
+          "task_id": "locked_depth_k6",
+          "J_C4": 6.916528849199168e-10,
+          "J_candidate": 2.0764717938023464e-10,
+          "relative_improvement": 0.6997812285503918,
+          "candidate_status": "complete_valid",
+          "C4_status": "complete_valid",
+          "candidate_qp_failures": 0,
+          "solve_p95_ms": 32.459255749290605
+        },
+        {
+          "task_id": "locked_east_k30",
+          "J_C4": 6.644099646794751e-07,
+          "J_candidate": 5.810682045390492e-07,
+          "relative_improvement": 0.1254372519542684,
+          "candidate_status": "complete_valid",
+          "C4_status": "complete_valid",
+          "candidate_qp_failures": 0,
+          "solve_p95_ms": 31.395906649413515
+        },
+        {
+          "task_id": "locked_mixed",
+          "J_C4": 5.168751205625214e-07,
+          "J_candidate": 4.416239173881414e-07,
+          "relative_improvement": 0.1455887509007654,
+          "candidate_status": "complete_valid",
+          "C4_status": "complete_valid",
+          "candidate_qp_failures": 0,
+          "solve_p95_ms": 29.05157059949488
+        }
+      ],
+      "mean_J_C4": 3.939922460423055e-07,
+      "mean_J_candidate": 3.409665897021903e-07,
+      "relative_improvement_of_mean_J": 0.13458553276812835,
+      "all_tasks_nonworse": true,
+      "no_added_failures": true,
+      "formal_gate_pass": true
+    }
+  ],
+  "formal_engineering_gate": "mean J improvement >= 5%, each task nonworse, no added failures",
+  "result": "pass"
+}

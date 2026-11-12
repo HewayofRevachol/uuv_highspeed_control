@@ -1,0 +1,37 @@
+{
+  "protocol_sha256": "1943f8a1d3db3934ce85c81869564d3ab2f61ead17086742d883f93960c1cf48",
+  "planned_runs": 28,
+  "actual_run_json": 28,
+  "actual_manifest_entries": 28,
+  "duplicate_run_ids": false,
+  "stages": {
+    "dev": {
+      "planned_runs": 16,
+      "actual_runs": 16,
+      "missing": [],
+      "duplicate_keys": [],
+      "sha_or_protocol_mismatch": [],
+      "early_or_short": [],
+      "runs_with_qp_failures": 0,
+      "runs_with_boundary_violations": 0,
+      "runs_with_saturation": 0,
+      "complete": true
+    },
+    "new_locked": {
+      "planned_runs": 12,
+      "actual_runs": 12,
+      "missing": [],
+      "duplicate_keys": [],
+      "sha_or_protocol_mismatch": [],
+      "early_or_short": [],
+      "runs_with_qp_failures": 0,
+      "runs_with_boundary_violations": 0,
+      "runs_with_saturation": 0,
+      "complete": true
+    }
+  },
+  "candidate_id": "D",
+  "candidate_vs_B_improvement_pct": 75.82188541433312,
+  "candidate_nonworse_tasks": 2,
+  "strict_gate_passed": false
+}

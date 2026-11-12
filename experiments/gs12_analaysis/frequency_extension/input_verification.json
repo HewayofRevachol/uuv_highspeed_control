@@ -1,0 +1,23 @@
+{
+  "code_zip_sha256": "f3edabcdb98878e168a77cb6fa58a41cf5d9d8d3e819081c663d70b6de4a6df7",
+  "data_zip_sha256": "f7888a4b20dc1b240a5972482d9826a8e49cdf2980746a2bfb5463c1bbbb7d10",
+  "code_members": 50,
+  "data_members": 193,
+  "manifest_members_checked": 242,
+  "mismatches": [],
+  "selfcheck": {
+    "reference_position_derivative_max_abs": 1.14490159575098e-08,
+    "steady_64s_repeat_max_abs": 1.7763568394002505e-15,
+    "minimum_tested_vn_mps": 14.986747824231406,
+    "known_dft_amplitude_abs_error": 8.673617379884035e-19,
+    "plant_torch_parity": {
+      "maximum_absolute_difference": 4.163336342344337e-17,
+      "seed": 9512,
+      "trials": 90,
+      "tolerance": 1e-09,
+      "passed": true
+    },
+    "passed": true
+  },
+  "passed": true
+}

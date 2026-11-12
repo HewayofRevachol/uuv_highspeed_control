@@ -1,0 +1,36 @@
+{
+  "plant": "fixed_mismatch",
+  "integration_period_s": 0.02,
+  "results": [
+    {
+      "initial_speed_mps": 12.0,
+      "commanded_rudder_deg": 5.0,
+      "thrust_trim_mn": 0.6332518285714286,
+      "instantaneous_yaw_acceleration_gain_per_rad": 0.30730695967452265,
+      "steady_yaw_rate_radps": 0.1269488714103552,
+      "yaw_rate_90_percent_time_s": 13.8,
+      "yaw_rate_90_percent_distance_m": 164.24573674606827,
+      "actual_fin_90_percent_time_s": 0.26
+    },
+    {
+      "initial_speed_mps": 15.0,
+      "commanded_rudder_deg": 5.0,
+      "thrust_trim_mn": 0.9894559821428571,
+      "instantaneous_yaw_acceleration_gain_per_rad": 0.48016712449144155,
+      "steady_yaw_rate_radps": 0.15990785876996572,
+      "yaw_rate_90_percent_time_s": 11.42,
+      "yaw_rate_90_percent_distance_m": 169.83265555021885,
+      "actual_fin_90_percent_time_s": 0.26
+    },
+    {
+      "initial_speed_mps": 18.0,
+      "commanded_rudder_deg": 5.0,
+      "thrust_trim_mn": 1.4248166142857144,
+      "instantaneous_yaw_acceleration_gain_per_rad": 0.691440659267676,
+      "steady_yaw_rate_radps": 0.19239452462778617,
+      "yaw_rate_90_percent_time_s": 9.64,
+      "yaw_rate_90_percent_distance_m": 172.01289388228437,
+      "actual_fin_90_percent_time_s": 0.26
+    }
+  ]
+}

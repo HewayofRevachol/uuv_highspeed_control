@@ -1,0 +1,50 @@
+{
+  "run_id": "v15_C4_k32",
+  "speed_mps": 15.0,
+  "condition": "C4",
+  "bin": 32,
+  "omega_radps": 3.141592653589793,
+  "selection_reasons": [
+    "maximum_sigma1"
+  ],
+  "gap_ratio": null,
+  "right_singular_vector_real": [
+    0.0,
+    0.9818552890098634,
+    3.7873260083642884e-11
+  ],
+  "right_singular_vector_imag": [
+    0.0,
+    -0.18963172583551977,
+    -5.100009303760088e-11
+  ],
+  "status": "complete_valid",
+  "qp_failures": 0,
+  "duration_s": 256.0,
+  "prediction_error_relative": 0.0004690199367785082,
+  "measured_error_phasor_per_unit_input": {
+    "real": [
+      0.0,
+      -0.23968800248732539,
+      7.854961749753898e-12
+    ],
+    "imag": [
+      0.0,
+      0.1295889286058795,
+      -1.1579806278667844e-11
+    ]
+  },
+  "predicted_error_phasor_per_unit_input": {
+    "real": [
+      0.0,
+      -0.23962650806129196,
+      -6.003982756691924e-12
+    ],
+    "imag": [
+      0.0,
+      0.12947695690520758,
+      2.4757841804869785e-11
+    ]
+  },
+  "trace_sha256": "a5fb06f52f15209d7f6a10b2e723438821a198441066a5be1ffe7967dcfb279f"
+}

@@ -1,0 +1,254 @@
+{
+  "protocol_version": 1,
+  "plan_path": "experiments/gs12_analaysis/GS-12_10状态局部频响与典型工况实验方案.md",
+  "plan_sha256": "f1fde2cd57822c3da64f1a2e50f0c8c607ac69605aab726750094ec709fdceef",
+  "repo_commit": "7ac1394d0d5e2fa7d02b4c72b0097b402d3ddb4e",
+  "created_local": "2026-11-10T09:45:54+0800",
+  "python": "3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]",
+  "packages": {
+    "numpy": "2.2.6",
+    "torch": "2.14.0+cu130",
+    "casadi": "3.6.5",
+    "osqp": "1.1.3",
+    "scipy": "1.15.3",
+    "matplotlib": "3.10.8"
+  },
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+  "cpu_count_logical": 16,
+  "thread_limits": {
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1"
+  },
+  "source_sha256": {
+    "analyze_experiment.py": "e9f46c8415a6b610ff36fb09ae7fe0158d758a091420fd81f45c099aecf899c9",
+    "controller10.py": "25416a40613640fff767d9483cce83fda3874e094c38acdd3383f463f1c05d56",
+    "reference10.py": "42b4f239470ab82a754572eb2a89c0e461def213ee00ced34637cb70de85a424",
+    "run_experiment.py": "026ba14aefb6c0f2de85d28f87dbcc7a6ba298d6e828f018892c4041051d4519"
+  },
+  "input_zip_sha256": {
+    "GS-12_report_code.zip": "f3edabcdb98878e168a77cb6fa58a41cf5d9d8d3e819081c663d70b6de4a6df7",
+    "GS-12_frequency_data.zip": "f7888a4b20dc1b240a5972482d9826a8e49cdf2980746a2bfb5463c1bbbb7d10"
+  },
+  "duration_s": 256.0,
+  "pilot_duration_s": 64.0,
+  "control_dt_s": 0.1,
+  "plant_substep_s": 0.02,
+  "horizon": 35,
+  "sqp_iterations": 1,
+  "osqp": {
+    "eps_abs": 1e-05,
+    "eps_rel": 1e-05,
+    "max_iter": 10000,
+    "polishing": false
+  },
+  "frequency": {
+    "T0_s": 64.0,
+    "bins": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32
+    ],
+    "omega_radps": [
+      0.09817477042468103,
+      0.19634954084936207,
+      0.2945243112740431,
+      0.39269908169872414,
+      0.4908738521234052,
+      0.5890486225480862,
+      0.6872233929727672,
+      0.7853981633974483,
+      0.8835729338221293,
+      0.9817477042468103,
+      1.0799224746714913,
+      1.1780972450961724,
+      1.2762720155208536,
+      1.3744467859455345,
+      1.4726215563702154,
+      1.5707963267948966,
+      1.6689710972195777,
+      1.7671458676442586,
+      1.8653206380689396,
+      1.9634954084936207,
+      2.061670178918302,
+      2.1598449493429825,
+      2.2580197197676637,
+      2.356194490192345,
+      2.454369260617026,
+      2.552544031041707,
+      2.650718801466388,
+      2.748893571891069,
+      2.84706834231575,
+      2.945243112740431,
+      3.043417883165112,
+      3.141592653589793
+    ],
+    "bands": {
+      "B1": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "B2": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "B3": [
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "B4": [
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32
+      ]
+    }
+  },
+  "amplitudes": [
+    0.006,
+    0.003
+  ],
+  "phases": {
+    "primary": "-pi*i*(i-1)/8",
+    "secondary": "default_rng(9512+b)"
+  },
+  "windows_s": [
+    [
+      64,
+      128
+    ],
+    [
+      128,
+      192
+    ],
+    [
+      192,
+      256
+    ]
+  ],
+  "normalization": {
+    "lateral_m": 8.0,
+    "depth_m": 5.0,
+    "speed_mps": 2.0
+  },
+  "conditions": {
+    "C0": {
+      "plant": {},
+      "fin_gain": 1.0
+    },
+    "C1": {
+      "plant": {
+        "elevator": 0.9,
+        "rudder": 0.9
+      },
+      "fin_gain": 1.0
+    },
+    "C2": {
+      "plant": {
+        "tau_scale": [
+          2.0,
+          2.0,
+          2.0
+        ]
+      },
+      "fin_gain": 1.0
+    },
+    "C3": {
+      "plant": {
+        "order": "second_all"
+      },
+      "fin_gain": 1.0
+    },
+    "C4": {
+      "plant": {
+        "elevator": 0.9,
+        "rudder": 0.9,
+        "order": "second_all"
+      },
+      "fin_gain": 1.0
+    },
+    "C5g": {
+      "plant": {
+        "elevator": 0.9,
+        "rudder": 0.9,
+        "order": "second_all"
+      },
+      "fin_gain": 0.85
+    }
+  },
+  "reference_modes": [
+    "straight",
+    "turn",
+    "slope",
+    "s_bend",
+    "coupled"
+  ],
+  "quality": {
+    "W3_vs_W2_relative_frobenius_max": 0.02,
+    "half_amplitude_max": 0.05,
+    "diagnostic_limits": [
+      8.0,
+      5.0,
+      2.0,
+      0.6981317007977318
+    ]
+  },
+  "pilot_phase_ids": [
+    "pilot_w1",
+    "pilot_w2",
+    "pilot_w4"
+  ],
+  "diagnostic_plant": "instantaneous actuator; zero command delay; C0 hull",
+  "main_protocol_sha256": "54b768131bb1139d9a18c0cf628c460bc0fed8d80f743ba21ab4d146e0cfa69a"
+}

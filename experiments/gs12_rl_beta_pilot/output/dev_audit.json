@@ -1,0 +1,488 @@
+{
+  "summary": {
+    "F00": {
+      "mean_task_J": 4.263698789539577e-07,
+      "complete": 8,
+      "quality_failures": 0,
+      "command_spikes": 2,
+      "beta_target_share": {
+        "0.0": 1.0,
+        "0.25": 0.0,
+        "0.5": 0.0,
+        "0.75": 0.0
+      }
+    },
+    "F50": {
+      "mean_task_J": 2.1571479931819442e-08,
+      "complete": 8,
+      "quality_failures": 0,
+      "command_spikes": 0,
+      "beta_target_share": {
+        "0.0": 0.0,
+        "0.25": 0.0,
+        "0.5": 1.0,
+        "0.75": 0.0
+      }
+    },
+    "F75": {
+      "mean_task_J": 2.070854109113494e-08,
+      "complete": 8,
+      "quality_failures": 0,
+      "command_spikes": 0,
+      "beta_target_share": {
+        "0.0": 0.0,
+        "0.25": 0.0,
+        "0.5": 0.0,
+        "0.75": 1.0
+      }
+    },
+    "Rule-cap75": {
+      "mean_task_J": 2.78011890597969e-08,
+      "complete": 8,
+      "quality_failures": 0,
+      "command_spikes": 0,
+      "beta_target_share": {
+        "0.0": 0.40625,
+        "0.25": 0.0,
+        "0.5": 0.03125,
+        "0.75": 0.5625
+      }
+    },
+    "checkpoint_update_2": {
+      "mean_task_J": 1.6953041716243465e-07,
+      "complete": 8,
+      "quality_failures": 0,
+      "command_spikes": 1,
+      "beta_target_share": {
+        "0.0": 0.171875,
+        "0.25": 0.34375,
+        "0.5": 0.28125,
+        "0.75": 0.203125
+      }
+    },
+    "checkpoint_update_4": {
+      "mean_task_J": 1.5835948722952384e-07,
+      "complete": 8,
+      "quality_failures": 0,
+      "command_spikes": 1,
+      "beta_target_share": {
+        "0.0": 0.34375,
+        "0.25": 0.203125,
+        "0.5": 0.25,
+        "0.75": 0.203125
+      }
+    }
+  },
+  "quality": {
+    "F00": [
+      [
+        "rl_dev_dhigh_26",
+        []
+      ],
+      [
+        "rl_dev_dhigh_30",
+        []
+      ],
+      [
+        "rl_dev_ehigh_26",
+        []
+      ],
+      [
+        "rl_dev_ehigh_30",
+        []
+      ],
+      [
+        "rl_dev_low_2",
+        []
+      ],
+      [
+        "rl_dev_low_8",
+        []
+      ],
+      [
+        "rl_dev_mixed_a",
+        []
+      ],
+      [
+        "rl_dev_mixed_b",
+        []
+      ]
+    ],
+    "F50": [
+      [
+        "rl_dev_dhigh_26",
+        []
+      ],
+      [
+        "rl_dev_dhigh_30",
+        []
+      ],
+      [
+        "rl_dev_ehigh_26",
+        []
+      ],
+      [
+        "rl_dev_ehigh_30",
+        []
+      ],
+      [
+        "rl_dev_low_2",
+        []
+      ],
+      [
+        "rl_dev_low_8",
+        []
+      ],
+      [
+        "rl_dev_mixed_a",
+        []
+      ],
+      [
+        "rl_dev_mixed_b",
+        []
+      ]
+    ],
+    "F75": [
+      [
+        "rl_dev_dhigh_26",
+        []
+      ],
+      [
+        "rl_dev_dhigh_30",
+        []
+      ],
+      [
+        "rl_dev_ehigh_26",
+        []
+      ],
+      [
+        "rl_dev_ehigh_30",
+        []
+      ],
+      [
+        "rl_dev_low_2",
+        []
+      ],
+      [
+        "rl_dev_low_8",
+        []
+      ],
+      [
+        "rl_dev_mixed_a",
+        []
+      ],
+      [
+        "rl_dev_mixed_b",
+        []
+      ]
+    ],
+    "Rule-cap75": [
+      [
+        "rl_dev_dhigh_26",
+        []
+      ],
+      [
+        "rl_dev_dhigh_30",
+        []
+      ],
+      [
+        "rl_dev_ehigh_26",
+        []
+      ],
+      [
+        "rl_dev_ehigh_30",
+        []
+      ],
+      [
+        "rl_dev_low_2",
+        []
+      ],
+      [
+        "rl_dev_low_8",
+        []
+      ],
+      [
+        "rl_dev_mixed_a",
+        []
+      ],
+      [
+        "rl_dev_mixed_b",
+        []
+      ]
+    ],
+    "checkpoint_update_2": [
+      [
+        "rl_dev_dhigh_26",
+        []
+      ],
+      [
+        "rl_dev_dhigh_30",
+        []
+      ],
+      [
+        "rl_dev_ehigh_26",
+        []
+      ],
+      [
+        "rl_dev_ehigh_30",
+        []
+      ],
+      [
+        "rl_dev_low_2",
+        []
+      ],
+      [
+        "rl_dev_low_8",
+        []
+      ],
+      [
+        "rl_dev_mixed_a",
+        []
+      ],
+      [
+        "rl_dev_mixed_b",
+        []
+      ]
+    ],
+    "checkpoint_update_4": [
+      [
+        "rl_dev_dhigh_26",
+        []
+      ],
+      [
+        "rl_dev_dhigh_30",
+        []
+      ],
+      [
+        "rl_dev_ehigh_26",
+        []
+      ],
+      [
+        "rl_dev_ehigh_30",
+        []
+      ],
+      [
+        "rl_dev_low_2",
+        []
+      ],
+      [
+        "rl_dev_low_8",
+        []
+      ],
+      [
+        "rl_dev_mixed_a",
+        []
+      ],
+      [
+        "rl_dev_mixed_b",
+        []
+      ]
+    ]
+  },
+  "command_spikes": {
+    "F00": [
+      [
+        "rl_dev_dhigh_26",
+        false
+      ],
+      [
+        "rl_dev_dhigh_30",
+        false
+      ],
+      [
+        "rl_dev_ehigh_26",
+        false
+      ],
+      [
+        "rl_dev_ehigh_30",
+        false
+      ],
+      [
+        "rl_dev_low_2",
+        false
+      ],
+      [
+        "rl_dev_low_8",
+        false
+      ],
+      [
+        "rl_dev_mixed_a",
+        true
+      ],
+      [
+        "rl_dev_mixed_b",
+        true
+      ]
+    ],
+    "F50": [
+      [
+        "rl_dev_dhigh_26",
+        false
+      ],
+      [
+        "rl_dev_dhigh_30",
+        false
+      ],
+      [
+        "rl_dev_ehigh_26",
+        false
+      ],
+      [
+        "rl_dev_ehigh_30",
+        false
+      ],
+      [
+        "rl_dev_low_2",
+        false
+      ],
+      [
+        "rl_dev_low_8",
+        false
+      ],
+      [
+        "rl_dev_mixed_a",
+        false
+      ],
+      [
+        "rl_dev_mixed_b",
+        false
+      ]
+    ],
+    "F75": [
+      [
+        "rl_dev_dhigh_26",
+        false
+      ],
+      [
+        "rl_dev_dhigh_30",
+        false
+      ],
+      [
+        "rl_dev_ehigh_26",
+        false
+      ],
+      [
+        "rl_dev_ehigh_30",
+        false
+      ],
+      [
+        "rl_dev_low_2",
+        false
+      ],
+      [
+        "rl_dev_low_8",
+        false
+      ],
+      [
+        "rl_dev_mixed_a",
+        false
+      ],
+      [
+        "rl_dev_mixed_b",
+        false
+      ]
+    ],
+    "Rule-cap75": [
+      [
+        "rl_dev_dhigh_26",
+        false
+      ],
+      [
+        "rl_dev_dhigh_30",
+        false
+      ],
+      [
+        "rl_dev_ehigh_26",
+        false
+      ],
+      [
+        "rl_dev_ehigh_30",
+        false
+      ],
+      [
+        "rl_dev_low_2",
+        false
+      ],
+      [
+        "rl_dev_low_8",
+        false
+      ],
+      [
+        "rl_dev_mixed_a",
+        false
+      ],
+      [
+        "rl_dev_mixed_b",
+        false
+      ]
+    ],
+    "checkpoint_update_2": [
+      [
+        "rl_dev_dhigh_26",
+        false
+      ],
+      [
+        "rl_dev_dhigh_30",
+        false
+      ],
+      [
+        "rl_dev_ehigh_26",
+        false
+      ],
+      [
+        "rl_dev_ehigh_30",
+        false
+      ],
+      [
+        "rl_dev_low_2",
+        false
+      ],
+      [
+        "rl_dev_low_8",
+        false
+      ],
+      [
+        "rl_dev_mixed_a",
+        true
+      ],
+      [
+        "rl_dev_mixed_b",
+        false
+      ]
+    ],
+    "checkpoint_update_4": [
+      [
+        "rl_dev_dhigh_26",
+        false
+      ],
+      [
+        "rl_dev_dhigh_30",
+        false
+      ],
+      [
+        "rl_dev_ehigh_26",
+        false
+      ],
+      [
+        "rl_dev_ehigh_30",
+        false
+      ],
+      [
+        "rl_dev_low_2",
+        false
+      ],
+      [
+        "rl_dev_low_8",
+        false
+      ],
+      [
+        "rl_dev_mixed_a",
+        false
+      ],
+      [
+        "rl_dev_mixed_b",
+        true
+      ]
+    ]
+  }
+}

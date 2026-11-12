@@ -1,0 +1,35 @@
+{
+  "run_id": "e8d548d12de09f04",
+  "task_id": "locked_east_k30",
+  "split": "test_locked",
+  "stage": "test_locked",
+  "plant": "C4",
+  "controller": "C5",
+  "weight_policy": "1_1",
+  "a_depth": 1.0,
+  "a_rudder_rate": 1.0,
+  "protocol_sha256": "2ef0c778990a29e01931e3cedd2e38abf26420d6df89ca189027fe727704de72",
+  "source_sha256": "8411ecf9d15e25a677d592f0781e07ddaeb9a9632e0c9cbc845dc1ce338bbc83",
+  "status": "complete_valid",
+  "completion": 64.0,
+  "first_violation": null,
+  "qp_failures": 0,
+  "command_saturation_fraction": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "actual_saturation_fraction": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "solve_p50_ms": 28.72030900016398,
+  "solve_p95_ms": 31.39475759999186,
+  "solve_p99_ms": 32.859123320558865,
+  "wall_s": 19.004858803999014,
+  "worker_peak_rss_kb": 561084,
+  "trace_sha256": "c39c15c4daed4d2d0f1daccfeb78fe66b694bc08b322dbec664e5efd47f1e3fe",
+  "amplitude": 0.006,
+  "phase_id": "phase_-1.31"
+}

@@ -26,6 +26,8 @@ class CondensedActuatorMPC:
         self.tolerance = 1e-5
         self.attitude_pitch_weight = attitude_pitch_weight
         self.attitude_yaw_weight = attitude_yaw_weight
+        self.depth_weight_scale = 1.0
+        self.rudder_rate_weight_scale = 1.0
         self.dynamics = ActuatorAwareCpuDynamics(dt)
         self.plan = model.tensor([.6, 0., 0.]).expand(batch_size, horizon, 3).clone()
         self.states = torch.zeros(batch_size, horizon+1, AUGMENTED_NX, dtype=model.dtype,
@@ -45,6 +47,13 @@ class CondensedActuatorMPC:
         self.theta_hat = np.array([self.dynamics.fin_gain_scale,
                                    self.dynamics.fin_tau_scale], dtype=float)
         self.d_hat = None
+
+    def set_tracking_weight_scales(self, depth=1.0, rudder_rate=1.0):
+        """Scale depth tracking and both fin-rate penalties in later QPs."""
+        values = np.asarray([depth, rudder_rate], dtype=float)
+        if values.shape != (2,) or not np.isfinite(values).all() or np.any(values <= 0):
+            raise ValueError("tracking weight scales must be positive finite values")
+        self.depth_weight_scale, self.rudder_rate_weight_scale = values.tolist()
 
     def set_continuous_model(self, alpha=(0., 0.), theta_hat=None, d_hat=None):
         """Set the continuously gated point model used by subsequent QPs."""
@@ -117,12 +126,13 @@ class CondensedActuatorMPC:
         influence = np.zeros((nx, dim))
         hessian = np.eye(dim) * 1e-6
         gradient = np.zeros(dim)
-        state_weight = np.array([3., 3., 3., self.attitude_pitch_weight,
+        state_weight = np.array([3., 3., 3.*self.depth_weight_scale, self.attitude_pitch_weight,
                                  self.attitude_yaw_weight, 5., 5., 5.])
         input_weight = np.tile([.15, .08, .08], n)
         hessian += np.diag(input_weight)
         gradient += input_weight * plan.ravel()
-        rate_weight = np.tile([1.8, .35, .35], n)
+        rate_weight = np.tile([1.8, .35*self.rudder_rate_weight_scale,
+                               .35*self.rudder_rate_weight_scale], n)
         difference = np.eye(dim)
         for k in range(1, n):
             difference[3*k:3*k+3, 3*(k-1):3*k] = -np.eye(3)

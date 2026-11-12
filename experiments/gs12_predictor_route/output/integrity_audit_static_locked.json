@@ -1,0 +1,13 @@
+{
+  "split": "test_static_locked",
+  "planned": 16,
+  "actual": 16,
+  "missing": [],
+  "duplicate_run_ids": [],
+  "sha_mismatch": [],
+  "early_stop": [],
+  "qp_failure": [],
+  "boundary_violation": [],
+  "saturation": [],
+  "pairing_complete": true
+}

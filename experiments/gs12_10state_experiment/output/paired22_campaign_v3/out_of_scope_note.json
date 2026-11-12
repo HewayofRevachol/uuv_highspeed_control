@@ -1,0 +1,12 @@
+{
+  "scope": "out-of-scope 22-state comparator, excluded from requested 10-state deliverable",
+  "protocol_sha256": "54b768131bb1139d9a18c0cf628c460bc0fed8d80f743ba21ab4d146e0cfa69a",
+  "campaign_protocol_sha256": "e1d2ff717c27b344ebf41924864400a6f88f850403821259921f1ec9ed20a450",
+  "planned_runs": 489,
+  "completed_runs": 140,
+  "not_run": 349,
+  "statuses": {
+    "complete_valid": 140
+  },
+  "trace_hashes": "recorded per-run in manifest; these records are excluded from scope_10state_integrity.json and REPORT.md"
+}

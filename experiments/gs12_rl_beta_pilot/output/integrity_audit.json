@@ -1,0 +1,36 @@
+{
+  "counts": {
+    "train_tasks": 64,
+    "dev_tasks": 8,
+    "locked_tasks": 8,
+    "reward_cache_rows": 64,
+    "f75_baseline_traces": 64,
+    "training_run_json": 64,
+    "training_traces": 64,
+    "dev_run_json": 48,
+    "dev_traces": 48,
+    "random_smoke_runs": 2,
+    "checkpoints": 2
+  },
+  "expected": {
+    "train_tasks": 64,
+    "dev_tasks": 8,
+    "locked_tasks": 8,
+    "reward_cache_rows": 64,
+    "f75_baseline_traces": 64,
+    "training_run_json": 64,
+    "training_traces": 64,
+    "dev_run_json": 48,
+    "dev_traces": 48,
+    "random_smoke_runs": 2,
+    "checkpoints": 2
+  },
+  "checks": {
+    "counts_match": true,
+    "all_baselines_complete": true,
+    "locked_test_not_unlocked": true
+  },
+  "all_checks_pass": true,
+  "manifest_sha256": "5b11135dfa1796f8cd393d2d4a92ab78f6119c787fdd883c94ca4d24b8d80090",
+  "protocol_sha256": "2bf8002253845958fe446ed3bdec8ecc4303f96dc4d3320db9106dd0e3b2aec4"
+}

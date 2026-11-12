@@ -1,0 +1,7 @@
+{"amplitude":0.006,"axis":"depth","duration_s":64.0,"k":8,"kind":"single","phase_rad":0.43,"speed_mps":15.0,"split":"dev","task_id":"dev_depth_b1","window_s":[32.0,64.0]}
+{"amplitude":0.006,"axis":"depth","duration_s":64.0,"k":32,"kind":"single","phase_rad":-0.61,"speed_mps":15.0,"split":"dev","task_id":"dev_depth_b4","window_s":[32.0,64.0]}
+{"amplitude":0.006,"axis":"east","duration_s":64.0,"k":28,"kind":"single","phase_rad":1.37,"speed_mps":15.0,"split":"dev","task_id":"dev_east_b4","window_s":[32.0,64.0]}
+{"amplitude":0.006,"duration_s":64.0,"kind":"mixed","phase_rad":-0.42,"speed_mps":15.0,"split":"dev","switch_times_s":[21.0,41.0],"task_id":"dev_mixed_switch","window_s":[32.0,64.0]}
+{"amplitude":0.006,"axis":"depth","duration_s":64.0,"k":4,"kind":"single","phase_rad":1.83,"speed_mps":15.0,"split":"new_locked","task_id":"locked_depth_b1","window_s":[32.0,64.0]}
+{"amplitude":0.006,"axis":"east","duration_s":64.0,"k":26,"kind":"single","phase_rad":-0.94,"speed_mps":15.0,"split":"new_locked","task_id":"locked_east_b4","window_s":[32.0,64.0]}
+{"amplitude":0.006,"duration_s":64.0,"kind":"mixed","phase_rad":2.27,"speed_mps":15.0,"split":"new_locked","switch_times_s":[24.0,44.0],"task_id":"locked_mixed_switch","window_s":[32.0,64.0]}

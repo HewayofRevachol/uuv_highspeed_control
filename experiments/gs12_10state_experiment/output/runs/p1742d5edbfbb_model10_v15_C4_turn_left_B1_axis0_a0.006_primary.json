@@ -1,0 +1,69 @@
+{
+  "run_id": "p1742d5edbfbb_model10_v15_C4_turn_left_B1_axis0_a0.006_primary",
+  "protocol_sha256": "1742d5edbfbbea0e1693c7e7618173b0858edbf6b967c093bb751433d9607460",
+  "source_sha256": {
+    "analyze_experiment.py": "22d0c04ad3f65701e25038dc42c96573a3d0509d1159b36770025ae98d958ff7",
+    "controller10.py": "a34dc3b2c80db7e975825001af71fef12472e35af3f8c87e107631d31222447f",
+    "reference10.py": "42b4f239470ab82a754572eb2a89c0e461def213ee00ced34637cb70de85a424",
+    "run_experiment.py": "aefc5d4b34c131529bb7345a0f8776a9601dc7e356a183e060223014bc08ccfd"
+  },
+  "reference_sha256": "8534bf75e7fd55a49528ec93440b6c4ff4015613a6ba3729fb93c39adbcc26da",
+  "controller_state_dim": 10,
+  "controller": "condensed_rti_osqp",
+  "plant_config": {
+    "mass": 1.0,
+    "damping": 1.0,
+    "thrust": 1.0,
+    "elevator": 0.9,
+    "rudder": 0.9,
+    "delay_steps": [
+      3,
+      3,
+      3
+    ],
+    "tau_scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "order": "second_all"
+  },
+  "fin_gain_prediction": 1.0,
+  "operating_regime": "turn",
+  "regime_parameters": {
+    "curvature": 0.008333333333333333,
+    "label": "_left"
+  },
+  "speed_mps": 15.0,
+  "condition": "C4",
+  "axis": 0,
+  "band": "B1",
+  "probe_k": null,
+  "amplitude_per_line": 0.006,
+  "phase_id": "primary",
+  "status": "complete_constrained",
+  "observed_duration_s": 64.0,
+  "control_periods": 640,
+  "substeps": 3200,
+  "first_violation": null,
+  "qp_failures": 0,
+  "mean_qp_iterations": 71.3671875,
+  "mean_osqp_solve_time_s": 0.0006567688765625001,
+  "command_saturation_fraction": [
+    0.0390625,
+    0.0,
+    0.415625
+  ],
+  "actual_saturation_fraction": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "max_actual_normalized_abs": [
+    0.9999819345750562,
+    0.0,
+    0.9999975665598884
+  ],
+  "trace_sha256": "d050bd4b2a39d84a4b4b03d3defef20fd78b9fe7c03547152a435c4f72ca6116",
+  "wall_s": 15.742973668999184
+}

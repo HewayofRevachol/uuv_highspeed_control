@@ -1,0 +1,11 @@
+{
+  "reference_derivative_max_abs": 2.653105617288383e-05,
+  "configs_checked": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "D_smoke_status": "complete_valid",
+  "D_smoke_steps": 10
+}

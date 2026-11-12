@@ -1,0 +1,128 @@
+{
+  "protocol_id": "GS12-joint-route-v1",
+  "created_utc": "2026-11-11T12:01:00Z",
+  "git_commit": "7ac1394d0d5e2fa7d02b4c72b0097b402d3ddb4e",
+  "source_sha256": {
+    "experiments/gs12_joint_route/joint_reference.py": "31039d381c9e12ea33c36249d0e828ad1b5dc9be18c73bbddc071beb04478dc0",
+    "experiments/gs12_joint_route/run_joint.py": "e6bb836f77cbc50fd6dae2fa5179cfdada79122d1a0e1813bc3802e7f7ca6bcf",
+    "experiments/gs12_joint_route/analyze_joint.py": "413290d7fafa62b1cd3eb14a452b80fc3b901fbb0eb9b7951c66c9f7878e8d3f",
+    "experiments/gs12_weight_route/runner_core.py": "0be92367109a3f692e40190532e2c3a56ede0f5c0dfc69164941cb7a1757540e",
+    "experiments/gs12_weight_route/reference_tasks.py": "7a94ede4e96c332d0261c76189628947556850d0455afd438e1a6eb34ceabd58",
+    "aav_mpc/condensed_mpc.py": "5723535249ddf9a186032f37989181e674fa95d209578ef883da85bf6f8cfb05"
+  },
+  "python": "3.10.12",
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+  "plant": {
+    "id": "C4",
+    "elevator": 0.9,
+    "rudder": 0.9,
+    "order": "second_all"
+  },
+  "mpc": {
+    "states": 22,
+    "dt_s": 0.1,
+    "horizon": 35,
+    "plant_substeps_per_cycle": 5,
+    "substep_s": 0.02
+  },
+  "duration_s": 64.0,
+  "speed_mps": 15.0,
+  "amplitude": 0.006,
+  "window_s": [
+    32.0,
+    64.0
+  ],
+  "controllers": {
+    "A": {
+      "plant_id": "C4",
+      "predictor_id": "P0",
+      "model_gain": 1.0,
+      "model_tau": 1.0,
+      "weight_id": "W0",
+      "a_depth": 1.0,
+      "a_rudder_rate": 1.0
+    },
+    "B": {
+      "plant_id": "C4",
+      "predictor_id": "P0",
+      "model_gain": 1.0,
+      "model_tau": 1.0,
+      "weight_id": "W1",
+      "a_depth": 1.4,
+      "a_rudder_rate": 0.7
+    },
+    "C": {
+      "plant_id": "C4",
+      "predictor_id": "P1",
+      "model_gain": 0.85,
+      "model_tau": 2.0,
+      "weight_id": "W0",
+      "a_depth": 1.0,
+      "a_rudder_rate": 1.0
+    },
+    "D": {
+      "plant_id": "C4",
+      "predictor_id": "P1",
+      "model_gain": 0.85,
+      "model_tau": 2.0,
+      "weight_id": "W1",
+      "a_depth": 1.4,
+      "a_rudder_rate": 0.7
+    }
+  },
+  "optional_dev_candidates": {
+    "pmid": {
+      "E": {
+        "predictor_id": "Pmid",
+        "model_gain": 0.925,
+        "model_tau": 1.5,
+        "weight_id": "W1",
+        "a_depth": 1.4,
+        "a_rudder_rate": 0.7
+      }
+    },
+    "pmid_w0": {
+      "E0": {
+        "predictor_id": "Pmid",
+        "model_gain": 0.925,
+        "model_tau": 1.5,
+        "weight_id": "W0",
+        "a_depth": 1.0,
+        "a_rudder_rate": 1.0
+      }
+    },
+    "p1_weight_cross": {
+      "F": {
+        "predictor_id": "P1",
+        "model_gain": 0.85,
+        "model_tau": 2.0,
+        "weight_id": "F",
+        "a_depth": 1.4,
+        "a_rudder_rate": 1.0
+      },
+      "G": {
+        "predictor_id": "P1",
+        "model_gain": 0.85,
+        "model_tau": 2.0,
+        "weight_id": "G",
+        "a_depth": 1.0,
+        "a_rudder_rate": 0.7
+      },
+      "H": {
+        "predictor_id": "P1",
+        "model_gain": 0.85,
+        "model_tau": 2.0,
+        "weight_id": "H",
+        "a_depth": 0.7,
+        "a_rudder_rate": 1.0
+      }
+    }
+  },
+  "tasks_sha256": "0a4a00758e2c063e898968d0da32f02e932a5cd5001e79b297c1fa444608ed36",
+  "selection_gate": {
+    "candidate_vs_B_improvement_pct": 5.0,
+    "all_tasks_nonworse": true,
+    "no_quality_blockers": true
+  },
+  "protocol_sha256": "1943f8a1d3db3934ce85c81869564d3ab2f61ead17086742d883f93960c1cf48"
+}

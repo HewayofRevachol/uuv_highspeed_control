@@ -1,0 +1,35 @@
+{
+  "run_id": "ff417413e27d8c88",
+  "task_id": "B4_east_a0.003",
+  "split": "long_matrix",
+  "stage": "long_matrix",
+  "plant": "C4",
+  "controller": "C4",
+  "weight_policy": "1.4_0.7",
+  "a_depth": 1.4,
+  "a_rudder_rate": 0.7,
+  "protocol_sha256": "cbcb2018b60ed7596fa2ded949b9ecf804a9474d07ee224efcc8a37d6998baef",
+  "source_sha256": "8411ecf9d15e25a677d592f0781e07ddaeb9a9632e0c9cbc845dc1ce338bbc83",
+  "status": "complete_valid",
+  "completion": 256.0,
+  "first_violation": null,
+  "qp_failures": 0,
+  "command_saturation_fraction": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "actual_saturation_fraction": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "solve_p50_ms": 29.95999999984633,
+  "solve_p95_ms": 32.593766600530216,
+  "solve_p99_ms": 34.58767322981656,
+  "wall_s": 79.09697794000022,
+  "worker_peak_rss_kb": 363380,
+  "trace_sha256": "f37c61436e02897682346748cfd3ef4ad59bb24475f5b159e426df7c95a75d5b",
+  "amplitude": 0.003,
+  "phase_id": "primary"
+}

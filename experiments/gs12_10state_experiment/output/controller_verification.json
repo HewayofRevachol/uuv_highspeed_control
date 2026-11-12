@@ -1,0 +1,60 @@
+{
+  "finite_difference_jacobian_max_abs": 4.561195993818545e-09,
+  "jacobian_tolerance": 2e-05,
+  "jacobian_passed": true,
+  "ideal_immediate_actuator_one_step_max_abs": 0.0,
+  "true_C0_one_step_structure_error": 0.032073815982402026,
+  "reference_derivative_max_abs": 3.33007577069111e-09,
+  "reference_derivative_tolerance": 2e-06,
+  "reference_derivative_passed": true,
+  "reference_checks": [
+    {
+      "regime": "straight",
+      "max_position_derivative_error": 3.1741365091875196e-09
+    },
+    {
+      "regime": "turn",
+      "max_position_derivative_error": 3.33007577069111e-09
+    },
+    {
+      "regime": "slope",
+      "max_position_derivative_error": 2.284208378000585e-09
+    },
+    {
+      "regime": "s_bend",
+      "max_position_derivative_error": 3.1741365091875196e-09
+    },
+    {
+      "regime": "coupled",
+      "max_position_derivative_error": 2.166922641322344e-09
+    }
+  ],
+  "QP": {
+    "horizon": 35,
+    "decision_variables": 105,
+    "control_weights": [
+      0.15,
+      0.08,
+      0.08
+    ],
+    "rate_weights": [
+      1.8,
+      0.35,
+      0.35
+    ],
+    "state_weights": [
+      3,
+      3,
+      3,
+      100,
+      30,
+      5,
+      5,
+      5
+    ],
+    "terminal_factor": 2.5,
+    "osqp_eps_abs": 1e-05,
+    "osqp_eps_rel": 1e-05,
+    "max_iter": 10000
+  }
+}

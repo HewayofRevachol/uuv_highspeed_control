@@ -1,0 +1,21 @@
+{
+  "integrity_checks": [
+    {
+      "directory": ".",
+      "runs_checked": 375,
+      "trace_hash_errors": []
+    },
+    {
+      "directory": "paired22_exact",
+      "runs_checked": 13,
+      "trace_hash_errors": []
+    },
+    {
+      "directory": "ideal_diagnostic",
+      "runs_checked": 7,
+      "trace_hash_errors": []
+    }
+  ],
+  "total_runs_checked": 395,
+  "total_trace_hash_errors": 0
+}

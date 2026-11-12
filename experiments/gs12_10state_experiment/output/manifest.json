@@ -1,0 +1,2642 @@
+{
+  "stages": [
+    "pilot",
+    "throughput-w1",
+    "throughput-w2",
+    "throughput-w4",
+    "precheck",
+    "straight-15",
+    "straight-half-phase",
+    "straight-other-speeds",
+    "regime-precheck",
+    "regime-precheck-10m",
+    "periodic-probes"
+  ],
+  "runs": [
+    {
+      "run_id": "p775298e77e84_model10_v15_C0_straight_zero_axis-1_a0_primary",
+      "status": "early_violation",
+      "stage": "pilot",
+      "ordinal": 1,
+      "trace_sha256": "fd0e5024a53201ef402a783107fb1aaa869b29e68614d671015f27ade829b99a"
+    },
+    {
+      "run_id": "p775298e77e84_model10_v15_C4_straight_zero_axis-1_a0_primary",
+      "status": "early_violation",
+      "stage": "pilot",
+      "ordinal": 2,
+      "trace_sha256": "ab9c014982c419aaa431646876d359f2775a5abaa9e3c67379ece5bf2d412823"
+    },
+    {
+      "run_id": "p775298e77e84_model10_v15_C4_turn_left_B1_axis0_a0.006_primary",
+      "status": "early_violation",
+      "stage": "pilot",
+      "ordinal": 3,
+      "trace_sha256": "4ff6c8f48a6d4335c4ac5451bfc34ef5341ee18404bc081e1aa916e9120e27ad"
+    },
+    {
+      "run_id": "p775298e77e84_model10_v15_C4_coupled_coupled_k6_axis0_a0.006_primary",
+      "status": "early_violation",
+      "stage": "pilot",
+      "ordinal": 4,
+      "trace_sha256": "0960726d758a0c7e774f605dfcc6fa138a2978c3f01b7e278be52da62a532ae1"
+    },
+    {
+      "run_id": "p1742d5edbfbb_model10_v15_C0_straight_zero_axis-1_a0_primary",
+      "status": "complete_valid",
+      "stage": "pilot",
+      "ordinal": 1,
+      "trace_sha256": "c42976f1299396a3c3c0da5627a55d230beceb60959c9e3499a9a7d5951489c3"
+    },
+    {
+      "run_id": "p1742d5edbfbb_model10_v15_C4_straight_zero_axis-1_a0_primary",
+      "status": "complete_valid",
+      "stage": "pilot",
+      "ordinal": 2,
+      "trace_sha256": "dfa597f3cdc86fdf39b6bdbe949c3d83ff4cba40eab93705ff63aa04f3d6b692"
+    },
+    {
+      "run_id": "p1742d5edbfbb_model10_v15_C4_turn_left_B1_axis0_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "pilot",
+      "ordinal": 3,
+      "trace_sha256": "d050bd4b2a39d84a4b4b03d3defef20fd78b9fe7c03547152a435c4f72ca6116"
+    },
+    {
+      "run_id": "p1742d5edbfbb_model10_v15_C4_coupled_coupled_k6_axis0_a0.006_primary",
+      "status": "early_violation",
+      "stage": "pilot",
+      "ordinal": 4,
+      "trace_sha256": "6c5f273d5ba4b0204ca4778d733b9dc010b7b6e0764913c69c75ddbfff525578"
+    },
+    {
+      "run_id": "pe05e58e1dfd7_model10_v15_C0_straight_zero_axis-1_a0_primary",
+      "status": "complete_valid",
+      "stage": "pilot",
+      "ordinal": 1,
+      "trace_sha256": "1b0a52af98a296b322f54201f8c5879f0e8395c421b267e46923ae61b8f25fae"
+    },
+    {
+      "run_id": "pe05e58e1dfd7_model10_v15_C4_straight_zero_axis-1_a0_primary",
+      "status": "complete_valid",
+      "stage": "pilot",
+      "ordinal": 2,
+      "trace_sha256": "8419b50d1d96781e231bcfd4df730c3c3b910c91127a4a2294015746784a1207"
+    },
+    {
+      "run_id": "pe05e58e1dfd7_model10_v15_C4_turn_left_B1_axis0_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "pilot",
+      "ordinal": 3,
+      "trace_sha256": "b78e4805c1cf7225b0bf830ece5aed503c782eb1e670fbc268a63b2a68df0daf"
+    },
+    {
+      "run_id": "pe05e58e1dfd7_model10_v15_C4_coupled_coupled_k6_axis0_a0.006_primary",
+      "status": "early_violation",
+      "stage": "pilot",
+      "ordinal": 4,
+      "trace_sha256": "6a6c6b5b4560f6e4ef624406f2f7148ff24cf20a53b73fcd82e993da4561504c"
+    },
+    {
+      "run_id": "pe05e58e1dfd7_model10_v15_C0_straight_zero_axis-1_a0_pilot_w1",
+      "status": "complete_valid",
+      "stage": "throughput-w1",
+      "ordinal": 1,
+      "trace_sha256": "70694af119899a71d8a3970425293322422a42fd901738fb98fd58aace18dd18"
+    },
+    {
+      "run_id": "pe05e58e1dfd7_model10_v15_C4_straight_zero_axis-1_a0_pilot_w1",
+      "status": "complete_valid",
+      "stage": "throughput-w1",
+      "ordinal": 2,
+      "trace_sha256": "25199c6aa5498f93b1383dcd9bd7b047d07dec84dc767f6d580f706a092a39d2"
+    },
+    {
+      "run_id": "pe05e58e1dfd7_model10_v15_C4_turn_left_B1_axis0_a0.006_pilot_w1",
+      "status": "complete_constrained",
+      "stage": "throughput-w1",
+      "ordinal": 3,
+      "trace_sha256": "6a3e57778e98f78f9afaea8361526ea6cdd7f2f697dc07387c64c4a87ccb3d7e"
+    },
+    {
+      "run_id": "pe05e58e1dfd7_model10_v15_C4_coupled_coupled_k6_axis0_a0.006_pilot_w1",
+      "status": "early_violation",
+      "stage": "throughput-w1",
+      "ordinal": 4,
+      "trace_sha256": "6c9e5f9c1a5e13129eeeaa233ed86defecb475b280821b5f2587dc4f4baa0e04"
+    },
+    {
+      "run_id": "pe05e58e1dfd7_model10_v15_C0_straight_zero_axis-1_a0_pilot_w2",
+      "status": "complete_valid",
+      "stage": "throughput-w2",
+      "ordinal": 1,
+      "trace_sha256": "9b3353388c16e0b7afe3c8aeb8172173065ff69d9d772d1b7e3b8a9525b6abab"
+    },
+    {
+      "run_id": "pe05e58e1dfd7_model10_v15_C4_straight_zero_axis-1_a0_pilot_w2",
+      "status": "complete_valid",
+      "stage": "throughput-w2",
+      "ordinal": 2,
+      "trace_sha256": "2a0cd81b05be7d518dfb797e83a5183accf9ee32aa52e98b7e0ba2388ec643fe"
+    },
+    {
+      "run_id": "pe05e58e1dfd7_model10_v15_C4_coupled_coupled_k6_axis0_a0.006_pilot_w2",
+      "status": "early_violation",
+      "stage": "throughput-w2",
+      "ordinal": 4,
+      "trace_sha256": "02f1e247ec10d522b6db8f4ccc4b3ae6c3c7a2e2c03e8ad005769f6336b1ebc5"
+    },
+    {
+      "run_id": "pe05e58e1dfd7_model10_v15_C4_turn_left_B1_axis0_a0.006_pilot_w2",
+      "status": "complete_constrained",
+      "stage": "throughput-w2",
+      "ordinal": 3,
+      "trace_sha256": "896463c496749cbff21075d0090a07c00aaf4d697082a1d87b2aab7419097389"
+    },
+    {
+      "run_id": "pe05e58e1dfd7_model10_v15_C4_coupled_coupled_k6_axis0_a0.006_pilot_w4",
+      "status": "early_violation",
+      "stage": "throughput-w4",
+      "ordinal": 4,
+      "trace_sha256": "1ddff428e27fb4e6befb49eea29afd8a588a5c3cac7256c29d0b95c098b58676"
+    },
+    {
+      "run_id": "pe05e58e1dfd7_model10_v15_C4_straight_zero_axis-1_a0_pilot_w4",
+      "status": "complete_valid",
+      "stage": "throughput-w4",
+      "ordinal": 2,
+      "trace_sha256": "6d2da5a31dde000b6a262f6daad945cb7ed35c92da1bd8ea900519864c4fce78"
+    },
+    {
+      "run_id": "pe05e58e1dfd7_model10_v15_C0_straight_zero_axis-1_a0_pilot_w4",
+      "status": "complete_valid",
+      "stage": "throughput-w4",
+      "ordinal": 1,
+      "trace_sha256": "34d6b389ead3d193162f6b0844ce4185be8f1a2d83e3c7ecfa51dffc42583423"
+    },
+    {
+      "run_id": "pe05e58e1dfd7_model10_v15_C4_turn_left_B1_axis0_a0.006_pilot_w4",
+      "status": "complete_constrained",
+      "stage": "throughput-w4",
+      "ordinal": 3,
+      "trace_sha256": "3c2f980b3b5b7c55968c7152054577a92574f6a1e73a5a8bc28207de9e43518a"
+    },
+    {
+      "run_id": "p09c14eb2e392_model10_v15_C0_straight_zero_axis-1_a0_pilot_w1",
+      "status": "complete_valid",
+      "stage": "throughput-w1",
+      "ordinal": 1,
+      "trace_sha256": "f817ad152754f3e82335bd8c9959d1cc682e002c1ff34238f6075431218ce267"
+    },
+    {
+      "run_id": "p09c14eb2e392_model10_v15_C4_straight_zero_axis-1_a0_pilot_w1",
+      "status": "complete_valid",
+      "stage": "throughput-w1",
+      "ordinal": 2,
+      "trace_sha256": "32fb2401cb125430ffb77770a3ea7d36b84b4ba62bb3ab017f47811ebd688cf1"
+    },
+    {
+      "run_id": "p09c14eb2e392_model10_v15_C4_turn_left_B1_axis0_a0.006_pilot_w1",
+      "status": "complete_constrained",
+      "stage": "throughput-w1",
+      "ordinal": 3,
+      "trace_sha256": "72dec6df2c3d5117b4dcdd6dafd014ab937397d61ac245a5cba44b51a7097425"
+    },
+    {
+      "run_id": "p09c14eb2e392_model10_v15_C4_coupled_coupled_k6_axis0_a0.006_pilot_w1",
+      "status": "early_violation",
+      "stage": "throughput-w1",
+      "ordinal": 4,
+      "trace_sha256": "54422575325d3f420419afb472036876fc8bba249103d0fbe579f93beebbe256"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C0_straight_zero_axis-1_a0_pilot_w1",
+      "status": "complete_valid",
+      "stage": "throughput-w1",
+      "ordinal": 1,
+      "trace_sha256": "334b8f74e4d8a105f9c482c7f729316f993ab02a9ad0f60076f99056e6ef3394"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C4_straight_zero_axis-1_a0_pilot_w1",
+      "status": "complete_valid",
+      "stage": "throughput-w1",
+      "ordinal": 2,
+      "trace_sha256": "2c24c86c509ed22b06b73c4f984480ecb8b9577789def8e9f7e1c2ed763d3113"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C4_turn_left_B1_axis0_a0.006_pilot_w1",
+      "status": "complete_constrained",
+      "stage": "throughput-w1",
+      "ordinal": 3,
+      "trace_sha256": "18f1d640320bcd97b5badd2bf12e4539e1642021fbce9c0e8c6f915966b7b716"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C4_coupled_coupled_k6_axis0_a0.006_pilot_w1",
+      "status": "early_violation",
+      "stage": "throughput-w1",
+      "ordinal": 4,
+      "trace_sha256": "9764caa9f1a368c85e3cc2b2231404ad830228ac247deef23118e6bc09ae841c"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C0_straight_zero_axis-1_a0_pilot_w2",
+      "status": "complete_valid",
+      "stage": "throughput-w2",
+      "ordinal": 1,
+      "trace_sha256": "b616da1357435bc0549de9662a83098feaa4f4f03dd0bed40159bf48924b725d"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C4_straight_zero_axis-1_a0_pilot_w2",
+      "status": "complete_valid",
+      "stage": "throughput-w2",
+      "ordinal": 2,
+      "trace_sha256": "b72db14e5b2288301d7734cd1a576553e017365aec733a639da3f71d85206f22"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C4_coupled_coupled_k6_axis0_a0.006_pilot_w2",
+      "status": "early_violation",
+      "stage": "throughput-w2",
+      "ordinal": 4,
+      "trace_sha256": "8dbf535de2a6969cbc9d0f1fc67a8e45e728b1d76aaa2a4345e5ff68d98b97f1"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C4_turn_left_B1_axis0_a0.006_pilot_w2",
+      "status": "complete_constrained",
+      "stage": "throughput-w2",
+      "ordinal": 3,
+      "trace_sha256": "1aadcebd3657ffb4e1096ecddfe0146d54687331ee86f3ee07890945084a4ff1"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C4_coupled_coupled_k6_axis0_a0.006_pilot_w4",
+      "status": "early_violation",
+      "stage": "throughput-w4",
+      "ordinal": 4,
+      "trace_sha256": "8816cea03b48a3793eb5e6b4a9d1b42d4aece219c09dfcf05d9e1e9cbdc585dc"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C4_straight_zero_axis-1_a0_pilot_w4",
+      "status": "complete_valid",
+      "stage": "throughput-w4",
+      "ordinal": 2,
+      "trace_sha256": "e961054e6fb4a63a3467dd55e2c28c1c6bd26161d9fd72d2eed28bf3ca79d265"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C0_straight_zero_axis-1_a0_pilot_w4",
+      "status": "complete_valid",
+      "stage": "throughput-w4",
+      "ordinal": 1,
+      "trace_sha256": "444b9ea33d083e9175c2b7d8b91d56d2d8f4c9764bc6694c799f0bb50022ad38"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C4_turn_left_B1_axis0_a0.006_pilot_w4",
+      "status": "complete_constrained",
+      "stage": "throughput-w4",
+      "ordinal": 3,
+      "trace_sha256": "3349d8e462f4aaf1ebda36573119c7494886fc7c6252d290e56ed0afab931f99"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C0_straight_zero_axis-1_a0_primary",
+      "status": "complete_valid",
+      "stage": "precheck",
+      "ordinal": 1,
+      "trace_sha256": "9e045c2df2c49a3cce92bdf6d27dacd3612e5fc2ff00819873d187832ab84220"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C0_straight_B1_axis2_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "precheck",
+      "ordinal": 4,
+      "trace_sha256": "072bd486de2dc1215163a1385d617c6d783b9247b779ba5b590aa0a7f7960bdf"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C0_straight_B1_axis0_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "precheck",
+      "ordinal": 2,
+      "trace_sha256": "eb261582d103cecfc9fdd0b95d68e7b3cf866801ac5bc0f146b1947a654af0d2"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C0_straight_B1_axis1_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "precheck",
+      "ordinal": 3,
+      "trace_sha256": "2c34d4fa860fddb9927db678378e7133493afb166e9b8acd583ccf72c7d00ea3"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C4_straight_zero_axis-1_a0_primary",
+      "status": "complete_valid",
+      "stage": "precheck",
+      "ordinal": 8,
+      "trace_sha256": "83a10c07041aa37f0f6729c64918a63e76e948a4499dd956f4994fa7fbab56fb"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C0_straight_B4_axis0_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "precheck",
+      "ordinal": 5,
+      "trace_sha256": "f53faceed7a57fa6df01c25cfb30ed2e5db0e0b122c202c54b24868762a631b4"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C4_straight_B1_axis1_a0.006_primary",
+      "status": "early_violation",
+      "stage": "precheck",
+      "ordinal": 10,
+      "trace_sha256": "16fc5ad1c51e195ef994528f91927c0664f32cdbf16b19e83ad0d11a19b2e8a3"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C0_straight_B4_axis2_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "precheck",
+      "ordinal": 7,
+      "trace_sha256": "6522f2542408b7e217ba65b66757c8923527db7476bfdddee9ca25b4c56324aa"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C0_straight_B4_axis1_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "precheck",
+      "ordinal": 6,
+      "trace_sha256": "f8093964e3bbd53a6d3817cd34030b27a36d00db84cd63010c45a6a5f6d9c10b"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C4_straight_B4_axis1_a0.006_primary",
+      "status": "early_violation",
+      "stage": "precheck",
+      "ordinal": 13,
+      "trace_sha256": "59eaa993f563cfc9fd55e593f57d5510c88ac7b5d260aa33ff5a2a062c963316"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C4_straight_B1_axis0_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "precheck",
+      "ordinal": 9,
+      "trace_sha256": "d6a77353f46a5c29b773c4f3cc2e29431939d788bebf14268b1e69e00c4b60bc"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C4_straight_B1_axis2_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "precheck",
+      "ordinal": 11,
+      "trace_sha256": "227c1b59cdd64074110e1bc0a4c786d588d6ef78cc1bd2f8d18830f1cb14e408"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C4_straight_B4_axis0_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "precheck",
+      "ordinal": 12,
+      "trace_sha256": "abb907325923b53cbf0abddb3df10e89494b8720b237e798df165b2858061375"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C4_straight_B4_axis2_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "precheck",
+      "ordinal": 14,
+      "trace_sha256": "2014770d7d90faf57ebbcd0001b03154c9e90023ae8124373d46693f65235638"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C1_straight_zero_axis-1_a0_primary",
+      "status": "complete_valid",
+      "stage": "straight-15",
+      "ordinal": 14,
+      "trace_sha256": "2ec54626e3d7980d8fff7e28f075a31dea272d6b4b8a0cc06050466193910263"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C1_straight_B1_axis2_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-15",
+      "ordinal": 17,
+      "trace_sha256": "67519d502c0dd8a8bd111a9e71132fbcd854d1aaeaa93af1fb1bf409d97b1ea7"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C1_straight_B1_axis0_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-15",
+      "ordinal": 15,
+      "trace_sha256": "a601a237d3fb35a9d49e6ae48c8824a2d39da6c1a5dd459936c25bd0ef72284e"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C1_straight_B1_axis1_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-15",
+      "ordinal": 16,
+      "trace_sha256": "9ac57557ce197f057707e502706412b6b5fea203fc10b7e82004c9f89a9427f9"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C1_straight_B2_axis0_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-15",
+      "ordinal": 18,
+      "trace_sha256": "16c250cd83b6f54b8196f4f48edac197faf7ac000a0b230f2a874d3ed4d1d777"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C1_straight_B2_axis2_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-15",
+      "ordinal": 20,
+      "trace_sha256": "efd9414220596357daa7bfcb06c17d1a1e413e4cba870aee20341bebede8b151"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C1_straight_B2_axis1_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-15",
+      "ordinal": 19,
+      "trace_sha256": "21fb597709488506b1ab340694ef45368820ecdcb42fa2aa9be3fa10f31e1d7f"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C1_straight_B3_axis0_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-15",
+      "ordinal": 21,
+      "trace_sha256": "e5c5990c58df3b0b89e2ead4fa6bd19ad4cb0b7628fd4c8db2b2cb78ecfb1c7c"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C1_straight_B3_axis1_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-15",
+      "ordinal": 22,
+      "trace_sha256": "8d94b575d0870ebcaa8f5010dc5e69ddcf8b084c793ecece2848e5e6473c933d"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C1_straight_B3_axis2_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-15",
+      "ordinal": 23,
+      "trace_sha256": "5a79e24a6b12188de255507f7a0b9c77f18ba186e39b40f0debcf4684976821d"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C1_straight_B4_axis0_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-15",
+      "ordinal": 24,
+      "trace_sha256": "97c1008e3bd7851856efe03303f31ec71cc7a98edd78aba5df865e57646a6eea"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C1_straight_B4_axis1_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-15",
+      "ordinal": 25,
+      "trace_sha256": "7b554efa82a2ca0be31f9e83a87e4d2905e20451345404420b3409969c92c400"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C2_straight_B1_axis1_a0.006_primary",
+      "status": "early_violation",
+      "stage": "straight-15",
+      "ordinal": 29,
+      "trace_sha256": "3ab3d82d0bdd604fa26416b1d5835e561605016cda39a56e55df1819111184b5"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C2_straight_zero_axis-1_a0_primary",
+      "status": "complete_valid",
+      "stage": "straight-15",
+      "ordinal": 27,
+      "trace_sha256": "f59b84d11dd7ad81c40db3be5705d4effc546a71a39a594437ae8807224ad0c6"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C1_straight_B4_axis2_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-15",
+      "ordinal": 26,
+      "trace_sha256": "edcc8524db7760ffa973ac1748aeac854d4ef682a73dda3acbcb5ae08aee30ad"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C2_straight_B2_axis1_a0.006_primary",
+      "status": "early_violation",
+      "stage": "straight-15",
+      "ordinal": 32,
+      "trace_sha256": "823300c01c2ca6b15f000f23a4045db4c7d16fb89afc6becc6b85218b72abcc3"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C2_straight_B1_axis0_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "straight-15",
+      "ordinal": 28,
+      "trace_sha256": "a0c239452e40411fb4f6caf62a4471f69a8333f0f15da3d983fd44028ae25398"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C2_straight_B1_axis2_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-15",
+      "ordinal": 30,
+      "trace_sha256": "73bf6a7c3edd06cea6dd4e9ad301e820f92d9793e44933b622b68f47a74d683a"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C2_straight_B3_axis1_a0.006_primary",
+      "status": "early_violation",
+      "stage": "straight-15",
+      "ordinal": 35,
+      "trace_sha256": "2ddcb08e350429eb9e4c30c3cc4a75c4f454b7f062fc661d58e24b8d0f63c977"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C3_straight_B1_axis1_a0.006_primary",
+      "status": "early_violation",
+      "stage": "straight-15",
+      "ordinal": 42,
+      "trace_sha256": "cb0b608b846dc0af18b59026a0356033a3e3004e279523252714de6d060be256"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C5g_straight_B1_axis1_a0.006_primary",
+      "status": "early_violation",
+      "stage": "straight-15",
+      "ordinal": 68,
+      "trace_sha256": "53b7badeee0aafd374589cec6e4ccaf635ce210dddadbe31d01049485099c3fe"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C5g_straight_zero_axis-1_a0_primary",
+      "status": "complete_valid",
+      "stage": "straight-15",
+      "ordinal": 66,
+      "trace_sha256": "01af2269cb699a7823400d60046f83a1ba7cf3a7c3a808b2569decef8463d4ad"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C5g_straight_B2_axis1_a0.006_primary",
+      "status": "early_violation",
+      "stage": "straight-15",
+      "ordinal": 71,
+      "trace_sha256": "2ac28b58479898410bde8eab7ff4e971d556a903b396d0ffd69929932c737125"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C1_straight_B1_axis2_a0.003_primary",
+      "status": "complete_valid",
+      "stage": "straight-half-phase",
+      "ordinal": 15,
+      "trace_sha256": "ea88467bc1a1521098de5a01e9f3f2d6adc662a8ea478e76b3dcba5e310f7ac4"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C1_straight_B2_axis0_a0.003_primary",
+      "status": "complete_valid",
+      "stage": "straight-half-phase",
+      "ordinal": 16,
+      "trace_sha256": "5adbb6073d22cbcebba4cce4b58a9b008d377412afe5bded8d1139be3ceb7769"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C1_straight_B1_axis0_a0.003_primary",
+      "status": "complete_valid",
+      "stage": "straight-half-phase",
+      "ordinal": 13,
+      "trace_sha256": "5fb2049e3a8a88a2e496db7a61460fea5f5ca19c72ef3a789f7f600ef850e733"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C1_straight_B1_axis1_a0.003_primary",
+      "status": "complete_valid",
+      "stage": "straight-half-phase",
+      "ordinal": 14,
+      "trace_sha256": "f4ba410237abcb4b16f52ceb1361a190ac8d0764a5ac7d7a038c91a274ac5af5"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C1_straight_B2_axis2_a0.003_primary",
+      "status": "complete_valid",
+      "stage": "straight-half-phase",
+      "ordinal": 18,
+      "trace_sha256": "2f1dda14e3b9a19c4ad1298aef83d5180a334e7647a6546e92c9df2a42556eee"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C1_straight_B2_axis1_a0.003_primary",
+      "status": "complete_valid",
+      "stage": "straight-half-phase",
+      "ordinal": 17,
+      "trace_sha256": "a84bd7fb164bd3fca05c459b7181ab30ad13cb64b1896a97258deaef368d7e08"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C1_straight_B3_axis0_a0.003_primary",
+      "status": "complete_valid",
+      "stage": "straight-half-phase",
+      "ordinal": 19,
+      "trace_sha256": "4d579050bc5e326d0f26cd6e61575b299c3df8ebbc11a1a38255fc695f623c9d"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C1_straight_B3_axis1_a0.003_primary",
+      "status": "complete_valid",
+      "stage": "straight-half-phase",
+      "ordinal": 20,
+      "trace_sha256": "b4ab79b4c7dd2bd48897936dfa808b578667cf0ceab5af38a53993282362820a"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C1_straight_B3_axis2_a0.003_primary",
+      "status": "complete_valid",
+      "stage": "straight-half-phase",
+      "ordinal": 21,
+      "trace_sha256": "506e6d9a5b9518c29c709fadb94c6dc9b31746043214a645bd4abfce3d3ddec8"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C1_straight_B4_axis0_a0.003_primary",
+      "status": "complete_valid",
+      "stage": "straight-half-phase",
+      "ordinal": 22,
+      "trace_sha256": "640fb6b14d477fd07b4fc9f71a5645a5acaf9263edeead7bba200c6f6bcc0a84"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C1_straight_B4_axis1_a0.003_primary",
+      "status": "complete_valid",
+      "stage": "straight-half-phase",
+      "ordinal": 23,
+      "trace_sha256": "f3e2e3aa9591620d12cb9d65beccc5d669befa211268d8f530be8c8b5e0b9676"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C1_straight_B4_axis2_a0.003_primary",
+      "status": "complete_valid",
+      "stage": "straight-half-phase",
+      "ordinal": 24,
+      "trace_sha256": "92bd69b3c61908bd3a450bc9932ba0dc75482d1c848002116a8522aa8ce54eab"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_straight_zero_axis-1_a0_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 1,
+      "trace_sha256": "12e3dc4d4b7fe9d920f0e15ba3da5e7e68a1a9f9878c0b4df9bf4177a3197bb7"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_straight_B1_axis2_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 4,
+      "trace_sha256": "42493fac50a08023243612b95372d1776e1c538af07e451fa8f2204375bdb152"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_straight_B1_axis1_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 3,
+      "trace_sha256": "257b93b16cb8a11ed656b399452fedab25eac82d74725f67ef5db11a35dc931e"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_straight_B1_axis0_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 2,
+      "trace_sha256": "82c4a51555e08334988567c8c8deb1e746cb67983405782b9b5d7e6030e8e199"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_straight_B2_axis2_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 7,
+      "trace_sha256": "f5a8bf2a1bfe5a1bd081686f8be4513414207ddf9d5465b719a8b4472f700918"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_straight_B3_axis0_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 8,
+      "trace_sha256": "dd5c85a297b2634f87385fe45cacebaf42c41247251d7099499feb4f7bc0482e"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_straight_B2_axis0_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 5,
+      "trace_sha256": "4149950c89214d3dd4e00c8e0fe1b8e9e73fafce4ad02f1706e81c09b9be1c74"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_straight_B2_axis1_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 6,
+      "trace_sha256": "853932cae19c40353f7ebd6e96b3a2daf060926bfe361691e7f19bf5185920c3"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_straight_B3_axis1_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 9,
+      "trace_sha256": "c4926ce41b1d1a08650723e8f90545f7d488cdbacd4dfb0484c38061b1243354"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_straight_B3_axis2_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 10,
+      "trace_sha256": "dcd581e881efa5ce3c8c2a6b475fac800d0d54fb45be85e6b9006ec50ef8e393"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_straight_B4_axis0_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "straight-other-speeds",
+      "ordinal": 11,
+      "trace_sha256": "7f5fd216f945ad8a5f958f1a581e65be179632f558a669af8e5b6518e81ef7a0"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_straight_B4_axis1_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "straight-other-speeds",
+      "ordinal": 12,
+      "trace_sha256": "cbee7540ac96fe7c891b11d67b9be719a876917248b765da66733ce7d5439595"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_straight_B4_axis2_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 13,
+      "trace_sha256": "48da17fe3653a660e63da0c5e5ca79acd1c5590eb66e23d9d6cadd16ac312fe8"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C4_straight_zero_axis-1_a0_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 14,
+      "trace_sha256": "459315402a6187d81c9c3800cc0c8e0b4215cbe986f6ec0da020859f031c8e44"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C4_straight_B1_axis2_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 17,
+      "trace_sha256": "0d3eb60a17b8f7691b0cc8d6ff02fff7aaf5747ae0f79b13cd2679a9a2d33f7e"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C4_straight_B1_axis1_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 16,
+      "trace_sha256": "044d9b8f6cf75edc5190836f72bd06815799cff53bdae638f02aa424d78392cd"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C4_straight_B1_axis0_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 15,
+      "trace_sha256": "195162925cdddbc49a7eba4127d523858f3cf6fadfb8fffbbbf6659543d659aa"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C4_straight_B2_axis2_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 20,
+      "trace_sha256": "ad9104c6cc658d046daf212036ad244d88bf78689a26e53e7175a76d25f21e91"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C4_straight_B2_axis0_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 18,
+      "trace_sha256": "968d383ebac80ebbb00d08fda373c8bd1bc92445f9ebae969e1f6b089f264af9"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C4_straight_B2_axis1_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 19,
+      "trace_sha256": "37e0ee3e0a1994edbd7413ac3baeb4a2ac59ac80db7a20e46b0c757cc736cd66"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C4_straight_B3_axis0_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "straight-other-speeds",
+      "ordinal": 21,
+      "trace_sha256": "f02e3f76e09b6e87ecfbd626eb4b7a6899b33d4e13fbf33f71b1a6e90da6c716"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C4_straight_B3_axis2_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 23,
+      "trace_sha256": "1a5b1a150425af40db3f7b871b28dbcc990cac15b8af2bc91ec7f3afbd1fa303"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C4_straight_B3_axis1_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 22,
+      "trace_sha256": "ec5653d7357db6e35212d6626b2061fb57ebeaa951776339a3d873891154ed02"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C4_straight_B4_axis0_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "straight-other-speeds",
+      "ordinal": 24,
+      "trace_sha256": "a2bf82a5b531fed5c962caf80f2435e2073ba05fc01cda96e19874bf80ece502"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C4_straight_B4_axis1_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "straight-other-speeds",
+      "ordinal": 25,
+      "trace_sha256": "29e3b4b74c98d83d3719ce4bd2462c4f3387074ec679dfc0f68f4cd17e9d8785"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C4_straight_B4_axis2_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 26,
+      "trace_sha256": "b2c216a66ad239c599790eeaa8c887ce44a9e57f38a8a0f36f3da99904e4df9b"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C5g_straight_zero_axis-1_a0_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 27,
+      "trace_sha256": "ecd9aaf48075b3e4f7dffc0740a7f5861244c75bfab0056629163c77c0a870b3"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C5g_straight_B1_axis2_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 30,
+      "trace_sha256": "6b9d4baf49d291dda65cf306ecb16a1aad3f5803ebecf839a69cd807a2bc6b72"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C5g_straight_B1_axis0_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 28,
+      "trace_sha256": "98f2c1a084dd91206a488e58cd896c532aaca2c8d809662d13905c8fbc203bb9"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C5g_straight_B1_axis1_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "straight-other-speeds",
+      "ordinal": 29,
+      "trace_sha256": "8b261a9be10fe57ad8c93fc70fb77a07afa381da7909fa171f48438467ee8241"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v8_C0_straight_zero_axis-1_a0_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 40,
+      "trace_sha256": "a85a3d63ebc0af569865b3909e90b387eaf7a4722611cf459e50b82ca66f623d"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v8_C0_straight_B1_axis2_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 43,
+      "trace_sha256": "9b5d6308bab987b4bf72fa574dd45925c6c1caa534b967dae04c620a676d96b5"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v8_C0_straight_B1_axis0_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 41,
+      "trace_sha256": "988822802eb1e1c7b62cc8e925c0b39010e27fc5486d6a75f9d4598578c32bc5"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v8_C0_straight_B1_axis1_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 42,
+      "trace_sha256": "ef0c92fa133c350236c568e6caee495296fa0db9def6e9cd785aff1ffdb669f7"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v8_C0_straight_B2_axis2_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 46,
+      "trace_sha256": "03ab49a02c5d99b820202340e1b715001f89575b8e70ed5f066a8ce20f1f8ca4"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v8_C0_straight_B2_axis1_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 45,
+      "trace_sha256": "0ebc689fd8272d9e005e71dc84d494a093ff100f7b786fc69f6798f0651483d4"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v8_C0_straight_B2_axis0_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 44,
+      "trace_sha256": "f049e1cacc31cbc34dc2f13e08cc6960bfb52d76b57ad6ec895e2064a84fe3c1"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v8_C0_straight_B3_axis0_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "straight-other-speeds",
+      "ordinal": 47,
+      "trace_sha256": "c587ae9d522b1ac94e2f3622ca0614a966bc1f0816e97e49a382990f756dd75c"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v8_C0_straight_B3_axis1_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 48,
+      "trace_sha256": "137f9c13bce1e484912c50cb39b02101a32b4c0fc485bc6f21f094775e4ded58"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v8_C0_straight_B3_axis2_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 49,
+      "trace_sha256": "6e6dbe428bd105be54580594cdcacc33aaaa820a8c1f6ff469aaec32b412484b"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v8_C0_straight_B4_axis1_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "straight-other-speeds",
+      "ordinal": 51,
+      "trace_sha256": "331a813c5398f627ebc0eed551dc478798d2c0e7c962adf46efdc2da39640470"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v8_C0_straight_B4_axis0_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "straight-other-speeds",
+      "ordinal": 50,
+      "trace_sha256": "c2a71e37d5ad1bedf8f5069b8ed64c6ee6358bdbfdd004dd64a611178457c6da"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v8_C0_straight_B4_axis2_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 52,
+      "trace_sha256": "4853f61ce5da6260655548686afdea297a966ba12a7e624a77c28208fc1203ed"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v8_C4_straight_zero_axis-1_a0_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 53,
+      "trace_sha256": "38d67f1324fd85cb2f355710fa1890aa49abcc6b74841d05d214660709e00875"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v8_C4_straight_B1_axis2_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 56,
+      "trace_sha256": "44f309182be2009b7e75845019fd5c3cf64e98d832c2ed3a457b022fd456018c"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v8_C4_straight_B1_axis0_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 54,
+      "trace_sha256": "031769f025adaa35580663b6e63105da188897bc309138804ba370ca20807d46"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v8_C4_straight_B1_axis1_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 55,
+      "trace_sha256": "66ef0e227e09cca53d490e8282cc4c99357fcca24a04ef0c941c34bfb70cce97"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v8_C4_straight_B2_axis2_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 59,
+      "trace_sha256": "4fef1640cdd0ab5b1da006eeecad984a2afa8f733dfb16091dfcc7a7c17244b3"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v8_C4_straight_B2_axis0_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 57,
+      "trace_sha256": "d93f88098fbc6c6e59a2e32cdc2f261d2c843eff83f7b37a03e13ad8b63a6ad2"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v8_C4_straight_B3_axis0_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "straight-other-speeds",
+      "ordinal": 60,
+      "trace_sha256": "2aeb9caa1f6c01398c4c9873d1e0f885420e73a455fe71956580cb1d0f68e69b"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v8_C4_straight_B2_axis1_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 58,
+      "trace_sha256": "ce478127ff02f484fc9e79fd7272abd222c6dc00b9c9ce27ea9eba92ee4e673b"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v8_C5g_straight_zero_axis-1_a0_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 66,
+      "trace_sha256": "8bd59c90eee78dfe0dcc3224b4f4522a6fb27758d41d38afc41a4d788266a59c"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v8_C5g_straight_B1_axis2_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 69,
+      "trace_sha256": "63790d4a5469c9ae2e4b08100b4995e424042dfef0aeeae3780ca5ccad02fa7d"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v8_C5g_straight_B1_axis0_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 67,
+      "trace_sha256": "86947c367c25f71d04b72d8d4f52351b6098bb8b3f9047e1f988a2533b8a0539"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v8_C5g_straight_B1_axis1_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 68,
+      "trace_sha256": "d35fec28ec7de983385c4bd947c67a4ebfa74f9e7d3d7e141978beed85bcc01f"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v8_C5g_straight_B2_axis2_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 72,
+      "trace_sha256": "12d4d9b7fb9d79fb87c95ded40b4a2c7182c414dcda0c6f72cec09eff967bfc3"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v8_C5g_straight_B2_axis1_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 71,
+      "trace_sha256": "66cf6a0c836e60d385d658a10ce0ef0bb8daf2291eea4cb7adcd2a610feaa2d9"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v8_C5g_straight_B2_axis0_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 70,
+      "trace_sha256": "f608ef61360e5a43960b4f423d413d25c51619787f7e0c36247ff28ff7be5a69"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v8_C5g_straight_B3_axis0_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "straight-other-speeds",
+      "ordinal": 73,
+      "trace_sha256": "ffe037d3c576584e7d6846df4934f9b968af3f027d3b7a0b1a336af983c4267a"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v8_C5g_straight_B3_axis2_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 75,
+      "trace_sha256": "cd1c13e8c3cc5dd264f544dc5938118f8cdd785055b43d67580d5e3ae4ba37d7"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v8_C5g_straight_B3_axis1_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 74,
+      "trace_sha256": "53fa67019a19b6436f53b6a1226259d26bc66cc495128d564e804d6c9dd84cc2"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v8_C5g_straight_B4_axis1_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "straight-other-speeds",
+      "ordinal": 77,
+      "trace_sha256": "3dad900b0189331bb7e5d73abcbe2b1abd604b0d9da4cb9a7ff13e39be8f670d"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v8_C5g_straight_B4_axis0_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "straight-other-speeds",
+      "ordinal": 76,
+      "trace_sha256": "f8f1c7f1d30afc9661ad52330b7b15e76832e6cf145059294d6e68f6677f4850"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v8_C5g_straight_B4_axis2_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 78,
+      "trace_sha256": "db1949249f3b3513606895bd33c34df5ad16a78917543d51dcd6b52d0117dbc7"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v12_C0_straight_zero_axis-1_a0_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 79,
+      "trace_sha256": "413426d8bfd98f90012b773b38cc8041bfa7e49f2d867f723369ec34c77e7840"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v12_C0_straight_B1_axis2_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 82,
+      "trace_sha256": "e7479e65592112e2d2159b32130ddd2fc1d98ee95abea72efe09bc055f9cd9e2"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v12_C0_straight_B1_axis0_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 80,
+      "trace_sha256": "31669f8093df659fdcb73c0f405d788740ea6fe24df45c51bb07c916e631ad8e"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v12_C0_straight_B1_axis1_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 81,
+      "trace_sha256": "1213087334b832232705d2ce12619726b6c6aa557e99cff07dcb0e0e5bbb7430"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v12_C0_straight_B2_axis2_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 85,
+      "trace_sha256": "34b0b62844e5e4178c33701102629764050b10b7dd6c1a3ac0f51b1334d75140"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v12_C0_straight_B3_axis0_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 86,
+      "trace_sha256": "be372431ce5bfb713b9e7dbf0a60f98cb2f1ccbc27447954c3b234ad2461c6be"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v12_C0_straight_B2_axis0_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 83,
+      "trace_sha256": "840eaccdd02d30ae8575f8e98862e15ae4d1704d9202a464e3d74409d49b0653"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v12_C0_straight_B2_axis1_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 84,
+      "trace_sha256": "fad2cac8633f13dd6c25983aaab51420d72df99c26ac532692ff6a1914652145"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v12_C0_straight_B3_axis2_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 88,
+      "trace_sha256": "c064d75adac2fe9b1a2aadae6696a643990ca25f8ced37cddb6b0335e005102f"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v12_C0_straight_B4_axis0_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "straight-other-speeds",
+      "ordinal": 89,
+      "trace_sha256": "acc42eb10b7e1d3e779c53a6993093b9a52a3cb23bbfb28f0e019c228812a627"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v12_C0_straight_B3_axis1_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 87,
+      "trace_sha256": "6f61fca3eef982c3c357242bcf2b0b9936c0bd230a8a7ddf2acc90dff69db68e"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v12_C0_straight_B4_axis1_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 90,
+      "trace_sha256": "fbbe187bd1b3f5328232d11cfa9bd7efd30578de70daca0cbf27a4e5f3bf885c"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v12_C0_straight_B4_axis2_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 91,
+      "trace_sha256": "cef2029ecb82c13131c7faa289838594059c4f25fa7939ae1fe35e42e35331aa"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v12_C4_straight_zero_axis-1_a0_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 92,
+      "trace_sha256": "966d509ab767d3e702a66d27face72329a7a5539e79b386d7a5743f9db2cc574"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v12_C4_straight_B1_axis2_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 95,
+      "trace_sha256": "b06b935eff75ee22a050a75f3951b500f7189b7277fdb3242a4d5bfe5cd5ea51"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v12_C4_straight_B1_axis0_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 93,
+      "trace_sha256": "2042b0cf133c62c70a6c9c62b2ec86c75707484f2c8b197672754712c28c1694"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v12_C4_straight_B1_axis1_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "straight-other-speeds",
+      "ordinal": 94,
+      "trace_sha256": "5e54cb4950263100a0e25288467d68db5819bcdbb0d021e3dfb80fec94498166"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v12_C5g_straight_zero_axis-1_a0_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 105,
+      "trace_sha256": "5ee439711744e301076986a96a321a1cae1ada307ea4b121282e4ac95cba6fb1"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v12_C5g_straight_B1_axis2_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 108,
+      "trace_sha256": "7b8e98c168363027d258ad89f450873a4b470f218462dd5c5d26334b09d82770"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v12_C5g_straight_B1_axis0_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 106,
+      "trace_sha256": "08135335a59b83ed97ae2b66c79a263e64dfa55b37a3ca8e55936a856b95f856"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v12_C5g_straight_B1_axis1_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "straight-other-speeds",
+      "ordinal": 107,
+      "trace_sha256": "cf4cf8cfb0333fe92d90965d4b52ae8279cad4de54044345bf84544cbf4236cf"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v18_C0_straight_zero_axis-1_a0_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 118,
+      "trace_sha256": "f0aa47b224b26dae379ac745d795cce57edda16d7b21be67fc6d3c7178c0ef97"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v18_C0_straight_B1_axis2_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 121,
+      "trace_sha256": "0c433cade4fe826809066cad7179835c4db0530c52dcec3ffa6e80a9ec64f513"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v18_C0_straight_B1_axis0_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 119,
+      "trace_sha256": "c82a33f6f883e20426e8a62d123680122e9921d1b2048bb1a24096da5f34e706"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v18_C0_straight_B1_axis1_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "straight-other-speeds",
+      "ordinal": 120,
+      "trace_sha256": "6c26a74c1b1ddad32b29564cd08f3cbc719f4d7466e6701a4081205f80c55b7b"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v18_C4_straight_B1_axis1_a0.006_primary",
+      "status": "early_violation",
+      "stage": "straight-other-speeds",
+      "ordinal": 133,
+      "trace_sha256": "b1a2e4c5f67452f2ca74cfeaf2c088b5dd2828da3b05c683c9ccd4ac1bfa017b"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v18_C5g_straight_B1_axis1_a0.006_primary",
+      "status": "early_violation",
+      "stage": "straight-other-speeds",
+      "ordinal": 146,
+      "trace_sha256": "6ba12c0704f466de2b9adb8c26721fe8b98460a0a33b682c21db1bd4c2a31f54"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v18_C5g_straight_zero_axis-1_a0_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 144,
+      "trace_sha256": "984e1776ef62c7050c20bafd90c9fa498903a538da9ff3118e87ce8bd9d8fa26"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v18_C5g_straight_B1_axis2_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "straight-other-speeds",
+      "ordinal": 147,
+      "trace_sha256": "9fbc03b8340d60e430d39b9965bc82e819fbf0e3c03fa33fb3d4d1786e91f0d7"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v18_C5g_straight_B1_axis0_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "straight-other-speeds",
+      "ordinal": 145,
+      "trace_sha256": "83cca55c18cdf3cea754c1c3499e772057a0d465bd8d8b853751705790ef94b1"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C0_slope_climb_zero_axis-1_a0_primary",
+      "status": "complete_valid",
+      "stage": "regime-precheck",
+      "ordinal": 2,
+      "trace_sha256": "8019b6803497c43b73beb5f540bef0b77343805742f8addf0bed924ab769f1c6"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C0_turn_right_zero_axis-1_a0_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck",
+      "ordinal": 1,
+      "trace_sha256": "1943a8d5fc10b71208fdc8f7a7a8325238c669ba44f334c97d63877b08f0e25a"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C0_slope_climb_B1_axis0_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "regime-precheck",
+      "ordinal": 4,
+      "trace_sha256": "2ba60ed95b1e11033391f775ad01d4be9cafcd9a5e91b87703771aa0214988ed"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C0_turn_right_B1_axis0_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck",
+      "ordinal": 3,
+      "trace_sha256": "ac1b54130494cb5bfdf86d85e2fa910324af88d7c0f06ef0baba75558a35cfe4"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C0_slope_climb_B1_axis1_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck",
+      "ordinal": 6,
+      "trace_sha256": "ad345c919f2e9c79745d7a4a8e2085333950a5db4fef0d42d5a9cf7168333263"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C0_turn_right_B1_axis1_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck",
+      "ordinal": 5,
+      "trace_sha256": "3cce795598b7c1ecc1c824788ae509e2bc5da6b716383fcd2501ee07fe7793b4"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C0_turn_right_B1_axis2_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck",
+      "ordinal": 7,
+      "trace_sha256": "e213002c66a10d411270b7921aba13e9f5b9d5b90da6f979c3e73c98b3319829"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C0_slope_climb_B1_axis2_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "regime-precheck",
+      "ordinal": 8,
+      "trace_sha256": "587db71815ec135a23cc784b8b24e4bdc320614398fb296debeec391642fca9a"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C0_turn_right_B4_axis0_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck",
+      "ordinal": 9,
+      "trace_sha256": "92a2722d3b6d2651ee3f3fb500e5c3813e70076a434ccc455e7bf7d7c3769fb8"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C0_slope_climb_B4_axis0_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck",
+      "ordinal": 10,
+      "trace_sha256": "5b71617e12da1327f4bbca4ce1c2e9b7a9cc459b08d2aed2d2e4665b1bc6f04f"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C0_turn_right_B4_axis1_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck",
+      "ordinal": 11,
+      "trace_sha256": "e7b3bd301dd81e0c4a226591e64d00f05f418b94226f7e8e084c99068ebe272e"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C0_slope_climb_B4_axis1_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck",
+      "ordinal": 12,
+      "trace_sha256": "3b54e158720df876fe4d3778c7070ddf71c5812ee824b1b03d9cc428ffdabb85"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C4_slope_climb_zero_axis-1_a0_primary",
+      "status": "early_violation",
+      "stage": "regime-precheck",
+      "ordinal": 16,
+      "trace_sha256": "34c3a66e73bc09e8df92c80780aaea06ab9f56a027c83b07b359de9644e9341e"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C0_turn_right_B4_axis2_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck",
+      "ordinal": 13,
+      "trace_sha256": "09ca404f826e58751da59a84c293a98f253b436533b3f902419eff6c4ef53b97"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C4_turn_right_zero_axis-1_a0_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck",
+      "ordinal": 15,
+      "trace_sha256": "0524d197da18682ab13df7cf42dd522b4cb69fa9d6bd4f5fefad6f27bfb41fa3"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C0_slope_climb_B4_axis2_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "regime-precheck",
+      "ordinal": 14,
+      "trace_sha256": "bea832e2c6e86f82f89bf8a6b2e476f5d211150c87653cdd6c8611af5b5e36dc"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C4_turn_right_B1_axis1_a0.006_primary",
+      "status": "early_violation",
+      "stage": "regime-precheck",
+      "ordinal": 19,
+      "trace_sha256": "e5b35e567013083ca98414f1e1224fdb8b3a94b578262d2272a7c531d3c115e6"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C4_slope_climb_B1_axis1_a0.006_primary",
+      "status": "early_violation",
+      "stage": "regime-precheck",
+      "ordinal": 20,
+      "trace_sha256": "9d48c59279f2722b276c2cff8992fa85aec9750e8cceb99034bbb296c4028556"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C4_slope_climb_B1_axis0_a0.006_primary",
+      "status": "early_violation",
+      "stage": "regime-precheck",
+      "ordinal": 18,
+      "trace_sha256": "ee48c53768754e29bc7f760962d6e9b8eca26016cd832bb5d6692204a363dc71"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C4_slope_climb_B1_axis2_a0.006_primary",
+      "status": "early_violation",
+      "stage": "regime-precheck",
+      "ordinal": 22,
+      "trace_sha256": "481d66d6035b54546ad9a55a303a8f2b3f542736b1d70f31bfef015a3cbeb23e"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C4_turn_right_B1_axis0_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck",
+      "ordinal": 17,
+      "trace_sha256": "a5b4940fc954c40574b67f19d8e458e65514b6b9ea12b48877128a3a6e4b620d"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C4_slope_climb_B4_axis0_a0.006_primary",
+      "status": "early_violation",
+      "stage": "regime-precheck",
+      "ordinal": 24,
+      "trace_sha256": "e06bc1b948ce1e17b472c7e75e0173ac59c169f0197aa9e755c6a294c237b767"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C4_turn_right_B4_axis1_a0.006_primary",
+      "status": "early_violation",
+      "stage": "regime-precheck",
+      "ordinal": 25,
+      "trace_sha256": "991a61593a4dd2ae60ed04d5891f4a8bd29dda8588d70b5b4e7b4e861b6998d5"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C4_slope_climb_B4_axis1_a0.006_primary",
+      "status": "early_violation",
+      "stage": "regime-precheck",
+      "ordinal": 26,
+      "trace_sha256": "d2157b4ed594debd68efcfea7079c7d30640673c6e169fab40db2ad522b57a00"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C4_slope_climb_B4_axis2_a0.006_primary",
+      "status": "early_violation",
+      "stage": "regime-precheck",
+      "ordinal": 28,
+      "trace_sha256": "28ce7926f64582447f62175b20b265781a747fde8438a4ceff1704548b673d15"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C4_turn_right_B1_axis2_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck",
+      "ordinal": 21,
+      "trace_sha256": "2101bcf1926b3159cf22905c07a6d7e950abf4cfbe6508036272f8e001b8e5f7"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C4_turn_right_B4_axis0_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck",
+      "ordinal": 23,
+      "trace_sha256": "3c13225c5b9b551c8ad55b100d42798f90c04d1d11f228f1bba767659fa76e1c"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C4_turn_right_B4_axis2_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck",
+      "ordinal": 27,
+      "trace_sha256": "92c7b5ff7ee28df5523d2ca43746395377f93a4c219c793bc99e8623b7e5ef98"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C0_turn_left_zero_axis-1_a0_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck",
+      "ordinal": 29,
+      "trace_sha256": "9b4b2682626dac1905b9d29e17c9d1a158eeda64d238227a9ee87d2b83ce7d21"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C0_slope_dive_zero_axis-1_a0_primary",
+      "status": "complete_valid",
+      "stage": "regime-precheck",
+      "ordinal": 30,
+      "trace_sha256": "c6af461c0b52fcb5faf1bf5fdee408a21de9a1d186ef79d50e4e8f5aa84edc6f"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C0_turn_left_B1_axis0_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck",
+      "ordinal": 31,
+      "trace_sha256": "e2a221d7fecf1504e56b1722ba49976a0eefcafd7714c6a8aa4189aaed745065"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C0_slope_dive_B1_axis0_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "regime-precheck",
+      "ordinal": 32,
+      "trace_sha256": "224e7e44cbbed0f7287d3721865b690d49c93c5f9112ac368b5a0e3f86406c31"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C0_turn_left_B1_axis1_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck",
+      "ordinal": 33,
+      "trace_sha256": "4efa78c07fbf4e817808fa50ebba33b79b0a9701f6e94acce48d84a6958048eb"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C0_slope_dive_B1_axis1_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck",
+      "ordinal": 34,
+      "trace_sha256": "b51f4156696a432fed42293a6a3e4d9655b4a7f34203a8f7e58ad2a8916be327"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C0_turn_left_B1_axis2_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck",
+      "ordinal": 35,
+      "trace_sha256": "da263e3c02b40f73d5c3f416340d5e64c96de11176517fcc3ae080aab1ad68d1"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C0_slope_dive_B1_axis2_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "regime-precheck",
+      "ordinal": 36,
+      "trace_sha256": "b519b1bfb5e1b7302053c8355f617faa92ae6ebf9807d91e75d2bb1aa3cf9416"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C0_turn_left_B4_axis0_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck",
+      "ordinal": 37,
+      "trace_sha256": "78d631825915f1d7f6ca2dac282af0bd9e5764d1f3e79d8dad8590927bae5531"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C0_slope_dive_B4_axis0_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck",
+      "ordinal": 38,
+      "trace_sha256": "6670c734888c50435271074d6f5e782ec8bab97a2d77b387ca89ad4c8f6a3577"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C0_turn_left_B4_axis1_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck",
+      "ordinal": 39,
+      "trace_sha256": "a7c955d2833a52a9c49f51985cbd3df3de68535ce893d300950c7cf05430faaf"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C0_slope_dive_B4_axis1_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck",
+      "ordinal": 40,
+      "trace_sha256": "6b0e4ede4d5248b521d71eab2631d517d56e0a301ea0c6717a134777c546a352"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C4_slope_dive_zero_axis-1_a0_primary",
+      "status": "early_violation",
+      "stage": "regime-precheck",
+      "ordinal": 44,
+      "trace_sha256": "ca25e4a2c74dfc61cb1880dff2a9acd28392dc1a9435b7d6ecb4fc0b66c277c8"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C0_turn_left_B4_axis2_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck",
+      "ordinal": 41,
+      "trace_sha256": "3807bb8bd6c9704feae8bde6ff1879c7e39f6b7d847d6d171598ef1b54ea7e1d"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C4_slope_dive_B1_axis0_a0.006_primary",
+      "status": "early_violation",
+      "stage": "regime-precheck",
+      "ordinal": 46,
+      "trace_sha256": "aed833e562145b18ba4e2852ab198261b2c2be70ad5afb813fc467621fdf3bee"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C0_slope_dive_B4_axis2_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "regime-precheck",
+      "ordinal": 42,
+      "trace_sha256": "2a9611ac98d2b6bae630ee8ac556325a3019b8a069901593e5fb18cdcda59e29"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C4_turn_left_B1_axis1_a0.006_primary",
+      "status": "early_violation",
+      "stage": "regime-precheck",
+      "ordinal": 47,
+      "trace_sha256": "43713d1d337688d42a7c5e29e8a37c30ec2f57ce0ee4fbd7b40b43d9a429b536"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C4_slope_dive_B1_axis1_a0.006_primary",
+      "status": "early_violation",
+      "stage": "regime-precheck",
+      "ordinal": 48,
+      "trace_sha256": "4a36f1b8cdccdcde26b2cc04e4b8ff5206934913eb2841317d2138a12e0949da"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C4_turn_left_zero_axis-1_a0_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck",
+      "ordinal": 43,
+      "trace_sha256": "3c2de22d01a477fa9e96547729183fa57bda95bfa5d4a008d4704afe6e49623b"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C4_slope_dive_B1_axis2_a0.006_primary",
+      "status": "early_violation",
+      "stage": "regime-precheck",
+      "ordinal": 50,
+      "trace_sha256": "58fdb030e24957ccb5c769586c4470099e07aa996609b255d8cd504248977316"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C4_slope_dive_B4_axis0_a0.006_primary",
+      "status": "early_violation",
+      "stage": "regime-precheck",
+      "ordinal": 52,
+      "trace_sha256": "3b42d3b273dbd0787b305e534fcde94e6316b878f1afedeadbd0a693d32f699e"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C4_turn_left_B4_axis1_a0.006_primary",
+      "status": "early_violation",
+      "stage": "regime-precheck",
+      "ordinal": 53,
+      "trace_sha256": "f62af8ac22b0d02c059fdab961906179a370a6af48da53fdade7cf1b2fe9ad93"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C4_slope_dive_B4_axis1_a0.006_primary",
+      "status": "early_violation",
+      "stage": "regime-precheck",
+      "ordinal": 54,
+      "trace_sha256": "b3d73273b6e98d5701cba704c39f284e0d1f3962f0c89925cb8dcae6f78c5817"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C4_turn_left_B1_axis0_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck",
+      "ordinal": 45,
+      "trace_sha256": "6e77ae95faf0d9d8a1794cd8222d6f51e06c9a5a114d3213d3959d00135651ac"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C4_slope_dive_B4_axis2_a0.006_primary",
+      "status": "early_violation",
+      "stage": "regime-precheck",
+      "ordinal": 56,
+      "trace_sha256": "29308da8ba8b4cc932e04a34b51833a6926ca28c3a18154f8c7f46f69ce71050"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C4_turn_left_B1_axis2_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck",
+      "ordinal": 49,
+      "trace_sha256": "1e3956f74eb6cc93d259adeaedcde701723a4959ed7359c75e9aee77db64af89"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C4_turn_left_B4_axis0_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck",
+      "ordinal": 51,
+      "trace_sha256": "2ff8890f88f7cc55729b9c5c602b6004478f1514280b99b4ba4b02a57c06bb9b"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C4_turn_left_B4_axis2_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck",
+      "ordinal": 55,
+      "trace_sha256": "83b00b4ebb6bc21d4134f6f5f8b40b66d8e71acda533336c6f56cd9cca8545d4"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C0_s_bend_periodic_zero_axis-1_a0_primary",
+      "status": "complete_valid",
+      "stage": "regime-precheck",
+      "ordinal": 57,
+      "trace_sha256": "9547335ce3ec134e09a63b7e29d7bf968cd2672e5a4f7b20e324f2d5f72a8ced"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C0_s_bend_periodic_k4_axis0_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "regime-precheck",
+      "ordinal": 58,
+      "trace_sha256": "61eeacebf9ee39d22d6085afd9f3c5a80586cbd7bb34bbdced5c346e51e64b3f"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C0_s_bend_periodic_k4_axis1_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck",
+      "ordinal": 59,
+      "trace_sha256": "16e0811020b156741a2a43f6109b3609a19cc1a6e24bc92826cd34b4f702a5c1"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C0_s_bend_periodic_k4_axis2_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "regime-precheck",
+      "ordinal": 60,
+      "trace_sha256": "cab5d0ddf918243b7b94d55dcf06e6f6f832a6c48be264bf9d523d8b55453c4b"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C0_s_bend_periodic_k32_axis0_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "regime-precheck",
+      "ordinal": 61,
+      "trace_sha256": "d2ba0722f4ddd70eaa948d12e787835a3dbba8bb1fe79eb032667067ab6a31f9"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C0_s_bend_periodic_k32_axis1_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck",
+      "ordinal": 62,
+      "trace_sha256": "21822921686f66cc8eb4e76dc203bca3f92c4aebc0577f902678b8b4d6eebda4"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C4_s_bend_periodic_k4_axis1_a0.006_primary",
+      "status": "early_violation",
+      "stage": "regime-precheck",
+      "ordinal": 66,
+      "trace_sha256": "83987303e190c10b4073c9f37edb78f43b985afa6308d0ea1781add983c5ead0"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C0_s_bend_periodic_k32_axis2_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "regime-precheck",
+      "ordinal": 63,
+      "trace_sha256": "ddd21f77d5af77d061002fb96eb6682092a3ae11a71852b228cb145f3741cd9c"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C4_s_bend_periodic_zero_axis-1_a0_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck",
+      "ordinal": 64,
+      "trace_sha256": "fd12aaa414619f491d7b8fcb9df941374ab46ee07bc0d5782ce8a2d9270f7e44"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C4_s_bend_periodic_k32_axis1_a0.006_primary",
+      "status": "early_violation",
+      "stage": "regime-precheck",
+      "ordinal": 69,
+      "trace_sha256": "f613a540fc3623a2ed575809f8486d12a7bf32ce148647eb845bfaa80435f70e"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C4_s_bend_periodic_k4_axis0_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck",
+      "ordinal": 65,
+      "trace_sha256": "7ea520aebd1a0da90527cda476fdd07913f61dec92a9ffb0021acf14dfc54f1f"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C4_s_bend_periodic_k4_axis2_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck",
+      "ordinal": 67,
+      "trace_sha256": "cabc5134172d91327ee59a56c2d20f42a16f778b11319f0f4526e27c07d05b7e"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C4_s_bend_periodic_k32_axis0_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck",
+      "ordinal": 68,
+      "trace_sha256": "5d0f326d5ebb2ed3f332ed71dca0bd0eeb6646b5e258c2369c7841313cdbe337"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C4_s_bend_periodic_k32_axis2_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck",
+      "ordinal": 70,
+      "trace_sha256": "3aa71c54abb6a525068eb49170a8464cc4c116f8246e38854a472da3aea29caa"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C0_coupled_periodic_zero_axis-1_a0_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck",
+      "ordinal": 71,
+      "trace_sha256": "ac70090994a37077b8643839928f4074c002751d9d915d1a2226b9747205e552"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C0_coupled_periodic_k4_axis0_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck",
+      "ordinal": 72,
+      "trace_sha256": "fe0af38bdc2b31032d96ad8ce531f317ea1404ea449b089279efdd2e13d82c85"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C0_coupled_periodic_k4_axis1_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck",
+      "ordinal": 73,
+      "trace_sha256": "3a8b5f9031cbc2398ba5593d3a059c48828bf8194dd177c2f22dd1e771b3b403"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C0_coupled_periodic_k4_axis2_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck",
+      "ordinal": 74,
+      "trace_sha256": "bf16717e5febb35ff8767080aaef01291140781204e2f6da7f82d317d19fc5d3"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C4_coupled_periodic_zero_axis-1_a0_primary",
+      "status": "early_violation",
+      "stage": "regime-precheck",
+      "ordinal": 78,
+      "trace_sha256": "92d836dbf6b5f19c8205c7c9c98de429c611e40897849cf27f8bb517deee79fa"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C4_coupled_periodic_k4_axis0_a0.006_primary",
+      "status": "early_violation",
+      "stage": "regime-precheck",
+      "ordinal": 79,
+      "trace_sha256": "36a56374019d2787df91d6c29ae0d97b21028aeb1b1bc628a9a94c27a161f800"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C4_coupled_periodic_k4_axis1_a0.006_primary",
+      "status": "early_violation",
+      "stage": "regime-precheck",
+      "ordinal": 80,
+      "trace_sha256": "1aabbd7ef075a12ed984c98539c5463c85a8825b14247f2ef0df10d9d4360828"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C4_coupled_periodic_k4_axis2_a0.006_primary",
+      "status": "early_violation",
+      "stage": "regime-precheck",
+      "ordinal": 81,
+      "trace_sha256": "4837bf1047da47681304cc4d9e10cffda4a00f58b0ebb09e4a1e6f1050adc95e"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C4_coupled_periodic_k32_axis0_a0.006_primary",
+      "status": "early_violation",
+      "stage": "regime-precheck",
+      "ordinal": 82,
+      "trace_sha256": "7ae96236e759afef8b9f9e66292898328edbd4a4991cfb37625bc14b530cca47"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C0_coupled_periodic_k32_axis0_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck",
+      "ordinal": 75,
+      "trace_sha256": "ff27645d0b15d743b26ad3befaa9288921f5a4ac79d4835f99c8a04912d74fda"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C4_coupled_periodic_k32_axis1_a0.006_primary",
+      "status": "early_violation",
+      "stage": "regime-precheck",
+      "ordinal": 83,
+      "trace_sha256": "002994a2e81593f9d4652bbdcd971d59ad8e5f951c069a49cee0703a1f639f35"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C4_coupled_periodic_k32_axis2_a0.006_primary",
+      "status": "early_violation",
+      "stage": "regime-precheck",
+      "ordinal": 84,
+      "trace_sha256": "9b4688fd6506442ff1465411c83bc7f66003b72dccdcb585b81e3e674d68aa92"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C0_coupled_periodic_k32_axis1_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck",
+      "ordinal": 76,
+      "trace_sha256": "f6a7f6d73712ce257c209ecf7faf24dfa4b728ffcb72a8d534df6ead82ccc764"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v15_C0_coupled_periodic_k32_axis2_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck",
+      "ordinal": 77,
+      "trace_sha256": "c89f38f61271a86e2c52ba42f8e734515a10e62e2928e1a29fc6e150d3981118"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_slope_climb_zero_axis-1_a0_primary",
+      "status": "complete_valid",
+      "stage": "regime-precheck-10m",
+      "ordinal": 2,
+      "trace_sha256": "60042742d8bee9e16e546ab39e4d1fbbcac08600e48a4e774067dc7ab7b10406"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_turn_right_zero_axis-1_a0_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck-10m",
+      "ordinal": 1,
+      "trace_sha256": "627f752cf7aeb4eb7eea57f9f7bb716a15e52c17e2cbc845d7d78c0708cf0cd8"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_slope_climb_B1_axis0_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "regime-precheck-10m",
+      "ordinal": 4,
+      "trace_sha256": "022e52be064d81839e962895aafcef728f30a40e6ab436db5fb3bceceae587a2"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_turn_right_B1_axis0_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck-10m",
+      "ordinal": 3,
+      "trace_sha256": "00a8eb04ce787a67a8424309bb51b493abf4a3e79e399a37f7797c1c39b12e15"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_slope_climb_B1_axis1_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "regime-precheck-10m",
+      "ordinal": 6,
+      "trace_sha256": "5862a251c4242c9afce0b20dbd299070446e7132fc812726b7ec9a80c3ab0f04"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_turn_right_B1_axis1_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck-10m",
+      "ordinal": 5,
+      "trace_sha256": "12f10339faf92a16577c4e9f731997da6b20c9e28e9945eaf77f4c57acad1084"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_slope_climb_B1_axis2_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "regime-precheck-10m",
+      "ordinal": 8,
+      "trace_sha256": "5968e818c395d73122ab013bade3abe9e69967f096103293a1b8a12c8677259d"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_turn_right_B1_axis2_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck-10m",
+      "ordinal": 7,
+      "trace_sha256": "f5b54a28e98d3da5e7d6b7a59341935978af87bbdcd99cdab37775091f5116e3"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_turn_right_B4_axis0_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck-10m",
+      "ordinal": 9,
+      "trace_sha256": "fae651d2ae77aa899eebb32daf3a08fc04ba9a6c015faabef3bb9de7d362769b"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_slope_climb_B4_axis0_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck-10m",
+      "ordinal": 10,
+      "trace_sha256": "78d140f51d1ac617c14ecb43196cec2d2b8bef763f0565bf2ca1b330d84d2d30"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_slope_climb_B4_axis1_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck-10m",
+      "ordinal": 12,
+      "trace_sha256": "0ad96a67808f386d757b84713658e343ac2c8396200ef387daf917256113b9b1"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_turn_right_B4_axis1_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck-10m",
+      "ordinal": 11,
+      "trace_sha256": "01e841ca4a457fcc872fc62e5e66f6cd7b2548ca7c4f1b9b194927a27135a579"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_slope_climb_B4_axis2_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "regime-precheck-10m",
+      "ordinal": 14,
+      "trace_sha256": "dca2249d18c9db19c8bbc68557172a96dbc5f063fea2fd0454f9b1ddaaf25159"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_turn_right_B4_axis2_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck-10m",
+      "ordinal": 13,
+      "trace_sha256": "fb76e4dc4150b696dc3ea6984d0091d15e0f5e8325d1d901c4b09bc12b3ad14b"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C4_slope_climb_zero_axis-1_a0_primary",
+      "status": "complete_valid",
+      "stage": "regime-precheck-10m",
+      "ordinal": 16,
+      "trace_sha256": "9574cc1e65a9ee8226d2709eacbc964036cdce74d151aaa3a52960dcb58984ac"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C4_turn_right_zero_axis-1_a0_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck-10m",
+      "ordinal": 15,
+      "trace_sha256": "1faa35dfe270ebc9d5d3c5912157a31ed40b19fbb4ae0ce097e762fc6fbf984d"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C4_turn_right_B1_axis0_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck-10m",
+      "ordinal": 17,
+      "trace_sha256": "f58ef77cf3e41bb2fde43f014fb095019d659551d13185cd56f270fd4b254f33"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C4_slope_climb_B1_axis0_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "regime-precheck-10m",
+      "ordinal": 18,
+      "trace_sha256": "e57e65ecc7f33ecc4ee1ca826403f5d6c3da1753f9ab41cf6c02d35be36a72be"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C4_slope_climb_B1_axis1_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "regime-precheck-10m",
+      "ordinal": 20,
+      "trace_sha256": "c003454ecc4782041369c7d875051c9abbd9d2d45fa27e576767b57490f85323"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C4_turn_right_B1_axis1_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck-10m",
+      "ordinal": 19,
+      "trace_sha256": "2e2ba929f44e68a04f545e0ded8cbb6f5d1702e9804c9d339565512dd200a9dc"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C4_slope_climb_B1_axis2_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "regime-precheck-10m",
+      "ordinal": 22,
+      "trace_sha256": "5eaa3066d6134a47529e2ca2103b9c332b2a0b4ffd3919b94dc915dbd947730e"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C4_turn_right_B1_axis2_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck-10m",
+      "ordinal": 21,
+      "trace_sha256": "cc7a994ff50ab0a19e5995446e19f1351c99813233115a40ce4fbece41dcfdaa"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C4_turn_right_B4_axis0_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck-10m",
+      "ordinal": 23,
+      "trace_sha256": "227888b071372300a81e4e6414f8116611ba7b3b39b5892b3dadbeb8ea2424e9"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C4_slope_climb_B4_axis0_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck-10m",
+      "ordinal": 24,
+      "trace_sha256": "3f2df04475a1912560837090081dd44c32ab5771d1a29cc27cc06f4f4c8629c7"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C4_slope_climb_B4_axis1_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck-10m",
+      "ordinal": 26,
+      "trace_sha256": "81942cce8359c37582dd76a49e77649f7a9b2ef8cc8391689ecd9f77db678b08"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C4_turn_right_B4_axis1_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck-10m",
+      "ordinal": 25,
+      "trace_sha256": "4adcfae085a2aaaacc3ea34305970774acc2cfe19dce010152ccaa664b594932"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C4_slope_climb_B4_axis2_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "regime-precheck-10m",
+      "ordinal": 28,
+      "trace_sha256": "b10c506d1d738c602d71954b197ef4aefad183ddcb4f07915f9b3714019e0b71"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C4_turn_right_B4_axis2_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck-10m",
+      "ordinal": 27,
+      "trace_sha256": "b338cc56b31d067c8f55c2a5c220cce36a230d242faacc589213c1f631cfe2b7"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_slope_dive_zero_axis-1_a0_primary",
+      "status": "complete_valid",
+      "stage": "regime-precheck-10m",
+      "ordinal": 30,
+      "trace_sha256": "f7bcbce5be3e1f8aea464f558eee8f664dcf4225af7f49de750609202435f7b0"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_turn_left_zero_axis-1_a0_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck-10m",
+      "ordinal": 29,
+      "trace_sha256": "4f9ce7b99aa1b2411bab0e254e03e198b30050704a4793aa9d3921c192fbad5e"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_turn_left_B1_axis0_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck-10m",
+      "ordinal": 31,
+      "trace_sha256": "c2b4adaf7e8db46cb89b5bba8e650b575d24447037881f8c55d96be2e9b32a05"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_slope_dive_B1_axis0_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "regime-precheck-10m",
+      "ordinal": 32,
+      "trace_sha256": "376ba4a37cd65f0db99fd484140f8e875893b95dc7a1aa033a1bd4ea9a4f6f5d"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_slope_dive_B1_axis1_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "regime-precheck-10m",
+      "ordinal": 34,
+      "trace_sha256": "ea7390dbc8f9b6d93029f981b8ccd54d83c13aa38cea64c350bc9077372a64be"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_turn_left_B1_axis1_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck-10m",
+      "ordinal": 33,
+      "trace_sha256": "4528854abca0c780c8222c54b34dfbc51336ce61794a78648a06bf0dc9726d1c"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_turn_left_B1_axis2_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck-10m",
+      "ordinal": 35,
+      "trace_sha256": "688ec559c78d82c3c36a25fccc491398dc6dfe0326136d2359fb2c6f01f3d441"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_slope_dive_B1_axis2_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "regime-precheck-10m",
+      "ordinal": 36,
+      "trace_sha256": "b9193fc119f66cc88f11f55e1293093ac8e4f9920c9bef0534a566c0e0473558"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_turn_left_B4_axis0_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck-10m",
+      "ordinal": 37,
+      "trace_sha256": "becef2ffb65c68e0129fa74279df0f1db13f3f7a04a07094c557bbf65acb8172"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_slope_dive_B4_axis0_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck-10m",
+      "ordinal": 38,
+      "trace_sha256": "97545fb586d2ee7a4a0dcbf94e75cd47ad653ef536bcc3edc5677fa7c08e3c29"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_slope_dive_B4_axis1_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck-10m",
+      "ordinal": 40,
+      "trace_sha256": "167f12a3643169f9781b568458a75f25dd20dc35e6a894cea12553d09ba70610"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_turn_left_B4_axis1_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck-10m",
+      "ordinal": 39,
+      "trace_sha256": "7eaec8d50dd93927ed636159fe3de8ea9d3023e16e2b6b31d5321edbf58db5bd"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_turn_left_B4_axis2_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck-10m",
+      "ordinal": 41,
+      "trace_sha256": "40bf6cb464b29df81e418b0a7d9aa16cdbbd696ba7759cc01204639568e13952"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_slope_dive_B4_axis2_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "regime-precheck-10m",
+      "ordinal": 42,
+      "trace_sha256": "564db0865393e1c22ff6e31f5c93c21bc22c967a19b8a66dc085f43a430014af"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C4_turn_left_zero_axis-1_a0_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck-10m",
+      "ordinal": 43,
+      "trace_sha256": "1c65615fcd9973d6cfc9ab66eff003bcd33d830fcbc38cdd5e00e84256ac186e"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C4_slope_dive_zero_axis-1_a0_primary",
+      "status": "complete_valid",
+      "stage": "regime-precheck-10m",
+      "ordinal": 44,
+      "trace_sha256": "c05695594ad4305a88ffecc2a192df667638ffd318fcfa0a8534159215645cb3"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C4_turn_left_B1_axis0_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck-10m",
+      "ordinal": 45,
+      "trace_sha256": "e3d564ca7eceeb33538b7f2920692a65bc1fb98e1cabb57c8c97d14e1d2f36b9"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C4_slope_dive_B1_axis0_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "regime-precheck-10m",
+      "ordinal": 46,
+      "trace_sha256": "2c0e2ac9a973f76152de810191aba7b5cc083689a16c920886972f9df28b4877"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C4_slope_dive_B1_axis1_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "regime-precheck-10m",
+      "ordinal": 48,
+      "trace_sha256": "56a8b903b7d5a882d5d7edc484ce575310e5b9f2842ae79b7cee5e35b412c7aa"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C4_turn_left_B1_axis1_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck-10m",
+      "ordinal": 47,
+      "trace_sha256": "d012740e186e017e8eea93dcaad91308fc91dab842af16a8d0f54e6f7edfc56b"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C4_slope_dive_B1_axis2_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "regime-precheck-10m",
+      "ordinal": 50,
+      "trace_sha256": "dd9da5e71f94d1ae1b6b813aab9fb97f5729501ce92086963fa8def6ee6c1204"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C4_turn_left_B1_axis2_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck-10m",
+      "ordinal": 49,
+      "trace_sha256": "afd9ac3fc915f6a497f6e2dcd6e3037f8af64380eb80b5bd1ad88b704b1c553f"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C4_turn_left_B4_axis0_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck-10m",
+      "ordinal": 51,
+      "trace_sha256": "31de3cdcd6cb85a741dfa32f1a64df11487af2d9383011c92d5d5dffd4fb8233"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C4_slope_dive_B4_axis0_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck-10m",
+      "ordinal": 52,
+      "trace_sha256": "d18bb1c50c88755a45d3c1fe5ff84bd4d6f737187d75e18ec63a028112a41d6b"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C4_slope_dive_B4_axis1_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck-10m",
+      "ordinal": 54,
+      "trace_sha256": "67ea7a28eedd4cbd322a7bc335bf99e86b935a134b1d597954f3da326eb46316"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C4_turn_left_B4_axis1_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck-10m",
+      "ordinal": 53,
+      "trace_sha256": "30333d12e550df5b89762d1ca5d4afee0b3a3e9e8fac0f1aac96ad66a469629b"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C4_turn_left_B4_axis2_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck-10m",
+      "ordinal": 55,
+      "trace_sha256": "705cefeb068020fe160f48ff42a6e2e684b5163a73fff964f974a8bcf088dd8c"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C4_slope_dive_B4_axis2_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "regime-precheck-10m",
+      "ordinal": 56,
+      "trace_sha256": "9a2484813bdd212b22ed7d7ae11a59c721aec7c3659e6019c86e95a928b3002d"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_s_bend_periodic_zero_axis-1_a0_primary",
+      "status": "complete_valid",
+      "stage": "regime-precheck-10m",
+      "ordinal": 57,
+      "trace_sha256": "402bd2b3aaa220cc115b0684f89b24f4ea4e228eb575bc6d819ff18820ab9ec2"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_s_bend_periodic_k4_axis0_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "regime-precheck-10m",
+      "ordinal": 58,
+      "trace_sha256": "ecef1ef7241f88a70179f4278e366e807da1aa94fe9258ce143dde89f935afe7"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_s_bend_periodic_k4_axis1_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "regime-precheck-10m",
+      "ordinal": 59,
+      "trace_sha256": "121238c02c4b39e0f6521e859d5e6573be8582e2bebe4624ac589d4739540b8d"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_s_bend_periodic_k4_axis2_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "regime-precheck-10m",
+      "ordinal": 60,
+      "trace_sha256": "719b9c1dfe77e4496841b23fc3520abb6324fa23586128335f1750da3b1a8303"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_s_bend_periodic_k32_axis0_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "regime-precheck-10m",
+      "ordinal": 61,
+      "trace_sha256": "85487aa5215f6b51da118af225112052028efa7dac231f2afc0dbaa2f18a82df"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_s_bend_periodic_k32_axis1_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "regime-precheck-10m",
+      "ordinal": 62,
+      "trace_sha256": "78a6ff11b123be9e73d965074bd67a36f16bde2ae73d1d66b94ea64c3135105f"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_s_bend_periodic_k32_axis2_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "regime-precheck-10m",
+      "ordinal": 63,
+      "trace_sha256": "f0f53b2deedf3f6f03cb16c53bcc7c0d5d4aab92e7b2a47062d79f6c7e124a7d"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C4_s_bend_periodic_zero_axis-1_a0_primary",
+      "status": "complete_valid",
+      "stage": "regime-precheck-10m",
+      "ordinal": 64,
+      "trace_sha256": "add8c86f9189974d9efa1e4458d2eb46d6c53acd8e19378eb06c787fc683c868"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C4_s_bend_periodic_k4_axis0_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "regime-precheck-10m",
+      "ordinal": 65,
+      "trace_sha256": "3a564cb20c4c2a3def39a6034b454d5a5790f7b32cbc1f2e8906286c9324f04a"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C4_s_bend_periodic_k4_axis1_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "regime-precheck-10m",
+      "ordinal": 66,
+      "trace_sha256": "75490c17c5d4f51d9a861d4e46759ba0d8448c3b5d6b2dc49c94624a712d363e"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C4_s_bend_periodic_k4_axis2_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "regime-precheck-10m",
+      "ordinal": 67,
+      "trace_sha256": "7fc967d3e0376769cea2d44f5fb1eb76599101aa2a0b6625d7e3e408c7bd1240"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C4_s_bend_periodic_k32_axis0_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck-10m",
+      "ordinal": 68,
+      "trace_sha256": "9803083eb8ac197fa848b7f4403f97982d0ee5cb99122da28e1cb3fa3b377df6"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C4_s_bend_periodic_k32_axis1_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck-10m",
+      "ordinal": 69,
+      "trace_sha256": "bafbefd65955263feb63848fa2d575589ad9f7dbdaaaf029ab48884e1b4a582b"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C4_s_bend_periodic_k32_axis2_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "regime-precheck-10m",
+      "ordinal": 70,
+      "trace_sha256": "8a742eaeaea818980a48647222dbb42a4bc88d0873de8073e1f3a14e530f261b"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_coupled_periodic_zero_axis-1_a0_primary",
+      "status": "complete_valid",
+      "stage": "regime-precheck-10m",
+      "ordinal": 71,
+      "trace_sha256": "274203946d3564c91556c55f612c6456fe1a264d9683e1586f6ae27c9beebcc7"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_coupled_periodic_k4_axis0_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "regime-precheck-10m",
+      "ordinal": 72,
+      "trace_sha256": "5b56818c43dba206a5f15c7dc1fc49aa1a4caf1f989ade4121cd704959a013fd"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_coupled_periodic_k4_axis1_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "regime-precheck-10m",
+      "ordinal": 73,
+      "trace_sha256": "485c1b491630441d1f09d0f14137a1ad754afb6c4c408060e21bc42ad7e3c95d"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_coupled_periodic_k4_axis2_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "regime-precheck-10m",
+      "ordinal": 74,
+      "trace_sha256": "2e25ec13d43bac7db26c293c3d492ab5079e10d0873be300fdbfcdaabb40a3d9"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_coupled_periodic_k32_axis0_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "regime-precheck-10m",
+      "ordinal": 75,
+      "trace_sha256": "a05f1a3de8b5f134518f537beadf6a890650e752a8efdec77ade21f681a8de40"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_coupled_periodic_k32_axis1_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "regime-precheck-10m",
+      "ordinal": 76,
+      "trace_sha256": "b4fcc71b46e3d348c5aa6da9d7f43a5acda8908ad763317499ec44b588a1945b"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_coupled_periodic_k32_axis2_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "regime-precheck-10m",
+      "ordinal": 77,
+      "trace_sha256": "b40b3381c5d2ea4a864a54fdc2983276f9792b3dee814b2b93b86bb67e073f15"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C4_coupled_periodic_zero_axis-1_a0_primary",
+      "status": "complete_valid",
+      "stage": "regime-precheck-10m",
+      "ordinal": 78,
+      "trace_sha256": "8b39ff602cc411fcfdf8bcd26b05a2394c50ff223c7f0ea01591ab6f7c70a747"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C4_coupled_periodic_k4_axis0_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "regime-precheck-10m",
+      "ordinal": 79,
+      "trace_sha256": "387216b08f102fff26c146ddeaedfdd2aed48182598958cca798340bcd5d6714"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C4_coupled_periodic_k4_axis1_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "regime-precheck-10m",
+      "ordinal": 80,
+      "trace_sha256": "927247aa6bb5f72ebc6a14b33456fc345682d7b4e9048b0e68a5fccfd136a244"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C4_coupled_periodic_k4_axis2_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "regime-precheck-10m",
+      "ordinal": 81,
+      "trace_sha256": "e8071558144eefc02e51dc1277080af02b7f5e8f7f47a9c7fff3b7305381ee58"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C4_coupled_periodic_k32_axis0_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck-10m",
+      "ordinal": 82,
+      "trace_sha256": "9a85b62c35aa2305a30c92ad1b3d6a93073a3a137333c3d40ccf3f511c8b96b3"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C4_coupled_periodic_k32_axis1_a0.006_primary",
+      "status": "complete_constrained",
+      "stage": "regime-precheck-10m",
+      "ordinal": 83,
+      "trace_sha256": "a668b4ffcdaacce2e403131dda9643df1afde3988419689311feb24b7b38d591"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C4_coupled_periodic_k32_axis2_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "regime-precheck-10m",
+      "ordinal": 84,
+      "trace_sha256": "6a19fa127db3e5cb6a57233fd763ae156886c60771dd83a847a5f5e8c26158c9"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_s_bend_periodic_k10_axis0_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "periodic-probes",
+      "ordinal": 5,
+      "trace_sha256": "a3deb1e99004686d42d60dccaeade0ef7e52b1ada6ec5c7bb3a9d3506078539d"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_s_bend_periodic_k6_axis0_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "periodic-probes",
+      "ordinal": 2,
+      "trace_sha256": "ef48c294d674d96c3fa0d9abe4ab3798dc4d8d6c473c8d8e9bd7c8fa43a43717"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_s_bend_periodic_k6_axis2_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "periodic-probes",
+      "ordinal": 4,
+      "trace_sha256": "713a6ed6ab96a83bdc2dfa845fbd9d89872527fbf4afd55e1951b2bf0ced7811"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_s_bend_periodic_k6_axis1_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "periodic-probes",
+      "ordinal": 3,
+      "trace_sha256": "307a082fa35b208f70b8e2e8e43260c80da7197175e20d0a0994266dca871c91"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_s_bend_periodic_k18_axis0_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "periodic-probes",
+      "ordinal": 8,
+      "trace_sha256": "2be88191dc12f3334e3742275263e9b56789b0fbcffe7a498f4a69a6ffac65e2"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_s_bend_periodic_k10_axis2_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "periodic-probes",
+      "ordinal": 7,
+      "trace_sha256": "ceb5ffcab56afd7049381778ec411d1bab01f65055169424622f9250db1a932c"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_s_bend_periodic_k10_axis1_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "periodic-probes",
+      "ordinal": 6,
+      "trace_sha256": "07755373d404fb873a3856aefe56dd3b0aa0795b392409b80e5a6cb76410e153"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_s_bend_periodic_k18_axis1_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "periodic-probes",
+      "ordinal": 9,
+      "trace_sha256": "995cdda592fd10797a33a977e2cdbf54fa583178a4d47a1f109cbff736de7d42"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_s_bend_periodic_k30_axis0_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "periodic-probes",
+      "ordinal": 11,
+      "trace_sha256": "8b5aac9827e322c739719891a72bee6a12717f42878255908f04e3bb26237961"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_s_bend_periodic_k18_axis2_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "periodic-probes",
+      "ordinal": 10,
+      "trace_sha256": "8214498d0380b15a60daee3e9ecb5a928e7cb2618f869e2eb40512f90aefdd7e"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_s_bend_periodic_k30_axis2_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "periodic-probes",
+      "ordinal": 13,
+      "trace_sha256": "db3d6871effea152c23180a255b6c9c0482c2106694c82d312d51e9c1d921db9"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_s_bend_periodic_k30_axis1_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "periodic-probes",
+      "ordinal": 12,
+      "trace_sha256": "8028c10bcddd8fac499d91d5a5a4ab62d45920e71a5998c96f7188e34c075fdf"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_coupled_periodic_k6_axis0_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "periodic-probes",
+      "ordinal": 28,
+      "trace_sha256": "78ac8ed86ff46c3845313e968adf1691dc88254af589137d7f34966314ee98f5"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_coupled_periodic_k6_axis1_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "periodic-probes",
+      "ordinal": 29,
+      "trace_sha256": "1ec2db86038e5c7ee7fe80a99b3ac6dabf04f6f932be1e6061a23a643011494c"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_coupled_periodic_k10_axis0_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "periodic-probes",
+      "ordinal": 31,
+      "trace_sha256": "485e582cdfee5856050a2286861c16c5ad19457e310327fbcf22e7d6f5415fc6"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_coupled_periodic_k6_axis2_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "periodic-probes",
+      "ordinal": 30,
+      "trace_sha256": "6220918d6c2a911ee09e4c9411d851558b58f9084a9823c36bc5382634bc998d"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_coupled_periodic_k10_axis2_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "periodic-probes",
+      "ordinal": 33,
+      "trace_sha256": "d4e9055c3d954b868ebe1778b24f8f5e31545ebe0f5addb9cd5782ecf4a9498e"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_coupled_periodic_k10_axis1_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "periodic-probes",
+      "ordinal": 32,
+      "trace_sha256": "55ef97e403c9b8cb4c4d42ef1a18310c5413d54e76e1051efe5ab0a9a34f93f9"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_coupled_periodic_k18_axis1_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "periodic-probes",
+      "ordinal": 35,
+      "trace_sha256": "a8bb916dbf59ec7b6c796113bed30ce4270bcd173917cb17faf64303a199730c"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_coupled_periodic_k18_axis0_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "periodic-probes",
+      "ordinal": 34,
+      "trace_sha256": "d6fd07de78c2c64b4f4af555388e1440d79a78edb7a2a8d98942516d2157f04a"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_coupled_periodic_k30_axis0_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "periodic-probes",
+      "ordinal": 37,
+      "trace_sha256": "dc66cbffa4567b9aa1b1bea57102675c1f577302508d90fd47facc29ed865b3b"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_coupled_periodic_k18_axis2_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "periodic-probes",
+      "ordinal": 36,
+      "trace_sha256": "a57169850f2c3f2d35ebd1ec995aa1658f743331d757c7dedc77cda8b5a9f002"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_coupled_periodic_k30_axis1_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "periodic-probes",
+      "ordinal": 38,
+      "trace_sha256": "4dc6653d1c59f0723271aef9d2e05db05fcd6693fc7c7d666129c572977b1105"
+    },
+    {
+      "run_id": "p54b768131bb1_model10_v10_C0_coupled_periodic_k30_axis2_a0.006_primary",
+      "status": "complete_valid",
+      "stage": "periodic-probes",
+      "ordinal": 39,
+      "trace_sha256": "041c7af53fc3fe852c2a51015254b1d78687acb3db820de98417bdbd4e3fc696"
+    }
+  ]
+}

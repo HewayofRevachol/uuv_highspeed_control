@@ -1,0 +1,62 @@
+{
+  "run_id": "pba1fd4e15cca_model22_v15_C0_straight_B1_axis2_a0.006_primary",
+  "protocol_sha256": "ba1fd4e15cca34658ea1feb148d54e958c5672e63c33186a7b263568b25cc125",
+  "source_sha256": {
+    "experiments/gs12_10state_experiment/analysis/run_22state_campaign.py": "8d75cd352957b5f17f5dcf42ace7b0963e15d5aed0b274b5f35a31aa7c2ea6bd",
+    "experiments/gs12_10state_experiment/src/reference10.py": "42b4f239470ab82a754572eb2a89c0e461def213ee00ced34637cb70de85a424",
+    "experiments/gs12_analaysis/frequency_extension_src/plant_harness.py": "2b6f6f32c2a488380154aaa5f5f175a13fca05829cc4070aac4c9ecf95fb5a9b",
+    "simulator/batch_mpc.py": "4d945b436b8d5abd4addb8c4efc67a70da5707692b851c08f18fd29190db7f9a",
+    "simulator/model.py": "ad1e22f5e11a4c9dd7466a2811603e953f891f4bb5a0d0fe198b6b224f9ecff8",
+    "simulator/rti_symbolic.py": "bf6a3f66564df1d24af9196bea83f3342b18fd19baa2fa4902218951c90028e7",
+    "aav_mpc/condensed_mpc.py": "2fdd68252f5728a83a978f7ed0194cd6302c6d54622b6beb873aa9431dfc456a",
+    "aav_mpc/h15_target_domain.py": "45af83cc24635930558c26e9f3c3ad3408ad03b55cac48e84d7c389e0e76c761"
+  },
+  "reference_sha256": "d308b3e19afd6cf155e6aab27089c921ed59fe6b43553a19908b327ccbb09d06",
+  "controller_state_dim": 22,
+  "controller": "CondensedActuatorMPC",
+  "speed_mps": 15.0,
+  "condition": "C0",
+  "operating_regime": "straight",
+  "regime_parameters": {},
+  "plant_config": {
+    "mass": 1.0,
+    "damping": 1.0,
+    "thrust": 1.0,
+    "elevator": 1.0,
+    "rudder": 1.0,
+    "delay_steps": [
+      3,
+      3,
+      3
+    ],
+    "tau_scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "order": "first"
+  },
+  "band": "B1",
+  "probe_k": null,
+  "axis": 2,
+  "amplitude_per_line": 0.006,
+  "phase_id": "primary",
+  "status": "complete_valid",
+  "observed_duration_s": 256.0,
+  "control_periods": 2560,
+  "substeps": 12800,
+  "first_violation": null,
+  "qp_failures": 0,
+  "command_saturation_fraction": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "actual_saturation_fraction": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "trace_sha256": "7a7f4f562803ed5577f3c47d40795c2c919c51da2449d5165c15757d53ad603d",
+  "wall_s": 125.20350866000081
+}

@@ -1,0 +1,25 @@
+{
+  "selected_checkpoint": "models/checkpoint_update_4.pt",
+  "checkpoint_sha256": "0822578cc9bb9bea0c15cd4e52fae343030ced86b10350be76f4ec2eb10c2ed5",
+  "selection_rule": "quality valid first; lower task mean J; earlier checkpoint on tie",
+  "dev_gate_passed": false,
+  "locked_test_unlocked": false,
+  "F75_mean_J": 2.070854109113494e-08,
+  "selected_mean_J": 1.5835948722952384e-07,
+  "required_relative_improvement": 0.05,
+  "dev_episode_metrics_sha256": "7ef6715543ecddc922f0adf9068e14312e1c5b35f10e35565a6d0edbf9759826",
+  "dev_audit_sha256": "0b903feafa454514ce358bc424c31ec52fbdb8ace0703fa8988f4b4d79f0619b",
+  "protocol_sha256": "2bf8002253845958fe446ed3bdec8ecc4303f96dc4d3320db9106dd0e3b2aec4",
+  "action_schema_sha256": "c474cb4e087197d6f39cbbac2db2e819ab0b3a4b04fe4f32855654bc08b02357",
+  "reward_schema_sha256": "121caa570dccbbe422df728e76ca6970557576473efa660fb25ed5bc51fd9283",
+  "F75_definition": "fixed beta=.75 from first MPC solve; same frozen task, C4, W1, P0, scoring window [32,64] s",
+  "training_seed": 20261111,
+  "rule_cap75": "rho_high<.2 -> beta 0; <.8 -> beta .5; else beta .75; low energy holds previous target",
+  "quality_gate": {
+    "all_8_complete": true,
+    "new_qp_failures": 0,
+    "new_early_stops": 0,
+    "new_saturation": 0,
+    "selected_policy_command_spikes": 1
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "archived_static_first_8s": {
+    "command": 0.0,
+    "state_substep": 0.0,
+    "actual_substep": 0.0,
+    "archived_run_id": "7d76d865e3dae547"
+  },
+  "archived_fixed_beta_first_8s": {
+    "0.0": {
+      "command": 0.0,
+      "state_substep": 0.0,
+      "actual_substep": 0.0,
+      "reference_substep": 0.0,
+      "beta_t": 0.0,
+      "archived_run_id": "7ecd255a54fba8498ac4"
+    },
+    "0.5": {
+      "command": 0.0,
+      "state_substep": 0.0,
+      "actual_substep": 0.0,
+      "reference_substep": 0.0,
+      "beta_t": 0.0,
+      "archived_run_id": "bcd0c5b6de28a090e96a"
+    },
+    "0.75": {
+      "command": 0.0,
+      "state_substep": 0.0,
+      "actual_substep": 0.0,
+      "reference_substep": 0.0,
+      "beta_t": 0.0,
+      "archived_J_track_difference": 1.0339757656912846e-24,
+      "archived_run_id": "05a3e869876efc537a99"
+    }
+  },
+  "continuous_75_to_50_16s": {
+    "command": 1.1723022907972336e-07,
+    "state_substep": 4.263256414560601e-14,
+    "actual_substep": 3.457535058259964e-08,
+    "reference_substep": 0.0,
+    "beta_t": 2.220446049250313e-16,
+    "second_segment_end_s": 16.0
+  },
+  "tolerance": 2e-07
+}

@@ -1,0 +1,7 @@
+{
+  "stage": "regime-precheck-10m",
+  "completed": 84,
+  "planned": 84,
+  "last_run_id": "p54b768131bb1_model10_v10_C4_coupled_periodic_k32_axis2_a0.006_primary",
+  "last_status": "complete_valid"
+}

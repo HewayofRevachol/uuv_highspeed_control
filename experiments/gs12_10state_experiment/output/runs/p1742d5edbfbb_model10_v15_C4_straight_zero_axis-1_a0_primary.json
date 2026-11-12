@@ -1,0 +1,66 @@
+{
+  "run_id": "p1742d5edbfbb_model10_v15_C4_straight_zero_axis-1_a0_primary",
+  "protocol_sha256": "1742d5edbfbbea0e1693c7e7618173b0858edbf6b967c093bb751433d9607460",
+  "source_sha256": {
+    "analyze_experiment.py": "22d0c04ad3f65701e25038dc42c96573a3d0509d1159b36770025ae98d958ff7",
+    "controller10.py": "a34dc3b2c80db7e975825001af71fef12472e35af3f8c87e107631d31222447f",
+    "reference10.py": "42b4f239470ab82a754572eb2a89c0e461def213ee00ced34637cb70de85a424",
+    "run_experiment.py": "aefc5d4b34c131529bb7345a0f8776a9601dc7e356a183e060223014bc08ccfd"
+  },
+  "reference_sha256": "7a085c9917344f4498be9cbaaf8017781a7180b34b2035dc0aa98aece724d402",
+  "controller_state_dim": 10,
+  "controller": "condensed_rti_osqp",
+  "plant_config": {
+    "mass": 1.0,
+    "damping": 1.0,
+    "thrust": 1.0,
+    "elevator": 0.9,
+    "rudder": 0.9,
+    "delay_steps": [
+      3,
+      3,
+      3
+    ],
+    "tau_scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "order": "second_all"
+  },
+  "fin_gain_prediction": 1.0,
+  "operating_regime": "straight",
+  "regime_parameters": {},
+  "speed_mps": 15.0,
+  "condition": "C4",
+  "axis": -1,
+  "band": null,
+  "probe_k": null,
+  "amplitude_per_line": 0.0,
+  "phase_id": "primary",
+  "status": "complete_valid",
+  "observed_duration_s": 64.0,
+  "control_periods": 640,
+  "substeps": 3200,
+  "first_violation": null,
+  "qp_failures": 0,
+  "mean_qp_iterations": 25.0,
+  "mean_osqp_solve_time_s": 9.087691718750001e-05,
+  "command_saturation_fraction": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "actual_saturation_fraction": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "max_actual_normalized_abs": [
+    0.6597700359721221,
+    0.0,
+    0.0
+  ],
+  "trace_sha256": "dfa597f3cdc86fdf39b6bdbe949c3d83ff4cba40eab93705ff63aa04f3d6b692",
+  "wall_s": 6.847549652999987
+}

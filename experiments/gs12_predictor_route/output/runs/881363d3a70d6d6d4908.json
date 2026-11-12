@@ -1,0 +1,52 @@
+{
+  "run_id": "881363d3a70d6d6d4908",
+  "protocol_sha256": "2b2eac4e9ba6d05595e236ace6ea31eb1ffe854b90cbe58509a2d60cdb6c655b",
+  "task_sha256": "e486e9dc24143de5abb501d0e066de9c4d738cff1c0f56503134fe3df5d06e73",
+  "source_sha256": {
+    "experiments/gs12_predictor_route/run_static_locked.py": "90c5506caecd773ac888c95e9c64f6685da0bbd9d85fea68dafdb2cd1a2ec288",
+    "experiments/gs12_weight_route/runner_core.py": "52b2653fb8fc8b888e67ac1ee21f4fe80259717372fde759b7bb2da60d8a332a",
+    "experiments/gs12_joint_route/joint_reference.py": "31039d381c9e12ea33c36249d0e828ad1b5dc9be18c73bbddc071beb04478dc0",
+    "experiments/gs12_weight_route/reference_tasks.py": "7a94ede4e96c332d0261c76189628947556850d0455afd438e1a6eb34ceabd58",
+    "aav_mpc/condensed_mpc.py": "5723535249ddf9a186032f37989181e674fa95d209578ef883da85bf6f8cfb05",
+    "simulator/rti_symbolic.py": "bf6a3f66564df1d24af9196bea83f3342b18fd19baa2fa4902218951c90028e7",
+    "simulator/batch_mpc.py": "4d945b436b8d5abd4addb8c4efc67a70da5707692b851c08f18fd29190db7f9a",
+    "experiments/gs12_analaysis/frequency_extension_src/plant_harness.py": "2b6f6f32c2a488380154aaa5f5f175a13fca05829cc4070aac4c9ecf95fb5a9b"
+  },
+  "git_commit": "7ac1394d0d5e2fa7d02b4c72b0097b402d3ddb4e",
+  "split": "test_static_locked",
+  "task_id": "ps_lock_mixed",
+  "method_id": "beta_0",
+  "beta_or_policy": 0.0,
+  "model_gain": 1.0,
+  "model_tau": 1.0,
+  "a_depth": 1.4,
+  "a_rudder_rate": 0.7,
+  "speed_mps": 15.0,
+  "amplitude": 0.006,
+  "phase_rad": 0.92,
+  "completion_status": "complete_valid",
+  "duration_observed_s": 64.0,
+  "first_violation_time_s": null,
+  "first_violation": null,
+  "qp_failures": 0,
+  "command_saturation": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "actual_saturation": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "solve_p50_ms": 81.30158250060049,
+  "solve_p95_ms": 115.80281105016182,
+  "solve_p99_ms": 132.14458848917275,
+  "wall_s": 54.33628885499638,
+  "trace_sha256": "af4ee53f3e8a308c91b5cdd1b633f723ed2ec0654900373e2fd395ef80b78ea5",
+  "max_normalized_command_slew": 0.10651679664875494,
+  "max_normalized_actual_fin_slew": 0.020395173637504885,
+  "beta_mean": 0.0,
+  "beta_min": 0.0,
+  "beta_max": 0.0
+}

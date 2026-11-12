@@ -1,0 +1,238 @@
+{
+  "runs": [
+    {
+      "run_id": "350e81e7bf9ee321",
+      "task_id": "B1_east_a0.006",
+      "status": "complete_valid",
+      "trace_sha256": "f69cb93825cc65752a6ea3b3e367270c004892a551fadf9eab09f86884a17392"
+    },
+    {
+      "run_id": "2d1dc6e6c7258d42",
+      "task_id": "B1_east_a0.003",
+      "status": "complete_valid",
+      "trace_sha256": "d63a05c952295a04dfdd2d8639b4fabe359e39f871a9e97384e3b1474a6002f9"
+    },
+    {
+      "run_id": "452628cec59f04f6",
+      "task_id": "B1_east_a0.006",
+      "status": "complete_valid",
+      "trace_sha256": "7cc318c5dc07e72a155e58e5154b83be57863dad41cee9bca45d9e5bfb1bfd67"
+    },
+    {
+      "run_id": "ab5e7778ef8e8d28",
+      "task_id": "B1_east_a0.003",
+      "status": "complete_valid",
+      "trace_sha256": "83c61a325e14ce5717f28481de1c3df5d3959be5da3c756b863a69dcab63d6fc"
+    },
+    {
+      "run_id": "bb3e35eff528b6e8",
+      "task_id": "B1_east_a0.006",
+      "status": "complete_valid",
+      "trace_sha256": "32d1e3e208be732b930e6822a890c593124e32cc668f947f857781ae3fe3c60a"
+    },
+    {
+      "run_id": "169bf0e5f66fa8fd",
+      "task_id": "B1_east_a0.003",
+      "status": "complete_valid",
+      "trace_sha256": "bd8ac61cd09b4624abd857b35ce2cdf8eb65b25b2f2d0b95db80317d5daabf33"
+    },
+    {
+      "run_id": "dec948c4008374a8",
+      "task_id": "B1_depth_a0.006",
+      "status": "complete_valid",
+      "trace_sha256": "79f03251b33881db577e8ccf4741b73b3805020bb880f16e765e5609870f8e94"
+    },
+    {
+      "run_id": "010647fe1d6313cd",
+      "task_id": "B1_depth_a0.006",
+      "status": "complete_valid",
+      "trace_sha256": "826e5d022d9b2b0a72333eb3f60cc14b810e0a7d04c4bd37d340b0fc862a454e"
+    },
+    {
+      "run_id": "3729b415ebf6fc93",
+      "task_id": "B1_depth_a0.006",
+      "status": "complete_valid",
+      "trace_sha256": "f435394babc78aa48efd1bed090d24a803bb219477a428791b7e3f2d501ea62e"
+    },
+    {
+      "run_id": "510a94b0524b30c1",
+      "task_id": "B1_depth_a0.003",
+      "status": "complete_valid",
+      "trace_sha256": "dba3cea93681e9ec8fab5c7c9efca6456d94a42060a35c9012a470740e9166fd"
+    },
+    {
+      "run_id": "c1c0e9531f40b49f",
+      "task_id": "B1_speed_a0.006",
+      "status": "complete_valid",
+      "trace_sha256": "3d6abe45aa8ed85d6fa698d5e9949fe538603ff1eaf3fa73818daa05c65befc1"
+    },
+    {
+      "run_id": "0d2ef9ea2b53fce5",
+      "task_id": "B1_depth_a0.003",
+      "status": "complete_valid",
+      "trace_sha256": "c09de077a4503ba4f696ae012257f045f60ed6349f053754bdd31b79b9d020c0"
+    },
+    {
+      "run_id": "622c016968dc45e6",
+      "task_id": "B1_depth_a0.003",
+      "status": "complete_valid",
+      "trace_sha256": "8530beaec37aa27277227354771f3c45acb199e3ee3b844ba728d9dfef11bca5"
+    },
+    {
+      "run_id": "cb54cdc1c91bf44d",
+      "task_id": "B1_speed_a0.006",
+      "status": "complete_valid",
+      "trace_sha256": "23292fffc93a592507cd8681291407b3ac175d7d2342df33fe83a313b807ea4d"
+    },
+    {
+      "run_id": "2681bb7a0a1d0334",
+      "task_id": "B1_speed_a0.006",
+      "status": "complete_valid",
+      "trace_sha256": "1da1b33032b01d9cb21514a6d96ce789802230f7cde2b6457765031fc548c3d6"
+    },
+    {
+      "run_id": "f11a56173f524ad0",
+      "task_id": "B1_speed_a0.003",
+      "status": "complete_valid",
+      "trace_sha256": "33c8ab2efc2bb3f060a3e13eea196e7dd24f456bbb44282a24e7cc5ff93fc082"
+    },
+    {
+      "run_id": "9981093819b019ff",
+      "task_id": "B1_speed_a0.003",
+      "status": "complete_valid",
+      "trace_sha256": "f60ae76ce326986d32e5cf7e4cb6d075b77f5576e2f50f6590a1c6b35ef405b4"
+    },
+    {
+      "run_id": "213de033dac43109",
+      "task_id": "B1_speed_a0.003",
+      "status": "complete_valid",
+      "trace_sha256": "8cd4edf77826db27cb94f6589550ece92f47ee4bb248f13d3f5681604e733ab1"
+    },
+    {
+      "run_id": "d7fe255efd0104b0",
+      "task_id": "B4_east_a0.006",
+      "status": "complete_valid",
+      "trace_sha256": "eb6afbee36cf2f2bb74908c7c81ee7ab9ed731b3ad5a5ab83acd2575a5c0873b"
+    },
+    {
+      "run_id": "ecc7a99829680e1d",
+      "task_id": "B4_east_a0.006",
+      "status": "complete_valid",
+      "trace_sha256": "233ec8e923c1fb8c2038ae33ca97d96a413e515016ee4acf625df961b529699a"
+    },
+    {
+      "run_id": "0ace9a9e761b4a9b",
+      "task_id": "B4_east_a0.006",
+      "status": "complete_valid",
+      "trace_sha256": "fa5395c6e201cb0bb09055676fe997b33933c4bbbede9b3777fdf80d3c640588"
+    },
+    {
+      "run_id": "e91d4b87b84415ea",
+      "task_id": "B4_east_a0.003",
+      "status": "complete_valid",
+      "trace_sha256": "0e5aa181d054783785186c8900fddb2b6571e4bc8149a0f9980ceb80d7512b4b"
+    },
+    {
+      "run_id": "3bed942d71ef0d2a",
+      "task_id": "B4_east_a0.003",
+      "status": "complete_valid",
+      "trace_sha256": "fd6240d74b2d04d19877eaa77a4148ba9f2315e871dbe053663b4a9fb1e1338f"
+    },
+    {
+      "run_id": "ff417413e27d8c88",
+      "task_id": "B4_east_a0.003",
+      "status": "complete_valid",
+      "trace_sha256": "f37c61436e02897682346748cfd3ef4ad59bb24475f5b159e426df7c95a75d5b"
+    },
+    {
+      "run_id": "3b201daa1757f623",
+      "task_id": "B4_depth_a0.006",
+      "status": "complete_valid",
+      "trace_sha256": "a2671716c70e6cf95976bcb139ce081c372ad4319a78b7d0d933dc618e3445a4"
+    },
+    {
+      "run_id": "0ccf7fef88f7e2fd",
+      "task_id": "B4_depth_a0.006",
+      "status": "complete_valid",
+      "trace_sha256": "1a836e66b1dbca49093b429b97d66361de9cc1f61e378d0984b08fb1462ccbdb"
+    },
+    {
+      "run_id": "cef2c2b3f9fd39f5",
+      "task_id": "B4_depth_a0.006",
+      "status": "complete_valid",
+      "trace_sha256": "2f35278786e48fd73b77dd84faa4989d891c9d6c25c4952c445f2e39e37cfb05"
+    },
+    {
+      "run_id": "4a8ae6eeb2eec652",
+      "task_id": "B4_depth_a0.003",
+      "status": "complete_valid",
+      "trace_sha256": "27fa7c81310145ac60255c2a1692203a19a6a43ba90b1e6e26b739e484b2f0b3"
+    },
+    {
+      "run_id": "7d11a2a0a03349af",
+      "task_id": "B4_depth_a0.003",
+      "status": "complete_valid",
+      "trace_sha256": "e7ac34edb9ec6f415d07f36670bcc440a099e80cda3cb8c64d9151539d8ba31d"
+    },
+    {
+      "run_id": "6a3a688110beda3c",
+      "task_id": "B4_depth_a0.003",
+      "status": "complete_valid",
+      "trace_sha256": "4196b74826451010ee8081a09db257c9b4fff9e3e5832225a7b643ce6142be9a"
+    },
+    {
+      "run_id": "a3356b11b15f113c",
+      "task_id": "B4_speed_a0.006",
+      "status": "complete_valid",
+      "trace_sha256": "7e2e3123ba3b8f912d6bf190b84ffdb920e4c54ef81e49e0edd7ebbb4ba77244"
+    },
+    {
+      "run_id": "1be10d2caa9b3902",
+      "task_id": "B4_speed_a0.006",
+      "status": "complete_valid",
+      "trace_sha256": "c5c014cee1c7eef9165a96d983a73a9f567caceb30ab3e6ba65da97f8064e2af"
+    },
+    {
+      "run_id": "7915ffb584e4c306",
+      "task_id": "B4_speed_a0.006",
+      "status": "complete_valid",
+      "trace_sha256": "90ee1adffa9b4a6a48df481305949148de2d4f53c1aa37bc1338532a78c0bcb8"
+    },
+    {
+      "run_id": "6050f68cbf6540e5",
+      "task_id": "B4_speed_a0.003",
+      "status": "complete_valid",
+      "trace_sha256": "291cbb0afe59a297be4abfe73c777f4fa2f50a61b79c1447661c1a0e082df3cc"
+    },
+    {
+      "run_id": "7425f01cba7f27b6",
+      "task_id": "B4_speed_a0.003",
+      "status": "complete_valid",
+      "trace_sha256": "40f5a5f13c2edcc2547bcbc128cf74ec65e8666e9e61bb0452c74f543f149e2b"
+    },
+    {
+      "run_id": "daafd82f6171a5d9",
+      "task_id": "B4_speed_a0.003",
+      "status": "complete_valid",
+      "trace_sha256": "a543ca28e05ad10e95480c5daf345abaa6cd51bd0430f2dbb1405a4cd9386ff7"
+    },
+    {
+      "run_id": "29f87a8cbeacd0d3",
+      "task_id": "zero_C4",
+      "status": "complete_valid",
+      "trace_sha256": "fb512d1f39e88c38ff666eb50021ca678c0e6eff7390102ac48b8d7accda7aea"
+    },
+    {
+      "run_id": "091a957580754256",
+      "task_id": "zero_C5",
+      "status": "complete_valid",
+      "trace_sha256": "0d2bec31f48f9273c4ac613dd692145a8093ed5ed38a4a8b9401b2dd53fe6469"
+    },
+    {
+      "run_id": "3da3593b9547c667",
+      "task_id": "zero_C4_candidate",
+      "status": "complete_valid",
+      "trace_sha256": "97912ea36be84f3811940f55b51cba5e3fb550d785803e814a62edc9b79a1ba7"
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "protocol_id": "GS12-predictor-route-v1",
+  "created_utc": "2026-11-11T13:27:35Z",
+  "git_commit": "7ac1394d0d5e2fa7d02b4c72b0097b402d3ddb4e",
+  "working_tree_status": "M aav_mpc/condensed_mpc.py\n?? experiments/gs12_10state_experiment/\n?? experiments/gs12_analaysis/\n?? experiments/gs12_joint_route/\n?? experiments/gs12_predictor_route/\n?? experiments/gs12_weight_route/\n?? report1107.md",
+  "source_sha256": {
+    "experiments/gs12_predictor_route/run_predictor.py": "d251e104d578ec49134815d423e2056591a20b549a7fce25a94e406f642214dd",
+    "experiments/gs12_predictor_route/analyze_predictor.py": "dfdd210712a91b54a234935bfa6341c49a1d5cc65fbeaf04606cce6604d22c1e",
+    "experiments/gs12_joint_route/joint_reference.py": "31039d381c9e12ea33c36249d0e828ad1b5dc9be18c73bbddc071beb04478dc0",
+    "experiments/gs12_weight_route/runner_core.py": "52b2653fb8fc8b888e67ac1ee21f4fe80259717372fde759b7bb2da60d8a332a",
+    "experiments/gs12_weight_route/reference_tasks.py": "7a94ede4e96c332d0261c76189628947556850d0455afd438e1a6eb34ceabd58",
+    "aav_mpc/condensed_mpc.py": "5723535249ddf9a186032f37989181e674fa95d209578ef883da85bf6f8cfb05",
+    "simulator/rti_symbolic.py": "bf6a3f66564df1d24af9196bea83f3342b18fd19baa2fa4902218951c90028e7",
+    "simulator/batch_mpc.py": "4d945b436b8d5abd4addb8c4efc67a70da5707692b851c08f18fd29190db7f9a",
+    "experiments/gs12_analaysis/frequency_extension_src/plant_harness.py": "2b6f6f32c2a488380154aaa5f5f175a13fca05829cc4070aac4c9ecf95fb5a9b"
+  },
+  "python": "3.10.12",
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+  "plant": {
+    "id": "C4",
+    "elevator": 0.9,
+    "rudder": 0.9,
+    "order": "second_all"
+  },
+  "mpc": {
+    "states": 22,
+    "dt_s": 0.1,
+    "horizon": 35,
+    "substeps_per_cycle": 5,
+    "substep_s": 0.02
+  },
+  "weight": {
+    "a_depth": 1.4,
+    "a_rudder_rate": 0.7
+  },
+  "beta_values": [
+    0.0,
+    0.25,
+    0.5,
+    0.75,
+    1.0
+  ],
+  "beta_mapping": {
+    "gain": "1-.15*beta",
+    "tau": "1+beta"
+  },
+  "scoring": {
+    "window_s": [
+      32.0,
+      64.0
+    ],
+    "formula": "mean(((Eref-E)/8)^2+((Dref-D)/5)^2+((VNref-VN)/2)^2)"
+  },
+  "tasks_sha256": "77fb11c3da12288548794161deea2b0cec2a2ffd2a687f7a0ed176c296389d35",
+  "quality_gates": {
+    "complete": true,
+    "qp_failures": 0,
+    "boundary_violations": 0,
+    "saturation": 0,
+    "command_spike": "max candidate normalized slew >0.05 and >1.25*B"
+  },
+  "locked_splits_frozen_unopened": true,
+  "protocol_sha256": "2b2eac4e9ba6d05595e236ace6ea31eb1ffe854b90cbe58509a2d60cdb6c655b"
+}

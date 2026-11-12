@@ -1,0 +1,101 @@
+{
+  "run_id": "p54b768131bb1_model10_v10_C4_s_bend_periodic_zero_axis-1_a0_primary",
+  "protocol_sha256": "54b768131bb1139d9a18c0cf628c460bc0fed8d80f743ba21ab4d146e0cfa69a",
+  "source_sha256": {
+    "analyze_experiment.py": "22d0c04ad3f65701e25038dc42c96573a3d0509d1159b36770025ae98d958ff7",
+    "controller10.py": "25416a40613640fff767d9483cce83fda3874e094c38acdd3383f463f1c05d56",
+    "reference10.py": "42b4f239470ab82a754572eb2a89c0e461def213ee00ced34637cb70de85a424",
+    "run_experiment.py": "026ba14aefb6c0f2de85d28f87dbcc7a6ba298d6e828f018892c4041051d4519"
+  },
+  "reference_sha256": "d0fb643cee8aae6026920d139c9d2dafe486b4db8543b337d15d8b9bede8910c",
+  "controller_state_dim": 10,
+  "controller": "condensed_rti_osqp",
+  "plant_config": {
+    "mass": 1.0,
+    "damping": 1.0,
+    "thrust": 1.0,
+    "elevator": 0.9,
+    "rudder": 0.9,
+    "delay_steps": [
+      3,
+      3,
+      3
+    ],
+    "tau_scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "order": "second_all"
+  },
+  "fin_gain_prediction": 1.0,
+  "operating_regime": "s_bend",
+  "regime_parameters": {
+    "label": "_periodic"
+  },
+  "speed_mps": 10.0,
+  "condition": "C4",
+  "axis": -1,
+  "band": null,
+  "probe_k": null,
+  "amplitude_per_line": 0.0,
+  "phase_id": "primary",
+  "status": "complete_valid",
+  "observed_duration_s": 256.0,
+  "control_periods": 2560,
+  "substeps": 12800,
+  "first_violation": null,
+  "qp_failures": 0,
+  "mean_qp_iterations": 37.685546875,
+  "mean_osqp_solve_time_s": 0.000365120926171875,
+  "latency_percentiles_s": {
+    "model_propagation_s": {
+      "p50": 0.01058605200068996,
+      "p95": 0.013632491002408641,
+      "p99": 0.015486004793237933
+    },
+    "qp_assembly_s": {
+      "p50": 0.004407402494507551,
+      "p95": 0.006068645252707937,
+      "p99": 0.007068586861878428
+    },
+    "osqp_setup_s": {
+      "p50": 0.0015965855000104057,
+      "p95": 0.0028278146495722464,
+      "p99": 0.0032434687307431884
+    },
+    "osqp_solve_wall_s": {
+      "p50": 0.0004487170008360408,
+      "p95": 0.0008179304502846207,
+      "p99": 0.0010319453705415042
+    },
+    "controller_wall_s": {
+      "p50": 0.01854858300066553,
+      "p95": 0.023638443349500448,
+      "p99": 0.02663662273949737
+    },
+    "plant_integration_s": {
+      "p50": 0.0020229265001034946,
+      "p95": 0.0042710320009973655,
+      "p99": 0.00497456151098958
+    }
+  },
+  "command_saturation_fraction": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "actual_saturation_fraction": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "max_actual_normalized_abs": [
+    0.3367202223284972,
+    0.0,
+    0.8190693117635209
+  ],
+  "trace_sha256": "add8c86f9189974d9efa1e4458d2eb46d6c53acd8e19378eb06c787fc683c868",
+  "wall_s": 55.401899634000074,
+  "worker_peak_rss_bytes": 587149312
+}

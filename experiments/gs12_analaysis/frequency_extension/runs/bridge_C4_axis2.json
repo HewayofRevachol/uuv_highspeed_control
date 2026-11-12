@@ -1,0 +1,18 @@
+{
+  "run_id": "bridge_C4_axis2",
+  "protocol_sha256": "569763ca5e8299b9fe639bdd620733e6cae485983b27d726fe5b027341f8e44d",
+  "source_sha256": {
+    "frequency_identification.py": "44a81f1bfb022e3d17ff266f9d12b357996b617b1e870cc75e949078e7ef9338",
+    "improved_controller.py": "727372698a5da59b0225d8e52d54958cf46945339b9d9353a397cf06463b364d",
+    "run_frequency_extension.py": "d4969e6bef2d555424e58d4183fb4193c4f4fab335c4b28f0caabb969fa8b993",
+    "plant_harness.py": "2b6f6f32c2a488380154aaa5f5f175a13fca05829cc4070aac4c9ecf95fb5a9b"
+  },
+  "speed_mps": 15.0,
+  "condition": "C4",
+  "axis": 2,
+  "status": "complete",
+  "observed_duration_s": 144.0,
+  "qp_failures": 0,
+  "one_step_max_abs_state_error": 0.003456259146592089,
+  "trace_sha256": "e595ab8d480556e921fa017ead5653624ccac3876f30ee9462f4b506544fa837"
+}

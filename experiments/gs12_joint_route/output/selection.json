@@ -1,0 +1,37 @@
+{
+  "candidate_id": "D",
+  "parameters": {
+    "plant_id": "C4",
+    "predictor_id": "P1",
+    "model_gain": 0.85,
+    "model_tau": 2.0,
+    "weight_id": "W1",
+    "a_depth": 1.4,
+    "a_rudder_rate": 0.7
+  },
+  "frozen": true,
+  "frozen_utc": "2026-11-11T12:02:50Z",
+  "protocol_sha256": "1943f8a1d3db3934ce85c81869564d3ab2f61ead17086742d883f93960c1cf48",
+  "decisions_sha256": "7c39e0ef8304b7ddffa9d10ec0cbf5646cc1cbffc8ede769ce5f997095c7fcd3",
+  "dev_run_ids": [
+    "7d76d865e3dae547",
+    "fc1f03cdb71b641f",
+    "afa97de93dfc10c3",
+    "714d7eaa2381f951",
+    "fb42ce18856b9c40",
+    "a656153f94ee1a3f",
+    "735d93c4752114a7",
+    "6bcf03952c6330c3",
+    "adb65b39ed46e385",
+    "c626aeeecb2734e3",
+    "e65554107a407da4",
+    "e0a3e079b5ef1193",
+    "b2d34a1b17f8fdbc",
+    "362333081e407d83",
+    "3df90f0c8edf73ee",
+    "5792a52452818953"
+  ],
+  "dev_metrics_sha256": "2225368a870c81c584aa5b408f9b25b779d9fa57224917e0d62c916d73d4d41f",
+  "dev_factor_effects_sha256": "8c85f35bfcb99dc634cdf61ec17665c8afa4e57204c2fc1972bb854e3aba7b5f",
+  "constraint_or_channel_losses_observed": false
+}

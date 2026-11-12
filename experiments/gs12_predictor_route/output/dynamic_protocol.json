@@ -1,0 +1,58 @@
+{
+  "protocol_id": "GS12-predictor-route-M3-v1",
+  "parent_protocol_sha256": "2b2eac4e9ba6d05595e236ace6ea31eb1ffe854b90cbe58509a2d60cdb6c655b",
+  "core_source_sha256": {
+    "experiments/gs12_joint_route/joint_reference.py": "31039d381c9e12ea33c36249d0e828ad1b5dc9be18c73bbddc071beb04478dc0",
+    "experiments/gs12_weight_route/runner_core.py": "52b2653fb8fc8b888e67ac1ee21f4fe80259717372fde759b7bb2da60d8a332a",
+    "experiments/gs12_weight_route/reference_tasks.py": "7a94ede4e96c332d0261c76189628947556850d0455afd438e1a6eb34ceabd58",
+    "aav_mpc/condensed_mpc.py": "5723535249ddf9a186032f37989181e674fa95d209578ef883da85bf6f8cfb05",
+    "simulator/rti_symbolic.py": "bf6a3f66564df1d24af9196bea83f3342b18fd19baa2fa4902218951c90028e7",
+    "simulator/batch_mpc.py": "4d945b436b8d5abd4addb8c4efc67a70da5707692b851c08f18fd29190db7f9a",
+    "experiments/gs12_analaysis/frequency_extension_src/plant_harness.py": "2b6f6f32c2a488380154aaa5f5f175a13fca05829cc4070aac4c9ecf95fb5a9b"
+  },
+  "spectral_policy_sha256": "dfc949244f8449bc94a89e055632b175cfced5d1ee9c80fdf9ad9472b981e8f2",
+  "policy_runner_sha256": "44bc13b3c9ff4f66ccb45f335dbd841efbf424dc790a2f2655245c5598c5370b",
+  "task_sha256": "77fb11c3da12288548794161deea2b0cec2a2ffd2a687f7a0ed176c296389d35",
+  "dev_tasks": [
+    "pd_dev_depth_low",
+    "pd_dev_depth_high",
+    "pd_dev_east_high",
+    "pd_dev_mixed_a",
+    "pd_dev_mixed_b"
+  ],
+  "locked_tasks": [
+    "pd_lock_depth_low",
+    "pd_lock_depth_high",
+    "pd_lock_east_high",
+    "pd_lock_mixed_a",
+    "pd_lock_mixed_b"
+  ],
+  "reference_preview_s": 16.0,
+  "preview_samples": 160,
+  "sample_dt_s": 0.1,
+  "feature": "3 normalized output-reference channels; detrend constant+linear; Hann window; rFFT; E=sum(|FFT|^2)/n^2 for omega>0; rho=sum high omega>=2.2 / E; E<1e-8 holds beta",
+  "R0": {
+    "rho_linear_range": [
+      0.25,
+      0.75
+    ],
+    "slew_per_update": 0.1,
+    "update_s": 0.5,
+    "initial_beta": 0.75
+  },
+  "R1": {
+    "rho_linear_range": [
+      0.35,
+      0.65
+    ],
+    "slew_per_update": 0.1,
+    "update_s": 0.5,
+    "initial_beta": 0.75,
+    "allowed_only_if_R0_quality_valid_but_not_promoted": true
+  },
+  "development_gate": "relative to frozen F_dev beta=.75: mean J reduction >=5%, every task nonworse, no QP/boundary/saturation/spike blockers",
+  "locked_gate": "one shot; only if a rule passes development; relative to same frozen F_dev",
+  "locked_results_opened": false,
+  "created_after_M2_failed_with_M1_endpoint_cross": true,
+  "dynamic_protocol_sha256": "1906b4e66caada11b639a9ce4095a14868bfa4406d276f44dff997496c81e795"
+}

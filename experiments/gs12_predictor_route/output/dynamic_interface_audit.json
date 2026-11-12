@@ -1,0 +1,91 @@
+{
+  "endpoint_checks": {
+    "0.0": {
+      "command": 0.0,
+      "state_substep": 0.0,
+      "actual_substep": 0.0,
+      "qp_mismatch_count": 0
+    },
+    "1.0": {
+      "command": 0.0,
+      "state_substep": 0.0,
+      "actual_substep": 0.0,
+      "qp_mismatch_count": 0
+    }
+  },
+  "staircase_beta_first_20": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.1,
+    0.1,
+    0.1,
+    0.1,
+    0.1,
+    0.2,
+    0.2,
+    0.2,
+    0.2,
+    0.2,
+    0.1,
+    0.1,
+    0.1,
+    0.1,
+    0.1
+  ],
+  "staircase_model_gain_first_20": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    0.985,
+    0.985,
+    0.985,
+    0.985,
+    0.985,
+    0.97,
+    0.97,
+    0.97,
+    0.97,
+    0.97,
+    0.985,
+    0.985,
+    0.985,
+    0.985,
+    0.985
+  ],
+  "staircase_model_tau_first_20": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.1,
+    1.1,
+    1.1,
+    1.1,
+    1.1,
+    1.2,
+    1.2,
+    1.2,
+    1.2,
+    1.2,
+    1.1,
+    1.1,
+    1.1,
+    1.1,
+    1.1
+  ],
+  "qp_gradient_max_differences": [
+    0.7644713812233684,
+    0.1093656920112535
+  ],
+  "qp_failures": 0,
+  "max_normalized_command_step": 0.00026513694818121753,
+  "max_normalized_actual_fin_step": 4.35236004719834e-05,
+  "continuity": "single run_one invocation, no reset call between beta steps; state and actual fin traces remain continuous",
+  "note": "The policy only reads precomputed reference values. No plant state or task label is passed to feature calculation."
+}

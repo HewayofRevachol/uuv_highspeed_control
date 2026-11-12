@@ -1,0 +1,7 @@
+{"amplitude": 0.006, "axis": "depth", "duration_s": 64.0, "k": 8, "kind": "single", "phase_rad": 0.0, "speed_mps": 15.0, "split": "dev_scan", "task_id": "scan_depth_k8", "window_s": [32.0, 64.0]}
+{"amplitude": 0.006, "axis": "depth", "duration_s": 64.0, "k": 32, "kind": "single", "phase_rad": 0.73, "speed_mps": 15.0, "split": "dev_scan", "task_id": "scan_depth_k32", "window_s": [32.0, 64.0]}
+{"amplitude": 0.006, "axis": "east_depth", "duration_s": 64.0, "kind": "mixed", "phase_rad": 0.21, "speed_mps": 15.0, "split": "dev_rule", "switch_times_s": [20.0, 40.0], "task_id": "mixed_dev_1", "window_s": [32.0, 64.0]}
+{"amplitude": 0.006, "axis": "east_depth", "duration_s": 64.0, "kind": "mixed", "phase_rad": 1.17, "speed_mps": 15.0, "split": "dev_rule", "switch_times_s": [22.0, 42.0], "task_id": "mixed_dev_2", "window_s": [32.0, 64.0]}
+{"amplitude": 0.006, "axis": "depth", "duration_s": 64.0, "k": 6, "kind": "single", "phase_rad": 2.04, "speed_mps": 15.0, "split": "test_locked", "task_id": "locked_depth_k6", "window_s": [32.0, 64.0]}
+{"amplitude": 0.006, "axis": "east", "duration_s": 64.0, "k": 30, "kind": "single", "phase_rad": -1.31, "speed_mps": 15.0, "split": "test_locked", "task_id": "locked_east_k30", "window_s": [32.0, 64.0]}
+{"amplitude": 0.006, "axis": "east_depth", "duration_s": 64.0, "kind": "mixed", "phase_rad": 2.61, "speed_mps": 15.0, "split": "test_locked", "switch_times_s": [18.0, 39.0], "task_id": "locked_mixed", "window_s": [32.0, 64.0]}

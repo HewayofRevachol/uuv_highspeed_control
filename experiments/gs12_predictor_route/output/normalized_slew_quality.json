@@ -1,0 +1,5 @@
+{
+  "candidate_command_spikes": [],
+  "quality_gate_clear": true,
+  "definition": "normalized by CONTROL_SCALE; spike iff candidate >0.05 and >1.25\u00d7 same-task beta=0"
+}

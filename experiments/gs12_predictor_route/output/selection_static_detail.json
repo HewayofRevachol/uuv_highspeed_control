@@ -1,0 +1,90 @@
+{
+  "selection": "beta=0.50 by G1-A",
+  "selection_json_sha256": "5c5800aaf9e675a0b2364a3e8da0cb290ffc21fa07494e7b67445e2af4d1628a",
+  "dev_metrics_sha256": "cfd7bd09bfc1ebdfe7bffc9fe8c700a18cf49ac95eee7459fb0bd2b15629ad3e",
+  "per_beta": {
+    "0.0": {
+      "task_J": {
+        "ps_dev_depth_high": 7.126465353595509e-07,
+        "ps_dev_depth_low": 1.4688867494795443e-10,
+        "ps_dev_east_high": 3.8365348821098746e-07,
+        "ps_dev_mixed": 6.471312964099762e-07
+      },
+      "task_regret": {
+        "ps_dev_depth_high": 0.741021190036582,
+        "ps_dev_depth_low": 0.0,
+        "ps_dev_east_high": 0.7925910820835154,
+        "ps_dev_mixed": 0.7399153824496393
+      },
+      "worst_regret": 0.7925910820835154,
+      "Jbar": 4.3589455216386563e-07
+    },
+    "0.25": {
+      "task_J": {
+        "ps_dev_depth_high": 2.4331742551932777e-07,
+        "ps_dev_depth_low": 2.552153618358375e-10,
+        "ps_dev_east_high": 1.4314252245640945e-07,
+        "ps_dev_mixed": 2.0105183453600946e-07
+      },
+      "task_regret": {
+        "ps_dev_depth_high": 0.08244911179946143,
+        "ps_dev_depth_low": 0.1178212979057309,
+        "ps_dev_east_high": 0.16569474686158528,
+        "ps_dev_mixed": 0.05059705655714129
+      },
+      "worst_regret": 0.16569474686158528,
+      "Jbar": 1.4694174946839562e-07
+    },
+    "0.5": {
+      "task_J": {
+        "ps_dev_depth_high": 3.815414095546162e-08,
+        "ps_dev_depth_low": 4.2924723349141284e-10,
+        "ps_dev_east_high": 2.390600110053165e-08,
+        "ps_dev_mixed": 2.3585491136128204e-08
+      },
+      "task_regret": {
+        "ps_dev_depth_high": -0.20544014940399802,
+        "ps_dev_depth_low": 0.30710670471084783,
+        "ps_dev_east_high": -0.14509747846624635,
+        "ps_dev_mixed": -0.22363839517327738
+      },
+      "worst_regret": 0.30710670471084783,
+      "Jbar": 2.1518720106403222e-08
+    },
+    "0.75": {
+      "task_J": {
+        "ps_dev_depth_high": 3.2543051974857705e-08,
+        "ps_dev_depth_low": 6.361381941662236e-10,
+        "ps_dev_east_high": 6.350854290334982e-09,
+        "ps_dev_mixed": 2.8380061279857703e-08
+      },
+      "task_regret": {
+        "ps_dev_depth_high": -0.21331374269632064,
+        "ps_dev_depth_low": 0.5321312320177597,
+        "ps_dev_east_high": -0.1908552973044328,
+        "ps_dev_mixed": -0.21622943478096154
+      },
+      "worst_regret": 0.5321312320177597,
+      "Jbar": 1.6977526434804153e-08
+    },
+    "1.0": {
+      "task_J": {
+        "ps_dev_depth_high": 1.8456035165196932e-07,
+        "ps_dev_depth_low": 9.194151550983211e-10,
+        "ps_dev_east_high": 7.957315484472569e-08,
+        "ps_dev_mixed": 1.6830889573165773e-07
+      },
+      "task_regret": {
+        "ps_dev_depth_high": 0.0,
+        "ps_dev_depth_low": 0.8402368351952537,
+        "ps_dev_east_high": 0.0,
+        "ps_dev_mixed": 0.0
+      },
+      "worst_regret": 0.8402368351952537,
+      "Jbar": 1.0834045434586278e-07
+    }
+  },
+  "endpoint_cross_observed": true,
+  "G1_B_triggered_in_M1": false,
+  "note": "Supplemental taskwise values; does not alter the pre-run M2 freeze."
+}

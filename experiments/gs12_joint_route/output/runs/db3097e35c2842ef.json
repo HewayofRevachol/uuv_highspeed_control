@@ -1,0 +1,47 @@
+{
+  "run_id": "db3097e35c2842ef",
+  "protocol_sha256": "1943f8a1d3db3934ce85c81869564d3ab2f61ead17086742d883f93960c1cf48",
+  "task_sha256": "ceb9965dd6d4acce5e225f86307222bb77d10f59cafda3077b999f310f18568d",
+  "git_commit": "7ac1394d0d5e2fa7d02b4c72b0097b402d3ddb4e",
+  "source_sha256": {
+    "experiments/gs12_joint_route/joint_reference.py": "31039d381c9e12ea33c36249d0e828ad1b5dc9be18c73bbddc071beb04478dc0",
+    "experiments/gs12_joint_route/run_joint.py": "e6bb836f77cbc50fd6dae2fa5179cfdada79122d1a0e1813bc3802e7f7ca6bcf",
+    "experiments/gs12_joint_route/analyze_joint.py": "413290d7fafa62b1cd3eb14a452b80fc3b901fbb0eb9b7951c66c9f7878e8d3f",
+    "experiments/gs12_weight_route/runner_core.py": "0be92367109a3f692e40190532e2c3a56ede0f5c0dfc69164941cb7a1757540e",
+    "experiments/gs12_weight_route/reference_tasks.py": "7a94ede4e96c332d0261c76189628947556850d0455afd438e1a6eb34ceabd58",
+    "aav_mpc/condensed_mpc.py": "5723535249ddf9a186032f37989181e674fa95d209578ef883da85bf6f8cfb05"
+  },
+  "split": "new_locked",
+  "task_id": "locked_mixed_switch",
+  "controller_id": "C",
+  "phase_rad": 2.27,
+  "amplitude": 0.006,
+  "speed_mps": 15.0,
+  "plant_id": "C4",
+  "predictor_id": "P1",
+  "model_gain": 0.85,
+  "model_tau": 2.0,
+  "weight_id": "W0",
+  "a_depth": 1.0,
+  "a_rudder_rate": 1.0,
+  "completion_status": "complete_valid",
+  "duration_observed_s": 64.0,
+  "first_violation_time_s": null,
+  "first_violation": null,
+  "qp_failures": 0,
+  "command_saturation": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "actual_saturation": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "solve_p50_ms": 34.99382500012871,
+  "solve_p95_ms": 53.02509255288896,
+  "solve_p99_ms": 58.260820059877005,
+  "wall_s": 24.764083457997913,
+  "trace_sha256": "3207cbf1e61bf25d2816c2372c1bc17e8ab600c29dddda38cf984fe0c85e8f39"
+}

@@ -1,0 +1,296 @@
+{
+  "id": "GS12-WEIGHT-LONG-B1B4-2026-11-11",
+  "base_protocol_sha256": "2ef0c778990a29e01931e3cedd2e38abf26420d6df89ca189027fe727704de72",
+  "selection_sha256": "4b412e8c0141144cf7f9d361f5a642cd8745b70166281f31d6bf77edd669cb27",
+  "jobs": [
+    {
+      "task_id": "B1_east_a0.006",
+      "controller": "C4",
+      "a_depth": 1.0,
+      "a_rudder_rate": 1.0
+    },
+    {
+      "task_id": "B1_east_a0.006",
+      "controller": "C5",
+      "a_depth": 1.0,
+      "a_rudder_rate": 1.0
+    },
+    {
+      "task_id": "B1_east_a0.006",
+      "controller": "C4",
+      "a_depth": 1.4,
+      "a_rudder_rate": 0.7
+    },
+    {
+      "task_id": "B1_east_a0.003",
+      "controller": "C4",
+      "a_depth": 1.0,
+      "a_rudder_rate": 1.0
+    },
+    {
+      "task_id": "B1_east_a0.003",
+      "controller": "C5",
+      "a_depth": 1.0,
+      "a_rudder_rate": 1.0
+    },
+    {
+      "task_id": "B1_east_a0.003",
+      "controller": "C4",
+      "a_depth": 1.4,
+      "a_rudder_rate": 0.7
+    },
+    {
+      "task_id": "B1_depth_a0.006",
+      "controller": "C4",
+      "a_depth": 1.0,
+      "a_rudder_rate": 1.0
+    },
+    {
+      "task_id": "B1_depth_a0.006",
+      "controller": "C5",
+      "a_depth": 1.0,
+      "a_rudder_rate": 1.0
+    },
+    {
+      "task_id": "B1_depth_a0.006",
+      "controller": "C4",
+      "a_depth": 1.4,
+      "a_rudder_rate": 0.7
+    },
+    {
+      "task_id": "B1_depth_a0.003",
+      "controller": "C4",
+      "a_depth": 1.0,
+      "a_rudder_rate": 1.0
+    },
+    {
+      "task_id": "B1_depth_a0.003",
+      "controller": "C5",
+      "a_depth": 1.0,
+      "a_rudder_rate": 1.0
+    },
+    {
+      "task_id": "B1_depth_a0.003",
+      "controller": "C4",
+      "a_depth": 1.4,
+      "a_rudder_rate": 0.7
+    },
+    {
+      "task_id": "B1_speed_a0.006",
+      "controller": "C4",
+      "a_depth": 1.0,
+      "a_rudder_rate": 1.0
+    },
+    {
+      "task_id": "B1_speed_a0.006",
+      "controller": "C5",
+      "a_depth": 1.0,
+      "a_rudder_rate": 1.0
+    },
+    {
+      "task_id": "B1_speed_a0.006",
+      "controller": "C4",
+      "a_depth": 1.4,
+      "a_rudder_rate": 0.7
+    },
+    {
+      "task_id": "B1_speed_a0.003",
+      "controller": "C4",
+      "a_depth": 1.0,
+      "a_rudder_rate": 1.0
+    },
+    {
+      "task_id": "B1_speed_a0.003",
+      "controller": "C5",
+      "a_depth": 1.0,
+      "a_rudder_rate": 1.0
+    },
+    {
+      "task_id": "B1_speed_a0.003",
+      "controller": "C4",
+      "a_depth": 1.4,
+      "a_rudder_rate": 0.7
+    },
+    {
+      "task_id": "B4_east_a0.006",
+      "controller": "C4",
+      "a_depth": 1.0,
+      "a_rudder_rate": 1.0
+    },
+    {
+      "task_id": "B4_east_a0.006",
+      "controller": "C5",
+      "a_depth": 1.0,
+      "a_rudder_rate": 1.0
+    },
+    {
+      "task_id": "B4_east_a0.006",
+      "controller": "C4",
+      "a_depth": 1.4,
+      "a_rudder_rate": 0.7
+    },
+    {
+      "task_id": "B4_east_a0.003",
+      "controller": "C4",
+      "a_depth": 1.0,
+      "a_rudder_rate": 1.0
+    },
+    {
+      "task_id": "B4_east_a0.003",
+      "controller": "C5",
+      "a_depth": 1.0,
+      "a_rudder_rate": 1.0
+    },
+    {
+      "task_id": "B4_east_a0.003",
+      "controller": "C4",
+      "a_depth": 1.4,
+      "a_rudder_rate": 0.7
+    },
+    {
+      "task_id": "B4_depth_a0.006",
+      "controller": "C4",
+      "a_depth": 1.0,
+      "a_rudder_rate": 1.0
+    },
+    {
+      "task_id": "B4_depth_a0.006",
+      "controller": "C5",
+      "a_depth": 1.0,
+      "a_rudder_rate": 1.0
+    },
+    {
+      "task_id": "B4_depth_a0.006",
+      "controller": "C4",
+      "a_depth": 1.4,
+      "a_rudder_rate": 0.7
+    },
+    {
+      "task_id": "B4_depth_a0.003",
+      "controller": "C4",
+      "a_depth": 1.0,
+      "a_rudder_rate": 1.0
+    },
+    {
+      "task_id": "B4_depth_a0.003",
+      "controller": "C5",
+      "a_depth": 1.0,
+      "a_rudder_rate": 1.0
+    },
+    {
+      "task_id": "B4_depth_a0.003",
+      "controller": "C4",
+      "a_depth": 1.4,
+      "a_rudder_rate": 0.7
+    },
+    {
+      "task_id": "B4_speed_a0.006",
+      "controller": "C4",
+      "a_depth": 1.0,
+      "a_rudder_rate": 1.0
+    },
+    {
+      "task_id": "B4_speed_a0.006",
+      "controller": "C5",
+      "a_depth": 1.0,
+      "a_rudder_rate": 1.0
+    },
+    {
+      "task_id": "B4_speed_a0.006",
+      "controller": "C4",
+      "a_depth": 1.4,
+      "a_rudder_rate": 0.7
+    },
+    {
+      "task_id": "B4_speed_a0.003",
+      "controller": "C4",
+      "a_depth": 1.0,
+      "a_rudder_rate": 1.0
+    },
+    {
+      "task_id": "B4_speed_a0.003",
+      "controller": "C5",
+      "a_depth": 1.0,
+      "a_rudder_rate": 1.0
+    },
+    {
+      "task_id": "B4_speed_a0.003",
+      "controller": "C4",
+      "a_depth": 1.4,
+      "a_rudder_rate": 0.7
+    },
+    {
+      "task_id": "zero_C4",
+      "controller": "C4",
+      "a_depth": 1.0,
+      "a_rudder_rate": 1.0
+    },
+    {
+      "task_id": "zero_C5",
+      "controller": "C5",
+      "a_depth": 1.0,
+      "a_rudder_rate": 1.0
+    },
+    {
+      "task_id": "zero_C4_candidate",
+      "controller": "C4",
+      "a_depth": 1.4,
+      "a_rudder_rate": 0.7
+    }
+  ],
+  "duration_s": 256.0,
+  "windows_s": [
+    [
+      64.0,
+      128.0
+    ],
+    [
+      128.0,
+      192.0
+    ],
+    [
+      192.0,
+      256.0
+    ]
+  ],
+  "matrix": "three normalized outputs by three normalized reference inputs",
+  "amplitudes_per_line": [
+    0.006,
+    0.003
+  ],
+  "bands": {
+    "B1": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "B4": [
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32
+    ]
+  },
+  "source_sha256": {
+    "aav_mpc/condensed_mpc.py": "5723535249ddf9a186032f37989181e674fa95d209578ef883da85bf6f8cfb05",
+    "simulator/batch_mpc.py": "4d945b436b8d5abd4addb8c4efc67a70da5707692b851c08f18fd29190db7f9a",
+    "simulator/rti_symbolic.py": "bf6a3f66564df1d24af9196bea83f3342b18fd19baa2fa4902218951c90028e7",
+    "simulator/model.py": "ad1e22f5e11a4c9dd7466a2811603e953f891f4bb5a0d0fe198b6b224f9ecff8",
+    "experiments/gs12_analaysis/frequency_extension_src/plant_harness.py": "2b6f6f32c2a488380154aaa5f5f175a13fca05829cc4070aac4c9ecf95fb5a9b",
+    "experiments/gs12_weight_route/reference_tasks.py": "7a94ede4e96c332d0261c76189628947556850d0455afd438e1a6eb34ceabd58",
+    "experiments/gs12_weight_route/runner_core.py": "8411ecf9d15e25a677d592f0781e07ddaeb9a9632e0c9cbc845dc1ce338bbc83",
+    "experiments/gs12_weight_route/run_weight_route.py": "84fbd3d7ead1389de6f27bd4eeb75888df322e7ac68b8ad838b1c78b4d6d6197",
+    "experiments/gs12_weight_route/analyze_weight_route.py": "0b0dbf87289a204fe8bb594fe1c22755b3cdfebfd649688d5792cd265eb9179b",
+    "experiments/gs12_weight_route/analyze_long_matrix.py": "5c731662064bffa7c39852045f0772a29deaa746a8c5b7fda0d132c3012501f0"
+  },
+  "controller_plant_contract": "same C4 true plant for C4, C5 and frozen static candidate"
+}

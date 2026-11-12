@@ -1,0 +1,26 @@
+{
+  "stage": "M2-pre-run-freeze",
+  "protocol_sha256": "2b2eac4e9ba6d05595e236ace6ea31eb1ffe854b90cbe58509a2d60cdb6c655b",
+  "candidate_beta": 0.5,
+  "F_dev_beta": 0.75,
+  "methods_beta": [
+    0.0,
+    1.0,
+    0.5,
+    0.75
+  ],
+  "task_ids": [
+    "ps_lock_depth_low",
+    "ps_lock_depth_high",
+    "ps_lock_east_high",
+    "ps_lock_mixed"
+  ],
+  "dev_metrics_sha256": "cfd7bd09bfc1ebdfe7bffc9fe8c700a18cf49ac95eee7459fb0bd2b15629ad3e",
+  "gate_definitions": {
+    "B": "mean J decrease >=5%, each task J<=B, no quality blocker",
+    "F_dev": "mean J decrease >=5%, each task J<=F_dev, no quality blocker; same controller means no independent pass",
+    "endpoint_envelope": "per-task J_beta-star-min(J0,J1) diagnostic only"
+  },
+  "candidate_formula": "G1-A minimax-regret R improvement >=0.05 and Jbar<=1.05*min(endpoint Jbar); candidate selected by R then Jbar then lower beta",
+  "locked_results_opened": false
+}

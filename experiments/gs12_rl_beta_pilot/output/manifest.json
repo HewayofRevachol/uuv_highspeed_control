@@ -1,0 +1,47 @@
+{
+  "git_head": "7ac1394d0d5e2fa7d02b4c72b0097b402d3ddb4e",
+  "git_worktree_dirty": true,
+  "git_status_lines": [
+    " M aav_mpc/condensed_mpc.py",
+    "?? experiments/gs12_10state_experiment/",
+    "?? experiments/gs12_analaysis/",
+    "?? experiments/gs12_joint_route/",
+    "?? experiments/gs12_predictor_route/",
+    "?? experiments/gs12_rl_beta_pilot/",
+    "?? experiments/gs12_weight_route/",
+    "?? report1107.md"
+  ],
+  "python": "3.10.12",
+  "numpy": "2.2.6",
+  "torch": "2.14.0+cu130",
+  "source_sha256": {
+    "experiments/gs12_rl_beta_pilot/tasks.py": "c2f8a53dce1c53ea33d16b99a70febde524fc74b670664cff42e5fe9912a95f2",
+    "experiments/gs12_rl_beta_pilot/episode_beta.py": "465eb8012d4bea1736ea4b23348fd36308705c53a6191ff5a96bc7fc69742157",
+    "experiments/gs12_rl_beta_pilot/features.py": "37e69d88b76d71987ca4dc9f4f4e96f8befc372fd377247d85476bcf85944695",
+    "experiments/gs12_rl_beta_pilot/reward.py": "2116921716c02482507fee0d659f7b173a602ebbddaffe5c9122d740ffbd050b",
+    "experiments/gs12_rl_beta_pilot/controllers.py": "0d316acf4322662508d0e75087369497ff6cb66011732fa39c1756e4a208ec78",
+    "experiments/gs12_rl_beta_pilot/categorical_ppo.py": "131ca49378a9657bf583c1c45269e106f06fd23ef9f9f737f705686dccc93d1a",
+    "experiments/gs12_rl_beta_pilot/train_ppo.py": "dfe1310d845d552886af8c08f74ad32cd60c3b35a1b407c7ad4549f0cfa8b2e5",
+    "experiments/gs12_rl_beta_pilot/evaluate.py": "e98a73f692fcf4c72edc255bd16a393e5a3e48a3192d8b817bee6ab41655bdb8",
+    "experiments/gs12_rl_beta_pilot/analyze.py": "f1ac2fa9f7f09038cdd66ea1679325dd78ae45e7eea82fb51dd814e21a766340",
+    "experiments/gs12_rl_beta_pilot/archive_f75.py": "d6b3ecf7f1032160743261ee7545c92cfe05b43c6e59d8cb69db16e78215b01f",
+    "experiments/gs12_weight_route/runner_core.py": "3d9bba61f38b79871647f5cf95e02fc2706843e1241aaf9275c592de67e85051",
+    "experiments/gs12_joint_route/joint_reference.py": "31039d381c9e12ea33c36249d0e828ad1b5dc9be18c73bbddc071beb04478dc0",
+    "aav_mpc/condensed_mpc.py": "5723535249ddf9a186032f37989181e674fa95d209578ef883da85bf6f8cfb05"
+  },
+  "protocol_sha256": "2bf8002253845958fe446ed3bdec8ecc4303f96dc4d3320db9106dd0e3b2aec4",
+  "task_sha256": {
+    "tasks_dev.jsonl": "50c61f720615a0843593927bbc236071f347b1f33c86762a1ddef7127c66f40e",
+    "tasks_train.jsonl": "6f533ddd6ed01e45091ea402681f1f818f1bd14df18df8bddde3c8793c00bf19",
+    "tasks_rl_test_locked_v1.jsonl": "9c5f67291881f70260237dcbfd7936bcd27f2a617099ebc6983e1ce1e382e3f6"
+  },
+  "schema_sha256": {
+    "reward_schema.json": "121caa570dccbbe422df728e76ca6970557576473efa660fb25ed5bc51fd9283",
+    "obs_schema.json": "c474cb4e087197d6f39cbbac2db2e819ab0b3a4b04fe4f32855654bc08b02357"
+  },
+  "checkpoint_sha256": {
+    "checkpoint_update_2.pt": "6e45f457c3820751aba2208d0e345e2c40cd8a0947e5b80dbfb5b63ba2a5ffd5",
+    "checkpoint_update_4.pt": "0822578cc9bb9bea0c15cd4e52fae343030ced86b10350be76f4ec2eb10c2ed5"
+  },
+  "locked_test": "not opened; dev gate failed"
+}

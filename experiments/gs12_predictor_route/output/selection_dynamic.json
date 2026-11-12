@@ -1,0 +1,8 @@
+{
+  "frozen": false,
+  "policy": "R1",
+  "development_gate_pass": false,
+  "reason": "rule did not beat pre-frozen F_dev by 5% with taskwise nonworse quality-valid results; test_dynamic_locked remains closed",
+  "dynamic_protocol_sha256": "1906b4e66caada11b639a9ce4095a14868bfa4406d276f44dff997496c81e795",
+  "decision_sha256": "d771251863b95844b24a806b1abc177e997bd0113a6281952c557cbbd0b8e086"
+}

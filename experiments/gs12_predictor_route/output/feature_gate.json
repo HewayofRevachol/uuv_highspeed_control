@@ -1,0 +1,33 @@
+{
+  "protocol_sha256": "2b2eac4e9ba6d05595e236ace6ea31eb1ffe854b90cbe58509a2d60cdb6c655b",
+  "feature_definition": "3 channels normalized (E/8,(D-20)/5,(VN-15)/2); remove linear trend; Hann; rFFT n=160,d=.1; sum squared magnitude/n^2 over non-DC; high omega>=2.2 rad/s",
+  "frequency_resolution_rad_s": 0.39269908169872414,
+  "feature_medians": {
+    "pd_dev_depth_low": {
+      "median_32_48": 6.273019464370151e-06
+    },
+    "pd_dev_depth_high": {
+      "median_32_48": 0.9989803405212792
+    },
+    "pd_dev_east_high": {
+      "median_32_48": 0.9786298864864627
+    },
+    "pd_dev_mixed_a": {
+      "high_platform_28_30": 0.9997143393813488,
+      "low_platform_48_56": 1.536807019711909e-06
+    },
+    "pd_dev_mixed_b": {
+      "high_platform_20_22": 0.9985998512122245,
+      "low_platform_40_48": 1.8077551953675014e-06
+    }
+  },
+  "gate_deltas": {
+    "high_depth_delta": 0.9989740675018148,
+    "east_high_delta": 0.9786236134669983,
+    "mixed_a_delta": 0.999712802574329,
+    "mixed_b_delta": 0.9985980434570292
+  },
+  "feature_gate_pass": true,
+  "low_energy_windows": 0,
+  "planned_reference_only": true
+}
