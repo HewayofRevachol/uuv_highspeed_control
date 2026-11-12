@@ -8,6 +8,7 @@
 - `controllers.py`：固定 β 与 Rule-cap75 的预注册动作映射。
 - `categorical_ppo.py`：复用仓库 GAE 的离散动作 actor/critic 更新；分类熵按样本取均值。
 - `continuous_ppo.py`、`train_ppo_continuous.py`：连续 β 目标的高斯 PPO 训练。
+- `CONTINUOUS_TRAINING_AND_ADMM.md`：连续 β PPO 的计算流程、CPU/GPU 分工及与参考 ADMM 批量环境的差异。
 - `verify_loop.py`：用仓库保存的旧静态及 F00/F50/F75 轨迹核对前 8 s，再将连续的 `.75→.5` 两段与 `run_one` 对齐，同时核对外部 J 评分。
 
 运行接线验收：
