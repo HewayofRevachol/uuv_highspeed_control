@@ -1,0 +1,146 @@
+{
+  "beta_0": {
+    "completed": 3,
+    "tasks": 3,
+    "qp_failures": 0,
+    "command_saturation_cycles": 16,
+    "actual_saturation_steps": 0,
+    "eligible": false,
+    "mean_J10": 0.09214673710504233,
+    "mean_J10_low_stages": 0.10399702954818157,
+    "mean_J10_high_stage": 0.07320451267067228
+  },
+  "beta_0.25": {
+    "completed": 3,
+    "tasks": 3,
+    "qp_failures": 0,
+    "command_saturation_cycles": 8,
+    "actual_saturation_steps": 0,
+    "eligible": false,
+    "mean_J10": 0.091308338395049,
+    "mean_J10_low_stages": 0.10319953101689028,
+    "mean_J10_high_stage": 0.07250964067014976
+  },
+  "beta_0.5": {
+    "completed": 3,
+    "tasks": 3,
+    "qp_failures": 0,
+    "command_saturation_cycles": 6,
+    "actual_saturation_steps": 0,
+    "eligible": false,
+    "mean_J10": 0.09100272411668668,
+    "mean_J10_low_stages": 0.10234771785379959,
+    "mean_J10_high_stage": 0.07311003234280754
+  },
+  "beta_0.525": {
+    "completed": 3,
+    "tasks": 3,
+    "qp_failures": 0,
+    "command_saturation_cycles": 6,
+    "actual_saturation_steps": 0,
+    "eligible": false,
+    "mean_J10": 0.0909932961540156,
+    "mean_J10_low_stages": 0.10225951483007549,
+    "mean_J10_high_stage": 0.07322260669683392
+  },
+  "beta_0.55": {
+    "completed": 3,
+    "tasks": 3,
+    "qp_failures": 0,
+    "command_saturation_cycles": 6,
+    "actual_saturation_steps": 0,
+    "eligible": false,
+    "mean_J10": 0.09098708857199304,
+    "mean_J10_low_stages": 0.10217066657514888,
+    "mean_J10_high_stage": 0.07334329352127424
+  },
+  "beta_0.575": {
+    "completed": 3,
+    "tasks": 3,
+    "qp_failures": 0,
+    "command_saturation_cycles": 6,
+    "actual_saturation_steps": 0,
+    "eligible": false,
+    "mean_J10": 0.09098398644592015,
+    "mean_J10_low_stages": 0.10208118788758724,
+    "mean_J10_high_stage": 0.07347180142531261
+  },
+  "beta_0.6": {
+    "completed": 3,
+    "tasks": 3,
+    "qp_failures": 0,
+    "command_saturation_cycles": 6,
+    "actual_saturation_steps": 0,
+    "eligible": false,
+    "mean_J10": 0.0909838683908744,
+    "mean_J10_low_stages": 0.10199108925006871,
+    "mean_J10_high_stage": 0.07360783622047316
+  },
+  "beta_0.65": {
+    "completed": 3,
+    "tasks": 3,
+    "qp_failures": 0,
+    "command_saturation_cycles": 4,
+    "actual_saturation_steps": 0,
+    "eligible": false,
+    "mean_J10": 0.09099224105150953,
+    "mean_J10_low_stages": 0.10180956971690346,
+    "mean_J10_high_stage": 0.07390144071473922
+  },
+  "beta_0.75": {
+    "completed": 3,
+    "tasks": 3,
+    "qp_failures": 0,
+    "command_saturation_cycles": 2,
+    "actual_saturation_steps": 0,
+    "eligible": false,
+    "mean_J10": 0.09104052606202999,
+    "mean_J10_low_stages": 0.10143985099050523,
+    "mean_J10_high_stage": 0.07456799368379828
+  },
+  "RL_beta": {
+    "completed": 3,
+    "tasks": 3,
+    "qp_failures": 0,
+    "command_saturation_cycles": 5,
+    "actual_saturation_steps": 0,
+    "eligible": false,
+    "mean_J10": 0.09100976277523888,
+    "mean_J10_low_stages": 0.10191652238498973,
+    "mean_J10_high_stage": 0.07378646987983552
+  },
+  "schedule_beta": {
+    "completed": 3,
+    "tasks": 3,
+    "qp_failures": 0,
+    "command_saturation_cycles": 2,
+    "actual_saturation_steps": 0,
+    "eligible": false,
+    "mean_J10": 0.09030902636790365,
+    "mean_J10_low_stages": 0.10142348205057848,
+    "mean_J10_high_stage": 0.07255410017159057
+  },
+  "best_fixed": "beta_0.6",
+  "schedule_vs_best_fixed_reduction": 0.007417161249635651,
+  "RL_vs_best_fixed_reduction": -0.0002846041262307697,
+  "paired_task_results": [
+    {
+      "task_id": "dyn_switch2_east_lhl_p031",
+      "beta_0.6": 0.0920820948030773,
+      "schedule_beta": 0.09144545303950258,
+      "RL_beta": 0.09210460091851386
+    },
+    {
+      "task_id": "dyn_switch2_east_lhl_p188",
+      "beta_0.6": 0.0936297187890398,
+      "schedule_beta": 0.09297254746775915,
+      "RL_beta": 0.09365455996516014
+    },
+    {
+      "task_id": "dyn_switch2_east_hlh_p031",
+      "beta_0.6": 0.08723979158050607,
+      "schedule_beta": 0.08650907859644924,
+      "RL_beta": 0.08727012744204264
+    }
+  ]
+}

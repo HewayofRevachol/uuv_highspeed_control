@@ -7,6 +7,37 @@ from experiments.gs12_weight_route.reference_tasks import single_frequency, mixe
 
 
 def joint_task_reference(task, t):
+    if task["kind"] == "beta_switch":
+        t = np.asarray(t, dtype=float)
+        phase = float(task.get("phase_rad", 0.))
+        amplitude_low = float(task.get("amplitude_low", task.get("amplitude", .024)))
+        amplitude_high = float(task.get("amplitude_high", task.get("amplitude", .024)))
+        speed = float(task.get("speed_mps", 15.))
+        low = task_reference({"kind": "single", "axis": "east", "k": 8,
+                              "phase_rad": phase, "amplitude": amplitude_low,
+                              "speed_mps": speed}, t)
+        high = task_reference({"kind": "single", "axis": "east", "k": 32,
+                               "phase_rad": phase, "amplitude": amplitude_high,
+                               "speed_mps": speed}, t)
+
+        def blend(center):
+            u = np.clip((t-(center-2.))/4., 0., 1.)
+            value = u*u*(3.-2.*u)
+            derivative = np.where((u > 0.) & (u < 1.), 6.*u*(1.-u)/4., 0.)
+            return value, derivative
+
+        q1, dq1 = blend(20.)
+        q2, dq2 = blend(44.)
+        high_weight = q1*(1.-q2)
+        dweight = dq1*(1.-q2)-q1*dq2
+        if task.get("order", "low_high_low") == "high_low_high":
+            high_weight, dweight = 1.-high_weight, -dweight
+        east = (1.-high_weight)*low[:, 1]+high_weight*high[:, 1]
+        ve = ((1.-high_weight)*low[:, 6]+high_weight*high[:, 6]
+              +dweight*(high[:, 1]-low[:, 1]))
+        yaw = np.arctan2(ve, speed)
+        return np.stack((speed*t, east, np.full_like(t, 20.), np.zeros_like(t),
+                         yaw, np.full_like(t, speed), ve, np.zeros_like(t)), axis=-1)
     if task["kind"] != "mixed":
         return task_reference(task, t)
     t = np.asarray(t, dtype=float)

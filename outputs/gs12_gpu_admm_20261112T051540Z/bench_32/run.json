@@ -1,0 +1,27 @@
+{
+  "status": "completed",
+  "episodes": 32,
+  "updates": 1,
+  "device": "cuda",
+  "predictor": "cusadi",
+  "tasks_sha256": "6f533ddd6ed01e45091ea402681f1f818f1bd14df18df8bddde3c8793c00bf19",
+  "reward_cache_sha256": "0c5919c56df593fc8be5705195967f39400e3d3fdfffb3aebad470bc7ac898ed",
+  "seed": 20261112,
+  "update_episodes": 32,
+  "admm": {
+    "iterations": 100,
+    "rho": 10.0,
+    "tolerance": 0.001,
+    "cuda_graph": true
+  },
+  "ppo": {
+    "epochs": 4,
+    "minibatch": 64,
+    "lr": 0.0003,
+    "clip": 0.2,
+    "gamma": 0.98,
+    "gae_lambda": 0.95
+  },
+  "action": "continuous beta target = 0.75*sigmoid(raw Gaussian)",
+  "model": "final_actor.pt"
+}

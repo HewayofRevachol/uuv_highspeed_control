@@ -1,0 +1,51 @@
+{
+  "methods": {
+    "beta_0.55": {
+      "tasks": 12,
+      "complete": 12,
+      "failures": 0,
+      "mean_J10_complete_only": 0.0016810209515283655,
+      "mean_J_track_complete_only": 4.546869609666216e-06,
+      "status_counts": {
+        "complete_valid": 12
+      }
+    }
+  },
+  "best_complete_fixed_beta": "beta_0.55",
+  "RL_vs_best_fixed": null,
+  "provenance": {
+    "tasks": "/home/prufrock/uuv_workspace/experiments/GS-18_full_state/tasks_dev.jsonl",
+    "tasks_sha256": "9ef2d3852e9c55f5dee865ea227448e68482eab38c9fe6360938e68023b735a4",
+    "checkpoint": "outputs/gs12_gpu_admm_20261112T051540Z/formal_1h/final_actor.pt",
+    "checkpoint_sha256": "7e46c438097bee21e58758a8ac50615bf77979af26db051c2a59d36649f5cee8",
+    "training_run_sha256": "f284e86b50571337df0db49306fd6e7762af0c6deeaca153e7bdce1572b57489",
+    "settings": {
+      "predictor": "cusadi",
+      "iterations": 100,
+      "rho": 10.0,
+      "tolerance": 0.001,
+      "cuda_graph": true
+    },
+    "state_order": [
+      "N",
+      "E",
+      "D",
+      "theta",
+      "psi",
+      "u",
+      "v",
+      "w",
+      "q",
+      "r"
+    ],
+    "dt_s": 0.02,
+    "score_window_s": [
+      0.02,
+      64.0
+    ],
+    "batch_size": 12,
+    "fixed_initial_beta": null,
+    "attitude_scale": 1.0,
+    "velocity_scale": 2.0
+  }
+}

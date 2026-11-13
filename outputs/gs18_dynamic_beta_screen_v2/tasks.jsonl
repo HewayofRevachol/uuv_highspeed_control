@@ -1,0 +1,4 @@
+{"task_id":"dyn_screen2_east_low_p0","kind":"single","axis":"east","k":8,"phase_rad":0.31,"amplitude":0.384,"speed_mps":15.0,"duration_s":64.0,"split":"exploratory","window_s":[0.02,64.0]}
+{"task_id":"dyn_screen2_east_high_p0","kind":"single","axis":"east","k":32,"phase_rad":0.31,"amplitude":0.024,"speed_mps":15.0,"duration_s":64.0,"split":"exploratory","window_s":[0.02,64.0]}
+{"task_id":"dyn_screen2_depth_low_p1","kind":"single","axis":"depth","k":8,"phase_rad":1.17,"amplitude":0.384,"speed_mps":15.0,"duration_s":64.0,"split":"exploratory","window_s":[0.02,64.0]}
+{"task_id":"dyn_screen2_depth_high_p1","kind":"single","axis":"depth","k":32,"phase_rad":1.17,"amplitude":0.024,"speed_mps":15.0,"duration_s":64.0,"split":"exploratory","window_s":[0.02,64.0]}

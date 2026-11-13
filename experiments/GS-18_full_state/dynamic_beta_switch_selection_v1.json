@@ -1,0 +1,16 @@
+{
+  "selection_status": "frozen before validation",
+  "development_tasks": "tasks_dynamic_beta_switch_v3.jsonl",
+  "development_output": "outputs/gs18_dynamic_beta_switch_v4/",
+  "candidate": "time-scheduled beta target; beta 0.75 in low-frequency phases and beta 0.25 in high-frequency phases",
+  "fixed_baseline": "beta_0.6",
+  "initial_beta": 0.75,
+  "reference_order": "low_high_low or high_low_high; 4 s smooth transitions centered at 20 s and 44 s",
+  "target_switch_times_s": [16.0, 40.0],
+  "frequency_bins": {"low_k": 8, "high_k": 32, "period_s": {"low": 8.0, "high": 2.0}},
+  "amplitudes": {"low": 0.288, "high": 0.018, "units": "task amplitude parameters; ratio preserves equal peak lateral acceleration"},
+  "validation_tasks": "tasks_dynamic_beta_switch_validation_v1.jsonl",
+  "validation_methods": ["beta_0.6", "schedule_beta", "RL_beta"],
+  "acceptance": "all candidate and fixed-baseline tasks complete with zero QP failures and zero saturation; report paired J10 without retuning",
+  "evidence_limit": "four deterministic phase variants are an engineering replication, not statistical significance; scheduled beta uses known phase timing and is not an online learned policy"
+}

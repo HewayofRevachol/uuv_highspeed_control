@@ -1,0 +1,10 @@
+# Install a CUDA-enabled torch build appropriate for your local CUDA runtime.
+torch>=2.1
+numpy>=1.24
+casadi>=3.6
+tqdm>=4.65
+matplotlib>=3.6
+# Checks only; not used by the GPU solver at training time.
+pytest>=7
+scipy>=1.10
+osqp>=0.6

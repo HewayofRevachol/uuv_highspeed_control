@@ -1,0 +1,40 @@
+{
+  "tasks": "/home/prufrock/uuv_workspace/experiments/GS-18_full_state/tasks_dynamic_beta_switch_v2.jsonl",
+  "checkpoint": "/home/prufrock/uuv_workspace/outputs/gs12_gpu_admm_20261112T051540Z/formal_1h/final_actor.pt",
+  "settings": {
+    "predictor": "cusadi",
+    "iterations": 100,
+    "rho": 10.0,
+    "tolerance": 0.001,
+    "cuda_graph": true
+  },
+  "methods": [
+    "beta_0",
+    "beta_0.25",
+    "beta_0.5",
+    "beta_0.525",
+    "beta_0.55",
+    "beta_0.575",
+    "beta_0.6",
+    "beta_0.65",
+    "beta_0.75",
+    "RL_beta",
+    "schedule_beta"
+  ],
+  "initial_beta": 0.75,
+  "beta_targets": {
+    "low_frequency": 0.75,
+    "high_frequency": 0.25
+  },
+  "target_switch_times_s": [
+    16.0,
+    40.0
+  ],
+  "reference_transition_centers_s": [
+    20.0,
+    44.0
+  ],
+  "beta_slew_limit_per_0.1s": 0.02,
+  "score": "unchanged J10; transition samples excluded only from phase diagnostics",
+  "evidence": "exploratory, selected after the frequency screen; not independent validation"
+}

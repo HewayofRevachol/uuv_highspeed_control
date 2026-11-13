@@ -1,0 +1,8 @@
+{"task_id": "switch_test_000", "split": "test", "kind": "switch", "speed_mps": 12.0, "duration_s": 144.0, "plant": "combined", "amplitude": 0.003, "axis": "east", "order": "low_high_low", "phase_rad": 2.51}
+{"task_id": "switch_test_001", "split": "test", "kind": "switch", "speed_mps": 18.0, "duration_s": 144.0, "plant": "combined", "amplitude": 0.003, "axis": "east", "order": "low_high_low", "phase_rad": 2.51}
+{"task_id": "switch_test_002", "split": "test", "kind": "switch", "speed_mps": 12.0, "duration_s": 144.0, "plant": "combined", "amplitude": 0.003, "axis": "east", "order": "high_low_high", "phase_rad": 2.51}
+{"task_id": "switch_test_003", "split": "test", "kind": "switch", "speed_mps": 18.0, "duration_s": 144.0, "plant": "combined", "amplitude": 0.003, "axis": "east", "order": "high_low_high", "phase_rad": 2.51}
+{"task_id": "switch_test_004", "split": "test", "kind": "switch", "speed_mps": 12.0, "duration_s": 144.0, "plant": "combined", "amplitude": 0.003, "axis": "depth", "order": "low_high_low", "phase_rad": 2.51}
+{"task_id": "switch_test_005", "split": "test", "kind": "switch", "speed_mps": 18.0, "duration_s": 144.0, "plant": "combined", "amplitude": 0.003, "axis": "depth", "order": "low_high_low", "phase_rad": 2.51}
+{"task_id": "switch_test_006", "split": "test", "kind": "switch", "speed_mps": 12.0, "duration_s": 144.0, "plant": "combined", "amplitude": 0.003, "axis": "depth", "order": "high_low_high", "phase_rad": 2.51}
+{"task_id": "switch_test_007", "split": "test", "kind": "switch", "speed_mps": 18.0, "duration_s": 144.0, "plant": "combined", "amplitude": 0.003, "axis": "depth", "order": "high_low_high", "phase_rad": 2.51}

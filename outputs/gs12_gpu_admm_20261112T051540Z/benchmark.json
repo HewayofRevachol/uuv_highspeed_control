@@ -1,0 +1,68 @@
+[
+  {
+    "lanes": 16,
+    "returncode": 0,
+    "wall_s": 72.58866384599969,
+    "peak_memory_mib": 1513.0,
+    "mean_gpu_pct": 72.16666666666667,
+    "history": [
+      {
+        "loss": 299.4454879760742,
+        "minibatch_steps": 8,
+        "episodes": 16,
+        "transitions": 128,
+        "complete": 16,
+        "mean_train_J": 8.533869954236731e-08,
+        "wall_s": 69.76076339099927
+      }
+    ],
+    "statuses": {
+      "complete_valid": 16
+    },
+    "control_cycles": 10240
+  },
+  {
+    "lanes": 32,
+    "returncode": 0,
+    "wall_s": 84.64679103300114,
+    "peak_memory_mib": 1517.0,
+    "mean_gpu_pct": 71.78048780487805,
+    "history": [
+      {
+        "loss": 267.104528427124,
+        "minibatch_steps": 16,
+        "episodes": 32,
+        "transitions": 256,
+        "complete": 32,
+        "mean_train_J": 8.195195613560639e-08,
+        "wall_s": 81.73350287599897
+      }
+    ],
+    "statuses": {
+      "complete_valid": 32
+    },
+    "control_cycles": 20480
+  },
+  {
+    "lanes": 64,
+    "returncode": 0,
+    "wall_s": 94.38234178899984,
+    "peak_memory_mib": 1557.0,
+    "mean_gpu_pct": 75.73913043478261,
+    "history": [
+      {
+        "loss": 280.3916356563568,
+        "minibatch_steps": 32,
+        "episodes": 64,
+        "transitions": 512,
+        "complete": 64,
+        "mean_train_J": 8.201910940063507e-08,
+        "wall_s": 91.08728801100006
+      }
+    ],
+    "statuses": {
+      "complete_valid": 64
+    },
+    "control_cycles": 40960
+  }
+]

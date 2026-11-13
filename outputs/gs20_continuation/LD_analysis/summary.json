@@ -1,0 +1,93 @@
+{
+  "methods": {
+    "first:best": {
+      "tasks": 4,
+      "complete": 4,
+      "eligible": 4,
+      "qp_failures": 0,
+      "mean_R2_complete_only": 1.5007258896973046e-08
+    },
+    "first:rule": {
+      "tasks": 4,
+      "complete": 4,
+      "eligible": 4,
+      "qp_failures": 0,
+      "mean_R2_complete_only": 1.8828377336781093e-08
+    },
+    "hybrid:best": {
+      "tasks": 4,
+      "complete": 4,
+      "eligible": 4,
+      "qp_failures": 0,
+      "mean_R2_complete_only": 1.492751057699188e-08
+    },
+    "hybrid:rule": {
+      "tasks": 4,
+      "complete": 4,
+      "eligible": 4,
+      "qp_failures": 0,
+      "mean_R2_complete_only": 1.8750902766565415e-08
+    }
+  },
+  "paired": {
+    "first:rule": {
+      "pairs": 4,
+      "eligible_pairs": 4,
+      "all_pairs_eligible": true,
+      "wins": 0,
+      "mean_R2_reduction_fraction": -0.25461801292564923,
+      "per_task": [
+        {
+          "task_id": "switch_dev_000",
+          "baseline_R2": 6.070668443448972e-09,
+          "candidate_R2": 6.070668443448972e-09
+        },
+        {
+          "task_id": "switch_dev_001",
+          "baseline_R2": 1.0615245272742948e-08,
+          "candidate_R2": 1.0615245272742948e-08
+        },
+        {
+          "task_id": "switch_dev_002",
+          "baseline_R2": 1.6536573743550565e-08,
+          "candidate_R2": 2.3620421325416775e-08
+        },
+        {
+          "task_id": "switch_dev_003",
+          "baseline_R2": 2.6806548128149704e-08,
+          "candidate_R2": 3.500717430551567e-08
+        }
+      ]
+    },
+    "hybrid:rule": {
+      "pairs": 4,
+      "eligible_pairs": 4,
+      "all_pairs_eligible": true,
+      "wins": 0,
+      "mean_R2_reduction_fraction": -0.25613059658230064,
+      "per_task": [
+        {
+          "task_id": "switch_dev_000",
+          "baseline_R2": 5.950853597102877e-09,
+          "candidate_R2": 5.950853597102877e-09
+        },
+        {
+          "task_id": "switch_dev_001",
+          "baseline_R2": 1.0387594143654792e-08,
+          "candidate_R2": 1.0387594143654792e-08
+        },
+        {
+          "task_id": "switch_dev_002",
+          "baseline_R2": 1.655245560820587e-08,
+          "candidate_R2": 2.3641021950735403e-08
+        },
+        {
+          "task_id": "switch_dev_003",
+          "baseline_R2": 2.681913895900399e-08,
+          "candidate_R2": 3.502414137476858e-08
+        }
+      ]
+    }
+  },
+  "note": "Partial/failed runs are excluded from full scores; common-prefix RMSE is diagnostic only."
+}

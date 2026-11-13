@@ -1,0 +1,4 @@
+{"task_id": "switch_dev_000", "split": "dev", "kind": "switch", "speed_mps": 15.0, "duration_s": 144.0, "plant": "combined", "amplitude": 0.006, "axis": "east", "order": "low_high_low", "phase_rad": 0.93}
+{"task_id": "switch_dev_001", "split": "dev", "kind": "switch", "speed_mps": 15.0, "duration_s": 144.0, "plant": "combined", "amplitude": 0.006, "axis": "east", "order": "high_low_high", "phase_rad": 0.93}
+{"task_id": "switch_dev_002", "split": "dev", "kind": "switch", "speed_mps": 15.0, "duration_s": 144.0, "plant": "combined", "amplitude": 0.006, "axis": "depth", "order": "low_high_low", "phase_rad": 0.93}
+{"task_id": "switch_dev_003", "split": "dev", "kind": "switch", "speed_mps": 15.0, "duration_s": 144.0, "plant": "combined", "amplitude": 0.006, "axis": "depth", "order": "high_low_high", "phase_rad": 0.93}

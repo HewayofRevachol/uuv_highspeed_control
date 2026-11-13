@@ -1,0 +1,58 @@
+{
+  "beta_0.6": {
+    "completed": 4,
+    "tasks": 4,
+    "qp_failures": 0,
+    "command_saturation_cycles": 0,
+    "actual_saturation_steps": 0,
+    "eligible": true,
+    "mean_J10": 0.05083755294235687
+  },
+  "schedule_beta": {
+    "completed": 4,
+    "tasks": 4,
+    "qp_failures": 0,
+    "command_saturation_cycles": 0,
+    "actual_saturation_steps": 0,
+    "eligible": true,
+    "mean_J10": 0.05044509459142195
+  },
+  "RL_beta": {
+    "completed": 4,
+    "tasks": 4,
+    "qp_failures": 0,
+    "command_saturation_cycles": 0,
+    "actual_saturation_steps": 0,
+    "eligible": true,
+    "mean_J10": 0.05085219193144391
+  },
+  "schedule_reduction_vs_frozen_beta_0.6": 0.007719851334699657,
+  "RL_reduction_vs_frozen_beta_0.6": -0.00028795621031640906,
+  "schedule_wins": 4,
+  "per_task": [
+    {
+      "task_id": "dyn_switch_val_east_lhl_p093",
+      "beta_0.6": 0.05207372571417239,
+      "schedule_beta": 0.051705218146177824,
+      "RL_beta": 0.052087236560546084
+    },
+    {
+      "task_id": "dyn_switch_val_east_lhl_p251",
+      "beta_0.6": 0.05269057650751596,
+      "schedule_beta": 0.05232653138482789,
+      "RL_beta": 0.05270413761482745
+    },
+    {
+      "task_id": "dyn_switch_val_east_hlh_p093",
+      "beta_0.6": 0.04931213407376167,
+      "schedule_beta": 0.048902464521902125,
+      "RL_beta": 0.04932850159935673
+    },
+    {
+      "task_id": "dyn_switch_val_east_hlh_p251",
+      "beta_0.6": 0.049273775473977446,
+      "schedule_beta": 0.04884616431277995,
+      "RL_beta": 0.0492888919510454
+    }
+  ]
+}

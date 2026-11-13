@@ -1,0 +1,54 @@
+{
+  "verification_status": "ANALYZED",
+  "new_closed_loop_simulations": 0,
+  "new_training_runs": 0,
+  "included_records": 260,
+  "stage_records": {
+    "A_bridge": 24,
+    "A_maneuver": 108,
+    "B_light": 96,
+    "C_light": 16,
+    "D_light": 16
+  },
+  "raw_trace_rmse_and_R2": "260/260 matched stored values; all available windows checked",
+  "score_tolerance": {
+    "rtol": 1e-11,
+    "rmse_atol": 1e-14
+  },
+  "saved_FRF_matrices": "6/6 matched both windows; rtol=1e-10, atol=1e-13",
+  "legacy_bridge_checks": [
+    {
+      "plant": "combined",
+      "max_relative_matrix_difference": 2.285217250325793e-09,
+      "passed": true
+    },
+    {
+      "plant": "matched",
+      "max_relative_matrix_difference": 1.5369081283920384e-09,
+      "passed": true
+    }
+  ],
+  "light_records_all_eligible": true,
+  "D_gate": {
+    "first": {
+      "wins": 0,
+      "ties": 2,
+      "losses": 2,
+      "required_wins": 3,
+      "triggered": false
+    },
+    "hybrid": {
+      "wins": 0,
+      "ties": 2,
+      "losses": 2,
+      "required_wins": 3,
+      "triggered": false
+    }
+  },
+  "excluded_records": 7,
+  "limitations": [
+    "No fresh closed-loop rerun; verifies saved data and arithmetic only.",
+    "No live noise/current/hardware experiments; no confidence intervals or statistical significance.",
+    "Reported saturation flags follow original instrumentation; constraint implementation was not independently certified."
+  ]
+}

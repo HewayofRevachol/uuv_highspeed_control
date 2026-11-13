@@ -1,0 +1,66 @@
+{
+  "date": "2026-11-13",
+  "issue": "GS-22",
+  "origin": "GS-21 shared workspace archive; copied without new simulation",
+  "files": [
+    {
+      "source_relative_to_gs20_directory": "reports/20261113_results/tables/A_frequency.csv",
+      "destination": "A_frequency.csv",
+      "sha256": "886001153d8d5261a779f31796046ffb902b76d82be24c5ddb165796d6f0936c",
+      "source_sha256": "ff062f36213b1989fc5678237815ccef0042fcc3e9f44f9e686d7b9cdb182916",
+      "transformation": "CSV fields unchanged; UTF-8 without BOM, LF newlines"
+    },
+    {
+      "source_relative_to_gs20_directory": "reports/20261113_results/tables/B_per_task_beta.csv",
+      "destination": "B_per_task_beta.csv",
+      "sha256": "00c415dbbf5313a3930eddadf711b4e68862fbe7236f49dd457e9b0d4a4d8407",
+      "source_sha256": "a36fedb30e46502ae2f7bb42fbe52d306ab40dcf02d68469ae56ef9c9692ef15",
+      "transformation": "CSV fields unchanged; UTF-8 without BOM, LF newlines"
+    },
+    {
+      "source_relative_to_gs20_directory": "reports/20261113_results/tables/C_D_pairs.csv",
+      "destination": "C_D_pairs.csv",
+      "sha256": "4612d13580aef7ad7625c9377cc2644b27105f9a5b756153560ce72ce336ed8c",
+      "source_sha256": "13efe3bf40442aa02ba2f399081fec4eaad49a32e9360f28a68a68e3f05abe4b",
+      "transformation": "CSV fields unchanged; UTF-8 without BOM, LF newlines"
+    },
+    {
+      "source_relative_to_gs20_directory": "closed_loop.py",
+      "sha256": "50cb48b573372452947ec0fb8535e36ca3b03d2b02ef0f8988e761f4aead3da2",
+      "destination": "closed_loop.py.txt"
+    },
+    {
+      "source_relative_to_gs20_directory": "policy.py",
+      "sha256": "edee46af848ad7725d4968e35e731965bff2de95fc9516a0488a614fda743d69",
+      "destination": "policy.py.txt"
+    },
+    {
+      "source_relative_to_gs20_directory": "metrics.py",
+      "sha256": "b7ea554c8aab321c1960b9df4f0ac6d5d1ea49c5a66113ea730be27c8ce27cc6",
+      "copied": false
+    },
+    {
+      "source_relative_to_gs20_directory": "config.json",
+      "sha256": "a91da3f1ae5592281fd766b15967e52b84a1eae49b21c72c33fc6048b87dd0af",
+      "destination": "config.json.txt"
+    },
+    {
+      "source_relative_to_gs20_directory": "references.py",
+      "sha256": "cc567f2cf58c7a56c1e87567d129e7d0bed572788eb4ac5c89e71d0cc2b9bfe5",
+      "copied": false
+    },
+    {
+      "source_relative_to_gs20_directory": "reports/20261113_results/REPORT.md",
+      "sha256": "19920638d00a4c7f98f278438b1b4a14a302b375e14b963ddeadf86484506511",
+      "copied": false
+    },
+    {
+      "source_relative_to_gs20_directory": "reports/20261113_results/tables/window_scores.csv",
+      "source_sha256": "457874b364efd7abaa4f49b92c80f9a4310725bedb16e72b9298165b3dc14d14",
+      "destination": "D_window_scores.csv",
+      "sha256": "4e6e27c35c46de8f1fb52ff57bb28a17a8b0fd3ef089552fa45a85db0110e8e5",
+      "transformation": "CSV rows with stage == D_light; all columns retained; UTF-8 without BOM, LF newlines",
+      "rows": 96
+    }
+  ]
+}

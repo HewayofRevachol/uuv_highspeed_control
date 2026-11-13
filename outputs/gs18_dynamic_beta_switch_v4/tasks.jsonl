@@ -1,0 +1,3 @@
+{"task_id":"dyn_switch3_east_lhl_p031","kind":"beta_switch","order":"low_high_low","phase_rad":0.31,"amplitude_low":0.288,"amplitude_high":0.018,"speed_mps":15.0,"duration_s":64.0,"split":"exploratory","window_s":[0.02,64.0]}
+{"task_id":"dyn_switch3_east_lhl_p188","kind":"beta_switch","order":"low_high_low","phase_rad":1.88,"amplitude_low":0.288,"amplitude_high":0.018,"speed_mps":15.0,"duration_s":64.0,"split":"exploratory","window_s":[0.02,64.0]}
+{"task_id":"dyn_switch3_east_hlh_p031","kind":"beta_switch","order":"high_low_high","phase_rad":0.31,"amplitude_low":0.288,"amplitude_high":0.018,"speed_mps":15.0,"duration_s":64.0,"split":"exploratory","window_s":[0.02,64.0]}

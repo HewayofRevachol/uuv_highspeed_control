@@ -1,0 +1,2 @@
+predictor=cusadi, ADMM iterations=100
+GS-12 CUDA beta PPO:   0%|          | 0/64 [00:00<?, ?episode/s]GS-12 CUDA beta PPO: 100%|██████████| 64/64 [01:31<00:00,  1.44s/episode]GS-12 CUDA beta PPO: 100%|██████████| 64/64 [01:31<00:00,  1.44s/episode, loss=280]GS-12 CUDA beta PPO: 100%|██████████| 64/64 [01:31<00:00,  1.44s/episode, loss=280]

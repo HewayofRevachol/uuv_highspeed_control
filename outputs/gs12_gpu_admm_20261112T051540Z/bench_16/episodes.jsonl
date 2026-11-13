@@ -1,0 +1,16 @@
+{"task_id": "train_low_depth_1_0", "J_track": 7.000589193636451e-12, "status": "complete_valid", "control_cycles": 640}
+{"task_id": "train_low_depth_3_0", "J_track": 3.1702510662646446e-10, "status": "complete_valid", "control_cycles": 640}
+{"task_id": "train_low_depth_4_0", "J_track": 7.525595192736017e-10, "status": "complete_valid", "control_cycles": 640}
+{"task_id": "train_low_depth_6_0", "J_track": 1.2477121230981373e-09, "status": "complete_valid", "control_cycles": 640}
+{"task_id": "train_high_depth_25_0", "J_track": 6.5333986246473e-08, "status": "complete_valid", "control_cycles": 640}
+{"task_id": "train_high_depth_27_0", "J_track": 9.706554551194855e-08, "status": "complete_valid", "control_cycles": 640}
+{"task_id": "train_high_depth_29_0", "J_track": 1.3309531935329877e-07, "status": "complete_valid", "control_cycles": 640}
+{"task_id": "train_high_depth_31_0", "J_track": 1.449400231333254e-07, "status": "complete_valid", "control_cycles": 640}
+{"task_id": "train_high_east_25_0", "J_track": 6.150347972809493e-08, "status": "complete_valid", "control_cycles": 640}
+{"task_id": "train_high_east_27_0", "J_track": 1.019609244388815e-07, "status": "complete_valid", "control_cycles": 640}
+{"task_id": "train_high_east_29_0", "J_track": 1.1889336256409557e-07, "status": "complete_valid", "control_cycles": 640}
+{"task_id": "train_high_east_31_0", "J_track": 1.200749796061997e-07, "status": "complete_valid", "control_cycles": 640}
+{"task_id": "train_mixed_0_0", "J_track": 5.431667594369803e-08, "status": "complete_valid", "control_cycles": 640}
+{"task_id": "train_mixed_0_1", "J_track": 1.1203608698600615e-07, "status": "complete_valid", "control_cycles": 640}
+{"task_id": "train_mixed_0_2", "J_track": 1.017364256456911e-07, "status": "complete_valid", "control_cycles": 640}
+{"task_id": "train_mixed_0_3", "J_track": 2.5213808618197235e-07, "status": "complete_valid", "control_cycles": 640}

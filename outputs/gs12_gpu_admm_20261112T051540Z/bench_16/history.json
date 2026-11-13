@@ -1,0 +1,11 @@
+[
+  {
+    "loss": 299.4454879760742,
+    "minibatch_steps": 8,
+    "episodes": 16,
+    "transitions": 128,
+    "complete": 16,
+    "mean_train_J": 8.533869954236731e-08,
+    "wall_s": 69.76076339099927
+  }
+]

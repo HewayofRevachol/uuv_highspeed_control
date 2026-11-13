@@ -1,0 +1,12 @@
+{
+  "status_at_handoff": "running",
+  "started_at": "2026-11-12T13:26:07+08:00",
+  "tmux_session": "gs12_gpu_admm_1h",
+  "pane_shell_pid": 106089,
+  "training_pid": 106252,
+  "expected_finish_approx": "2026-11-12T14:27:00+08:00",
+  "log": "outputs/gs12_gpu_admm_20261112T051540Z/formal.log",
+  "output": "outputs/gs12_gpu_admm_20261112T051540Z/formal_1h",
+  "stop": "Attach to gs12_gpu_admm_1h and press Ctrl-C; completed update checkpoints remain.",
+  "persistence": "tmux is detached from the chat run; host and tmux-server survival are best-effort."
+}

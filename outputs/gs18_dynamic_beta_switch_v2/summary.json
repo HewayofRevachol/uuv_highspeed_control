@@ -1,0 +1,135 @@
+{
+  "beta_0": {
+    "complete": 0,
+    "tasks": 3,
+    "qp_failures": 0,
+    "command_saturation_cycles": 3,
+    "actual_saturation_steps": 0,
+    "mean_J10": 0.03175207090945689,
+    "mean_J10_low_stages": 0.000410227414364637,
+    "mean_J10_high_stage": 0.07290251340751398
+  },
+  "beta_0.25": {
+    "complete": 3,
+    "tasks": 3,
+    "qp_failures": 0,
+    "command_saturation_cycles": 0,
+    "actual_saturation_steps": 0,
+    "mean_J10": 0.031538069316703284,
+    "mean_J10_low_stages": 0.0004068639505974147,
+    "mean_J10_high_stage": 0.07224704700128824
+  },
+  "beta_0.5": {
+    "complete": 3,
+    "tasks": 3,
+    "qp_failures": 0,
+    "command_saturation_cycles": 0,
+    "actual_saturation_steps": 0,
+    "mean_J10": 0.031875772848768476,
+    "mean_J10_low_stages": 0.0004033872363305621,
+    "mean_J10_high_stage": 0.07289935732105203
+  },
+  "beta_0.525": {
+    "complete": 3,
+    "tasks": 3,
+    "qp_failures": 0,
+    "command_saturation_cycles": 0,
+    "actual_saturation_steps": 0,
+    "mean_J10": 0.03193175517653248,
+    "mean_J10_low_stages": 0.00040302814468131076,
+    "mean_J10_high_stage": 0.07301734914564757
+  },
+  "beta_0.55": {
+    "complete": 3,
+    "tasks": 3,
+    "qp_failures": 0,
+    "command_saturation_cycles": 0,
+    "actual_saturation_steps": 0,
+    "mean_J10": 0.03199115314926543,
+    "mean_J10_low_stages": 0.0004026668475201192,
+    "mean_J10_high_stage": 0.07314347179734836
+  },
+  "beta_0.575": {
+    "complete": 3,
+    "tasks": 3,
+    "qp_failures": 0,
+    "command_saturation_cycles": 0,
+    "actual_saturation_steps": 0,
+    "mean_J10": 0.03205383916930857,
+    "mean_J10_low_stages": 0.0004023032744190456,
+    "mean_J10_high_stage": 0.07327742465286684
+  },
+  "beta_0.6": {
+    "complete": 3,
+    "tasks": 3,
+    "qp_failures": 0,
+    "command_saturation_cycles": 0,
+    "actual_saturation_steps": 0,
+    "mean_J10": 0.032119688289605486,
+    "mean_J10_low_stages": 0.00040193744717937377,
+    "mean_J10_high_stage": 0.07341891494231968
+  },
+  "beta_0.65": {
+    "complete": 3,
+    "tasks": 3,
+    "qp_failures": 0,
+    "command_saturation_cycles": 0,
+    "actual_saturation_steps": 0,
+    "mean_J10": 0.03226042478787711,
+    "mean_J10_low_stages": 0.00040119886693509534,
+    "mean_J10_high_stage": 0.07372344455950887
+  },
+  "beta_0.75": {
+    "complete": 3,
+    "tasks": 3,
+    "qp_failures": 0,
+    "command_saturation_cycles": 0,
+    "actual_saturation_steps": 0,
+    "mean_J10": 0.03257512432555785,
+    "mean_J10_low_stages": 0.0003996937336855095,
+    "mean_J10_high_stage": 0.07441180968269993
+  },
+  "RL_beta": {
+    "complete": 3,
+    "tasks": 3,
+    "qp_failures": 0,
+    "command_saturation_cycles": 0,
+    "actual_saturation_steps": 0,
+    "mean_J10": 0.03221630674298898,
+    "mean_J10_low_stages": 0.00040200958353528107,
+    "mean_J10_high_stage": 0.07364656543713344
+  },
+  "schedule_beta": {
+    "complete": 3,
+    "tasks": 3,
+    "qp_failures": 0,
+    "command_saturation_cycles": 0,
+    "actual_saturation_steps": 0,
+    "mean_J10": 0.03161473833972866,
+    "mean_J10_low_stages": 0.0003996785646903946,
+    "mean_J10_high_stage": 0.072327936332281
+  },
+  "best_fixed": "beta_0.25",
+  "schedule_vs_best_fixed_reduction": -0.002430999255391031,
+  "RL_vs_best_fixed_reduction": -0.021505356573190415,
+  "paired_task_results": [
+    {
+      "task_id": "dyn_switch_east_lhl_p031",
+      "beta_0.25": 0.028937420455363298,
+      "schedule_beta": 0.029016228512773704,
+      "RL_beta": 0.02955576658620495
+    },
+    {
+      "task_id": "dyn_switch_east_lhl_p188",
+      "beta_0.25": 0.028990863571805227,
+      "schedule_beta": 0.02906238452361066,
+      "RL_beta": 0.029609836481867303
+    },
+    {
+      "task_id": "dyn_switch_east_hlh_p031",
+      "beta_0.25": 0.036685923922941316,
+      "schedule_beta": 0.036765601982801606,
+      "RL_beta": 0.03748331716089469
+    }
+  ]
+}

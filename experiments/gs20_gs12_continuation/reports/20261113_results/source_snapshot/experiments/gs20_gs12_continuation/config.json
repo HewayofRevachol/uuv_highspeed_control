@@ -1,0 +1,21 @@
+{
+  "legacy_commit": "926b7ac4b8559c9b2261d72e689649f6080a34b3",
+  "bins": [2, 4, 6, 8, 12, 16, 24],
+  "betas": [0.0, 0.25, 0.5, 0.75, 1.0],
+  "initial_beta": 1.0,
+  "beta_slew_per_cycle": 0.02,
+  "decision_cycles": 80,
+  "control_period_s": 0.1,
+  "plant_substep_s": 0.02,
+  "horizon": 35,
+  "reward_scale": 1000000.0,
+  "failure_penalty": 100.0,
+  "training_seeds": [41001, 41002, 41003],
+  "plants": {
+    "matched": {},
+    "combined": {"elevator": 0.9, "rudder": 0.9, "order": "second_all"},
+    "fin_only": {"elevator": 0.9, "rudder": 0.9},
+    "second_only": {"order": "second_all"},
+    "combined_tau": {"elevator": 0.9, "rudder": 0.9, "order": "second_all", "tau_scale": [1.2, 1.2, 1.2]}
+  }
+}

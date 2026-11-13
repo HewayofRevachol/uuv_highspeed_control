@@ -1,0 +1,20 @@
+{
+  "methods": {
+    "first:best": {
+      "tasks": 4,
+      "complete": 4,
+      "eligible": 4,
+      "qp_failures": 0,
+      "mean_R2_complete_only": 8.87514384590607e-08
+    },
+    "hybrid:best": {
+      "tasks": 4,
+      "complete": 4,
+      "eligible": 4,
+      "qp_failures": 0,
+      "mean_R2_complete_only": 8.866150905068156e-08
+    }
+  },
+  "paired": {},
+  "note": "Partial/failed runs are excluded from full scores; common-prefix RMSE is diagnostic only."
+}

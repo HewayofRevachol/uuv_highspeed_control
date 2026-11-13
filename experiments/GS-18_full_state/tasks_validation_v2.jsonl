@@ -1,0 +1,8 @@
+{"amplitude":0.006,"axis":"depth","duration_s":64.0,"k":5,"kind":"single","phase_rad":-0.67,"speed_mps":15.0,"split":"validation_v2","task_id":"gs18_v2_depth_5"}
+{"amplitude":0.006,"axis":"depth","duration_s":64.0,"k":23,"kind":"single","phase_rad":1.12,"speed_mps":15.0,"split":"validation_v2","task_id":"gs18_v2_depth_23"}
+{"amplitude":0.25,"axis":"east","duration_s":64.0,"k":6,"kind":"single","phase_rad":0.38,"speed_mps":15.0,"split":"validation_v2","task_id":"gs18_v2_left_6"}
+{"amplitude":0.25,"axis":"east","duration_s":64.0,"k":6,"kind":"single","phase_rad":3.521592653589793,"speed_mps":15.0,"split":"validation_v2","task_id":"gs18_v2_right_6"}
+{"amplitude":0.5,"axis":"speed","duration_s":64.0,"k":6,"kind":"single","phase_rad":-0.91,"speed_mps":15.0,"split":"validation_v2","task_id":"gs18_v2_speed_6"}
+{"amplitude":0.5,"axis":"speed","duration_s":64.0,"k":10,"kind":"single","phase_rad":0.83,"speed_mps":15.0,"split":"validation_v2","task_id":"gs18_v2_speed_10"}
+{"amplitude":0.006,"axis":"east_depth","duration_s":64.0,"kind":"mixed","phase_rad":0.24,"speed_mps":15.0,"split":"validation_v2","switch_times_s":[22,42],"task_id":"gs18_v2_mixed_a"}
+{"amplitude":0.006,"axis":"east_depth","duration_s":64.0,"kind":"mixed","phase_rad":-1.22,"speed_mps":15.0,"split":"validation_v2","switch_times_s":[24,45],"task_id":"gs18_v2_mixed_b"}

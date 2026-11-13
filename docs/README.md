@@ -18,6 +18,7 @@
 
 | 文档 | 用途及适用范围 |
 | --- | --- |
+| [GPU ADMM 与 RL 训练实现（GS-23）](../experiments/gs23_frequency_rl/README.md) | CUDA 批量 MPC、tqdm 训练入口、权重和奖励曲线导出；代码交付，未启动训练 |
 | [H15 连续 RL-MPC 验证分析（GS-11）](GS-11_H15_RL_MPC_VALIDATION_ANALYSIS_20261105.md) | 补齐 CAT-MPC P0/P1/P2 原始结果后的复算、接口审计和下一轮实验建议 |
 | [H15 代码审计修复方案（GS-11）](GS-11_H15_CODE_AUDIT_REPAIR_PLAN_20261105.md) | target-domain reset、issued command、residual label 和指标契约的具体修复步骤与验收门槛 |
 | [H15 修正后补充实验计划（GS-11）](GS-11_H15_POST_REPAIR_SUPPLEMENTAL_EXPERIMENT_PLAN_20261105.md) | 修正 parity 后的残差归因、局部 gate 扫描、留出验证及有条件 PPO 方案 |

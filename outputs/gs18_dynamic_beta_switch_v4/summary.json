@@ -1,0 +1,148 @@
+{
+  "beta_0": {
+    "completed": 3,
+    "tasks": 3,
+    "qp_failures": 0,
+    "command_saturation_cycles": 0,
+    "actual_saturation_steps": 0,
+    "eligible": true,
+    "mean_J10": 0.05195988129475615,
+    "mean_J10_low_stages": 0.05872211874978415,
+    "mean_J10_high_stage": 0.041186963289389124
+  },
+  "beta_0.25": {
+    "completed": 3,
+    "tasks": 3,
+    "qp_failures": 0,
+    "command_saturation_cycles": 0,
+    "actual_saturation_steps": 0,
+    "eligible": true,
+    "mean_J10": 0.051500855878968015,
+    "mean_J10_low_stages": 0.05828791809981123,
+    "mean_J10_high_stage": 0.04079576582078468
+  },
+  "beta_0.5": {
+    "completed": 3,
+    "tasks": 3,
+    "qp_failures": 0,
+    "command_saturation_cycles": 0,
+    "actual_saturation_steps": 0,
+    "eligible": true,
+    "mean_J10": 0.051332803645060376,
+    "mean_J10_low_stages": 0.05781154729622376,
+    "mean_J10_high_stage": 0.04113579946928824
+  },
+  "beta_0.525": {
+    "completed": 3,
+    "tasks": 3,
+    "qp_failures": 0,
+    "command_saturation_cycles": 0,
+    "actual_saturation_steps": 0,
+    "eligible": true,
+    "mean_J10": 0.05132763478435675,
+    "mean_J10_low_stages": 0.05776178748631761,
+    "mean_J10_high_stage": 0.04119933762207603
+  },
+  "beta_0.55": {
+    "completed": 3,
+    "tasks": 3,
+    "qp_failures": 0,
+    "command_saturation_cycles": 0,
+    "actual_saturation_steps": 0,
+    "eligible": true,
+    "mean_J10": 0.05132425114827479,
+    "mean_J10_low_stages": 0.057711658466518524,
+    "mean_J10_high_stage": 0.04126743588251674
+  },
+  "beta_0.575": {
+    "completed": 3,
+    "tasks": 3,
+    "qp_failures": 0,
+    "command_saturation_cycles": 0,
+    "actual_saturation_steps": 0,
+    "eligible": true,
+    "mean_J10": 0.05132258885850166,
+    "mean_J10_low_stages": 0.05766116499206483,
+    "mean_J10_high_stage": 0.04133993521567133
+  },
+  "beta_0.6": {
+    "completed": 3,
+    "tasks": 3,
+    "qp_failures": 0,
+    "command_saturation_cycles": 0,
+    "actual_saturation_steps": 0,
+    "eligible": true,
+    "mean_J10": 0.05132257940983969,
+    "mean_J10_low_stages": 0.05761031258950352,
+    "mean_J10_high_stage": 0.04141666564221864
+  },
+  "beta_0.65": {
+    "completed": 3,
+    "tasks": 3,
+    "qp_failures": 0,
+    "command_saturation_cycles": 0,
+    "actual_saturation_steps": 0,
+    "eligible": true,
+    "mean_J10": 0.05132727395238624,
+    "mean_J10_low_stages": 0.05750752957926198,
+    "mean_J10_high_stage": 0.04158223427860292
+  },
+  "beta_0.75": {
+    "completed": 3,
+    "tasks": 3,
+    "qp_failures": 0,
+    "command_saturation_cycles": 0,
+    "actual_saturation_steps": 0,
+    "eligible": true,
+    "mean_J10": 0.0513539448355022,
+    "mean_J10_low_stages": 0.0572976939373821,
+    "mean_J10_high_stage": 0.04195800459933261
+  },
+  "RL_beta": {
+    "completed": 3,
+    "tasks": 3,
+    "qp_failures": 0,
+    "command_saturation_cycles": 0,
+    "actual_saturation_steps": 0,
+    "eligible": true,
+    "mean_J10": 0.05133810759763441,
+    "mean_J10_low_stages": 0.05757465962729697,
+    "mean_J10_high_stage": 0.04150976786801827
+  },
+  "schedule_beta": {
+    "completed": 3,
+    "tasks": 3,
+    "qp_failures": 0,
+    "command_saturation_cycles": 0,
+    "actual_saturation_steps": 0,
+    "eligible": true,
+    "mean_J10": 0.050940985276511315,
+    "mean_J10_low_stages": 0.05728839983460845,
+    "mean_J10_high_stage": 0.04082087254162905
+  },
+  "best_observed_fixed": "beta_0.6",
+  "best_eligible_fixed": "beta_0.6",
+  "schedule_vs_best_observed_fixed_reduction": 0.007435209564997325,
+  "schedule_vs_best_eligible_fixed_reduction": 0.007435209564997325,
+  "RL_vs_best_observed_fixed_reduction": -0.00030256054885158257,
+  "paired_task_results": [
+    {
+      "task_id": "dyn_switch3_east_lhl_p031",
+      "beta_0.6": 0.05195350837857482,
+      "schedule_beta": 0.051594196456946795,
+      "RL_beta": 0.05196729724552775
+    },
+    {
+      "task_id": "dyn_switch3_east_lhl_p188",
+      "beta_0.6": 0.052815967409256565,
+      "schedule_beta": 0.052442533984321735,
+      "RL_beta": 0.052832503126104685
+    },
+    {
+      "task_id": "dyn_switch3_east_hlh_p031",
+      "beta_0.6": 0.04919826244168768,
+      "schedule_beta": 0.04878622538826543,
+      "RL_beta": 0.04921452242127081
+    }
+  ]
+}

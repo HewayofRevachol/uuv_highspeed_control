@@ -1,0 +1,28 @@
+{
+  "status": "started",
+  "device": "cuda:0",
+  "predictor": "cusadi",
+  "cuda_graph": true,
+  "episodes": 2560,
+  "update_episodes": 64,
+  "ppo_updates": 40,
+  "max_policy_transitions": 20480,
+  "max_control_cycles": 1638400,
+  "expected_training_seconds": 3643.491520440002,
+  "timing_note": "Estimate from one PPO update; policy-dependent terminations and thermals may change runtime.",
+  "sampling_note": "Repeat the 64 frozen training tasks in original order each update; not new independent tasks. No dev/test tasks used.",
+  "initialization": "Fresh policy with seed 20261112; one continuous optimizer run, not benchmark checkpoint resume.",
+  "original_tasks_sha256": "6f533ddd6ed01e45091ea402681f1f818f1bd14df18df8bddde3c8793c00bf19",
+  "original_cache_sha256": "0c5919c56df593fc8be5705195967f39400e3d3fdfffb3aebad470bc7ac898ed",
+  "admm": {
+    "iterations": 100,
+    "rho": 10.0,
+    "tolerance": 0.001
+  },
+  "ppo": {
+    "epochs": 4,
+    "minibatch": 64,
+    "lr": 0.0003
+  },
+  "output": "/home/prufrock/uuv_workspace/outputs/gs12_gpu_admm_20261112T051540Z/formal_1h"
+}

@@ -1,0 +1,4 @@
+{"task_id": "speed_check_000", "split": "dev", "kind": "single", "speed_mps": 12.0, "duration_s": 64.0, "plant": "combined", "amplitude": 0.006, "axis": "depth", "k": 24, "phase_rad": 0.93, "depth_phase_offset": 0.0}
+{"task_id": "speed_check_001", "split": "dev", "kind": "single", "speed_mps": 12.0, "duration_s": 64.0, "plant": "combined", "amplitude": 0.006, "axis": "coupled", "k": 24, "phase_rad": 0.93, "depth_phase_offset": 1.5707963267948966}
+{"task_id": "speed_check_002", "split": "dev", "kind": "single", "speed_mps": 18.0, "duration_s": 64.0, "plant": "combined", "amplitude": 0.006, "axis": "depth", "k": 24, "phase_rad": 0.93, "depth_phase_offset": 0.0}
+{"task_id": "speed_check_003", "split": "dev", "kind": "single", "speed_mps": 18.0, "duration_s": 64.0, "plant": "combined", "amplitude": 0.006, "axis": "coupled", "k": 24, "phase_rad": 0.93, "depth_phase_offset": 1.5707963267948966}

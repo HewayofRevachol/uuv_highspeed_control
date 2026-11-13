@@ -1,0 +1,55 @@
+{
+  "tasks": "/home/prufrock/uuv_workspace/experiments/GS-18_full_state/tasks_dynamic_beta_switch_v3.jsonl",
+  "checkpoint": "/home/prufrock/uuv_workspace/outputs/gs12_gpu_admm_20261112T051540Z/formal_1h/final_actor.pt",
+  "settings": {
+    "predictor": "cusadi",
+    "iterations": 100,
+    "rho": 10.0,
+    "tolerance": 0.001,
+    "cuda_graph": true
+  },
+  "methods": [
+    "beta_0",
+    "beta_0.25",
+    "beta_0.5",
+    "beta_0.525",
+    "beta_0.55",
+    "beta_0.575",
+    "beta_0.6",
+    "beta_0.65",
+    "beta_0.75",
+    "RL_beta",
+    "schedule_beta"
+  ],
+  "initial_beta": 0.75,
+  "beta_targets": {
+    "low_frequency": 0.75,
+    "high_frequency": 0.25
+  },
+  "target_switch_times_s": [
+    16.0,
+    40.0
+  ],
+  "reference_transition_centers_s": [
+    20.0,
+    44.0
+  ],
+  "beta_slew_limit_per_0.1s": 0.02,
+  "score": "unchanged J10; transition samples excluded only from phase diagnostics",
+  "evidence": "exploratory, selected after the frequency screen; not independent validation",
+  "input_sha256": {
+    "/home/prufrock/uuv_workspace/experiments/GS-18_full_state/tasks_dynamic_beta_switch_v3.jsonl": "b9ed3988fc65ad924db99922d9a8491bdbfe67bea6d391fd3c0bdfc13ed25a8a",
+    "/home/prufrock/uuv_workspace/experiments/GS-18_full_state/tasks_dynamic_beta_switch_validation_v1.jsonl": "7f715fcf81a91160c932b1b812ed7a841856f761cdd0f58fe6d1992174b42707",
+    "/home/prufrock/uuv_workspace/experiments/GS-18_full_state/dynamic_beta_switch_selection_v1.json": "46a4c2323134539ac56cc4070e649d7d6bcf82493dad8ac8ee3b216fa8a00bbb",
+    "/home/prufrock/uuv_workspace/experiments/GS-18_full_state/run_dynamic_beta_switch.py": "421a4d6eabf213a9085d0d5988c451b79417847182b1b8ff8e7876f58686abdc",
+    "/home/prufrock/uuv_workspace/experiments/GS-18_full_state/validate_dynamic_beta_switch.py": "bd8dbc0bf56982342f52abe33db15455bec4600bba8cae64e05509759948cbdd",
+    "/home/prufrock/uuv_workspace/experiments/GS-18_full_state/metrics.py": "6066023bb01eef401d051efc6819e1c4e390a091bfe8a937c0b7c5de9606756a",
+    "/home/prufrock/uuv_workspace/experiments/GS-18_full_state/traced_env.py": "af9895df446402ca8c1b8880684c70555d01594c16cfb9e2a0ae9248178aaead",
+    "/home/prufrock/uuv_workspace/experiments/gs12_joint_route/joint_reference.py": "84182aa69be4361b683e139370cee01bbe313ca679e3b7c2afa955e0985309d7",
+    "/home/prufrock/uuv_workspace/experiments/gs12_rl_beta_gpu_admm/environment.py": "9996eac95f002a050e99a999b6617ecad341c3cc9a79306bf8f69e81224fe30b",
+    "/home/prufrock/uuv_workspace/experiments/gs12_rl_beta_gpu_admm/dynamics.py": "989fd6292adf3cf343698c9bede0e2ff438c0fd7199fde03343d3edeb39bc6dc",
+    "/home/prufrock/uuv_workspace/experiments/gs12_rl_beta_gpu_admm/mpc.py": "dbeb361eef2a5be9e77c82e4368576c32569dd8ba84c22a30929aa69d03742f5",
+    "/home/prufrock/uuv_workspace/outputs/gs12_gpu_admm_20261112T051540Z/formal_1h/final_actor.pt": "7e46c438097bee21e58758a8ac50615bf77979af26db051c2a59d36649f5cee8",
+    "/home/prufrock/uuv_workspace/outputs/gs12_gpu_admm_20261112T051540Z/formal_1h/run.json": "f284e86b50571337df0db49306fd6e7762af0c6deeaca153e7bdce1572b57489"
+  }
+}

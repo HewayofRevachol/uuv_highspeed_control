@@ -1,0 +1,4 @@
+{"amplitude":0.006,"axis":"depth","duration_s":64.0,"k":17,"kind":"single","phase_rad":0.33,"speed_mps":15.0,"split":"holdout","task_id":"gs18_holdout_depth_17"}
+{"amplitude":0.25,"axis":"east","duration_s":64.0,"k":7,"kind":"single","phase_rad":-0.82,"speed_mps":15.0,"split":"holdout","task_id":"gs18_holdout_east_7"}
+{"amplitude":0.5,"axis":"speed","duration_s":64.0,"k":7,"kind":"single","phase_rad":0.61,"speed_mps":15.0,"split":"holdout","task_id":"gs18_holdout_speed_7"}
+{"amplitude":0.006,"axis":"east_depth","duration_s":64.0,"kind":"mixed","phase_rad":-0.48,"speed_mps":15.0,"split":"holdout","switch_times_s":[23,43],"task_id":"gs18_holdout_mixed"}

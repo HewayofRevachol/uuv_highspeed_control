@@ -1,0 +1,31 @@
+{
+  "sources": {
+    "plant_harness.py": {
+      "archive_member": "gs12_followup/plant_harness.py",
+      "original_sha256": "f047b046075b85f8fb6d11cfb5788dc068b1452ef3dbd358f69f75c38cd57196",
+      "local_sha256": "f047b046075b85f8fb6d11cfb5788dc068b1452ef3dbd358f69f75c38cd57196"
+    },
+    "improved_controller.py": {
+      "archive_member": "gs12_followup/improved_controller.py",
+      "original_sha256": "727372698a5da59b0225d8e52d54958cf46945339b9d9353a397cf06463b364d",
+      "local_sha256": "727372698a5da59b0225d8e52d54958cf46945339b9d9353a397cf06463b364d"
+    },
+    "hybrid_controller.py": {
+      "archive_member": "gs12_followup/hybrid_controller.py",
+      "original_sha256": "239e894a124e49fbdc9773e8032c855d5ed382269666aa0dca38fdf79a7ca3e6",
+      "local_sha256": "db66181f0ed22db7925991ae2e8d2fc96b7969e2e6d29228e86d4e15c2054f65"
+    },
+    "repo/aav_mpc/condensed_mpc.py": {
+      "git_commit": "926b7ac4b8559c9b2261d72e689649f6080a34b3",
+      "local_sha256": "2fdd68252f5728a83a978f7ed0194cd6302c6d54622b6beb873aa9431dfc456a"
+    }
+  },
+  "expected_core_sha256": {
+    "aav_mpc/condensed_mpc.py": "2fdd68252f5728a83a978f7ed0194cd6302c6d54622b6beb873aa9431dfc456a",
+    "simulator/batch_mpc.py": "4d945b436b8d5abd4addb8c4efc67a70da5707692b851c08f18fd29190db7f9a",
+    "simulator/rti_symbolic.py": "bf6a3f66564df1d24af9196bea83f3342b18fd19baa2fa4902218951c90028e7",
+    "simulator/model.py": "ad1e22f5e11a4c9dd7466a2811603e953f891f4bb5a0d0fe198b6b224f9ecff8",
+    "aav_mpc/h15_target_domain.py": "45af83cc24635930558c26e9f3c3ad3408ad03b55cac48e84d7c389e0e76c761"
+  },
+  "note": "Only change to archived controller helpers: hybrid_controller imports its sibling relatively. The original QP is loaded privately; production files are untouched."
+}

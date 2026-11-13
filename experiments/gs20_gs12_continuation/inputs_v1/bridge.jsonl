@@ -1,0 +1,8 @@
+{"task_id": "bridge_0000", "split": "reproduction", "kind": "bridge", "speed_mps": 15.0, "duration_s": 144.0, "plant": "matched", "amplitude": 0.006, "axis": "zero"}
+{"task_id": "bridge_0001", "split": "reproduction", "kind": "bridge", "speed_mps": 15.0, "duration_s": 144.0, "plant": "matched", "amplitude": 0.006, "axis": "east"}
+{"task_id": "bridge_0002", "split": "reproduction", "kind": "bridge", "speed_mps": 15.0, "duration_s": 144.0, "plant": "matched", "amplitude": 0.006, "axis": "depth"}
+{"task_id": "bridge_0003", "split": "reproduction", "kind": "bridge", "speed_mps": 15.0, "duration_s": 144.0, "plant": "matched", "amplitude": 0.006, "axis": "speed"}
+{"task_id": "bridge_0004", "split": "reproduction", "kind": "bridge", "speed_mps": 15.0, "duration_s": 144.0, "plant": "combined", "amplitude": 0.006, "axis": "zero"}
+{"task_id": "bridge_0005", "split": "reproduction", "kind": "bridge", "speed_mps": 15.0, "duration_s": 144.0, "plant": "combined", "amplitude": 0.006, "axis": "east"}
+{"task_id": "bridge_0006", "split": "reproduction", "kind": "bridge", "speed_mps": 15.0, "duration_s": 144.0, "plant": "combined", "amplitude": 0.006, "axis": "depth"}
+{"task_id": "bridge_0007", "split": "reproduction", "kind": "bridge", "speed_mps": 15.0, "duration_s": 144.0, "plant": "combined", "amplitude": 0.006, "axis": "speed"}

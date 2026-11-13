@@ -1,0 +1,12 @@
+{"amplitude":0.006,"axis":"depth","duration_s":64.0,"k":2,"kind":"single","phase_rad":0.42,"speed_mps":15.0,"split":"dev","task_id":"rl_dev_low_2","window_s":[32.0,64.0]}
+{"amplitude":0.006,"axis":"depth","duration_s":64.0,"k":8,"kind":"single","phase_rad":-1.05,"speed_mps":15.0,"split":"dev","task_id":"rl_dev_low_8","window_s":[32.0,64.0]}
+{"amplitude":0.006,"axis":"depth","duration_s":64.0,"k":26,"kind":"single","phase_rad":0.74,"speed_mps":15.0,"split":"dev","task_id":"rl_dev_dhigh_26","window_s":[32.0,64.0]}
+{"amplitude":0.006,"axis":"depth","duration_s":64.0,"k":30,"kind":"single","phase_rad":-1.27,"speed_mps":15.0,"split":"dev","task_id":"rl_dev_dhigh_30","window_s":[32.0,64.0]}
+{"amplitude":0.006,"axis":"east","duration_s":64.0,"k":26,"kind":"single","phase_rad":1.21,"speed_mps":15.0,"split":"dev","task_id":"rl_dev_ehigh_26","window_s":[32.0,64.0]}
+{"amplitude":0.006,"axis":"east","duration_s":64.0,"k":30,"kind":"single","phase_rad":-0.33,"speed_mps":15.0,"split":"dev","task_id":"rl_dev_ehigh_30","window_s":[32.0,64.0]}
+{"amplitude":0.006,"axis":"east_depth","duration_s":64.0,"kind":"mixed","phase_rad":0.91,"speed_mps":15.0,"split":"dev","switch_times_s":[20,41],"task_id":"rl_dev_mixed_a","window_s":[32.0,64.0]}
+{"amplitude":0.006,"axis":"east_depth","duration_s":64.0,"kind":"mixed","phase_rad":-1.73,"speed_mps":15.0,"split":"dev","switch_times_s":[25,44],"task_id":"rl_dev_mixed_b","window_s":[32.0,64.0]}
+{"amplitude":0.5,"axis":"speed","duration_s":64.0,"k":4,"kind":"single","phase_rad":0.27,"speed_mps":15.0,"split":"dev","task_id":"gs18_speed_4"}
+{"amplitude":0.5,"axis":"speed","duration_s":64.0,"k":12,"kind":"single","phase_rad":-0.54,"speed_mps":15.0,"split":"dev","task_id":"gs18_speed_12"}
+{"amplitude":0.25,"axis":"east","duration_s":64.0,"k":4,"kind":"single","phase_rad":0.0,"speed_mps":15.0,"split":"dev","task_id":"gs18_turn_left"}
+{"amplitude":0.25,"axis":"east","duration_s":64.0,"k":4,"kind":"single","phase_rad":3.141592653589793,"speed_mps":15.0,"split":"dev","task_id":"gs18_turn_right"}
